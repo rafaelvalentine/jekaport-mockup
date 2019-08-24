@@ -9,7 +9,7 @@ const Authentication = ({children}) => {
 				</div>
 			</section>
 		</>
-	)
+	);
 }
 
 export default Authentication;
