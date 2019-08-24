@@ -10,11 +10,11 @@ import bgImage from '../images/registration.svg';
 import Title from '../components/Title';
 
 const titleStyle = {
-	fontFamily: "Roboto;",
-	fontStyle: "normal;",
-	fontWeight: "bold;",
-	fontSize: "36px;",
-	lineHeighteight: "42px;",
+	fontFamily: "Roboto",
+	fontStyle: "normal",
+	fontWeight: "bold",
+	fontSize: "36px",
+	lineHeighteight: "42px",
 	color: "#006494",
 	textAlign: "center",
 	marginTop: "50px"
@@ -27,8 +27,14 @@ const subTitleStyle = {
 	fontWeight: "normal",
 	fontSize: "24px",
 	lineHeight: "28px",
-	color: "#006494",
+	color: "#65617D",
 	textAlign: "center"
+}
+
+const RegFormBorder  = {
+	background: "#FFFFFF",
+	boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+	borderRadius: "15px"
 }
 
 const Registration = () => {
@@ -43,15 +49,16 @@ const Registration = () => {
 				subTitleStyle={subTitleStyle}
 			/>
 
-			<section className="d-flex justify-content-center align-items-center">
+			<section className="container mt-4">
+				<div className="row">
+					<div className="col-md-6 d-flex justify-content-center align-items-center">
+						<img src={bgImage} alt="Registration page background image" />
+					</div>
 
-			<div>
-				<img src={bgImage} alt="Registration page background image" />
-			</div>
-
-			<div>
-				<RegForm />
-			</div>
+					<div style={RegFormBorder} className="col-md-6 p-5">
+						<RegForm />
+					</div>
+				</div>
 
 			</section>
 		</>

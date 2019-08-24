@@ -16,7 +16,7 @@ const lintItemStyle = {
 const Navbar = () => {
 	return (
 
-		<nav className="navbar navbar-expand-lg navbar-light" style={{background: "#FFF;"}} >
+		<nav className="navbar navbar-expand-lg navbar-light" style={{background: "#FFF"}} >
 			<Link className="navbar-brand" to="#"><Title title="Transport" titleStyle={lintItemStyle} /></Link>
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon"></span>
