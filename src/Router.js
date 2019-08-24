@@ -17,7 +17,7 @@ function Router() {
     <BrowserRouter>
     	<Navbar />
 		<Switch>
-			<Route exact path="/" component={Registration} />
+			<Route exact path="/register" component={Registration} />
 			<Route component={NotFound} />
 		</Switch>
     </BrowserRouter>
