@@ -12,4 +12,4 @@ const Title = ({title, subTitle, titleStyle, subTitleStyle}) => {
 }
 
 
-export default Title;
+export default Title; //TODO VALIDATE PROPS

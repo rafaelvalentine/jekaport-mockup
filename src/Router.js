@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 
 // pages
 import NotFound from './pages/NotFound';
+import Registration from './pages/Registration';
 
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
     <BrowserRouter>
     	<Navbar />
 		<Switch>
+			<Route exact path="/" component={Registration} />
 			<Route component={NotFound} />
 		</Switch>
     </BrowserRouter>
