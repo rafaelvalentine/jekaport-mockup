@@ -1,11 +1,11 @@
 import React from 'react';
 
 // components
-import RegForm from '../components/RegForm';
+import RegVehicleForm from '../components/RegVehicleForm';
 import Authentication from '../components/Authentication';
 
 // images
-import bgImage from '../images/registration.svg';
+import bgImage from '../images/regVehicle.svg';
 
 // pages
 import Title from '../components/Title';
@@ -34,17 +34,18 @@ const subTitleStyle = {
 }
 
 
+
 const RegFormBorder  = {
 	background: "#FFFFFF",
 	boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
 	borderRadius: "15px"
 }
 
-const Registration = () => {
+const RegVehicle = () => {
 	return (
 		<>
 			<Title 
-				title="Become A Partner" 
+				title="Register Your Vehicle" 
 				titleStyle={titleStyle}
 				classes="text-center"
 				subClasses="text-center"
@@ -58,11 +59,11 @@ const Registration = () => {
 				</div>
 
 				<div style={RegFormBorder} className="col-md-6 p-5">
-					<RegForm />
+					<RegVehicleForm />
 				</div>
 			</Authentication>
 		</>
 	)
 }
 
-export default Registration;
+export default RegVehicle;
