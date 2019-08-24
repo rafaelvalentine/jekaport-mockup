@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/*Overwriting bootstrap*/
+.navbar-light .navbar-brand { 
+	color: #006494 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: #006494 !important;
+}
