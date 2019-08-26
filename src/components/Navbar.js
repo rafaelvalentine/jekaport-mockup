@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import Title from './Title';
 
 
+// pages
+import LoginAuth from '../pages/LoginAuth';
+import Registration from '../pages/Registration';
+import RegVehicle from '../pages/RegVehicle';
+
+
 const lintItemStyle = {
 	fontFamily: "Roboto",
 	fontStyle: "normal",
@@ -25,14 +31,14 @@ const Navbar = () => {
 			<div className="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul className="navbar-nav ml-auto">
 					<li className="nav-item active">
-						<Link style={lintItemStyle} className="nav-link" to="#">Login<span className="sr-only">(current)</span></Link>
+						<Link style={lintItemStyle} className="nav-link" to="login">Login<span className="sr-only">(current)</span></Link>
 					</li>
 					<li className="nav-item">
-						<Link style={lintItemStyle} className="nav-link" to="#">Become a partner</Link>
+						<Link style={lintItemStyle} className="nav-link" to="register">Become a partner</Link>
 					</li>
 
 					<li className="nav-item">
-						<Link style={lintItemStyle} className="nav-link" to="#">Register your vehicle</Link>
+						<Link style={lintItemStyle} className="nav-link" to="register/vehicle">Register your vehicle</Link>
 					</li>
 				</ul>
 			</div>
