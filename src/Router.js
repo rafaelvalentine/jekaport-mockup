@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound';
 import Registration from './pages/Registration';
 import RegVehicle from './pages/RegVehicle';
 import LoginAuth from './pages/LoginAuth';
+import ForgotPassword from './pages/ForgotPassword';
 
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
 			<Route exact path="/register/vehicle" component={RegVehicle} />
 			<Route exact path="/register" component={Registration} />
 			<Route exact path="/login" component={LoginAuth} />
+			<Route exact path="/forgotpassword" component={ForgotPassword} />
 			<Route component={NotFound} />
 		</Switch>
     </BrowserRouter>
