@@ -2,13 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Title from './Title';
 
-
-// pages
-import LoginAuth from '../pages/LoginAuth';
-import Registration from '../pages/Registration';
-import RegVehicle from '../pages/RegVehicle';
-
-
 const style = {
 	lintItem: {
 		fontFamily: "Roboto",
