@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+
+// Components
 import Title from '../components/Title';
 
-class NotFound extends Component {
-    state = {  }
-    render() { 
-        return ( 
+
+
+
+const NotFound = () => {
+    return ( 
+        <>
             <div style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Title 
                     title="404" 
@@ -13,8 +17,8 @@ class NotFound extends Component {
                     subTitleStyle={{padding: 15, borderLeft: "1px solid #c0c0c0", color: "#c0c0c0"}} 
                 />
             </div>
-         );
-    }
+        </>
+     );
 }
- 
+
 export default NotFound;

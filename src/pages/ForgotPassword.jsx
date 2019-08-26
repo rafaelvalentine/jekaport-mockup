@@ -71,7 +71,7 @@ const ForgotPassword = () => {
 						<form>
 							<div className="form-group">
 								<label style={formStyle} htmlFor="emailAddress">Email</label>
-								<input type="text" className="form-control" id="emailAddress" placeholder="Another input" />
+								<input type="email" className="form-control" id="emailAddress" placeholder="Another input" />
 							</div>
 
 						  <div className="d-flex justify-content-center align-items-center mt-5 mb-3">

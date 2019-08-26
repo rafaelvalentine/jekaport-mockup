@@ -49,20 +49,20 @@ const ResetPassword = () => {
 
 						<Title 
 							title="Reset Password" 
-							titleStyle={titleStyle}
 							classes="text-center"
+							titleStyle={titleStyle}
 						/>
 
 
 						<form>
-							<div className="form-group pt-2 pb-2">
+							<div className="form-group py-2">
 								<label style={formStyle} htmlFor="password">New Password</label>
-								<input type="text" className="form-control" id="password" placeholder="Enter Password" />
+								<input type="password" className="form-control" id="password" placeholder="Enter Password" />
 							</div>
 
-							<div className="form-group pt-2 pb-2">
+							<div className="form-group py2">
 								<label style={formStyle} htmlFor="confirmPassword">Confirm Password</label>
-								<input type="text" className="form-control" id="confirmPassword" placeholder="Enter Password" />
+								<input type="password" className="form-control" id="confirmPassword" placeholder="Enter Password" />
 							</div>
 
 						  <div className="d-flex justify-content-center align-items-center mt-5">
