@@ -58,7 +58,7 @@ const RegVehicle = () => {
 
 			<Authentication>
 				<div className="col-md-6 d-flex justify-content-center align-items-center">
-					<img src={bgImage} alt="Registration page background image" />
+					<img alt="Registrater vehicle" src={bgImage} />
 				</div>
 
 				<div style={styles.RegFormBorder} className="col-md-6 p-5">

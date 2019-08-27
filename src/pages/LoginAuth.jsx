@@ -6,6 +6,7 @@ import Authentication from '../components/Authentication';
 
 // images
 import bgImage from '../images/Login.svg';
+import bgImageMobile from '../images/LoginMobile.svg';
 
 // pages
 import Title from '../components/Title';
@@ -53,10 +54,17 @@ const LoginAuth = () => {
 				subTitleStyle={styles.subTitleStyle}
 			/>
 
-			<section className="m-5 p-4">
+			<section className="m-md-5 p-md-4 my-4 mx-4">
 				<Authentication>
-					<div className="col-md-6 d-flex justify-content-center align-items-center">
-						<img src={bgImage} alt="Registration page background image" />
+					<div className="col-md-6 my-4 d-flex justify-content-center align-items-center">
+						<picture>
+						  <source  media="(min-width: 1200px)" srcSet={bgImage} />
+						  <source  media="(min-width: 992px)" srcSet={bgImage} />
+						  <source  media="(min-width: 768px)" srcSet={bgImage} />
+						  <source  media="(min-width: 576px)" srcSet={bgImageMobile} />
+						  <source  media="(max-width: 575px)" srcSet={bgImageMobile} />
+						  <img className="hidden-sm-down" alt="Login" style={{width:"auto"}} src={bgImage} />
+						</picture>
 					</div>
 
 					<div style={styles.RegFormBorder} className="col-md-6 p-5">

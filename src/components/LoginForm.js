@@ -34,16 +34,16 @@ const LoginForm = () => {
 		<>
 			<form>
 
-				<h2 className="text-center" style={LoginTitleStyle} >Login</h2>
+				<h2 className="text-center formHeader" style={LoginTitleStyle} >Login</h2>
 
 				<div className="form-group">
-					<label style={formStyle} htmlFor="emailAddress">Email Address</label>
-					<input type="text" className="form-control" id="emailAddress" placeholder="Another input" />
+					<label className="mobileLable" style={formStyle} htmlFor="emailAddress">Email Address</label>
+					<input type="text" className="form-control" id="emailAddress" placeholder="Enter Email" />
 				</div>
 
 
 				<div className="form-group">
-					<label style={formStyle} htmlFor="password">Password</label>
+					<label className="mobileLable" style={formStyle} htmlFor="password">Password</label>
 					<input type="text" className="form-control" id="password" placeholder="Enter Password" />
 				</div>
 

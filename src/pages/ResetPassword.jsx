@@ -20,7 +20,6 @@ const styles = {
 		fontFamily: "Roboto",
 		fontStyle: "normal",
 		fontWeight: "bold",
-		fontWeight: "bold",
 		fontSize: "18px",
 		lineHeight: "21px"
 	},
