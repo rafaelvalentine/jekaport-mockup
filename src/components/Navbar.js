@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Title from './Title';
+import Logo from './Logo';
 
 const styles = {
 		lintItemStyle:{
 		fontFamily: "Roboto",
 		fontStyle: "normal",
 		fontWeight: "bold",
-		fontSize: "14px",
+		fontSize: "14px", 
 		lineHeight: "16px",
 		color: "#006494"
 	},
@@ -21,7 +21,7 @@ const Navbar = () => {
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light" style={styles.bgColor} >
-				<Link className="navbar-brand" to="/"><Title title="Transport" titleStyle={styles.lintItemStyle} /></Link>
+				<Link className="navbar-brand" to="/"><Logo display="Transport" /></Link>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>

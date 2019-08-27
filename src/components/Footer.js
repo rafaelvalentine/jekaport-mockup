@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import Title from './Title';
+import Logo from './Logo';
 
 // Navbar
 // import Navbar from './Navbar';
@@ -35,7 +35,7 @@ const Footer = () => {
 		// footer here is html 5 tag for semantic meaning. it is not a react component
 		<footer style={styles.footerStyle}>
 			<nav className="container navbar navbar-expand-lg navbar-light" >
-				<Link className="navbar-brand" to="/"><Title title={currentYear} titleStyle={styles.lintItemStyle} /></Link>
+				<Link className="navbar-brand" to="/"><Logo display={currentYear} /></Link>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
