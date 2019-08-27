@@ -5,8 +5,8 @@ const Title = ({title, subTitle, titleStyle, subTitleStyle}) => {
 
 	return (
 		<>
-			<h1 style={titleStyle}>{title}</h1>
-			<h5 style={subTitleStyle}>{subTitle}</h5>
+			<h1 id="generalTitle" style={titleStyle}>{title}</h1>
+			<h5 id="generalSubTitle" style={subTitleStyle}>{subTitle}</h5>
 		</>
 	);
 }
