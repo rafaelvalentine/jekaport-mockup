@@ -39,6 +39,11 @@ code {
 	line-height: 16px !important;
   }
   
+  div.mobileNav {
+  	border-radius: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px !important;
+    padding: 10px !important;
+  }
 }
 
 /* 
@@ -65,6 +70,13 @@ code {
   label.mobileLable {
   	font-size: 14px !important;
 	line-height: 16px !important;
+  }
+  
+
+  div.mobileNav {
+  	border-radius: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px !important;
+    padding: 10px !important;
   }
   
 }
