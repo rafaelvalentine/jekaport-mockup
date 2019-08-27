@@ -29,7 +29,7 @@ function Router() {
 				<Route exact path="/forgotpassword" component={ForgotPassword} />
 				<Route exact path="/resetpassword" component={ResetPassword} />
 				<Route exact path="/login" component={LoginAuth} />
-				{/*<Route exact path="/" component={Home} />*/}
+				<Route exact path="/" component={Home} />
 				<Route component={NotFound} />
 			</Switch>
 		<Footer />

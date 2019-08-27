@@ -1,24 +1,24 @@
-// import React from 'react';
+import React from 'react';
 
-// // components
-// import BookTripForm from '../components/BookTripForm';
-
-
-// const Home = () => {
-// 	return (
-// 		<>
-// 			<section className="containter">
-// 				<div className="col-sm-6 p-5 mx-4">
-// 					<BookTripForm />
-// 				</div>
+// components
+import BookTripForm from '../components/BookTripForm';
 
 
-// 				<div className="col-sm-6">
-// 					<img src="" alt="" />
-// 				</div>
-// 			</section>
-// 		</>
-// 	);
-// }
+const Home = () => {
+	return (
+		<>
+			<section className="containter">
+				<div className="col-sm-6 p-5 mx-4">
+					<BookTripForm />
+				</div>
 
-// export default Home;
+
+				<div className="col-sm-6">
+					<img src="" alt="" />
+				</div>
+			</section>
+		</>
+	);
+}
+
+export default Home;
