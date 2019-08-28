@@ -44,11 +44,11 @@ const Carousel = ({title}) => { // this corousel would take a children prop and 
 
 			<article className="d-flex">
 				<span className="align-self-center">&lt;</span>
-				<div class="row px-4">
+				<div className="row px-4">
 					{/* the only carousel model to use. It woud be looped through to render severally*/}
-					<div class="col-sm-4">
-						<div class="card" style={carouselStyle.box}>
-							<div class="card-body">
+					<div className="col-sm-4">
+						<div className="card" style={carouselStyle.box}>
+							<div className="card-body">
 								<article className="d-flex flex-column flex-md-row">
 									<img alt="Lions Transport Logo" src={LionImage} />
 									<div>
@@ -63,9 +63,9 @@ const Carousel = ({title}) => { // this corousel would take a children prop and 
 						</div>
 					</div>
 
-				  	<div class="col-sm-4">
-						<div class="card" style={carouselStyle.box}>
-							<div class="card-body">
+				  	<div className="col-sm-4">
+						<div className="card" style={carouselStyle.box}>
+							<div className="card-body">
 								<article className="d-flex flex-column flex-md-row">
 									<img alt="Lions Transport Logo" src={LionImage} />
 									<div>
@@ -78,9 +78,9 @@ const Carousel = ({title}) => { // this corousel would take a children prop and 
 						</div>
 					</div>
 
-					<div class="col-sm-4">
-						<div class="card" style={carouselStyle.box}>
-							<div class="card-body">
+					<div className="col-sm-4">
+						<div className="card" style={carouselStyle.box}>
+							<div className="card-body">
 								<article className="d-flex flex-column flex-md-row">
 									<img alt="Lions Transport Logo" src={LionImage} />
 									<div>

@@ -6,6 +6,7 @@ import SearchResultImage from '../images/SearchResultImage.svg';
 // Components
 import SearchResultCarousel from '../components/SearchResultCarousel';
 import BookTripAsideForm from '../components/BookTripAsideForm';
+import SponsoredCarousel from '../components/SponsoredCarousel';
 
 
 const styles= {
@@ -81,6 +82,8 @@ const searchResult = () => {
 					<div className="col-md-4">
 						<article className="p-4">
 							<BookTripAsideForm />
+
+							<SponsoredCarousel title="Milo Super Park" />
 						</article>
 					</div>
 				</article>

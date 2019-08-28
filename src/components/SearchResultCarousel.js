@@ -38,12 +38,12 @@ const carouselStyle = {
 const SearchResultCarousel = () => {
 	return (
 		<>
-			<div class="row pb-md-4">
+			<div className="row pb-md-4">
 				{/*<span className="d-flex align-self-center">&lt;</span>*/}
 				{/* the only carousel model to use. It woud be looped through to render severally*/}
-				<div class="col-sm-4">
-					<div style={carouselStyle.box} class="card">
-						<div class="card-body">
+				<div className="col-sm-4">
+					<div style={carouselStyle.box} className="card">
+						<div className="card-body">
 							<article className="d-flex justify-content-between">
 								{/*image woud dynamically get src from search result*/}
 								<img src={BookVehicleImage} alt="" />
@@ -81,9 +81,9 @@ const SearchResultCarousel = () => {
 					</div>
 				</div>
 
-				<div class="col-sm-4">
-					<div style={carouselStyle.box} class="card">
-						<div class="card-body">
+				<div className="col-sm-4">
+					<div style={carouselStyle.box} className="card">
+						<div className="card-body">
 							<article className="d-flex justify-content-between">
 								{/*image woud dynamically get src from search result*/}
 								<img src={BookVehicleImage} alt="" />
@@ -121,9 +121,9 @@ const SearchResultCarousel = () => {
 					</div>
 				</div>
 
-				<div class="col-sm-4">
-					<div style={carouselStyle.box} class="card">
-						<div class="card-body">
+				<div className="col-sm-4">
+					<div style={carouselStyle.box} className="card">
+						<div className="card-body">
 							<article className="d-flex justify-content-between">
 								{/*image woud dynamically get src from search result*/}
 								<img src={BookVehicleImage} alt="" />
