@@ -18,6 +18,7 @@ import LoginAuth from './pages/LoginAuth.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
 import SearchResults from './pages/SearchResult.jsx';
+import PickSeat from './components/PickSeat';
 
 
 function Router() {
@@ -32,6 +33,7 @@ function Router() {
 				<Route exact path="/login" component={LoginAuth} />
 				<Route exact path="/result" component={SearchResults} />
 				<Route exact path="/" component={Home} />
+				<Route exact path="/selectseat" component={PickSeat} />
 				<Route component={NotFound} />
 			</Switch>
 		<Footer />
