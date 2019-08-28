@@ -16,8 +16,6 @@ const styles= {
 		borderRadius: "15px"
 	},
 	title:{
-		fontFamily: "Roboto",
-		fontStyle: "normal",
 		fontWeight: "bold",
 		fontSize: "20px",
 		lineHeight: "23px",
