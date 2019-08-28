@@ -37,7 +37,7 @@ const carouselStyle = {
 }
 
 
-const Carousel = ({title}) => {
+const Carousel = ({title}) => { // this corousel would take a children prop and receive its content dynamically in Home.jsx
 	return (
 		<div className="px-5">
 			<h5 style={carouselStyle.title}>{title}</h5>
@@ -45,15 +45,18 @@ const Carousel = ({title}) => {
 			<article className="d-flex">
 				<span className="align-self-center">&lt;</span>
 				<div class="row px-4">
+					{/* the only carousel model to use. It woud be looped through to render severally*/}
 					<div class="col-sm-4">
 						<div class="card" style={carouselStyle.box}>
 							<div class="card-body">
 								<article className="d-flex flex-column flex-md-row">
-									<img src={LionImage} alt="Lions Transport Logo" />
+									<img alt="Lions Transport Logo" src={LionImage} />
 									<div>
+										{/* all these content would be add dynamically and as children props*/}
 										<h5 style={carouselStyle.boxText}>Lions Transport</h5>
 										<p style={carouselStyle.boxSubText}>29 Adex Street, Lagos</p>
 										<p style={carouselStyle.boxSubText}>## 234903426435, 2349012323232</p>
+										{/* show sponsored tag from state*/}
 									</div>
 								</article>
 							</div>
@@ -64,7 +67,7 @@ const Carousel = ({title}) => {
 						<div class="card" style={carouselStyle.box}>
 							<div class="card-body">
 								<article className="d-flex flex-column flex-md-row">
-									<img src={LionImage} alt="Lions Transport Logo" />
+									<img alt="Lions Transport Logo" src={LionImage} />
 									<div>
 										<h5 style={carouselStyle.boxText}>Lions Transport</h5>
 										<p style={carouselStyle.boxSubText}>29 Adex Street, Lagos</p>
@@ -79,7 +82,7 @@ const Carousel = ({title}) => {
 						<div class="card" style={carouselStyle.box}>
 							<div class="card-body">
 								<article className="d-flex flex-column flex-md-row">
-									<img src={LionImage} alt="Lions Transport Logo" />
+									<img alt="Lions Transport Logo" src={LionImage} />
 									<div>
 										<h5 style={carouselStyle.boxText}>Lions Transport</h5>
 										<p style={carouselStyle.boxSubText}>29 Adex Street, Lagos</p>
