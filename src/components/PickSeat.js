@@ -1,7 +1,9 @@
 import React from 'react';
 
 // images
-import CarSeat from '../images/CarSeat.svg';
+import AvailableCarSeat from '../images/AvailableCarSeat.svg';
+import BlockedCarSeat from '../images/BlockedCarSeat.svg';
+import BookedCarSeat from '../images/BookedCarSeat.svg';
 
 
 const styles = {
@@ -59,7 +61,7 @@ const ChooseSeat = () => {
 		<section className="container-fluid" style={styles.modal}>
 			<h5 className="text-center" style={styles.title}>Pick Seat</h5>
 
-			<article className="row d-flex flex-column justify-content-center align-items-center">
+			<article className="row d-flex flex-column justify-content-center align-items-center py-md-4 py-sm-2">
 				<div className="container">
 					<article className="col-md-7 col-sm-12 d-flex flex-column flex-md-row">
 						<div className="card" style={styles.seatsSquare}>
@@ -67,36 +69,47 @@ const ChooseSeat = () => {
 								<table>
 									<tbody>
 										<tr>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
 										</tr>
 										<tr>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
 										</tr>
 										<tr>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
 										</tr>
 										<tr>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
-											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={CarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
+											<td className="px-md-4 py-md-2 py-sm-1 px-sm-3"><img src={AvailableCarSeat} alt="Car Seat" /></td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
 
-						<div>
-
+						<div className="seatKey d-flex flex-column justify-content-center px-md-4 px-sm-2">
+							<article className="d-flex justify-content-center p-md-1">
+								<img src={AvailableCarSeat} alt="Available Car Seat" />
+								<p className="pl-md-2 pl-sm-1">Available</p>
+							</article>
+							<article className="d-flex justify-content-center p-md-1">
+								<img src={BookedCarSeat} alt="Booked Car Seat" />
+								<p className="pl-md-2 pl-sm-1">Booked</p>
+							</article>
+							<article className="d-flex justify-content-center p-md-1">
+								<img src={BlockedCarSeat} alt="Blocked Car Seat" />
+								<p className="pl-md-2 pl-sm-1">Blocked</p>
+							</article>
 						</div>
 					</article>
 
@@ -104,7 +117,7 @@ const ChooseSeat = () => {
 
 					</article>				
 				</div>
-				<div style={styles.hrLine} className="w-100"></div>
+				<div style={styles.hrLine} className="w-100 pt-md-5 pt-sm-2"></div>
 				<div className="container py-md-4 py-sm-2 px-md-5 px-sm-0">
 					<h4>Personal details</h4>
 
