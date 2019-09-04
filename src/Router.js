@@ -41,10 +41,6 @@ function Router() {
 				<Route exact path="/" component={Home} />
 				<Route exact path="/companydashboard" component={CompanyDashboard} />
 			</LayoutNav>
-
-			<LayoutDashboardNav>
-			
-			</LayoutDashboardNav>
 			<Route component={NotFound} />
 		</Switch>
 		<Footer />

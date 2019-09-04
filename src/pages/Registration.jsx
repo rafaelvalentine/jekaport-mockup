@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import ApolloClient, { gql } from "apollo-boost";
 
 // components
 import RegForm from '../components/RegForm';
@@ -41,29 +43,87 @@ const styles = {
 }
 
 
-const Registration = () => {
-	return (
-		<>
-			<Title 
-				title="Become A Partner" 
-				classes="text-center"
-				subClasses="text-center"
-				subTitle="Signup today and enjoy unlimited patronage" 
-				titleStyle={styles.titleStyle}
-				subTitleStyle={styles.subTitleStyle}
-			/>
+class Registration {
 
-			<Authentication>
-				<div className="col-md-6 d-flex justify-content-center align-items-center">
-					<img alt="Registration page" src={bgImage} />
-				</div>
+	state = {
+		name: '',
+		email: '',
+		address: '',
+		password: '',
+		rcNumber: '',
+		phoneNumber: ''
+	}
 
-				<div style={styles.RegFormBorder} className="col-md-6 p-5">
-					<RegForm />
-				</div>
-			</Authentication>
-		</>
-	)
+	// methods
+	
+onSubmit = async () => {
+    this.setState({
+      usernameError: '',
+      emailError: '',
+      passwordError: '',
+    });
+
+    const { username, email, password } = this.state;
+    const response = await this.props.mutate({
+      variables: { username, email, password },
+    });
+
+    const { ok, errors } = response.data.register;
+
+    if (ok) {
+      return <Redirect to="/companydashboard" />
+    } else {
+      const err = {};
+      
+      console.log("The errors found",errors)
+
+      this.setState(err);
+    }
+
+    console.log(response);
+};
+
+
+
+onChange = e => {
+    const { name, value } = e.target;
+    // name = "email";
+    this.setState({ [name]: value });
+};
+
+
+	render(){
+
+		return (
+			<>
+				<Title 
+					title="Become A Partner" 
+					classes="text-center"
+					subClasses="text-center"
+					subTitle="Signup today and enjoy unlimited patronage" 
+					titleStyle={styles.titleStyle}
+					subTitleStyle={styles.subTitleStyle}
+				/>
+
+				<Authentication>
+					<div className="col-md-6 d-flex justify-content-center align-items-center">
+						<img alt="Registration page" src={bgImage} />
+					</div>
+
+					<div style={styles.RegFormBorder} className="col-md-6 p-5">
+						<RegForm />
+					</div>
+				</Authentication>
+			</>
+		)
+	}
 }
+
+
+// Grapql queries
+const client = new ApolloClient({
+  uri: 'http://206.189.22.170/',
+})
+
 
 export default Registration;
