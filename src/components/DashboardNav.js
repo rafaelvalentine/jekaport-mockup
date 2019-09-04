@@ -17,7 +17,7 @@ const styles = {
 }
 
 
-const Navbar = () => {
+const DashboardNav = () => {
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light" style={styles.bgColor} >
@@ -27,18 +27,7 @@ const Navbar = () => {
 				</button>
 
 				<div className="mobileNav collapse navbar-collapse" id="navbarSupportedContent">
-					<ul className="navbar-nav">
-						<li className="nav-item active">
-							<Link style={styles.lintItemStyle} className="nav-link" to="login">Login<span className="sr-only">(current)</span></Link>
-						</li>
-						<li className="nav-item">
-							<Link style={styles.lintItemStyle} className="nav-link" to="register">Become a partner</Link>
-						</li>
-
-						<li className="nav-item">
-							<Link style={styles.lintItemStyle} className="nav-link" to="register/vehicle">Register your vehicle</Link>
-						</li>
-					</ul>
+					<p><strong>Lawrence Eagles</strong> Your Login was 30mintues ago</p>
 				</div>
 			</nav>
 		</>
@@ -46,4 +35,4 @@ const Navbar = () => {
 }
 
 
-export default Navbar;
+export default DashboardNav;
