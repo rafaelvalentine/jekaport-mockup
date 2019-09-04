@@ -19,6 +19,7 @@ import ForgotPassword from './pages/ForgotPassword.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
 import SearchResults from './pages/SearchResult.jsx';
 import PickSeat from './components/PickSeat';
+import CompanyDashboard from './pages/CompanyDashboard';
 
 
 function Router() {
@@ -27,13 +28,14 @@ function Router() {
     	<Navbar />
 			<Switch>
 				<Route exact path="/register/vehicle" component={RegVehicle} />
-				<Route exact path="/register" component={Registration} />
+				<Route exact path="/dashboard" component={CompanyDashboard} />
+				<Route exact path="/result" component={SearchResults} />
+				<Route exact path="/selectseat" component={PickSeat} />
 				<Route exact path="/forgotpassword" component={ForgotPassword} />
 				<Route exact path="/resetpassword" component={ResetPassword} />
+				<Route exact path="/register" component={Registration} />
 				<Route exact path="/login" component={LoginAuth} />
-				<Route exact path="/result" component={SearchResults} />
 				<Route exact path="/" component={Home} />
-				<Route exact path="/selectseat" component={PickSeat} />
 				<Route component={NotFound} />
 			</Switch>
 		<Footer />
