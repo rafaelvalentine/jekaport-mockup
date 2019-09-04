@@ -25,18 +25,20 @@ import CompanyDashboard from './pages/CompanyDashboard';
 function Router() {
   return (
     <BrowserRouter>
-    	<Navbar />
 			<Switch>
-				<Route exact path="/register/vehicle" component={RegVehicle} />
-				<Route exact path="/dashboard" component={CompanyDashboard} />
-				<Route exact path="/result" component={SearchResults} />
-				<Route exact path="/selectseat" component={PickSeat} />
-				<Route exact path="/forgotpassword" component={ForgotPassword} />
-				<Route exact path="/resetpassword" component={ResetPassword} />
-				<Route exact path="/register" component={Registration} />
-				<Route exact path="/login" component={LoginAuth} />
-				<Route exact path="/" component={Home} />
-				<Route component={NotFound} />
+				<div>
+					<Navbar />
+					<Route exact path="/registervehicle" component={RegVehicle} />
+					<Route exact path="/dashboard" component={CompanyDashboard} />
+					<Route exact path="/result" component={SearchResults} />
+					<Route exact path="/selectseat" component={PickSeat} />
+					<Route exact path="/forgotpassword" component={ForgotPassword} />
+					<Route exact path="/resetpassword" component={ResetPassword} />
+					<Route exact path="/register" component={Registration} />
+					<Route exact path="/login" component={LoginAuth} />
+					<Route exact path="/" component={Home} />
+					<Route component={NotFound} />
+				</div>
 			</Switch>
 		<Footer />
     </BrowserRouter>
