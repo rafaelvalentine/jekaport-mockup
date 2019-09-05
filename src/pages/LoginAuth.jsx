@@ -99,15 +99,14 @@ class LoginAuth extends Component  {
 	    this.setState({ [name]: value });
 	};
 
-	_saveClientData = token => {
-		alert("I am logged in")
+	saveClientData = token => {
 	    localStorage.setItem(AUTH_TOKEN, token)
 		this.history.push("/companydashboard");
 	}
 
 	confirm_login = async data => {
 	    const { token } = data.login;
-	    this._saveUserData(token)
+	    this.saveClientData(token)
 	 }
 
 
