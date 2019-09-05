@@ -103,17 +103,8 @@ class Registration extends Component {
 	};
 
 	saveClientData = token => {
+		// store auth token to local storage
 		localStorage.setItem(AUTH_TOKEN, token);
-		// reset form fields
-			this.setState({
-			name: '',
-			email: '',
-			address: '',
-			password: '',
-			rcNumber: '',
-			phoneNumber: '',
-			termsAndPolicies: false
-		})
 		// redirect to dashboard
 	    this.props.history.push("/companydashboard")
 	}

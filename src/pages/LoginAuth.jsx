@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+
+// apollo
 import { Mutation } from 'react-apollo'
 import { gql } from 'apollo-boost';
 
@@ -77,12 +78,12 @@ const styles = {
 
 
 const LOGIN_MUTATION = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation LoginMutation ($email: String!, $password: String!) {
+    login (email: $email, password: $password) {
       token
     }
   }
-`
+`;
 
 
 class LoginAuth extends Component  {
@@ -99,22 +100,23 @@ class LoginAuth extends Component  {
 	};
 
 	_saveClientData = token => {
-	    localStorage.setItem(AUTH_TOKEN, token)
+		alert("I am logged in")
+	    // localStorage.setItem(AUTH_TOKEN, token)
+		this.history.push("/companydashboard");
 	}
 
-	_confirm = async data => {
+	confirm_login = async data => {
 		console.log(data)
-		alert("Submitted")
-	    const { token } = this.state.login ? data.login : null
+		alert("logged in")
+	    const { token } = data.login;
 	    this._saveUserData(token)
-	    return <Redirect to="CompanyDashboard.jsx" />
 	 }
 
 
 
 	render(){
 
-		const { login, email, password } = this.state
+		const { email, password } = this.state
 
 		return (
 			<>
@@ -159,11 +161,10 @@ class LoginAuth extends Component  {
 									<Mutation
 							            mutation={LOGIN_MUTATION}
 							            variables={{ email, password }}
-							            onCompleted={data => this._confirm(data)}
-							          >
-							            {mutation => (
+							            onCompleted={data => this.confirm_login(data)}>
+							            {(mutation) => (
 											<div className="d-flex justify-content-center align-items-center mt-5">
-												<button type="button" style={btnStyle} className="btn btn-lg btn-block btn-custom">Sign In</button>
+												<button type="button" onClick={mutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">Sign In</button>
 											</div>
 										)}
 								</Mutation>

@@ -13,7 +13,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 // Grapql queries
 const httpLink = createHttpLink({
-  uri: `http://206.189.22.170/`
+  uri: `http://graph.jekaport.com/`
 })
 
 const client = new ApolloClient({
