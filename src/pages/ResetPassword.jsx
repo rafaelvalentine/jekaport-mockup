@@ -88,9 +88,9 @@ class ResetPassword extends Component {
 
 				                <Modal visible={this.state.visible} width="900" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
 				                    <div className="h-100 d-flex justify-content-center align-items-center flex-column">
-                    					<h2 className="">Password Reset Successful!</h2>
+                    					<h2 style={styles.titleStyle}>Password Reset Successful!</h2>
                     					<p>Your password has been successfully changed</p>             
-				                        <Link to="/login" onClick={() => this.closeModal()}>Click here to return to login</Link>
+				                        <Link style={{color: "#006494" }} to="/login" onClick={() => this.closeModal()}>Click here to return to login</Link>
 					                </div>
 				                </Modal>
 
