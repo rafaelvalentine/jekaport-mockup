@@ -106,8 +106,6 @@ class LoginAuth extends Component  {
 	}
 
 	confirm_login = async data => {
-		console.log(data)
-		alert("logged in")
 	    const { token } = data.login;
 	    this._saveUserData(token)
 	 }
