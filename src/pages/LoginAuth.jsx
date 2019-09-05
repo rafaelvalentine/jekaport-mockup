@@ -101,15 +101,15 @@ class LoginAuth extends Component  {
 
 	_saveClientData = token => {
 		alert("I am logged in")
-	    // localStorage.setItem(AUTH_TOKEN, token)
+	    localStorage.setItem(AUTH_TOKEN, token)
 		this.history.push("/companydashboard");
 	}
 
 	confirm_login = async data => {
 		console.log(data)
 		alert("logged in")
-	    // const { token } = data.login;
-	    // this._saveUserData(token)
+	    const { token } = data.login;
+	    this._saveUserData(token)
 	 }
 
 
