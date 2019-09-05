@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
 // components
 import Authentication from '../components/Authentication';
@@ -7,6 +6,9 @@ import Authentication from '../components/Authentication';
 // apollo
 import { gql } from 'apollo-boost';
 import { Mutation } from 'react-apollo';
+
+// auth
+import { AUTH_TOKEN } from '../constants'
 
 // images
 import bgImage from '../images/registration.svg';
@@ -100,10 +102,27 @@ class Registration extends Component {
 	    this.setState({ [name]: value });
 	};
 
-	_confirm = async data => {
-		alert("registered")
-		console.log(data)
-	    return <Redirect to="CompanyDashboard.jsx" />
+	saveClientData = token => {
+		localStorage.setItem(AUTH_TOKEN, token);
+		// reset form fields
+			this.setState({
+			name: '',
+			email: '',
+			address: '',
+			password: '',
+			rcNumber: '',
+			phoneNumber: '',
+			termsAndPolicies: false
+		})
+		// redirect to dashboard
+	    this.props.history.push("/companydashboard")
+	}
+
+	confirm_registration = async data => {
+		// grab token
+		const { token } = data.registerCompany;
+		// store token
+		this.saveClientData(token);
 	 }
 
 
@@ -171,7 +190,7 @@ class Registration extends Component {
 							<Mutation 
 								mutation={COMPANY_REGISTRATION} 
 								variables={{ name, email, address, phoneNumber,rcNumber, password }}
-								onCompleted={data => this._confirm(data)}>
+								onCompleted={data => this.confirm_registration(data)}>
 							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
 								  	<button type="button" onClick={mutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">

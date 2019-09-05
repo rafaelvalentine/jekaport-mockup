@@ -100,8 +100,8 @@ const CompanyDashboard = () => {
 											<p className="text-center">Custom Feedback</p>
 											<p className="text-center">2,800</p>
 
-											<div class="progress m-md-3">
-											  <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+											<div className="progress m-md-3">
+											  <div className="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 											</div>
 
 											<div className="d-flex flex-column flex-md-row justify-content-around mt-md-3">
