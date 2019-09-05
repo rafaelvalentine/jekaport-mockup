@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import ApolloClient, { gql } from "apollo-boost";
+import { gql } from "apollo-boost";
+import { useMutation } from '@apollo/react-hooks';
+
 
 // components
 import RegForm from '../components/RegForm';
@@ -60,6 +62,19 @@ const styles = {
 }
 
 
+const COMPANY_REGISTRATION = gql`
+  mutation RegisterCompanyInput ($name: String!, $email: String!, $password: String!, $address: String!, $rcNumber: String!, $phoneNumber: String! ) {
+    RegisterCompanyInput (username: $username, email: $email, password: $password, address: $address, rcNumber: $rcNumber, phoneNumber: $phoneNumber) {
+      ok
+      errors {
+        path
+        message
+      }
+    }
+  }
+`;
+
+
 class Registration extends Component {
 
 	state = {
@@ -73,16 +88,19 @@ class Registration extends Component {
 	}
 
 // methods	
-onSubmit = async () => {
+onSubmit = async (event) => {
+
+	event.preventDefault();
+
     this.setState({ // todo
       usernameError: '',
       emailError: '',
       passwordError: '',
     });
 
-    const { username, email, password } = this.state; // todo
+	const { companyName, emailAddress, BusinessAddress, phoneNumber,RCNumber, password, termsAndPolicies } = this.state;
     const response = await this.props.mutate({ // todo
-      variables: { username, email, password },
+      // variables: { username, email, password },
     });
 
     const { ok, errors } = response.data.register;
@@ -169,7 +187,7 @@ onChange = e => {
 							</div>
 
 						  <div className="d-flex justify-content-center align-items-center mt-5">
-						  	<button style={btnStyle} className="btn btn-lg btn-block btn-custom">Sign Up </button>
+						  	<button onClick={this.onSubmit} style={btnStyle} className="btn btn-lg btn-block btn-custom">Sign Up </button>
 						  </div>
 
 						</form>
@@ -179,12 +197,5 @@ onChange = e => {
 		)
 	}
 }
-
-
-// Grapql queries
-const client = new ApolloClient({
-  uri: 'http://206.189.22.170/',
-})
-
 
 export default Registration;

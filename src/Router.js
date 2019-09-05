@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import ApolloClient, { gql } from "apollo-boost";
+import { ApolloProvider } from '@apollo/react-hooks';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
@@ -26,25 +28,33 @@ import CompanyDashboard from './pages/CompanyDashboard';
 // import BusinessDetailDashboard from './pages/BusinessDetailDashboard';
 
 
+// Grapql queries
+const client = new ApolloClient({
+  uri: `http://206.189.22.170/`,
+})
+
+
 function Router() {
   return (
-    <BrowserRouter>
-		<Switch>
-			<LayoutNav>
-				<Route exact path="/registervehicle" component={RegVehicle} />
-				<Route exact path="/result" component={SearchResults} />
-				<Route exact path="/selectseat" component={PickSeat} />
-				<Route exact path="/forgotpassword" component={ForgotPassword} />
-				<Route exact path="/resetpassword" component={ResetPassword} />
-				<Route exact path="/register" component={Registration} />
-				<Route exact path="/login" component={LoginAuth} />
-				<Route exact path="/" component={Home} />
-				<Route exact path="/companydashboard" component={CompanyDashboard} />
-			</LayoutNav>
-			<Route component={NotFound} />
-		</Switch>
-		<Footer />
-    </BrowserRouter>
+  	<ApolloProvider client={client}>
+	    <BrowserRouter>
+			<Switch>
+				<LayoutNav>	
+					<Route exact path="/registervehicle" component={RegVehicle} />
+					<Route exact path="/result" component={SearchResults} />
+					<Route exact path="/selectseat" component={PickSeat} />
+					<Route exact path="/forgotpassword" component={ForgotPassword} />
+					<Route exact path="/resetpassword" component={ResetPassword} />
+					<Route exact path="/register" component={Registration} />
+					<Route exact path="/login" component={LoginAuth} />
+					<Route exact path="/" component={Home} />
+					<Route exact path="/companydashboard" component={CompanyDashboard} />
+				</LayoutNav>
+				<Route component={NotFound} />
+			</Switch>
+			<Footer />
+	    </BrowserRouter>
+    </ApolloProvider>
   );
 }
 
