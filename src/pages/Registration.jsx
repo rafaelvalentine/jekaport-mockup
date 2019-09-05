@@ -66,7 +66,11 @@ const styles = {
 const COMPANY_REGISTRATION = gql`
   mutation RegisterCompanyInput ($name: String!, $email: String!, $password: String!, $address: String!, $rcNumber: String!, $phoneNumber: String! ) {
     RegisterCompanyInput (username: $username, email: $email, password: $password, address: $address, rcNumber: $rcNumber, phoneNumber: $phoneNumber) {
-      ok
+      Auth{
+    	token
+    	email
+    	role
+	  }
       errors {
         path
         message
@@ -93,28 +97,28 @@ onSubmit = async (event) => {
 
 	event.preventDefault();
 
-    this.setState({ // todo
-      usernameError: '',
-      emailError: '',
-      passwordError: '',
-    });
+    // this.setState({ // todo
+    //   usernameError: '',
+    //   emailError: '',
+    //   passwordError: '',
+    // });
 
 	const { companyName, emailAddress, BusinessAddress, phoneNumber,RCNumber, password, termsAndPolicies } = this.state;
     const response = await this.props.mutate({ // todo
-      // variables: { username, email, password },
+      variables: { companyName, emailAddress, BusinessAddress, phoneNumber,RCNumber, password, termsAndPolicies },
     });
 
-    const { ok, errors } = response.data.register;
+    // const { ok, errors } = response.data.register; todo
 
-    if (ok) {
-      return <Redirect to="/companydashboard" />
-    } else {
-      const err = {};
+    // if (ok) {
+    //   return <Redirect to="/companydashboard" />
+    // } else {
+    //   const err = {};
       
-      console.log("The errors found",errors)
+    //   console.log("The errors found",errors)
 
-      this.setState(err);
-    }
+    //   this.setState(err);
+    // }
 
     console.log(response);
 };
