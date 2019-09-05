@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { gql } from "apollo-boost";
-import { useMutation } from '@apollo/react-hooks';
-
 
 // components
 import RegForm from '../components/RegForm';
 import Authentication from '../components/Authentication';
+
+// apollo
+import { gql } from 'apollo-boost';
+import { graphql } from 'react-apollo';
 
 // images
 import bgImage from '../images/registration.svg';
@@ -198,4 +199,4 @@ onChange = e => {
 	}
 }
 
-export default Registration;
+export default graphql(COMPANY_REGISTRATION)(Registration)
