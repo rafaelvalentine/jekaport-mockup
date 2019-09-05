@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 // components
-import RegForm from '../components/RegForm';
 import Authentication from '../components/Authentication';
 
 // apollo
@@ -64,17 +63,14 @@ const styles = {
 
 
 const COMPANY_REGISTRATION = gql`
-  mutation RegisterCompanyInput ($name: String!, $email: String!, $password: String!, $address: String!, $rcNumber: String!, $phoneNumber: String! ) {
-    RegisterCompanyInput (username: $username, email: $email, password: $password, address: $address, rcNumber: $rcNumber, phoneNumber: $phoneNumber) {
+  mutation ($name: String!, $email: String!, $password: String!, $address: String!, $rcNumber: String!, $phoneNumber: String! ) {
+    registerCompany (name: $name, email: $email, password: $password, address: $address, rcNumber: $rcNumber, phoneNumber: $phoneNumber) {
+
       Auth{
     	token
     	email
     	role
-	  }
-      errors {
-        path
-        message
-      }
+	  }	
     }
   }
 `;
@@ -83,11 +79,11 @@ const COMPANY_REGISTRATION = gql`
 class Registration extends Component {
 
 	state = {
-		companyName: '',
-		emailAddress: '',
-		BusinessAddress: '',
+		name: '',
+		email: '',
+		address: '',
 		password: '',
-		RCNumber: '',
+		rcNumber: '',
 		phoneNumber: '',
 		termsAndPolicies: false
 	}
@@ -103,12 +99,14 @@ onSubmit = async (event) => {
     //   passwordError: '',
     // });
 
-	const { companyName, emailAddress, BusinessAddress, phoneNumber,RCNumber, password, termsAndPolicies } = this.state;
+	const { name, email, address, phoneNumber,rcNumber, password } = this.state;
     const response = await this.props.mutate({ // todo
-      variables: { companyName, emailAddress, BusinessAddress, phoneNumber,RCNumber, password, termsAndPolicies },
+      variables: {
+      	input:{ name, email, address, phoneNumber,rcNumber, password }
+      },
     });
 
-    // const { ok, errors } = response.data.register; todo
+    // const { ok, errors } = response.data.register;
 
     // if (ok) {
     //   return <Redirect to="/companydashboard" />
@@ -117,7 +115,7 @@ onSubmit = async (event) => {
       
     //   console.log("The errors found",errors)
 
-    //   this.setState(err);
+    //   // this.setState(err);
     // }
 
     console.log(response);
@@ -128,13 +126,16 @@ onSubmit = async (event) => {
 onChange = e => {
     const { name, value } = e.target;
     // name = "email";
+    if(name === "termsAndPolicies"){
+    	alert("got me!")
+    }
     this.setState({ [name]: value });
 };
 
 
 	render(){
 		//  destructure values from state
-		const { companyName, emailAddress, BusinessAddress, phoneNumber,RCNumber, password, termsAndPolicies } = this.state;
+		const { name, email, address, phoneNumber,rcNumber, password, termsAndPolicies } = this.state;
 
 		return (
 			<>
@@ -155,23 +156,25 @@ onChange = e => {
 					<div style={styles.RegFormBorder} className="col-md-6 p-5">
 						<form>
 							<div className="form-group">
-								<label style={formStyle} htmlFor="companyName">Name of Company (As it appears on CAC Documents)</label>
-								<input type="text" className="form-control" name="companyName" placeholder="Enter Name" onChange={this.onChange} value={companyName} />
+								<label style={formStyle} htmlFor="name">Name of Company (As it appears on CAC Documents)</label>
+								<input type="text" className="form-control" name="name" placeholder="Enter Name" onChange={this.onChange} value={name} />
+							</div>
+
+
+							<div className="form-group">
+								<label style={formStyle} htmlFor="address">Business Address</label>
+								<input type="text" className="form-control" name="address" placeholder="Enter Your Address" onChange={this.onChange} value={address} />
+							</div>
+							
+
+							<div className="form-group">
+								<label style={formStyle} htmlFor="rcNumber">RC Number</label>
+								<input type="text" className="form-control" name="rcNumber" placeholder="eg 123456" onChange={this.onChange} value={rcNumber} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="BusinessAddress">Business Address</label>
-								<input type="text" className="form-control" name="BusinessAddress" placeholder="Enter Address" onChange={this.onChange} value={BusinessAddress} />
-							</div>
-
-							<div className="form-group">
-								<label style={formStyle} htmlFor="RCNumber">RC Number</label>
-								<input type="text" className="form-control" name="RCNumber" placeholder="eg 123456" onChange={this.onChange} value={RCNumber} />
-							</div>
-
-							<div className="form-group">
-								<label style={formStyle} htmlFor="emailAddress">Email Address</label>
-								<input type="text" className="form-control" name="emailAddress" placeholder="Another input" onChange={this.onChange} value={emailAddress} />
+								<label style={formStyle} htmlFor="email">Email Address</label>
+								<input type="text" className="form-control" name="email" placeholder="Another input" onChange={this.onChange} value={email} />
 							</div>
 
 							<div className="form-group">
