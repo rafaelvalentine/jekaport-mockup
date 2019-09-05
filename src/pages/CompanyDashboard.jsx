@@ -144,37 +144,7 @@ class CompanyDashboard extends Component {
 									<div className="card w-100">
 										<div className="card-body">
 
-											// <table>
-											// 	<thead>
-											// 		Vehicle Listed
-											// 	</thead>
-
-											// 	<tr>
-											// 		<td></td>
-											// 		<td>Type of Vehicle</td>
-											// 		<td>Vehicle Model</td>
-											// 		<td>Route</td>
-											// 		<td>Price</td>
-											// 		<td>Departing Time</td>
-											// 		<td>Seats Available</td>
-											// 		<td>Status</td>
-											// 		<td></td>
-											// 		<td></td>
-											// 	</tr>
-
-											// 	<tr>
-											// 		<td></td>
-											// 		<td>Toyota Hiace</td>
-											// 		<td>2007 XML 9</td>
-											// 		<td>Lagos-Abuja</td>
-											// 		<td>N13, 000</td>
-											// 		<td>4:00am</td>
-											// 		<td>12</td>
-											// 		<td>Left</td>
-											// 		<td>i</td>
-											// 		<td>x</td>
-											// 	</tr>
-											// </table>
+										
 
 										</div>
 									</div>

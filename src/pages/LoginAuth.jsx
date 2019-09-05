@@ -99,16 +99,21 @@ class LoginAuth extends Component  {
 	    this.setState({ [name]: value });
 	};
 
+
 	saveClientData = token => {
-	    localStorage.setItem(AUTH_TOKEN, token)
-		this.history.push("/companydashboard");
+		// store auth token to local storage
+		// localStorage.setItem(AUTH_TOKEN, token);
+		// redirect to dashboard
+	    this.props.history.push("/companydashboard")
 	}
 
 	confirm_login = async data => {
-	    const { token } = data.login;
-	    this.saveClientData(token)
-	 }
-
+		console.log(data)
+		// grab token
+		const { token } = data.login;
+		// store token
+		this.saveClientData(token);
+	}
 
 
 	render(){

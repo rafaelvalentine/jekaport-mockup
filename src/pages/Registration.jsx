@@ -104,17 +104,18 @@ class Registration extends Component {
 
 	saveClientData = token => {
 		// store auth token to local storage
-		localStorage.setItem(AUTH_TOKEN, token);
+		// localStorage.setItem(AUTH_TOKEN, token);
 		// redirect to dashboard
 	    this.props.history.push("/companydashboard")
 	}
 
 	confirm_registration = async data => {
+		console.log(data)
 		// grab token
 		const { token } = data.registerCompany;
 		// store token
 		this.saveClientData(token);
-	 }
+	}
 
 
 	render(){
