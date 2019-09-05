@@ -6,7 +6,7 @@ import Authentication from '../components/Authentication';
 
 // apollo
 import { gql } from 'apollo-boost';
-import { graphql } from 'react-apollo';
+import { Mutation } from 'react-apollo';
 
 // images
 import bgImage from '../images/registration.svg';
@@ -61,19 +61,20 @@ const styles = {
 
 }
 
-
+// define mutation
 const COMPANY_REGISTRATION = gql`
-  mutation ($name: String!, $email: String!, $password: String!, $address: String!, $rcNumber: String!, $phoneNumber: String! ) {
-    registerCompany (name: $name, email: $email, password: $password, address: $address, rcNumber: $rcNumber, phoneNumber: $phoneNumber) {
+  mutation ($name: String!, $email: String!, $address: String!, $password: String!, $rcNumber: String!, $phoneNumber: String! ) {
+    registerCompany (input: {
+    	name: $name, email: $email, address: $address, password: $password, rcNumber: $rcNumber, phoneNumber: $phoneNumber
+    }) {
 
-      Auth{
-    	token
-    	email
-    	role
-	  }	
+		token
+		email
+		role
     }
   }
 `;
+
 
 
 class Registration extends Component {
@@ -89,52 +90,19 @@ class Registration extends Component {
 	}
 
 // methods	
-onSubmit = async (event) => {
-
-	event.preventDefault();
-
-    // this.setState({ // todo
-    //   usernameError: '',
-    //   emailError: '',
-    //   passwordError: '',
-    // });
-
-	const { name, email, address, phoneNumber,rcNumber, password } = this.state;
-    const response = await this.props.mutate({ // todo
-      variables: {
-      	input:{ name, email, address, phoneNumber,rcNumber, password }
-      },
-    });
-
-    // const { ok, errors } = response.data.register;
-
-    // if (ok) {
-    //   return <Redirect to="/companydashboard" />
-    // } else {
-    //   const err = {};
-      
-    //   console.log("The errors found",errors)
-
-    //   // this.setState(err);
-    // }
-
-    console.log(response);
-};
-
-
-
-onChange = e => {
-    const { name, value } = e.target;
-    // name = "email";
-    if(name === "termsAndPolicies"){
-    	alert("got me!")
+onChange = event => { // destructure need properties from e.target
+    const { name, value, checked } = event.target;
+    if(name === "termsAndPolicies" && checked === true){
+    	this.setState({
+    		termsAndPolicies: true // accept terms and condition
+    	})
     }
     this.setState({ [name]: value });
 };
 
 
 	render(){
-		//  destructure values from state
+		//  destructure values from state to set form fields to control form
 		const { name, email, address, phoneNumber,rcNumber, password, termsAndPolicies } = this.state;
 
 		return (
@@ -194,9 +162,15 @@ onChange = e => {
 								</label>
 							</div>
 
-						  <div className="d-flex justify-content-center align-items-center mt-5">
-						  	<button onClick={this.onSubmit} style={btnStyle} className="btn btn-lg btn-block btn-custom">Sign Up </button>
-						  </div>
+							<Mutation mutation={COMPANY_REGISTRATION} variables={{ input:{ name, email, address, phoneNumber,rcNumber, password } }}>
+							  {(registerMutation) => (
+							    <div className="d-flex justify-content-center align-items-center mt-5">
+								  	<button onClick={registerMutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">
+								  		Sign Up 
+							  		</button>
+								</div>
+							  )}
+							</Mutation>
 
 						</form>
 					</div>
@@ -206,4 +180,4 @@ onChange = e => {
 	}
 }
 
-export default graphql(COMPANY_REGISTRATION)(Registration)
+export default Registration;
