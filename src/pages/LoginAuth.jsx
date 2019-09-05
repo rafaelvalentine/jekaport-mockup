@@ -79,7 +79,7 @@ const styles = {
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation ($email: String!, $password: String!) {
-    login (email: $email, password: $password) {
+    login ( input: { email: $email, password: $password }) {
       token
     }
   }
@@ -108,8 +108,8 @@ class LoginAuth extends Component  {
 	confirm_login = async data => {
 		console.log(data)
 		alert("logged in")
-	    const { token } = data.login;
-	    this._saveUserData(token)
+	    // const { token } = data.login;
+	    // this._saveUserData(token)
 	 }
 
 

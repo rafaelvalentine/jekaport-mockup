@@ -118,7 +118,7 @@ class RegVehicle extends Component {
 		// grab token
 		const { token } = data.registerVechile;
 		// store token
-		// this.saveClientData(token);
+		this.saveClientData(token);
 	 }
 
 
