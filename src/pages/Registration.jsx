@@ -63,7 +63,7 @@ const styles = {
 
 // define mutation
 const COMPANY_REGISTRATION = gql`
-  mutation ($name: String!, $email: String!, $address: String!, $password: String!, $rcNumber: String!, $phoneNumber: String! ) {
+  mutation registerCompany ($name: String!, $email: String!, $address: String!, $password: String!, $rcNumber: String!, $phoneNumber: String! ) {
     registerCompany (input: {
     	name: $name, email: $email, address: $address, password: $password, rcNumber: $rcNumber, phoneNumber: $phoneNumber
     }) {
@@ -89,16 +89,22 @@ class Registration extends Component {
 		termsAndPolicies: false
 	}
 
-// methods	
-onChange = event => { // destructure need properties from e.target
-    const { name, value, checked } = event.target;
-    if(name === "termsAndPolicies" && checked === true){
-    	this.setState({
-    		termsAndPolicies: true // accept terms and condition
-    	})
-    }
-    this.setState({ [name]: value });
-};
+	// methods	
+	onChange = event => { // destructure need properties from e.target
+	    const { name, value, checked } = event.target;
+	    if(name === "termsAndPolicies" && checked === true){
+	    	this.setState({
+	    		termsAndPolicies: true // accept terms and condition
+	    	})
+	    }
+	    this.setState({ [name]: value });
+	};
+
+	_confirm = async data => {
+		alert("registered")
+		console.log(data)
+	    return <Redirect to="CompanyDashboard.jsx" />
+	 }
 
 
 	render(){
@@ -162,10 +168,13 @@ onChange = event => { // destructure need properties from e.target
 								</label>
 							</div>
 
-							<Mutation mutation={COMPANY_REGISTRATION} variables={{ input:{ name, email, address, phoneNumber,rcNumber, password } }}>
-							  {(registerMutation) => (
+							<Mutation 
+								mutation={COMPANY_REGISTRATION} 
+								variables={{ name, email, address, phoneNumber,rcNumber, password }}
+								onCompleted={data => this._confirm(data)}>
+							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
-								  	<button onClick={registerMutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">
+								  	<button type="button" onClick={mutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">
 								  		Sign Up 
 							  		</button>
 								</div>
