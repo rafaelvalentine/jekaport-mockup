@@ -24,7 +24,7 @@ class CompanyDashboard extends Component {
 								</div>
 								{authToken && (
 									<span 
-										onClick={() => { 
+										onClick={() => {
 											localStorage.removeItem(AUTH_TOKEN) 
 											this.props.history.push(`/login`)
 									}}>
