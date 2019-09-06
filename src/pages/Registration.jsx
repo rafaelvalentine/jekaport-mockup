@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-// components
-import Authentication from '../components/Authentication';
-
 // apollo
 import { gql } from 'apollo-boost';
 import { Mutation } from 'react-apollo';
+
+// components
+import Authentication from '../components/Authentication';
 
 // auth
 import { AUTH_TOKEN } from '../constants'
@@ -104,7 +104,7 @@ class Registration extends Component {
 
 	saveClientData = token => {
 		// store auth token to local storage
-		// localStorage.setItem(AUTH_TOKEN, token);
+		localStorage.setItem(AUTH_TOKEN, token);
 		// redirect to dashboard
 	    this.props.history.push("/companydashboard")
 	}

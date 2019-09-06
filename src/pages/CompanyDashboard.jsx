@@ -16,7 +16,7 @@ class CompanyDashboard extends Component {
 					<div className="row">
 						<article className="col-sm-12 p-md-3 p-sm-2">
 							<div className="d-flex flex-sm-column flex-md-row">
-								<img src="#" />
+								<img src="" alt="" />
 								<p className="mx-md-4"><strong>Dashbaord &#124; Book</strong></p>
 
 								<div className="ml-auto">
@@ -43,7 +43,7 @@ class CompanyDashboard extends Component {
 								      	<section className="d-flex flex-md-row flex-column justify-content-around text-center">
 								      		<div>
 								      			<p>TODAY</p>
-								      			<img src="#" />
+								      			<img src="" alt="" />
 								      		</div>
 
 								      		<div>
@@ -64,7 +64,7 @@ class CompanyDashboard extends Component {
 								      	<section className="d-flex flex-md-row flex-column justify-content-around text-center">
 								      		<div>
 								      			<p>TODAY</p>
-								      			<img src="#" />
+								      			<img src="" alt="" />
 								      		</div>
 
 								      		<div>
@@ -85,7 +85,7 @@ class CompanyDashboard extends Component {
 								      	<section className="d-flex flex-md-row flex-column justify-content-around text-center">
 								      		<div>
 								      			<p>TODAY</p>
-								      			<img src="#" />
+								      			<img src="" alt="" />
 								      		</div>
 
 								      		<div>

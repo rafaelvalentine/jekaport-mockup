@@ -4,10 +4,6 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo'
 import { gql } from 'apollo-boost';
 
-
-// auth
-import { AUTH_TOKEN } from '../constants'
-
 // components
 import Authentication from '../components/Authentication';
 

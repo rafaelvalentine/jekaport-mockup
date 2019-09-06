@@ -6,7 +6,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 // Navbar components
 // import Navbar from './components/Navbar';
 import LayoutNav from './components/LayoutNav';
-import LayoutDashboardNav from './components/LayoutDashboardNav';
+// import LayoutDashboardNav from './components/LayoutDashboardNav';
 
 // Footer
 import Footer from './components/Footer';

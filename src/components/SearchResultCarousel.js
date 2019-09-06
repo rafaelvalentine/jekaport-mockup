@@ -1,7 +1,7 @@
 import React from 'react';
 
 // images
-import VehiclePhoto from '../images/VehiclePhoto.svg';
+// import VehiclePhoto from '../images/VehiclePhoto.svg';
 import BookVehicleImage from '../images/BookVehicleImage.svg';
 
 // components
