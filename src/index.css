@@ -87,3 +87,34 @@ div, span, p, h1, h2, h3, h4, h5, h6, label, button, article, section {
   font-style: normal !important;
 }
 
+/*Footer styles*/
+
+footer ul.footer-nav {
+  list-style: none;
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  footer ul.footer-nav {
+    display: none !important;
+  }
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  footer ul.footer-nav {
+    display: none !important;
+  }
+  
+}

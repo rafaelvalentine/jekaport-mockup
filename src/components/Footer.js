@@ -34,27 +34,16 @@ const Footer = () => {
 	return (
 		// footer here is html 5 tag for semantic meaning. it is not a react component
 		<footer style={styles.footerStyle}>
-			<nav className="container navbar navbar-expand-lg navbar-light" >
-				<Link className="navbar-brand" to="/"><Logo display={currentYear} /></Link>
-				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span className="navbar-toggler-icon"></span>
-				</button>
-
-				<div className="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul className="navbar-nav ml-auto">
-						<li className="nav-item active">
-							<Link style={styles.lintItemStyle} className="nav-link" to="about">About Us<span className="sr-only">(current)</span></Link>
-						</li>
-						<li className="nav-item">
-							<Link style={styles.lintItemStyle} className="nav-link" to="termsandconditions">Terms &amp; Conditions</Link>
-						</li>
-
-						<li className="nav-item">
-							<Link style={styles.lintItemStyle} className="nav-link" to="contact">Contact Us</Link>
-						</li>
+			<section className="container">
+				<div className="d-flex justify-content-between align-items-center">
+					<Link className="" to="/"><Logo display={currentYear} /></Link>
+					<ul className="footer-nav d-flex align-self-center h-100">
+						<Link style={styles.lintItemStyle} className="nav-link" to="about">About Us<span className="sr-only">(current)</span></Link>						
+						<Link style={styles.lintItemStyle} className="nav-link" to="termsandconditions">Terms &amp; Conditions</Link>					
+						<Link style={styles.lintItemStyle} className="nav-link" to="contact">Contact Us</Link>
 					</ul>
 				</div>
-			</nav>
+			</section>
 		</footer>
 	);
 }
