@@ -90,11 +90,11 @@ class Registration extends Component {
 	// methods	
 	onChange = event => { // destructure need properties from e.target
 	    const { name, value, checked } = event.target;
-	    if(name === "termsAndPolicies" && checked === true){
-	    	this.setState({
-	    		termsAndPolicies: true // accept terms and condition
-	    	})
-	    }
+	    // if(name === "termsAndPolicies" && checked === true){
+	    // 	this.setState({
+	    // 		termsAndPolicies: true // accept terms and condition
+	    // 	})
+	    // }
 	    this.setState({ [name]: value });
 	};
 
@@ -155,7 +155,7 @@ class Registration extends Component {
 
 							<div className="form-group">
 								<label style={styles.formStyle} htmlFor="email">Email Address</label>
-								<input type="text" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} />
+								<input type="email" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} />
 							</div>
 
 							<div className="form-group">
@@ -165,7 +165,7 @@ class Registration extends Component {
 
 							<div className="form-group">
 								<label style={styles.formStyle} htmlFor="password">Password</label>
-								<input type="text" className="form-control" name="password" placeholder="Enter password" onChange={this.onChange} value={password} />
+								<input type="password" className="form-control" name="password" placeholder="Enter password" onChange={this.onChange} value={password} />
 							</div>
 
 						  	<div className="form-check">
