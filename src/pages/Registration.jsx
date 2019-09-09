@@ -159,7 +159,7 @@ class Registration extends Component {
 
 							<div className="form-group">
 								<label style={formStyle} htmlFor="email">Email Address</label>
-								<input type="text" className="form-control" name="email" placeholder="Another input" onChange={this.onChange} value={email} />
+								<input type="text" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} />
 							</div>
 
 							<div className="form-group">

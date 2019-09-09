@@ -14,35 +14,29 @@ import bgImageMobile from '../images/LoginMobile.svg';
 // pages
 import Title from '../components/Title';
 
-
-const formStyle = {
-	fontFamily: "Roboto",
-	fontStyle: "normal",
-	fontWeight: "bold",
-	fontSize: "18px",
-	lineHeight: "21px",
-	color: "#006494"
-}
-
-const LoginTitleStyle = {
-	fontFamily: "Roboto",
-	fontStyle: "normal",
-	fontWeight: "bold",
-	fontSize: "36px",
-	lineHeight: "42px",
-	color: "#006494"
-}
-
-const btnStyle = {
-	background: "#006494",
-	backdropFilter: "blur(4px)",
-	borderRadius: "5px",
-	borderColor: "#006494",
-	color: "#FFF"
-}
-
-
 const styles = {
+	formStyle: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "bold",
+		lineHeight: "21px",
+		color: "#006494"
+	},
+	LoginTitleStyle: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "bold",
+		fontSize: "36px",
+		lineHeight: "42px",
+		color: "#006494"
+	},
+	btnStyle: {
+		background: "#006494",
+		backdropFilter: "blur(4px)",
+		borderRadius: "5px",
+		borderColor: "#006494",
+		color: "#FFFFFF"
+	},
 	titleStyle:{
 		fontFamily: "Roboto",
 		fontStyle: "normal",
@@ -143,16 +137,16 @@ class LoginAuth extends Component  {
 						<div style={styles.RegFormBorder} className="col-md-6 p-5">
 							<form>
 
-								<h2 className="text-center formHeader" style={LoginTitleStyle} >Login</h2>
+								<h2 className="text-center formHeader" style={styles.LoginTitleStyle} >Login</h2>
 
 								<div className="form-group">
-									<label className="mobileLable" style={formStyle} htmlFor="emailAddress">Email Address</label>
+									<label className="mobileLable" style={styles.formStyle} htmlFor="emailAddress">Email Address</label>
 									<input type="text" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} />
 								</div>
 
 
 								<div className="form-group">
-									<label className="mobileLable" style={formStyle} htmlFor="password">Password</label>
+									<label className="mobileLable" style={styles.formStyle} htmlFor="password">Password</label>
 									<input type="text" className="form-control" name="password" placeholder="Enter Password" onChange={this.onChange} value={password} />
 								</div>
 
@@ -162,7 +156,7 @@ class LoginAuth extends Component  {
 							            onCompleted={data => this.confirm_login(data)}>
 							            {(mutation) => (
 											<div className="d-flex justify-content-center align-items-center mt-5">
-												<button type="button" onClick={mutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">Sign In</button>
+												<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">Sign In</button>
 											</div>
 										)}
 								</Mutation>
