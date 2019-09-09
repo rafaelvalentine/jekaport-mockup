@@ -90,6 +90,14 @@ class LoginAuth extends Component  {
 		}
 	}
 
+	validateForm = (errors) => {
+		let valid = false;
+		if (Object.values(errors).some((val) => val === true) || Object.values(errors).every((val) => val.length ===  0)){
+			return valid = true
+		}
+		return valid;
+	}
+
 	// methods	
 	onChange = event => { // destructure need properties from e.target
 		let { errors, email, password } = this.state; // destructure errors from state
@@ -100,49 +108,29 @@ class LoginAuth extends Component  {
 
 		const checkPassword = ((value) => {
 			if (value.length < 8) {
-				errors.password = false
-				console.log("Password is too short");
-			} else if (value.length > 50) {
-				errors.password = false
-				console.log("Password is too Long");
-			} else if (value.search(/\d/) == -1) {
-				errors.password = false
-				console.log("Password must contain a number");
-			} else if (value.search(/[a-zA-Z]/) == -1) {
-				errors.password = false
-				console.log("Password must contain a letter");
-			} else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
-				errors.password = false
-				console.log("Password contains a forbidden character");
-			}else {
 				errors.password = true
+				console.log("Too short");
+			} else if (value.length > 50) {
+				errors.password = true
+				console.log("Too Long");
+			} else if (value.search(/\d/) == -1) {
+				errors.password = true
+				console.log("Must contain a number");
+			} else if (value.search(/[a-zA-Z]/) == -1) {
+				errors.password = true
+				console.log("Must contain a letter");
+			} else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
+				errors.password = true
+				console.log("Contains a forbidden character");
+			}else {
+				errors.password = false
 				console.log("ok")
 			}
 		})(value)
 
-		errors.email = validEmailRegex.test(email)
+		errors.email = validEmailRegex.test(email) ? false : true // validate email
 
-		if(!errors.email){
-			 console.log("Email is not valid!")
-		}
-
-		if(errors.password) {
-			console.log(errors.password)
-		}
 		
-		// switch (name) {
-		// 	case email:
-		// 		errors.email = validEmailRegex.test(value) ? '' : ''
-		// 	break;
-
-		// 	case password: 
-		// 		errors.password = value.length < 8 ? "Password must 8 characters long" : " "
-		// 	break;
-
-		// 	default:
-		// 		break;
-		// }
-
 		this.setState({ [name]: value });
 		
 	    this.setState({ errors, [name]: value }, () => {
@@ -217,7 +205,16 @@ class LoginAuth extends Component  {
 							            onCompleted={data => this.confirm_login(data)}>
 							            {(mutation) => (
 											<div className="d-flex justify-content-center align-items-center mt-5">
-												<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">Sign In</button>
+												<button type="button" 
+													onClick={() => {
+														//mutation() // call the mutation function send grapql data to db
+														this.validateForm(this.state.errors) ? console.error("Invalid Form") : console.info("Valid Form")
+													}} 
+													style={styles.btnStyle} 
+													className="btn btn-lg btn-block btn-custom"
+												>
+													Sign In
+												</button>
 											</div>
 										)}
 								</Mutation>
