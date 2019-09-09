@@ -16,25 +16,22 @@ import bgImage from '../images/regVehicle.svg';
 // pages
 import Title from '../components/Title';
 
-const formStyle = {
-	fontFamily: "Roboto",
-	fontStyle: "normal",
-	fontWeight: "bold",
-	fontSize: "18px",
-	lineHeight: "21px",
-	color: "#006494"
-}
-
-const btnStyle = {
-	background: "#006494",
-	backdropFilter: "blur(4px)",
-	borderRadius: "5px",
-	borderColor: "#006494",
-	color: "#FFF"
-}
-
-
 const styles = {
+	formStyle: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "bold",
+		fontSize: "18px",
+		lineHeight: "21px",
+		color: "#006494"
+	},
+	btnStyle: {
+		background: "#006494",
+		backdropFilter: "blur(4px)",
+		borderRadius: "5px",
+		borderColor: "#006494",
+		color: "#FFF"
+	},
 	titleStyle:{
 		fontFamily: "Roboto",
 		fontStyle: "normal",
@@ -145,56 +142,56 @@ class RegVehicle extends Component {
 					<div style={styles.RegFormBorder} className="col-md-6 p-5">
 						<form>
 							<div className="form-group">
-								<label style={formStyle} htmlFor="name">Name of Owner (As it appears on Vehicle Papers)</label>
+								<label style={styles.formStyle} htmlFor="name">Name of Owner (As it appears on Vehicle Papers)</label>
 								<input type="text" className="form-control" name="name" placeholder="Enter Name" onChange={this.onChange} value={name} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="email">Email Address</label>
+								<label style={styles.formStyle} htmlFor="email">Email Address</label>
 								<input type="text" className="form-control" name="email" placeholder="Another input" onChange={this.onChange} value={email} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="phoneNumber">Phone Number</label>
+								<label style={styles.formStyle} htmlFor="phoneNumber">Phone Number</label>
 								<input type="text" className="form-control" name="phoneNumber" placeholder="e.g 0800000000000" onChange={this.onChange} value={phoneNumber} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="type">Type of Vehicle</label>
+								<label style={styles.formStyle} htmlFor="type">Type of Vehicle</label>
 								<input type="text" className="form-control" name="type" placeholder="Enter Your type" onChange={this.onChange} value={type} />
 							</div>
 							
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="driverLicenseNumber">Driver's License (Number Only)</label>
+								<label style={styles.formStyle} htmlFor="driverLicenseNumber">Driver's License (Number Only)</label>
 								<input type="text" className="form-control" name="driverLicenseNumber" placeholder="eg 123456" onChange={this.onChange} value={driverLicenseNumber} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="plateNumber">Vehicle's Number</label>
+								<label style={styles.formStyle} htmlFor="plateNumber">Vehicle's Number</label>
 								<input type="text" className="form-control" name="plateNumber" placeholder="Enter plateNumber" onChange={this.onChange} value={plateNumber} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="model">Vehicle Model</label>
+								<label style={styles.formStyle} htmlFor="model">Vehicle Model</label>
 								<input type="text" className="form-control" name="model" placeholder="Enter model" onChange={this.onChange} value={model} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="seats">Number of Vehicle Seat</label>
+								<label style={styles.formStyle} htmlFor="seats">Number of Vehicle Seat</label>
 								<input type="number" className="form-control" name="seats" placeholder="Enter seats" onChange={this.onChange} value={seats} />
 							</div>
 
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="password">Password</label>
+								<label style={styles.formStyle} htmlFor="password">Password</label>
 								<input type="text" className="form-control" name="password" placeholder="Enter password" onChange={this.onChange} value={password} />
 							</div>
 
 						  	<div className="form-check">
 								<input className="form-check-input" type="checkbox" name="termsAndPolicies" onChange={this.onChange} value={termsAndPolicies} />
 								<label className="form-check-label" htmlFor="termsAndPolicies">
-									<span className="text-muted">I accept the</span><span style={formStyle}> Terms & Policies</span>
+									<span className="text-muted">I accept the</span><span style={styles.formStyle}> Terms & Policies</span>
 								</label>
 							</div>
 
@@ -204,7 +201,7 @@ class RegVehicle extends Component {
 								onCompleted={data => this.confirm_registration(data)}>
 							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
-								  	<button type="button" onClick={mutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">
+								  	<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
 								  		Sign Up 
 							  		</button>
 								</div>

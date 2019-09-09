@@ -16,25 +16,21 @@ import bgImage from '../images/registration.svg';
 // pages
 import Title from '../components/Title';
 
-const formStyle = {
-	fontFamily: "Roboto",
-	fontStyle: "normal",
-	fontWeight: "bold",
-	fontSize: "18px",
-	lineHeight: "21px",
-	color: "#006494"
-}
-
-const btnStyle = {
-	background: "#006494",
-	backdropFilter: "blur(4px)",
-	borderRadius: "5px",
-	borderColor: "#006494",
-	color: "#FFF"
-}
-
-
 const styles = {
+	formStyle: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "bold",
+		fontSize: "18px",
+		lineHeight: "21px",
+		color: "#006494"
+	},
+	btnStyle: {
+		background: "#006494",
+		backdropFilter: "blur(4px)",
+		borderRadius: "#006494",
+		color: "#FFFFFF"
+	},
 	titleStyle:{
 		fontFamily: "Roboto",
 		fontStyle: "normal",
@@ -141,41 +137,41 @@ class Registration extends Component {
 					<div style={styles.RegFormBorder} className="col-md-6 p-5">
 						<form>
 							<div className="form-group">
-								<label style={formStyle} htmlFor="name">Name of Company (As it appears on CAC Documents)</label>
+								<label style={styles.formStyle} htmlFor="name">Name of Company (As it appears on CAC Documents)</label>
 								<input type="text" className="form-control" name="name" placeholder="Enter Name" onChange={this.onChange} value={name} />
 							</div>
 
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="address">Business Address</label>
+								<label style={styles.formStyle} htmlFor="address">Business Address</label>
 								<input type="text" className="form-control" name="address" placeholder="Enter Your Address" onChange={this.onChange} value={address} />
 							</div>
 							
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="rcNumber">RC Number</label>
+								<label style={styles.formStyle} htmlFor="rcNumber">RC Number</label>
 								<input type="text" className="form-control" name="rcNumber" placeholder="eg 123456" onChange={this.onChange} value={rcNumber} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="email">Email Address</label>
+								<label style={styles.formStyle} htmlFor="email">Email Address</label>
 								<input type="text" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="phoneNumber">Phone Number</label>
+								<label style={styles.formStyle} htmlFor="phoneNumber">Phone Number</label>
 								<input type="text" className="form-control" name="phoneNumber" placeholder="e.g 0800000000000" onChange={this.onChange} value={phoneNumber} />
 							</div>
 
 							<div className="form-group">
-								<label style={formStyle} htmlFor="password">Password</label>
+								<label style={styles.formStyle} htmlFor="password">Password</label>
 								<input type="text" className="form-control" name="password" placeholder="Enter password" onChange={this.onChange} value={password} />
 							</div>
 
 						  	<div className="form-check">
 								<input className="form-check-input" type="checkbox" name="termsAndPolicies" onChange={this.onChange} value={termsAndPolicies} />
 								<label className="form-check-label" htmlFor="termsAndPolicies">
-									<span className="text-muted">I accept the</span><span style={formStyle}> Terms & Policies</span>
+									<span className="text-muted">I accept the</span><span style={styles.formStyle}> Terms & Policies</span>
 								</label>
 							</div>
 
@@ -185,7 +181,7 @@ class Registration extends Component {
 								onCompleted={data => this.confirm_registration(data)}>
 							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
-								  	<button type="button" onClick={mutation} style={btnStyle} className="btn btn-lg btn-block btn-custom">
+								  	<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
 								  		Sign Up 
 							  		</button>
 								</div>
