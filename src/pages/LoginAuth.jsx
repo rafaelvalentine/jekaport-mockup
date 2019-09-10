@@ -91,10 +91,10 @@ class LoginAuth extends Component  {
 	}
 
 	validateForm = (errors) => {
-		let valid = false;
-		if (Object.values(errors).some((val) => val === true) || Object.values(errors).every((val) => val.length ===  0)){
-			return valid = true
-		}
+		let valid = true;
+		Object.values(errors).forEach(
+			(val) => val.length > 0 && (valid = false)
+		);
 		return valid;
 	}
 
@@ -106,34 +106,32 @@ class LoginAuth extends Component  {
 		// Regular expression to validate email
 		const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i); 
 
-		const checkPassword = ((value) => {
+		let check_password = ((value) => {
 			if (value.length < 8) {
-				errors.password = true
-				console.log("Too short");
+				return "Too short"
 			} else if (value.length > 50) {
-				errors.password = true
-				console.log("Too Long");
+				return "Too long"
 			} else if (value.search(/\d/) == -1) {
-				errors.password = true
-				console.log("Must contain a number");
+				return "Must contain a number"
 			} else if (value.search(/[a-zA-Z]/) == -1) {
-				errors.password = true
-				console.log("Must contain a letter");
+				return "Must contain a letter"
 			} else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
-				errors.password = true
-				console.log("Contains a forbidden character");
+				return "Contains a forbidden character"
 			}else {
-				errors.password = false
-				console.log("ok")
+				return ""
 			}
-		})(value)
-
-		errors.email = validEmailRegex.test(email) ? false : true // validate email
-
+		})
 		
-		this.setState({ [name]: value });
+		// this.setState({ [name]: value });
 		
 	    this.setState({ errors, [name]: value }, () => {
+			if(name === "email") {
+				errors.email = validEmailRegex.test(email) ? "" : "Invalid email" // validate email
+			}
+
+			if(name === "password") {
+				errors.password = check_password(password) // validate password
+			}
 			console.log(errors)
 		});
 	};
@@ -157,7 +155,7 @@ class LoginAuth extends Component  {
 
 	render(){
 
-		const { email, password } = this.state
+		const { errors, email, password } = this.state
 
 		return (
 			<>
@@ -191,12 +189,18 @@ class LoginAuth extends Component  {
 								<div className="form-group">
 									<label className="mobileLable" style={styles.formStyle} htmlFor="emailAddress">Email Address</label>
 									<input type="email" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} noValidate />
+									<div className="my-md-4 my-sm-2">
+										{errors.email.length > 0 && <span className='text-danger'>{errors.email}</span>}
+									</div>
 								</div>
 
 
 								<div className="form-group">
 									<label className="mobileLable" style={styles.formStyle} htmlFor="password">Password</label>
 									<input type="password" className="form-control" name="password" placeholder="Enter Password" onChange={this.onChange} value={password} noValidate />
+									<div className="my-md-4 my-sm-2">
+										{ errors.password.length > 0 && <span className='text-danger'>{errors.password}</span> }
+									</div>
 								</div>
 
 									<Mutation
