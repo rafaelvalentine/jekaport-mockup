@@ -110,7 +110,6 @@ class Registration extends Component {
 	}
 
 	catchError = async error => {
-		alert("there was an error")
 		console.log("The error:", error)
 	}
 

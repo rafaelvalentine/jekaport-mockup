@@ -84,65 +84,47 @@ class LoginAuth extends Component  {
 	state = {
 		email: '',
 		password: '',
-		errors: {
-			email: '',
-			password: ''
-		}
-	}
-
-	validateForm = (errors) => {
-		let valid = true;
-		Object.values(errors).forEach(
-			(val) => val.length > 0 && (valid = false)
-		);
-		return valid;
+		errors: []
 	}
 
 	// methods	
 	onChange = event => { // destructure need properties from e.target
-		let { errors, email, password } = this.state; // destructure errors from state
 		const { name, value } = event.target; // destructure name and value from target
-
-		// Regular expression to validate email
-		const check_email = (value_len) => {
-			if (value_len.length < 5) {
-				return "Too short"
-			}
-			if (value_len.split("").filter(x => x === "@").length !== 1) {
-				return "Should contain a @"
-			}
-			if (value_len.indexOf(".") === -1) {
-				return "Should contain at least one dot"
-			}else {
-				return ""
-			}
-		} 
-
-		const check_password = ((value_len) => {
-			if (value_len.length < 6) {
-				return "Too short"
-			} else if (value_len.length > 50) {
-				return "Too long"
-			}else if (value_len.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
-				return "Contains a forbidden character"
-			}else {
-				return ""
-			}
-		})
-		
-		// this.setState({ [name]: value });
-		
-	    this.setState({ errors, [name] : value }, () => {
-			if(name === "email") {
-				errors.email = check_email(email) // validate email
-			}
-
-			if(name === "password") {
-				errors.password = check_password(password) // validate password
-			}
-			console.log(errors)
-		});
+	    this.setState( { [name] : value } );
 	};
+
+	handleSubmit = (loginMutation) => {
+
+		const validate = (email, password) => {
+			const errors = [];
+			
+			if (email.length < 5) {
+				errors.push("Email should be at least 5 charcters long");
+			}
+			if (email.split("").filter(x => x === "@").length !== 1) {
+				errors.push("Email should contain a @");
+			}
+			if (email.indexOf(".") === -1) {
+				errors.push("Email should contain at least one dot");
+			}
+	
+			if (password.length < 6) {
+				errors.push("Password should be at least 6 characters long");
+			}
+	
+			return errors;
+		}
+
+		const { email, password } = this.state;
+
+		const errors = validate(email, password);
+		if (errors.length > 0) {
+		  this.setState({ errors });
+		  return;
+		}
+
+		loginMutation() // send login request to server
+	}
 
 
 	saveClientData = token => {
@@ -158,6 +140,10 @@ class LoginAuth extends Component  {
 		const { token } = data.login;
 		// store token
 		this.saveClientData(token);
+	}
+
+	catchError = error => {
+		console.log(error)
 	}
 
 
@@ -190,46 +176,39 @@ class LoginAuth extends Component  {
 						</div>
 
 						<div style={styles.RegFormBorder} className="col-md-6 p-5">
-							<form noValidate>
+							<form>
 
 								<h2 className="text-center formHeader" style={styles.LoginTitleStyle} >Login</h2>
 
 								<div className="form-group">
 									<label className="mobileLable" style={styles.formStyle} htmlFor="emailAddress">Email Address</label>
-									<input type="email" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} noValidate />
-									<div className="my-md-4 my-sm-2">
-										{errors.email.length > 0 && <span className='text-danger'>{errors.email}</span>}
-									</div>
+									<input type="email" className="form-control" name="email" placeholder="Enter Email" onChange={this.onChange} value={email} />
 								</div>
 
 
 								<div className="form-group">
 									<label className="mobileLable" style={styles.formStyle} htmlFor="password">Password</label>
-									<input type="password" className="form-control" name="password" placeholder="Enter Password" onChange={this.onChange} value={password} noValidate />
-									<div className="my-md-4 my-sm-2">
-										{ errors.password.length > 0 && <span className='text-danger'>{errors.password}</span> }
-									</div>
+									<input type="password" className="form-control" name="password" placeholder="Enter Password" onChange={this.onChange} value={password} />
 								</div>
 
 									<Mutation
 							            mutation={LOGIN_MUTATION}
 							            variables={{ email, password }}
-							            onCompleted={data => this.confirm_login(data)}>
+							            onCompleted={data => this.confirm_login(data)}
+										onError={error => this.catchError(error)}>
 							            {(mutation) => (
 											<div className="d-flex justify-content-center align-items-center mt-5">
-												<button type="button" 
-													onClick={() => {
-														mutation() // call the mutation function send grapql data to db
-														this.validateForm(this.state.errors) ? console.error("Invalid Form") : console.info("Valid Form")
-													}} 
-													style={styles.btnStyle} 
-													className="btn btn-lg btn-block btn-custom"
+												<button type="button" onClick={() => this.handleSubmit(mutation)} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom"
 												>
 													Sign In
 												</button>
 											</div>
 										)}
-								</Mutation>
+									</Mutation>
+
+									{errors.map(error => (
+										<div className="my-md-4 my-sm-2 text-danger" key={error}> Error: {error} </div>
+									))}
 							</form>
 						</div>
 					</Authentication>
