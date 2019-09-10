@@ -89,23 +89,7 @@ class Registration extends Component {
 
 	// methods	
 	onChange = event => { // destructure need properties from e.target
-		let { errors, email, password } = this.state; // destructure errors from state
 		const { name, value, checked } = event.target;
-		
-		// Regular expression to validate email
-		const validEmailRegex = RegExp(/\S+@\S+\.\S+/); 
-
-		const check_password = ((value) => {
-			if (value.length < 6) {
-				return "Too short"
-			} else if (value.length > 50) {
-				return "Too long"
-			}else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
-				return "Contains a forbidden character"
-			}else {
-				return ""
-			}
-		})
 		
 	    this.setState({ [name]: value });
 	};
@@ -125,6 +109,10 @@ class Registration extends Component {
 		this.saveClientData(token);
 	}
 
+	catchError = async error => {
+		alert("there was an error")
+		console.log("The error:", error)
+	}
 
 	render(){
 		//  destructure values from state to set form fields to control form
@@ -190,7 +178,8 @@ class Registration extends Component {
 							<Mutation 
 								mutation={COMPANY_REGISTRATION} 
 								variables={{ name, email, address, phoneNumber,rcNumber, password }}
-								onCompleted={data => this.confirm_registration(data)}>
+								onCompleted={data => this.confirm_registration(data)}
+								onError={error => this.catchError(error)}>
 							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
 								  	<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
