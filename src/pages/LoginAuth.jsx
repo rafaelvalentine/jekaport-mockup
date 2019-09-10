@@ -104,18 +104,14 @@ class LoginAuth extends Component  {
 		const { name, value } = event.target; // destructure name and value from target
 
 		// Regular expression to validate email
-		const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i); 
+		const validEmailRegex = RegExp(/\S+@\S+\.\S+/); 
 
-		let check_password = ((value) => {
-			if (value.length < 8) {
+		const check_password = ((value) => {
+			if (value.length < 6) {
 				return "Too short"
 			} else if (value.length > 50) {
 				return "Too long"
-			} else if (value.search(/\d/) == -1) {
-				return "Must contain a number"
-			} else if (value.search(/[a-zA-Z]/) == -1) {
-				return "Must contain a letter"
-			} else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
+			}else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
 				return "Contains a forbidden character"
 			}else {
 				return ""
@@ -124,7 +120,7 @@ class LoginAuth extends Component  {
 		
 		// this.setState({ [name]: value });
 		
-	    this.setState({ errors, [name]: value }, () => {
+	    this.setState({ errors, [name] : value }, () => {
 			if(name === "email") {
 				errors.email = validEmailRegex.test(email) ? "" : "Invalid email" // validate email
 			}

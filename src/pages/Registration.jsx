@@ -90,11 +90,6 @@ class Registration extends Component {
 	// methods	
 	onChange = event => { // destructure need properties from e.target
 	    const { name, value, checked } = event.target;
-	    // if(name === "termsAndPolicies" && checked === true){
-	    // 	this.setState({
-	    // 		termsAndPolicies: true // accept terms and condition
-	    // 	})
-	    // }
 	    this.setState({ [name]: value });
 	};
 
