@@ -104,14 +104,26 @@ class LoginAuth extends Component  {
 		const { name, value } = event.target; // destructure name and value from target
 
 		// Regular expression to validate email
-		const validEmailRegex = RegExp(/\S+@\S+\.\S+/); 
-
-		const check_password = ((value) => {
-			if (value.length < 6) {
+		const check_email = (value_len) => {
+			if (value_len.length < 5) {
 				return "Too short"
-			} else if (value.length > 50) {
+			}
+			if (value_len.split("").filter(x => x === "@").length !== 1) {
+				return "Should contain a @"
+			}
+			if (value_len.indexOf(".") === -1) {
+				return "Should contain at least one dot"
+			}else {
+				return ""
+			}
+		} 
+
+		const check_password = ((value_len) => {
+			if (value_len.length < 6) {
+				return "Too short"
+			} else if (value_len.length > 50) {
 				return "Too long"
-			}else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
+			}else if (value_len.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
 				return "Contains a forbidden character"
 			}else {
 				return ""
@@ -122,7 +134,7 @@ class LoginAuth extends Component  {
 		
 	    this.setState({ errors, [name] : value }, () => {
 			if(name === "email") {
-				errors.email = validEmailRegex.test(email) ? "" : "Invalid email" // validate email
+				errors.email = check_email(email) // validate email
 			}
 
 			if(name === "password") {
@@ -207,7 +219,7 @@ class LoginAuth extends Component  {
 											<div className="d-flex justify-content-center align-items-center mt-5">
 												<button type="button" 
 													onClick={() => {
-														//mutation() // call the mutation function send grapql data to db
+														mutation() // call the mutation function send grapql data to db
 														this.validateForm(this.state.errors) ? console.error("Invalid Form") : console.info("Valid Form")
 													}} 
 													style={styles.btnStyle} 

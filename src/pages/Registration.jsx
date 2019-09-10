@@ -89,7 +89,24 @@ class Registration extends Component {
 
 	// methods	
 	onChange = event => { // destructure need properties from e.target
-	    const { name, value, checked } = event.target;
+		let { errors, email, password } = this.state; // destructure errors from state
+		const { name, value, checked } = event.target;
+		
+		// Regular expression to validate email
+		const validEmailRegex = RegExp(/\S+@\S+\.\S+/); 
+
+		const check_password = ((value) => {
+			if (value.length < 6) {
+				return "Too short"
+			} else if (value.length > 50) {
+				return "Too long"
+			}else if (value.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
+				return "Contains a forbidden character"
+			}else {
+				return ""
+			}
+		})
+		
 	    this.setState({ [name]: value });
 	};
 
