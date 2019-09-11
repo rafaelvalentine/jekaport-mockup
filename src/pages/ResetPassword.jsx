@@ -47,19 +47,38 @@ const styles = {
 }
 
 
-// const RESET_PASSWORD_MUTATION = gql`
-//   mutation ResetPassword ($token: String!, $password: String!, $confirm: String ) {
-//     resetPassword ( input: { token: $token, password: $password, confirm: $confirm }) {
-//       token
-//     }
-//   }
-// `;
+const RESET_PASSWORD_MUTATION = gql`
+  mutation ResetPassword ($token: String!, $password: String!, $confirm: String ) {
+    resetPassword ( input: { token: $token, password: $password, confirm: $confirm }) {
+      token
+    }
+  }
+`;
 
 
 class ResetPassword extends Component {
 
 	state = {
-		visible: false
+		visible: false,
+		password: "",
+		confirm: ""
+	}
+
+	confirm_login = async data => {
+		// grab token
+		const { token } = data.login;
+		// store token
+		this.saveClientData(token);
+	}
+
+	catchError = async error => {
+		console.log(error)
+	}
+
+	handleSubmit = Reset_Password_Mutation => {
+		this.openModal()
+
+		// Reset_Password_Mutation() // send new password to server
 	}
 
 	openModal = () => {
@@ -78,6 +97,8 @@ class ResetPassword extends Component {
     }
 
 	render() {
+
+		const { password, confirm } = this.state
 
 		return (
 			<Password>
@@ -111,11 +132,7 @@ class ResetPassword extends Component {
 					                </div>
 				                </Modal>
 
-							  <div className="d-flex justify-content-center align-items-center mt-5">
-							  	<button type="button" onClick={() => this.openModal()} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">Submit</button>
-							  </div>
-
-							  {/* <Mutation
+							  <Mutation
 								mutation={RESET_PASSWORD_MUTATION}
 								variables={{ password, confirm }}
 								onCompleted={data => this.confirm_login(data)}
@@ -124,11 +141,11 @@ class ResetPassword extends Component {
 									<div className="d-flex justify-content-center align-items-center mt-5">
 										<button type="button" onClick={() => this.handleSubmit(mutation)} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom"
 										>
-										Sign In
+										Submit
 										</button>
 									</div>
 								)}
-							</Mutation> */}
+							</Mutation>
 
 							</form>
 						</div>

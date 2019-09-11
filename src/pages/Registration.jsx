@@ -93,9 +93,9 @@ class Registration extends Component {
 	onChange = event => { // destructure need properties from e.target
 		let { name, value, checked } = event.target
 
-		if(name = "termsAndPolicies" ){
-			value = checked
-		}
+		// if(name = "termsAndPolicies" ){
+		// 	value = checked
+		// }
 
 		this.setState({ [name]: value })
 	}

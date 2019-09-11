@@ -96,6 +96,10 @@ class LoginAuth extends Component  {
 
 	handleSubmit = (loginMutation) => {
 
+		const { loading } = this.state;
+
+		this.setState({ loading: true })
+		
 		const validate = (email, password) => {
 			const errors = [];
 
@@ -198,7 +202,8 @@ class LoginAuth extends Component  {
 											<div className="d-flex justify-content-center align-items-center mt-5">
 												<button type="button" onClick={() => this.handleSubmit(mutation)} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom"
 												>
-												Sign In
+												{!loading && <span>Sign In</span>}
+												{loading && <div className="spinner-grow" role="status"><span className="sr-only">Loading...</span></div>}
 												</button>
 											</div>
 										)}
