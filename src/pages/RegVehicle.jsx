@@ -96,12 +96,6 @@ class RegVehicle extends Component {
 	// methods	
 	onChange = event => { // destructure need properties from e.target
 	    let { name, value, checked, type } = event.target;
-	    if(name === "termsAndPolicies" && checked === true){
-	    	this.setState({
-	    		termsAndPolicies: true // accept terms and condition
-	    	})
-	    }
-
 	    this.setState({ [name]: type === "number" ? parseInt(value) : value }); // Todo
 	};
 
@@ -123,7 +117,7 @@ class RegVehicle extends Component {
 
 	 handleSubmit = regVehicleMutaion => {
 
-		const { email, password } = this.state;
+		const { email, password, loading } = this.state;
 
 		this.setState({ loading: true })
 		
@@ -147,14 +141,17 @@ class RegVehicle extends Component {
 
 		const errors = validate(email, password);
 		if (errors.length > 0) {
-		  this.setState({ errors });
+		  this.setState({ errors, loading: false });
 		  return;
 		}
 
 		regVehicleMutaion() // send company data to server
 	}
 	 
-
+	catchError = async error => {
+		console.log("The error:", error)
+	}
+	
 	render(){
 		//  destructure values from state to set form fields to control form
 		const { name, email, phoneNumber, type, driverLicenseNumber, plateNumber, model, seats, password, termsAndPolicies, errors, loading} = this.state;
