@@ -84,6 +84,7 @@ class LoginAuth extends Component  {
 	state = {
 		email: '',
 		password: '',
+		loading: false,
 		errors: []
 	}
 
@@ -149,7 +150,7 @@ class LoginAuth extends Component  {
 
 	render(){
 
-		const { errors, email, password } = this.state
+		const { errors, email, password, loading } = this.state
 
 		return (
 			<>
@@ -200,7 +201,7 @@ class LoginAuth extends Component  {
 											<div className="d-flex justify-content-center align-items-center mt-5">
 												<button type="button" onClick={() => this.handleSubmit(mutation)} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom"
 												>
-													Sign In
+												Sign In
 												</button>
 											</div>
 										)}
