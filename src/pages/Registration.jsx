@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 // apollo
-import { gql } from 'apollo-boost';
-import { Mutation } from 'react-apollo';
+import { gql } from 'apollo-boost'
+import { Mutation } from 'react-apollo'
 
 // components
-import Authentication from '../components/Authentication';
+import Authentication from '../components/Authentication'
 
 // auth
 import { AUTH_TOKEN } from '../constants'
 
 // images
-import bgImage from '../images/registration.svg';
+import bgImage from '../images/registration.svg'
 
 // pages
-import Title from '../components/Title';
+import Title from '../components/Title'
 
 const styles = {
 	formStyle: {
@@ -84,16 +84,20 @@ class Registration extends Component {
 		password: '',
 		rcNumber: '',
 		phoneNumber: '',
-		termsAndPolicies: false,
 		loading: false,
+		termsAndPolicies: false,
 		errors: []
 	}
 
 	// methods	
 	onChange = event => { // destructure need properties from e.target
-		const { name, value, checked } = event.target;
-		
-	    this.setState({ [name]: value });
+		let { name, value, checked } = event.target
+
+		if(name = "termsAndPolicies" ){
+			value = checked
+		}
+
+		this.setState({ [name]: value })
 	}
 
 	saveClientData = token => {
@@ -112,7 +116,7 @@ class Registration extends Component {
 
 	handleSubmit = regCompanyMutaion => {
 
-		const { email, password, loading } = this.state;
+		const { email, password, loading, termsAndPolicies } = this.state;
 
 		this.setState({ loading: true })
 		
@@ -129,6 +133,10 @@ class Registration extends Component {
 
 			if(!validPasswordRegex.test(password)){
 				errors.push("Password must contain 8 digit, one letter and one number")
+			}
+
+			if(!termsAndPolicies){
+				errors.push("You must agree to our terms and conditions to proceed")
 			}
 
 			return errors;
