@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import { Link } from 'react-router-dom';
 
+// apollo
+import { Mutation } from 'react-apollo'
+import { gql } from 'apollo-boost';
+
+// auth
+import { AUTH_TOKEN } from '../constants'
+
 // components
 import Title from '../components/Title';
 import Password from '../components/Passwords';
@@ -38,6 +45,16 @@ const styles = {
 	}
 
 }
+
+
+// const RESET_PASSWORD_MUTATION = gql`
+//   mutation ResetPassword ($token: String!, $password: String!, $confirm: String ) {
+//     resetPassword ( input: { token: $token, password: $password, confirm: $confirm }) {
+//       token
+//     }
+//   }
+// `;
+
 
 class ResetPassword extends Component {
 
@@ -97,6 +114,21 @@ class ResetPassword extends Component {
 							  <div className="d-flex justify-content-center align-items-center mt-5">
 							  	<button type="button" onClick={() => this.openModal()} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">Submit</button>
 							  </div>
+
+							  {/* <Mutation
+								mutation={RESET_PASSWORD_MUTATION}
+								variables={{ password, confirm }}
+								onCompleted={data => this.confirm_login(data)}
+								onError={error => this.catchError(error)}>
+								{(mutation) => (
+									<div className="d-flex justify-content-center align-items-center mt-5">
+										<button type="button" onClick={() => this.handleSubmit(mutation)} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom"
+										>
+										Sign In
+										</button>
+									</div>
+								)}
+							</Mutation> */}
 
 							</form>
 						</div>
