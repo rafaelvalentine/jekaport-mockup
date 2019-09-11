@@ -107,7 +107,6 @@ class RegVehicle extends Component {
 	}
 
 	confirm_registration = async data => {
-		console.log(data)
 		// grab token
 		const { token } = data.registerVechile;
 		// store token

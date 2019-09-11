@@ -104,7 +104,6 @@ class Registration extends Component {
 	}
 
 	confirm_registration = async data => {
-		console.log(data)
 		// grab token
 		const { token } = data.registerCompany;
 		// store token

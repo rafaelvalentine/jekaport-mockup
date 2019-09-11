@@ -134,7 +134,6 @@ class LoginAuth extends Component  {
 	}
 
 	confirm_login = async data => {
-		console.log(data)
 		// grab token
 		const { token } = data.login;
 		// store token
