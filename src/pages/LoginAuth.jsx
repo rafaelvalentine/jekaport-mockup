@@ -98,21 +98,19 @@ class LoginAuth extends Component  {
 
 		const validate = (email, password) => {
 			const errors = [];
+
+			const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
+			if(!validEmailRegex.test(email)){
+				errors.push("Email is invalid")
+			}
+
+			const validPasswordRegex = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
+
+			if(!validPasswordRegex.test(password)){
+				errors.push("Password must contain 8 digit, one letter and one number")
+			}
 			
-			if (email.length < 5) {
-				errors.push("Email should be at least 5 charcters long");
-			}
-			if (email.split("").filter(x => x === "@").length !== 1) {
-				errors.push("Email should contain a @");
-			}
-			if (email.indexOf(".") === -1) {
-				errors.push("Email should contain at least one dot");
-			}
-	
-			if (password.length < 6) {
-				errors.push("Password should be at least 6 characters long");
-			}
-	
 			return errors;
 		}
 
