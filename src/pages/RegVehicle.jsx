@@ -95,7 +95,10 @@ class RegVehicle extends Component {
 
 	// methods	
 	onChange = event => { // destructure need properties from e.target
-	    let { name, value, checked, type } = event.target;
+		let { name, value, checked, type } = event.target;
+		if(name = "termsAndPolicies" ){
+			value = checked
+		}
 	    this.setState({ [name]: type === "number" ? parseInt(value) : value }); // Todo
 	};
 
@@ -116,7 +119,7 @@ class RegVehicle extends Component {
 
 	 handleSubmit = regVehicleMutaion => {
 
-		const { email, password, loading } = this.state;
+		const { email, password, loading, termsAndPolicies } = this.state;
 
 		this.setState({ loading: true })
 		
@@ -133,6 +136,10 @@ class RegVehicle extends Component {
 
 			if(!validPasswordRegex.test(password)){
 				errors.push("Password must contain 8 digit, one letter and one number")
+			}
+
+			if(!termsAndPolicies){
+				errors.push("You must agree to our terms and conditions to proceed")
 			}
 			
 			return errors;
