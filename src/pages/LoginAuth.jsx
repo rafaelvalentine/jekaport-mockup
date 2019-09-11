@@ -141,7 +141,7 @@ class LoginAuth extends Component  {
 		this.saveClientData(token);
 	}
 
-	catchError = error => {
+	catchError = async error => {
 		console.log(error)
 	}
 

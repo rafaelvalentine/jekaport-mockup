@@ -88,7 +88,9 @@ class RegVehicle extends Component {
 		model: '',
 		seats: 0,
 		password: '',
-		termsAndPolicies: ''
+		termsAndPolicies: '',
+		loading: false,
+		errors: []
 	}
 
 	// methods	
@@ -119,9 +121,43 @@ class RegVehicle extends Component {
 	 }
 
 
+	 handleSubmit = regVehicleMutaion => {
+
+		const { email, password } = this.state;
+
+		this.setState({ loading: true })
+		
+		const validate = (email, password) => {
+			const errors = [];
+
+			const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
+			if(!validEmailRegex.test(email)){
+				errors.push("Email is invalid")
+			}
+
+			const validPasswordRegex = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
+
+			if(!validPasswordRegex.test(password)){
+				errors.push("Password must contain 8 digit, one letter and one number")
+			}
+			
+			return errors;
+		}
+
+		const errors = validate(email, password);
+		if (errors.length > 0) {
+		  this.setState({ errors });
+		  return;
+		}
+
+		regVehicleMutaion() // send company data to server
+	}
+	 
+
 	render(){
 		//  destructure values from state to set form fields to control form
-		const { name, email, phoneNumber, type, driverLicenseNumber, plateNumber, model, seats, password, termsAndPolicies } = this.state;
+		const { name, email, phoneNumber, type, driverLicenseNumber, plateNumber, model, seats, password, termsAndPolicies, errors, loading} = this.state;
 
 		return (
 			<>
@@ -198,15 +234,21 @@ class RegVehicle extends Component {
 							<Mutation 
 								mutation={VEHICLE_REGISTRATION} 
 								variables={{ name, email, phoneNumber, type, driverLicenseNumber, plateNumber, model, seats, password }}
-								onCompleted={data => this.confirm_registration(data)}>
+								onCompleted={data => this.confirm_registration(data)}
+								onError={error => this.catchError(error)}>
 							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
-								  	<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
-								  		Sign Up 
+								  	<button type="button" onClick={() => {this.handleSubmit(mutation)}} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
+									  	{!loading && <span>Submit</span>} 
+										{loading && <div className="spinner-grow" role="status"><span className="sr-only">Loading...</span></div>}
 							  		</button>
 								</div>
 							  )}
 							</Mutation>
+
+							{errors.map(error => (
+								<div className="my-md-4 my-sm-2 text-danger" key={error}> Error: { error } </div>
+							))}
 
 						</form>
 					</div>

@@ -84,7 +84,9 @@ class Registration extends Component {
 		password: '',
 		rcNumber: '',
 		phoneNumber: '',
-		termsAndPolicies: false
+		termsAndPolicies: false,
+		loading: false,
+		errors: []
 	}
 
 	// methods	
@@ -92,7 +94,7 @@ class Registration extends Component {
 		const { name, value, checked } = event.target;
 		
 	    this.setState({ [name]: value });
-	};
+	}
 
 	saveClientData = token => {
 		// store auth token to local storage
@@ -109,13 +111,46 @@ class Registration extends Component {
 		this.saveClientData(token);
 	}
 
+	handleSubmit = regCompanyMutaion => {
+
+		const { email, password, loading } = this.state;
+
+		this.setState({ loading: true })
+		
+		const validate = (email, password) => {
+			const errors = [];
+
+			const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
+			if(!validEmailRegex.test(email)){
+				errors.push("Email is invalid")
+			}
+
+			const validPasswordRegex = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
+
+			if(!validPasswordRegex.test(password)){
+				errors.push("Password must contain 8 digit, one letter and one number")
+			}
+
+			return errors;
+		}
+
+		const errors = validate(email, password);
+		if (errors.length > 0) {
+		  this.setState({ errors, loading: false });
+		  return;
+		}
+
+		regCompanyMutaion() // send company data to server
+	}
+
 	catchError = async error => {
 		console.log("The error:", error)
 	}
 
 	render(){
 		//  destructure values from state to set form fields to control form
-		const { name, email, address, phoneNumber,rcNumber, password, termsAndPolicies } = this.state;
+		const { name, email, address, phoneNumber,rcNumber, password, termsAndPolicies, errors, loading } = this.state;
 
 		return (
 			<>
@@ -181,12 +216,18 @@ class Registration extends Component {
 								onError={error => this.catchError(error)}>
 							  {(mutation) => (
 							    <div className="d-flex justify-content-center align-items-center mt-5">
-								  	<button type="button" onClick={mutation} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
-								  		Sign Up 
+								  	<button type="button" onClick={()=>{this.handleSubmit(mutation)}} style={styles.btnStyle} className="btn btn-lg btn-block btn-custom">
+								  		{!loading && <span>Sign Up</span>} 
+										{loading && <div className="spinner-grow" role="status"><span className="sr-only">Loading...</span></div>}
 							  		</button>
 								</div>
 							  )}
 							</Mutation>
+
+
+							{errors.map(error => (
+								<div className="my-md-4 my-sm-2 text-danger" key={error}> Error: { error } </div>
+							))}
 
 						</form>
 					</div>
