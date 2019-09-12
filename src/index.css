@@ -118,3 +118,42 @@ footer ul.footer-nav {
   }
   
 }
+
+.table th, .table td {
+  vertical-align: middle !important;
+}
+
+thead.curvedHead {
+  border-radius: 15px !important;
+}
+
+.btnCustom {
+  color: #FFFFFF !important;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px !important;
+}
+
+.btnDanger {
+  background: #B12024 !important;
+}
+
+.btnWarning{
+  background: #EBA215 !important;
+}
+
+.btnSuccess{
+  background: #078541 !important;
+}
+
+div#titleTag{
+  margin-left: -20px !important;
+}
+
+p#textTag{
+  margin-top: 0 !important;
+  margin-bottom: 1rem;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}

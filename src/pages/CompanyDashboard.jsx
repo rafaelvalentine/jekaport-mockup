@@ -3,6 +3,64 @@ import React, { Component } from 'react';
 // auth
 import { AUTH_TOKEN } from '../constants'
 
+// import bus temporarily
+import bus from '../images/bus.svg'
+
+const styles = {
+	table: {
+		background: "#FFFFFF",
+		boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+		borderRadius: "15px"
+	},
+	title: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "bold",
+		fontSize: "16px",
+		lineHeight: "19px",
+		color: "#006494"
+	},
+	tableBody: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: "16px",
+		lineHeight: "19px"
+	},
+	tableTitleBody: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: "24px",
+		lineHeight: "28px",
+		color: "rgba(0, 0, 0, 0.7)"
+	},
+	tableCell: {
+		verticalAlign: "middle"
+	},
+	titleTag: {
+		background: "#006494",
+		boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+		color: "#FFFFFF"
+	},
+	infoBox: {
+		background: "#FFFFFF",
+		boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+		borderRadius: "15px"
+	},
+	infoBoxTitle: {
+		fontSize: "14px",
+		lineHeight: "16px",
+		color: "#006494"
+	},
+	progressBar: {
+		opacity: "0.7",
+		border: "10px solid #1B98E0",
+		transform: "rotate(0.15deg)"
+	}
+	
+}
+
 
 class CompanyDashboard extends Component {
 
@@ -37,17 +95,17 @@ class CompanyDashboard extends Component {
 						<article className="col-sm-12 px-md-5 px-sm-2 py-md-4 py-sm-2">
 							<div className="row">
 								<div className="col-md-4 col-sm-12">
-									<div className="card">
+									<div className="card" style={styles.infoBox}>
 								      <div className="card-body">
 
-								      	<section className="d-flex flex-md-row flex-column justify-content-around text-center">
-								      		<div>
-								      			<p>TODAY</p>
+								      	<section className="d-flex flex-md-row flex-column justify-content-between text-center">
+								      		<div id="titleTag">
+								      			<p style={styles.titleTag} id="textTag">TODAY</p>
 								      			<img src="" alt="" />
 								      		</div>
 
 								      		<div>
-								      			<p>560</p>
+								      			<p style={styles.tableTitleBody}>560</p>
 								      			<p>Vehicle Listed</p>
 								      		</div>
 								      	</section>
@@ -58,17 +116,17 @@ class CompanyDashboard extends Component {
 
 
 								<div className="col-md-4 col-sm-12">
-									<div className="card">
+									<div className="card" style={styles.infoBox}>
 								      <div className="card-body">
 
-								      	<section className="d-flex flex-md-row flex-column justify-content-around text-center">
-								      		<div>
-								      			<p>TODAY</p>
+								      	<section className="d-flex flex-md-row flex-column justify-content-between text-center">
+								      		<div id="titleTag">
+								      			<p style={styles.titleTag} id="textTag">TODAY</p>
 								      			<img src="" alt="" />
 								      		</div>
 
 								      		<div>
-								      			<p>560</p>
+								      			<p style={styles.tableTitleBody}>200</p>
 								      			<p>Vehicle Listed</p>
 								      		</div>
 								      	</section>
@@ -79,17 +137,17 @@ class CompanyDashboard extends Component {
 
 
 								<div className="col-md-4 col-sm-12">
-									<div className="card">
+									<div className="card" style={styles.infoBox}>
 								      <div className="card-body">
 
-								      	<section className="d-flex flex-md-row flex-column justify-content-around text-center">
-								      		<div>
-								      			<p>TODAY</p>
+								      	<section className="d-flex flex-md-row flex-column justify-content-between text-center">
+								      		<div id="titleTag">
+								      			<p style={styles.titleTag} id="textTag">TODAY</p>
 								      			<img src="" alt="" />
 								      		</div>
 
 								      		<div>
-								      			<p>560</p>
+								      			<p style={styles.tableTitleBody}>20,800</p>
 								      			<p>Vehicle Listed</p>
 								      		</div>
 								      	</section>
@@ -108,26 +166,26 @@ class CompanyDashboard extends Component {
 								</div>
 
 								<div className="col-md-5 col-sm-12">
-									<div className="card">
+									<div className="card" style={styles.infoBox}>
 										<div className="card-body">
 
 											<section className="d-flex flex-column justify-content-around text-center">
-												<p className="text-center">Custom Feedback</p>
-												<p className="text-center">2,800</p>
+												<p className="text-center" style={styles.title}>Custom Feedback</p>
+												<p className="text-center" style={styles.tableTitleBody}>2,800</p>
 
 												<div className="progress m-md-3">
-												  <div className="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+												  <div className="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={styles.progressBar}></div>
 												</div>
 
 												<div className="d-flex flex-column flex-md-row justify-content-around mt-md-3">
 													<div>
-														<p>90%</p>
-														<p>Positive</p>
+														<p style={styles.tableTitleBody}>90%</p>
+														<p style={styles.infoBoxTitle}>Positive</p>
 													</div>
 
 													<div>
-														<p>10%</p>
-														<p>Negative</p>
+														<p style={styles.tableTitleBody}>10%</p>
+														<p style={styles.infoBoxTitle}>Negative</p>
 													</div>
 												</div>
 												
@@ -142,17 +200,17 @@ class CompanyDashboard extends Component {
 							<div className="row">
 								<div className="col-sm-12 table-responsive">
 
-									<table className="table">
+									<table className="table" style={styles.table}>
 										
-										<thead>
-											<tr>
-												<th colspan="7">
+										<thead style={styles.title} className="curvedHead">
+											<tr style={{borderRadius: "15px"}}>
+												<th colSpan="10" style={{borderRadius: "15px"}}>
 													Vehicle Listed
 												</th>
 											</tr>
 										</thead>
 										
-										<thead>
+										<thead style={styles.title}>
 											<tr>
 												<td></td>
 												<th scope="col">Types of Vehicle</th>
@@ -165,10 +223,10 @@ class CompanyDashboard extends Component {
 											</tr>
 										</thead>
 
-										<tbody>
+										<tbody style={styles.tableBody} className="">
 											<tr>
 												<td>
-													<img src="" alt="vehicle image" />
+													<img src={bus} alt="vehicle image" />
 												</td>
 												<td>Toyota Hiace</td>
 												<td>2007/XML9</td>
@@ -177,9 +235,61 @@ class CompanyDashboard extends Component {
 												<td>4:00am</td>
 												<td>12</td>
 												<td>
-													<button className="btn btn-small btn-success">Left</button>
+													<button className="btn btn-small btnCustom btnSuccess px-4">Left</button>
 												</td>
-												<td>@mdo</td>
+												<td>@</td>
+												<td>@</td>
+											</tr>
+
+											<tr>
+												<td>
+													<img src={bus} alt="vehicle image" />
+												</td>
+												<td>Toyota Hiace</td>
+												<td>2007/XML9</td>
+												<td>Lagos-Abuja</td>
+												<td>N13,000</td>
+												<td>4:00am</td>
+												<td>12</td>
+												<td>
+													<button className="btn btn-small btnCustom btnWarning px-4">Boarding</button>
+												</td>
+												<td>@</td>
+												<td>@</td>
+											</tr>
+
+											<tr>
+												<td>
+													<img src={bus} alt="vehicle image" />
+												</td>
+												<td>Toyota Hiace</td>
+												<td>2007/XML9</td>
+												<td>Lagos-Abuja</td>
+												<td>N13,000</td>
+												<td>4:00am</td>
+												<td>12</td>
+												<td>
+													<button className="btn btn-small btnCustom btnDanger px-4">Maintenance</button>
+												</td>
+												<td>@</td>
+												<td>@</td>
+											</tr>
+
+											<tr>
+												<td>
+													<img src={bus} alt="vehicle image" />
+												</td>
+												<td>Toyota Hiace</td>
+												<td>2007/XML9</td>
+												<td>Lagos-Abuja</td>
+												<td>N13,000</td>
+												<td>4:00am</td>
+												<td>12</td>
+												<td>
+													<button className="btn btn-small btnDanger btnCustom px-4">Maintenance</button>
+												</td>
+												<td>@</td>
+												<td>@</td>
 											</tr>
 										</tbody>
 
