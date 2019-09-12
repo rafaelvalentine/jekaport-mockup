@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 // apollo
 import { Mutation } from 'react-apollo'
@@ -13,20 +14,34 @@ const VERIFY_USER = gql`
 `
 // https://jekaport.com/auth/verify/5d7919c0857aba0007fcd988
 
-const Authenticator = ({match:{params}}) => {
+class Authenticator extends Component {
 
-  const { token } = params
+  state = { redirect: false }
+
+  redirect = (authStatus) => {
+    this.setState({redirect:true})
+    console.log(this.state.redirect)
+    console.log(authStatus, "auth status")
+ }
+
+  render() {
+    if(this.redirect){
+      return <Redirect to="/" />
+    }
+
+    const { token } = this.props.match.params
     console.log(token, "the token sir")
     
     return (
       <Mutation mutation={VERIFY_USER} variables={{ token }}>
         {(mutation) => {
           return (
-            <VerifyUser authenticateUser={mutation} />
+            <VerifyUser authenticateUser={mutation} redirect={this.redirect}/>
           )
         }}
       </Mutation>
     )
+  }
 }
 
 
@@ -38,7 +53,7 @@ class VerifyUser extends Component {
 
   authUser = async () => {
     let userStatus = await this.props.authenticateUser() // call the mutation
-    console.log(userStatus);
+    this.props.redirect(userStatus)
   }
 
   render() {
