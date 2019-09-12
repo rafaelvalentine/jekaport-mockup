@@ -57,6 +57,21 @@ const styles = {
 		opacity: "0.7",
 		border: "10px solid #1B98E0",
 		transform: "rotate(0.15deg)"
+	},
+	search: {
+		border: "1px solid rgba(0, 0, 0, 0.5)",
+		boxSizing: "border-box",
+		boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+		borderRadius: "3px"
+	},
+	searchText: {
+		fontFamily: "Roboto",
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: "13px",
+		lineHeight: "15px",
+		color: "rgba(0, 0, 0, 0.5)",
+		borderRadius: "3px"
 	}
 	
 }
@@ -78,7 +93,7 @@ class CompanyDashboard extends Component {
 								<p className="mx-md-4"><strong>Dashbaord &#124; Book</strong></p>
 
 								<div className="ml-auto">
-									<input className="" placeholder="Jul 31, 2019" />
+									<input className="searchInput" style={styles.search} placeholder="Jul 31, 2019" />
 								</div>
 								{authToken && (
 									<span 

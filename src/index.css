@@ -157,3 +157,14 @@ p#textTag{
   padding-top: 7px !important;
   padding-bottom: 7px !important;
 }
+
+input.searchInput::placeholder {
+  font-family: Roboto !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 13px !important;
+  line-height: 15px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 3px !important;
+  padding-left: 15px !important;
+}
