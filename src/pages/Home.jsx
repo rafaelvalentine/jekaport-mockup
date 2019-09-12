@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react'
 
 // components
-import BookTripForm from '../components/BookTripForm';
-import Carousel from '../components/Carousel';
+import BookTripForm from '../components/BookTripForm'
+import Carousel from '../components/Carousel'
+
+// verifyUser
 
 // images
 import HomeImg from '../images/Home.svg';
 
 
 const Home = () => {
+
 	return (
 		<>
 			<article className="row p-5">
@@ -28,10 +31,10 @@ const Home = () => {
 
 			<article className="row p-5">
 				<Carousel title="New Partners" />
-			</article>
-
+			</article>	
 		</>
 	);
+
 }
 
 export default Home;

@@ -71,6 +71,12 @@ class ResetPassword extends Component {
 		confirm: ""
 	}
 
+	componentDidMount(){
+		const { token } = this.props.match.params
+
+		// mutation();
+	}
+
 	confirm_login = async data => {
 		// grab token
 		const { token } = data.login;

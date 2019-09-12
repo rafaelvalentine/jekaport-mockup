@@ -22,6 +22,7 @@ import ResetPassword from './pages/ResetPassword.jsx';
 import SearchResults from './pages/SearchResult.jsx';
 import PickSeat from './components/PickSeat';
 import CompanyDashboard from './pages/CompanyDashboard';
+import Authenticator from './components/Authenticator';
 // import DriverDashboard from './pages/DriverDashboard';
 // import BusinessDetailDashboard from './pages/BusinessDetailDashboard';
 
@@ -32,11 +33,12 @@ function Router() {
 		<Switch>
 			<LayoutNav>	
 			{/* https://jekaport.com/auth/verify/5d7919c0857aba0007fcd988 */}
+				<Route exact path="/auth/verify/:token" component={Authenticator} />
 				<Route exact path="/registervehicle" component={RegVehicle} />
 				<Route exact path="/result" component={SearchResults} />
 				<Route exact path="/selectseat" component={PickSeat} />
 				<Route exact path="/forgotpassword" component={ForgotPassword} />
-				<Route exact path="/auth/verify/:token" component={ResetPassword} />
+				<Route exact path="/resetpassword" component={ResetPassword} />
 				<Route exact path="/register" component={Registration} />
 				<Route exact path="/login" component={LoginAuth} />
 				<Route exact path="/" component={Home} />
