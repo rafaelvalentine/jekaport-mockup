@@ -140,14 +140,31 @@ class CompanyDashboard extends Component {
 
 						<article className="col-sm-12 p-md-3 p-sm-2">
 							<div className="row">
-								<div className="col-sm-12">
-									<div className="card w-100">
-										<div className="card-body">
+								<div className="col-sm-12 table-responsive">
 
+									<table className="table">
 										
+										<thead>
+											<tr>
+												<th colspan="7">
+													Expand This To Full Table
+												</th>
+											</tr>
+										</thead>
+										
+										<thead>
+											<tr>
+												<th scope="col">Again</th>
+												<th scope="col">First</th>
+												<th scope="col">Last</th>
+												<th scope="col">Handle</th>
+												<th scope="col">Handle</th>
+												<th scope="col">Handle</th>
+												<th scope="col">Handle</th>
+											</tr>
+										</thead>
+									</table>
 
-										</div>
-									</div>
 								</div>
 							</div>
 						</article>
