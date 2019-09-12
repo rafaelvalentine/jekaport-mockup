@@ -147,22 +147,43 @@ class CompanyDashboard extends Component {
 										<thead>
 											<tr>
 												<th colspan="7">
-													Expand This To Full Table
+													Vehicle Listed
 												</th>
 											</tr>
 										</thead>
 										
 										<thead>
 											<tr>
-												<th scope="col">Again</th>
-												<th scope="col">First</th>
-												<th scope="col">Last</th>
-												<th scope="col">Handle</th>
-												<th scope="col">Handle</th>
-												<th scope="col">Handle</th>
-												<th scope="col">Handle</th>
+												<td></td>
+												<th scope="col">Types of Vehicle</th>
+												<th scope="col">Vehicle Mode</th>
+												<th scope="col">Route</th>
+												<th scope="col">Price</th>
+												<th scope="col">Departing Time</th>
+												<th scope="col">Seats Available</th>
+												<th scope="col">Status</th>
 											</tr>
 										</thead>
+
+										<tbody>
+											<tr>
+												<td>
+													<img src="" alt="vehicle image" />
+												</td>
+												<td>Toyota Hiace</td>
+												<td>2007/XML9</td>
+												<td>Lagos-Abuja</td>
+												<td>N13,000</td>
+												<td>4:00am</td>
+												<td>12</td>
+												<td>
+													<button className="btn btn-small btn-success">Left</button>
+												</td>
+												<td>@mdo</td>
+											</tr>
+										</tbody>
+
+
 									</table>
 
 								</div>
