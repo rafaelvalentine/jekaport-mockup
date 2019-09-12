@@ -12,7 +12,6 @@ const VERIFY_USER = gql`
 		}
 	}
 `
-// https://jekaport.com/auth/verify/5d7919c0857aba0007fcd988
 
 class Authenticator extends Component {
 
@@ -20,8 +19,6 @@ class Authenticator extends Component {
 
   redirect = (authStatus) => {
     this.setState({redirect:true})
-    console.log(this.state.redirect)
-    console.log(authStatus, "auth status")
  }
 
   render() {

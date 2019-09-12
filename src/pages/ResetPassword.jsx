@@ -48,12 +48,6 @@ const styles = {
 
 // https://jekaport.com/auth/verify/5d7919c0857aba0007fcd988
 
-
-// verifyUser(token:"dasdg4234"){
-//     token
-// }
-
-
 const RESET_PASSWORD_MUTATION = gql`
   mutation ResetPassword ($token: String!, $password: String!, $confirm: String ) {
     resetPassword ( input: { token: $token, password: $password, confirm: $confirm }) {
@@ -69,12 +63,6 @@ class ResetPassword extends Component {
 		visible: false,
 		password: "",
 		confirm: ""
-	}
-
-	componentDidMount(){
-		const { token } = this.props.match.params
-
-		// mutation();
 	}
 
 	confirm_login = async data => {

@@ -4,8 +4,6 @@ import React, { Component } from 'react'
 import BookTripForm from '../components/BookTripForm'
 import Carousel from '../components/Carousel'
 
-// verifyUser
-
 // images
 import HomeImg from '../images/Home.svg';
 
