@@ -23,6 +23,7 @@ import SearchResults from './pages/SearchResult.jsx';
 import PickSeat from './components/PickSeat';
 import CompanyDashboard from './pages/CompanyDashboard';
 import Authenticator from './components/Authenticator';
+import BusinessDetailDashboard from './pages/BusinessDetailDashboard';
 // import DriverDashboard from './pages/DriverDashboard';
 // import BusinessDetailDashboard from './pages/BusinessDetailDashboard';
 
@@ -43,6 +44,7 @@ function Router() {
 				<Route exact path="/login" component={LoginAuth} />
 				<Route exact path="/" component={Home} />
 				<Route exact path="/companydashboard" component={CompanyDashboard} />
+				<Route exact path="/businessdetaildashboard" component={BusinessDetailDashboard} />
 			</LayoutNav>
 			<Route component={NotFound} />
 		</Switch>

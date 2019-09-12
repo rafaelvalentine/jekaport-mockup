@@ -168,3 +168,13 @@ input.searchInput::placeholder {
   border-radius: 3px !important;
   padding-left: 15px !important;
 }
+
+div#badge {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+div#badgeAd {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
