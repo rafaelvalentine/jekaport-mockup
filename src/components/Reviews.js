@@ -18,7 +18,30 @@ const styles = {
 		fontSize: "24px",
 		lineHeight: "28px",
 		color: "#000000"
-	}
+    },
+    badgeDetailsText: {
+		fontWeight: "bold",
+		fontSize: "18px",
+		lineHeight: "21px",
+		color: "rgba(0, 0, 0, 0.4)"
+    },
+    badgeDetailReview: {
+		fontWeight: "bold",
+		fontSize: "48px",
+		lineHeight: "56px",
+		color: "#006494"
+    },
+    DetailReviewText: {
+		fontWeight: "bold",
+		fontSize: "14px",
+		lineHeight: "16px",
+		color: "rgba(0, 0, 0, 0.4)"
+    },
+    sortBy: {
+        // border: "0.5px solid rgba(0, 0, 0, 0.5)",
+        boxSizing: "borderBox",
+        borderRadius: "5px"
+    }
 }
 
 function Reviews() {
@@ -31,10 +54,33 @@ function Reviews() {
                 <section className="m-2">
                     <div class="card p-2">
                         <div class="card-body">
-                            <h4>Business Info</h4>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            </p>
+                            <article className="d-flex justify-content-between align-items-center">
+
+                                <div className="d-flex flex-column">
+                                    <h6 style={styles.badgeDetailsText}>Overall Rating</h6>
+                                    <div className="d-flex justiy-content-between" style={styles.badgeDetailReview}>
+                                        <p>4.5</p>
+                                        <div className="pl-md-4 pl-sm-2">
+                                            <span>***</span>
+                                            <h6 style={styles.DetailReviewText}>87 Reviews</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="">
+                                    <form>
+                                        <div className="form-group">
+                                            <select className="form-control px-md-4" id="sortBy" style={styles.sortBy}>
+                                                <option>Sort By</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </article>
                         </div>
                     </div>
                 </section>
