@@ -1,7 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // component 
 import Aside from './Aside'
+
+// images
+import Smile from '../images/Smile.svg'
 
 
 
@@ -41,6 +45,12 @@ const styles = {
         // border: "0.5px solid rgba(0, 0, 0, 0.5)",
         boxSizing: "borderBox",
         borderRadius: "5px"
+    },
+    emoticons: {
+        fontWeight: "bold",
+        fontSize: "20px",
+        lineHeight: "23px",
+        color: "#006494"
     }
 }
 
@@ -80,6 +90,85 @@ function Reviews() {
                                     </form>
                                 </div>
 
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="mx-2">
+                    <div class="card p-2 mt-4">
+                        <div class="card-body">
+                            <article className="d-flex justify-content-between align-items-center">
+
+                                <div className="col-sm-12 col-md-3">
+                                    <div class="d-flex flex-column aligin-items-between justify-content-center">
+                                        <img src={Smile} alt="Smiling icon" />
+                                        <p className="py-4" style={styles.emoticons}>3.5 <span>***</span></p>
+                                    </div>
+                                </div>
+
+                                <div className="col-sm-12 col-md-9">
+                                    <div className="d-flex flex-column">
+                                        <h6>John Doe</h6>
+                                        <p>
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+                                        </p>
+                                        <Link to="">Read more</Link>
+                                    </div>
+                                </div>
+                            
+                            </article>
+                        </div>
+                    </div>
+
+
+                    <div class="card p-2 mt-4">
+                        <div class="card-body">
+                            <article className="d-flex justify-content-between align-items-center">
+
+                                <div className="col-sm-12 col-md-3">
+                                    <div class="d-flex flex-column aligin-items-between justify-content-center">
+                                        <img src={Smile} alt="Smiling icon" />
+                                        <p className="py-4" style={styles.emoticons}>3.5 <span>***</span></p>
+                                    </div>
+                                </div>
+
+                                <div className="col-sm-12 col-md-9">
+                                    <div className="d-flex flex-column">
+                                        <h6>John Doe</h6>
+                                        <p>
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+                                        </p>
+                                        <Link to="">Read more</Link>
+                                    </div>
+                                </div>
+                            
+                            </article>
+                        </div>
+                    </div>
+
+
+                    <div class="card p-2 mt-4">
+                        <div class="card-body">
+                            <article className="d-flex justify-content-between align-items-center">
+
+                                <div className="col-sm-12 col-md-3">
+                                    <div class="d-flex flex-column aligin-items-between justify-content-center">
+                                        <img src={Smile} alt="Smiling icon" />
+                                        <p className="py-4" style={styles.emoticons}>3.5 <span>***</span></p>
+                                    </div>
+                                </div>
+
+                                <div className="col-sm-12 col-md-9">
+                                    <div className="d-flex flex-column">
+                                        <h6>John Doe</h6>
+                                        <p>
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+                                        </p>
+                                        <Link to="">Read more</Link>
+                                    </div>
+                                </div>
+                            
                             </article>
                         </div>
                     </div>

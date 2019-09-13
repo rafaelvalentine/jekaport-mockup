@@ -117,9 +117,9 @@ class BusinessDetailDashboard extends Component {
 				<section className="container my-md-5 my-sm-2">
 					<div className="row">
 	
-						{/* <Reviews /> */}
+						<Reviews />	
 						{/* <About /> */}
-						<Faqs />
+						{/* <Faqs /> */}
 						
 					</div>
 				</section>
