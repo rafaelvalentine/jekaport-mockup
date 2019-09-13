@@ -133,6 +133,10 @@ thead.curvedHead {
   border-radius: 4px !important;
 }
 
+.btn-ok {
+  background: #006494 !important;
+}
+
 .btnDanger {
   background: #B12024 !important;
 }

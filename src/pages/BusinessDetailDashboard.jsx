@@ -176,11 +176,13 @@ const BusinessDetailDashboard = () => {
 
 						<div className="col-sm-12 col-md-4 businessDetailAside">
 							<div className="" style={styles.businessDetailCol}>
-								<nav class="nav flex-column">
-									<a class="nav-link active" href="#">Active</a>
-									<a class="nav-link" href="#">Link</a>
-									<a class="nav-link" href="#">Link</a>
-									<a class="nav-link disabled" href="#">Disabled</a>
+								<nav class="nav flex-column p-md-4">
+									<a class="nav-link btn btn-block btnCustom btn-ok active" href="#">About</a>
+									<a class="nav-link btn btn-block btnCustom btn-ok" href="#">Business Hours</a>
+									<a class="nav-link btn btn-block btnCustom btn-ok" href="#">Reviews</a>
+									<a class="nav-link btn btn-block btnCustom btn-ok" href="#">Services</a>
+									<a class="nav-link btn btn-block btnCustom btn-ok" href="#">FAQs</a>
+									<a class="nav-link btn btn-block btnCustom btn-ok" href="#">Contact Us</a>
 								</nav>
 							</div>
 
