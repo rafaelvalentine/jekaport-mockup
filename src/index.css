@@ -187,3 +187,8 @@ div.businessDetailAside {
   flex: 0 0 35% !important;
   max-width: 35% !important;
 }
+
+div.faq-info {
+  flex: 0 0 23% !important;
+  max-width: 23% !important;
+}
