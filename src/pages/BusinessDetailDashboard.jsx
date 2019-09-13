@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // components
 import About from '../components/About'
 import Reviews from '../components/Reviews'
+import Faqs from '../components/Faqs'
 
 // auth
 import { AUTH_TOKEN } from '../constants'
@@ -117,7 +118,8 @@ class BusinessDetailDashboard extends Component {
 					<div className="row">
 	
 						{/* <Reviews /> */}
-						<About />
+						{/* <About /> */}
+						<Faqs />
 						
 					</div>
 				</section>
