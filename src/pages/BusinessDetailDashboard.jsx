@@ -54,6 +54,29 @@ const styles = {
 		boxSizing: "border-box",
 		boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 		borderRadius: "15px"
+	},
+	businessDetailCol: {
+		border: "1px solid rgba(0, 0, 0, 0.5)",
+		boxSizing: "border-box",
+		boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+		borderRadius: "15px",
+		marginBottom: "25px"
+	},
+	asideAd: {
+		fontWeight: "bold",
+		fontSize: "24px",
+		lineHeight: "28px",
+		color: "#000000"
+	},
+	businessDetailSubTitle: {
+		fontWeight: "bold",
+		fontSize: "18px",
+		lineHeight: "21px",
+		color: "#006494"
+	},
+	businessDestailSubText:{
+		fontSize: "14px", 
+		lineHeight: "16px"
 	}
 }
 
