@@ -28,16 +28,6 @@ const styles = {
 		fontSize: "24px",
 		lineHeight: "28px",
 		color: "#000000"
-	},
-	businessDetailSubTitle: {
-		fontWeight: "bold",
-		fontSize: "18px",
-		lineHeight: "21px",
-		color: "#006494"
-	},
-	businessDestailSubText:{
-		fontSize: "14px", 
-		lineHeight: "16px"
 	}
 }
 
