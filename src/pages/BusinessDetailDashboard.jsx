@@ -42,6 +42,12 @@ const styles = {
 		lineHeight: "56px",
 		color: "#006494"
 	},
+	DetailReviewText: {
+		fontWeight: "bold",
+		fontSize: "14px",
+		lineHeight: "16px",
+		color: "rgba(0, 0, 0, 0.4)"
+	},
 	badgeDetailBox: {
 		// border: "1px solid rgba(0, 0, 0, 0.5)",
 		boxSizing: "border-box",
@@ -54,6 +60,12 @@ const styles = {
 		boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 		borderRadius: "15px",
 		marginBottom: "25px"
+	},
+	asideAd: {
+		fontWeight: "bold",
+		fontSize: "24px",
+		lineHeight: "28px",
+		color: "#000000"
 	}
 }
 
@@ -78,14 +90,14 @@ const BusinessDetailDashboard = () => {
 									<p>Km. 25, Lorem way, Lokoja, Ngeria</p>
 									<p>09000000000, 08000000000</p>
 									<p style={styles.badgeDetailReview}>4.5<span>***</span></p>
-									<p>87 Reviews</p>
+									<p style={styles.DetailReviewText}>87 Reviews</p>
 								</article>
 
 								<article className="w-50">
 									<div class="card" style={styles.badgeDetailBox}>
 										<div class="card-body">
 											<div className="row d-flex justify-content-between p-md-4 p-sm-2">
-												<div><button className="btn btn-small btn-primary btn-block">Book</button></div>
+												<div><button className="btn btn-small btnCustom btn-ok btn-block">Book</button></div>
 												<div className="">
 													<p><span>icon</span> Share Url</p>
 													<div>
@@ -186,13 +198,30 @@ const BusinessDetailDashboard = () => {
 								</nav>
 							</div>
 
-							<div className="" style={styles.businessDetailCol}>
-								<nav class="nav flex-column">
-									<a class="nav-link active" href="#">Active</a>
-									<a class="nav-link" href="#">Link</a>
-									<a class="nav-link" href="#">Link</a>
-									<a class="nav-link disabled" href="#">Disabled</a>
-								</nav>
+							<div className="px-md-2 py-md-3" style={styles.businessDetailCol}>
+								<h3 className="text-center" style={styles.asideAd}>Milovita Travels Inc.</h3>
+								<div className="d-flex align-items-center justify-content-between">
+									<div className="img-wrapper">
+										<img src={milo} alt="milovita product" />
+									</div>
+
+									<div className="d-flex flex-column">
+										<div className="" style={styles.badgeDetailsText}>
+											<p>
+												<span>***</span> 
+												Bus &amp; Logistics Company
+											</p>
+										</div>
+
+										<div style={styles.badgeDetailReview}>
+											<p>
+												4.5
+												<span>***</span>
+											</p>
+										</div>
+										<p style={styles.DetailReviewText}>37 Reviews</p>
+									</div>
+								</div>
 							</div>							
 						</div>
 					</article>
