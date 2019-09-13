@@ -3,7 +3,6 @@ import React from 'react'
 // component 
 import Aside from './Aside'
 
-
 const styles = {
     businessDetailCol: {
 		border: "1px solid rgba(0, 0, 0, 0.5)",
@@ -18,23 +17,9 @@ const styles = {
 		lineHeight: "28px",
 		color: "#000000"
     },
-    badgeDetailsText: {
-		fontWeight: "bold",
-		fontSize: "18px",
-		lineHeight: "21px",
-		color: "rgba(0, 0, 0, 0.4)"
-    },
-    badgeDetailReview: {
-		fontWeight: "bold",
-		fontSize: "48px",
-		lineHeight: "56px",
-		color: "#006494"
-    },
-    DetailReviewText: {
-		fontWeight: "bold",
-		fontSize: "14px",
-		lineHeight: "16px",
-		color: "rgba(0, 0, 0, 0.4)"
+    header: {
+        marginLeft: "-25px",
+        marginRight: "-25px"
     }
 }
 
@@ -42,18 +27,40 @@ const styles = {
 
 
 
+
 function Contact() {
     return (
-        <article className="col-sm-12 p-2 d-flex justify-content-between">
-            <div style={styles.businessDetailCol} className="col-sm-12 col-md-8 p-4">
+        <>
+            <article className="col-sm-12 p-2 d-flex justify-content-between">
+                <div style={styles.businessDetailCol} className="col-sm-12 col-md-8 p-4">
 
-                <h1 style={styles.asideAd}>Contact Us</h1>
+                    <header className="title" style={styles.header}>
+                        <h1 className="px-md-5" style={styles.asideAd}>Contact Us</h1><hr/>
+                    </header>
 
-            </div>
-            
-            
-            <Aside />
-        </article>
+
+                    <section className="px-4 d-flex flex-column">
+                        <form>
+                            <div className="form-group my-md-4 my-sm-2">
+                                <input type="text" className="form-control p-md-4" id="formGroupExampleInput" placeholder="Example input" />
+                            </div>
+
+                            <div className="form-group my-md-4 my-sm-2">
+                                <input type="text" className="form-control p-md-4" id="formGroupExampleInput2" placeholder="Another input"  />
+                            </div>
+
+                            <div className="form-group my-md-4 my-sm-2">
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+                            </div>
+
+                            <button className="btn btn-block btnCustom btn-ok p-2">Send</button>
+                        </form>
+                    </section>
+                </div>
+
+                <Aside />
+            </article>
+        </>
     )
 }
 
