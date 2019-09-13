@@ -44,6 +44,22 @@ const styles = {
     header: {
         marginLeft: "-25px",
         marginRight: "-25px"
+    },
+    faqTitle: {
+        fontWeight: "bold",
+        fontSize: "18px",
+        lineHeight: "21px",
+        color: "#006494"
+    },
+    faqInfoBoxText: {
+        fontSize: "16px",
+        lineHeight: "19px",
+        color: "rgba(0, 0, 0, 0.7)"
+    },
+    faqGenAsked: {
+        fontWeight: "normal",
+        fontSize: "14px",
+        lineHeight: "16px"
     }
 }
 
@@ -61,7 +77,7 @@ function Faqs() {
                     <section className="row d-flex justify-content-end px-4">
                         <div className="col-sm-12 col-md-3">
 
-                            <button className="btn btn-block btn-primary">
+                            <button className="btn btn-block btnCustom btn-ok">
                                 Ask A Question
                             </button>
                             
@@ -69,7 +85,7 @@ function Faqs() {
                     </section>{/* Button end */}
 
                     <section className="px-4 d-flex flex-column">
-                        <h5 className="text-center py-md-4 py-sm-2">View FAQs By Topics</h5>
+                        <h5 className="text-center py-md-4 py-sm-2" style={styles.faqTitle}>View FAQs By Topics</h5>
 
                         <div className="row">
                             <div className="col-sm-12 d-flex justify-content-between">
@@ -77,7 +93,7 @@ function Faqs() {
                                     <div class="card-body">
                                         <article className="d-flex flex-column justify-content-center align-items-center h-100">
                                             <span>***</span>
-                                            <p>Payments</p>
+                                            <p style={styles.faqInfoBoxText}>Payments</p>
                                         </article>
                                     </div>
                                 </div>
@@ -86,7 +102,7 @@ function Faqs() {
                                     <div class="card-body">
                                         <article className="d-flex flex-column justify-content-center align-items-center h-100">
                                             <span>***</span>
-                                            <p>Services</p>
+                                            <p style={styles.faqInfoBoxText}>Services</p>
                                         </article>
                                     </div>
                                 </div>
@@ -95,7 +111,7 @@ function Faqs() {
                                     <div class="card-body">
                                         <article className="d-flex flex-column justify-content-center align-items-center h-100">
                                             <span>***</span>
-                                            <p>Bookings</p>
+                                            <p style={styles.faqInfoBoxText}>Bookings</p>
                                         </article>
                                     </div>
                                 </div>
@@ -105,15 +121,15 @@ function Faqs() {
                                     <div class="card-body">
                                         <article className="d-flex flex-column justify-content-center align-items-center h-100">
                                             <span>***</span>
-                                            <p>Terminals</p>
+                                            <p style={styles.faqInfoBoxText}>Terminals</p>
                                         </article>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="col-sm-12 d-flex flex-column align-items-center justify-content-center pt-md-5 pt-sm-2">
-                                <h4>Generally Asked Questions</h4>
-                                <p>
+                                <h4 style={styles.faqTitle}>Generally Asked Questions</h4>
+                                <p style={styles.faqGenAsked}>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  deserunt mollit anim id est laborum. 
                                 </p>
                             </div>
@@ -121,7 +137,7 @@ function Faqs() {
                     </section>
 
                     <section className="px-4 d-flex flex-column">
-                        <h5 className="text-center py-md-4 py-sm-2">View FAQs By Topics</h5>
+                        <h5 className="text-center py-md-4 py-sm-2" style={styles.faqTitle}>View FAQs By Topics</h5>
 
                         <div className="row">
                             <div className="col-sm-12">

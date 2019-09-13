@@ -120,8 +120,8 @@ class BusinessDetailDashboard extends Component {
 	
 						{/* <Reviews />	 */}
 						{/* <About /> */}
-						{/* <Faqs /> */}
-						<Contact />
+						<Faqs />
+						{/* <Contact /> */}
 					</div>
 				</section>
 			</>
