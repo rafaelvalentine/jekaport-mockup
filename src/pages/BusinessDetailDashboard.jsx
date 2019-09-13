@@ -52,7 +52,8 @@ const styles = {
 		border: "1px solid rgba(0, 0, 0, 0.5)",
 		boxSizing: "border-box",
 		boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-		borderRadius: "15px"
+		borderRadius: "15px",
+		marginBottom: "25px"
 	}
 }
 
@@ -109,9 +110,9 @@ const BusinessDetailDashboard = () => {
 			<section className="container my-md-5 my-sm-2">
 				<div className="row">
 
-					<article className="col-sm-12 p-2">
-						<div style={styles.businessDetailCol} className="col-sm-8 p-4">
-							
+					<article className="col-sm-12 p-2 d-flex justify-content-between">
+						<div style={styles.businessDetailCol} className="col-sm-12 col-md-8 p-4">
+
 							<h1>About Us</h1>
 
 							<section className="m-2">
@@ -171,6 +172,26 @@ const BusinessDetailDashboard = () => {
 									</div>
 								</div>
 							</section>
+						</div>
+
+						<div className="col-sm-12 col-md-4 businessDetailAside">
+							<div className="" style={styles.businessDetailCol}>
+								<nav class="nav flex-column">
+									<a class="nav-link active" href="#">Active</a>
+									<a class="nav-link" href="#">Link</a>
+									<a class="nav-link" href="#">Link</a>
+									<a class="nav-link disabled" href="#">Disabled</a>
+								</nav>
+							</div>
+
+							<div className="" style={styles.businessDetailCol}>
+								<nav class="nav flex-column">
+									<a class="nav-link active" href="#">Active</a>
+									<a class="nav-link" href="#">Link</a>
+									<a class="nav-link" href="#">Link</a>
+									<a class="nav-link disabled" href="#">Disabled</a>
+								</nav>
+							</div>							
 						</div>
 					</article>
 					

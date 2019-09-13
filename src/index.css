@@ -178,3 +178,8 @@ div#badgeAd {
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
+
+div.businessDetailAside {
+  flex: 0 0 35% !important;
+  max-width: 35% !important;
+}
