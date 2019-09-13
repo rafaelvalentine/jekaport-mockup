@@ -51,6 +51,16 @@ const styles = {
         fontSize: "20px",
         lineHeight: "23px",
         color: "#006494"
+    },
+	reviewTitle: {
+		fontWeight: "bold",
+		fontSize: "20px",
+		lineHeight: "23px"
+    },
+    reviewText: {
+        fontWeight: "normal",
+        fontSize: "14px",
+        lineHeight: "16px"
     }
 }
 
@@ -109,11 +119,11 @@ function Reviews() {
 
                                 <div className="col-sm-12 col-md-9">
                                     <div className="d-flex flex-column">
-                                        <h6>John Doe</h6>
-                                        <p>
+                                        <h6 style={styles.reviewTitle}>John Doe</h6>
+                                        <p style={styles.reviewText}>
                                             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
                                         </p>
-                                        <Link to="">Read more</Link>
+                                        <Link style={styles.emoticons} to="">Read more</Link>
                                     </div>
                                 </div>
                             
@@ -135,11 +145,11 @@ function Reviews() {
 
                                 <div className="col-sm-12 col-md-9">
                                     <div className="d-flex flex-column">
-                                        <h6>John Doe</h6>
-                                        <p>
+                                        <h6 style={styles.reviewTitle}>John Doe</h6>
+                                        <p style={styles.reviewText}>
                                             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
                                         </p>
-                                        <Link to="">Read more</Link>
+                                        <Link style={styles.emoticons} to="">Read more</Link>
                                     </div>
                                 </div>
                             
@@ -161,11 +171,11 @@ function Reviews() {
 
                                 <div className="col-sm-12 col-md-9">
                                     <div className="d-flex flex-column">
-                                        <h6>John Doe</h6>
-                                        <p>
+                                        <h6 style={styles.reviewTitle}>John Doe</h6>
+                                        <p style={styles.reviewText}>
                                             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
                                         </p>
-                                        <Link to="">Read more</Link>
+                                        <Link style={styles.emoticons} to="">Read more</Link>
                                     </div>
                                 </div>
                             
