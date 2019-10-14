@@ -12,34 +12,17 @@ export const Container = styled.div`
     flex-direction: ${props => props.direction ? props.direction : 'column'};
     justify-content:${props => props.justifyContent};
     align-items:${props => props.alignItems};
-    align-content:${props => props.alignContent};
+    align-content: ${props => props.alignContent};
     margin: ${props => props.margin};
     padding:${props => props.padding};
 `
 Container.defaultProps = {
-  width: '306px',
-  height: '308px'
+  width: '373px',
+  height: '106px',
+  boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25)',
+  borderRadius: '15px',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
-export const FixContainer = styled.div`
-display: flex;
-justify-content: flex-start;
-align-items:center;
-background:${props => props.theme.transparent};
-width: 100%;
-height: 100%;
-flex-wrap: wrap;
-`
 
-export const FixContainerAlt = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items:flex-start;
-background:${props => props.theme.transparent};
-width: 100%;
-padding: 8px 10px;
-max-height:120px;
-flex-wrap: nowrap;
-border:none;
-`

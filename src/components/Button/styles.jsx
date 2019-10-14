@@ -5,27 +5,26 @@ export const Container = styled.div`
     width: ${props => props.width};
     height: ${props => props.height};
     border-radius:${props => props.borderRadius};
-    border: 1px solid ${props => props.theme.orange};
+    border: 1px solid ${props => props.theme.blue};
     text-align: center;
     font-style: normal;
     font-weight: bold;
     font-size: ${props => props.fontSize};
-    line-height: 21px;
+    line-height: 16px;
     cursor: pointer;
-    color: ${props => props.theme.background};
-    background-color: ${props => props.theme.orange};
+    color: ${props => props.theme.whiteButton};
+    background-color: ${props => props.theme.blue};
     transition: .3s;
     display:flex;
     justify-content: center;
-    align-items: center;
-    // flex-direction:column;
+    align-items: center;   
 `
 Container.defaultProps = {
-  width: '200px',
-  height: '76px',
-  margin: '0',
-  borderRadius: '0px 5px 0px 0px',
-  fontSize: '10px'
+  width: '459px',
+  height: '43px',
+  margin: '40px auto',
+  borderRadius: '5px',
+  fontSize: '14px'
 }
 
 export const Content = styled.div`

@@ -1,18 +1,18 @@
 import React from 'react'
 
 // components
-import LoginForm from '../components/LoginForm'
-import Authentication from '../components/Authentication'
+import LoginForm from '../../components/LoginForm'
+import Authentication from '../../components/Authentication'
+import { Image } from '../../components/Picture'
 
 // images
-import bgImage from '../images/Login.svg'
+import bgImage from '../../images/Login.svg'
 
 // pages
-import Title from '../components/Title'
+import Title from '../../components/Title'
 
-// Style Components
-
-import { Wrapper } from '../theme/style/styles'
+// Generic Style Components
+import { Wrapper, SubWrapper } from '../../theme/style/styles'
 
 const styles = {
   titleStyle: {
@@ -51,23 +51,22 @@ const LoginAuth = () => {
     >
       <Title
         title='Welcome!'
-        classes='text-center'
-        subClasses='text-center'
         subTitle='Signup today and enjoy unlimited patronage'
-        titleStyle={styles.titleStyle}
-        subTitleStyle={styles.subTitleStyle}
       />
+      <section className='p-4'>
+        <SubWrapper>
+          {/* <div className='col-md-6 d-flex justify-content-center align-items-center'> */}
+          <Image src={bgImage}
+            width='250px'
+            height='200px'
+            margin='0 230px 0 0'
+            alt='Registration page background image' />
+          {/* </div> */}
 
-      <section className='m-5 p-4'>
-        <Authentication>
-          <div className='col-md-6 d-flex justify-content-center align-items-center'>
-            <img src={bgImage} alt='Registration page background image' />
-          </div>
-
-          <div style={styles.RegFormBorder} className='col-md-6 p-5'>
-            <LoginForm />
-          </div>
-        </Authentication>
+          {/* <div style={styles.RegFormBorder} className='col-md-6 p-5'> */}
+          <LoginForm />
+          {/* </div> */}
+        </SubWrapper>
       </section>
     </Wrapper>
   )

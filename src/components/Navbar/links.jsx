@@ -70,7 +70,7 @@ Links.defaultProps = {
     },
     {
       id: '4',
-      link: 'register-a-vehicle',
+      link: 'register/vehicle',
       address: 'Register a vehicle'
     }
   ]

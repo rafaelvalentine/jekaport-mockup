@@ -46,11 +46,7 @@ const Registration = () => {
 		<>
 			<Title 
 				title="Become A Partner" 
-				classes="text-center"
-				subClasses="text-center"
 				subTitle="Signup today and enjoy unlimited patronage" 
-				titleStyle={styles.titleStyle}
-				subTitleStyle={styles.subTitleStyle}
 			/>
 
 			<Authentication>

@@ -14,7 +14,21 @@ margin: ${props => props.margin};
 cursor: ${props => props.cursor ? props.cursor : 'auto'};
 transform:rotate(${props => props.rotate});
 `
-
+const IMG = styled.img.attrs(props => ({
+  src: props.src,
+  width: props.width || '40px',
+  height: props.height || '40px',
+  margin: props.margin || '0',
+  borderRadius: '0'
+}))`
+width: ${props => props.width};
+height: ${props => props.height};
+margin: ${props => props.margin};
+cursor: ${props => props.cursor ? props.cursor : 'auto'};
+align-self: ${props => props.alignSelf};
+border-radius: ${props => props.borderRadius};
+transform:rotate(${props => props.rotate});
+`
 // const AdminIMG = styled.img.attrs(props => ({
 //   src: props.src,
 //   width: props.width || '40px',
@@ -68,6 +82,7 @@ transform:rotate(${props => props.rotate});
 // cursor: pointer;
 // `
 export const Logo = ({ clicked, ...props }) => <LogoIMG onClick={clicked} {...props} />
+export const Image = ({ ...props }) => <IMG {...props} />
 // export const Admin = ({ ...props }) => <AdminIMG {...props} />
 // export const User = ({ image, ...props }) => <UserIMG src={image || require('../../assets/images/default_user.jpg')}{...props} />
 // export const DatePickerImage = ({ ...props }) => <DatePickerIMG {...props} />

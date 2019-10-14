@@ -145,12 +145,12 @@ export const UnderLinedBox = styled.div`
      */
 export const MainInput = styled.input`
     width: ${props => props.width};
-    border: 1px solid transparent;
-    border-bottom: 1px solid #909090;
+    border: 1px solid ${props => props.theme.inputBorder};
+    border-radius: 5px;
     height: ${props => props.height};
     background:${props => props.theme.transparent};
     padding: 12px 18px;
-    margin:${props => props.margin};
+    margin:${props => props.inputMargin};
     font-style: normal;
     font-weight: normal;
     font-size: ${props => props.fontSize ? props.fontSize : '14px'};
@@ -168,8 +168,9 @@ export const MainInput = styled.input`
     }
 `
 MainInput.defaultProps = {
-  width: '220px',
-  height: '40px'
+  width: '459px',
+  height: '43px',
+  inputMargin: '0'
 }
 
 export const SearchInput = styled(MainInput)`
@@ -198,7 +199,7 @@ NoLabelInput.defaultProps = {
 }
 export const MainLabelContainer = styled.label`
     display: block;
-    margin: 0 50px;
+    margin:${props => props.margin ? props.margin : '0 50px'};
   
 `
 export const MainLabelContainerAlt = styled.div`
@@ -228,7 +229,7 @@ export const PaymentLabelPair = styled.div`
 export const Select = styled.select`
     width: ${props => props.width};
     height: ${props => props.height};
-    margin: ${props => props.margin};
+    margin: ${props => props.seletMargin};
     border: 1px solid ${props => props.altBorder ? props.altBorder : props.theme.actions};
     background: transparent;
     padding: 8px;
@@ -253,7 +254,7 @@ export const Select = styled.select`
 Select.defaultProps = {
   width: '135px',
   height: '40px',
-  margin:'0 4px'
+  seletMargin: '0'
 }
 export const TxtArea = styled.textarea`
     border: 1px solid transparent;

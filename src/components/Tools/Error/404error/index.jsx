@@ -1,8 +1,6 @@
 import React from 'react'
 import './styles.css'
 
-
-
 const ErrorPage = props => {
   const goBack = e => {
     e.preventDefault()
@@ -15,10 +13,13 @@ const ErrorPage = props => {
   return (
     <div id='error404'>
       {/* <SVG /> */}
-      <img src={require('../../../../assets/images/404error.svg')} alt='' />
+      {/* <img src={require('../../../../assets/images/404error.svg')} alt='' /> */}
       <div className='message-box'>
-        <h1>404</h1>
-        <p>Page not found</p>
+        <div className='message-text-div'>
+          <h1>404</h1>
+          <p>Oops! The page you are looking for doesn't exist</p>
+        </div>
+
         <div className='buttons-con'>
           <div className='action-link-wrap'>
             <a onClick={goBack} href='/' className='link-button link-back-button'>Go Back</a>

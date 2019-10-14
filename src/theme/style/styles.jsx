@@ -12,7 +12,7 @@ height:100%;
 display: flex;
 justify-content: ${props => props.justifyContent ? props.justifyContent : 'center'};
 align-items:${props => props.alignItems ? props.alignItems : 'center'};
-padding:${props => props.padding ? props.padding : '0'};
+padding:${props => props.padding ? props.padding : '60px 0 0'};
 flex-wrap ${props => props.flexWrap ? props.flexWrap : 'wrap'};
 margin:0 auto;
 `
@@ -22,7 +22,7 @@ width:100%;
 flex-direction: column;
 justify-content: ${props => props.justifyContent ? props.justifyContent : 'center'};
 align-items:${props => props.alignItems ? props.alignItems : 'center'};
-padding:${props => props.padding ? props.padding : '60px 0 '};
+padding:${props => props.padding ? props.padding : '60px 0 0'};
 flex-wrap ${props => props.flexWrap ? props.flexWrap : 'wrap'};
 `
 

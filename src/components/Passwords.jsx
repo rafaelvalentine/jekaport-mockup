@@ -1,16 +1,12 @@
 import React from 'react'
 
 const Passwords = ({ children }) => {
-    return ( <
+  return (<
         >
-        <
-        section className = 'container' >
-        <
-        div className = 'row vh-100 align-items-center' > { children } <
-        /div> <
-        /section> <
+    <section className='container' >
+        <div className='row vh-100 align-items-center' > { children } </div> </section> <
         />
-    )
+  )
 }
 
 export default Passwords

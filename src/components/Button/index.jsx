@@ -6,12 +6,12 @@ import * as ButtonStyle from './styles'
 
 const Content = ({ content, ...props }) => (
   <ButtonStyle.Content { ...props }>
-    { content } <Logo src={require('../../assets/images/right-arrow.svg')} width='22px' height='8px' />
+    { content }
   </ButtonStyle.Content>
 )
-const Button = ({ content, clicked, loading, ...props }) => {
+const Button = ({ content, onClick, loading, ...props }) => {
   return (
-    <ButtonStyle.Container disabled={loading} onClick={clicked} {...props}>
+    <ButtonStyle.Container disabled={loading} onClick={onClick} {...props}>
       { loading ? <Spinner /> : <Content content={content} justifyContent={props.justifyContent} /> }
     </ButtonStyle.Container>
   )
