@@ -55,7 +55,8 @@ export const LoginForm = ({ ...props }) => {
   return (
     <CardWrapper
       width='642px'
-      height='390px'
+      height='350px'
+      { ...props }
     >
       <FormWrapper>
         <Input.Main label='Email'
@@ -64,7 +65,7 @@ export const LoginForm = ({ ...props }) => {
           type='email'
           value={props.inputs.email}
           onChange={props.onChange}
-          margin='50px auto 25px'
+          margin='30px auto 25px'
         />
         <Input.Main label='Password'
           placeholder='EnterPassword'
@@ -72,9 +73,9 @@ export const LoginForm = ({ ...props }) => {
           type='password'
           value={props.inputs.password}
           onChange={props.onChange}
-          margin='25px auto'
+          margin='25px auto 0'
         />
-        <Button content='SUBMIT' onClick={props.onClick} />
+        <Button content='SUBMIT' onClick={props.onClick} margin='40px auto 10px' />
         <ForgetPassword>
             Forgot Password?
         </ForgetPassword>

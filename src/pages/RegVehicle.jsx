@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-import React from 'react'
+import React,{ Component } from 'react'
 
 // components
 import RegVehicleForm from '../components/RegVehicleForm'
 import Authentication from '../components/Authentication'
-=======
-import React, { Component } from 'react';
-
-// components
-import Authentication from '../components/Authentication';
->>>>>>> dashboard
 
 // apollo
 import { gql } from 'apollo-boost';
@@ -22,60 +15,6 @@ import { AUTH_TOKEN } from '../constants'
 import bgImage from '../images/regVehicle.svg'
 
 // pages
-<<<<<<< HEAD
-import Title from '../components/Title'
-
-const styles = {
-  titleStyle: {
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    fontSize: '36px',
-    lineHeighteight: '42px',
-    color: '#006494',
-    textAlign: 'center',
-    marginTop: '50px'
-
-  },
-
-  subTitleStyle: {
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: '24px',
-    lineHeight: '28px',
-    color: '#65617D',
-    textAlign: 'center'
-  },
-
-  RegFormBorder: {
-    background: '#FFFFFF',
-    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.25)',
-    borderRadius: '15px'
-  }
-
-}
-
-const RegVehicle = () => {
-  return (
-		<>
-  <Title
-    title='Register Your Vehicle'
-    subTitle='Signup today and enjoy unlimited patronage'
-  />
-
-  <Authentication>
-    <div className='col-md-6 d-flex justify-content-center align-items-center'>
-  <img src={bgImage} alt='Registration page background image' />
-			  </div>
-
-    <div style={styles.RegFormBorder} className='col-md-6 p-5'>
-  <RegVehicleForm />
-			  </div>
-  </Authentication>
-		</>
-  )
-=======
 import Title from '../components/Title';
 
 const styles = {
@@ -295,7 +234,7 @@ class RegVehicle extends Component {
 									<span className="text-muted">I accept the</span><span style={styles.formStyle}> Terms & Policies</span>
 								</label>
 							</div>
-
+{/* 
 							<Mutation 
 								mutation={VEHICLE_REGISTRATION} 
 								variables={{ name, email, phoneNumber, type, driverLicenseNumber, plateNumber, model, seats, password }}
@@ -313,7 +252,7 @@ class RegVehicle extends Component {
 
 							{errors.map(error => (
 								<div className="my-md-4 my-sm-2 text-danger" key={error}> Error: { error } </div>
-							))}
+							))} */}
 
 						</form>
 					</div>
@@ -321,7 +260,6 @@ class RegVehicle extends Component {
 			</>
 		)
 	}
->>>>>>> dashboard
 }
 
 export default RegVehicle

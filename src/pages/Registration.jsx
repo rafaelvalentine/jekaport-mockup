@@ -125,27 +125,6 @@ class Registration extends Component {
 
 			const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
-<<<<<<< HEAD
-const Registration = () => {
-	return (
-		<>
-			<Title 
-				title="Become A Partner" 
-				subTitle="Signup today and enjoy unlimited patronage" 
-			/>
-
-			<Authentication>
-				<div className="col-md-6 d-flex justify-content-center align-items-center">
-					<img src={bgImage} alt="Registration page background image" />
-				</div>
-
-				<div style={styles.RegFormBorder} className="col-md-6 p-5">
-					<RegForm />
-				</div>
-			</Authentication>
-		</>
-	)
-=======
 			if(!validEmailRegex.test(email)){
 				errors.push("Email is invalid")
 			}
@@ -263,7 +242,6 @@ const Registration = () => {
 			</>
 		)
 	}
->>>>>>> dashboard
 }
 
 export default Registration;

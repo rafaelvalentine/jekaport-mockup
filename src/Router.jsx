@@ -11,13 +11,18 @@ import Footer from './components/Footer'
 
 // pages
 // import Home from './pages/Home.jsx'
+import Home from './pages/Home.jsx'
 import NotFound from './components/Tools/Error/404error'
 import Registration from './pages/Registration.jsx'
 import RegVehicle from './pages/RegVehicle.jsx'
-import LoginAuth from './pages/Login/LoginAuth.jsx'
+import LoginAuth from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
-
+import SearchResults from './pages/SearchResult.jsx'
+import PickSeat from './components/PickSeat'
+import CompanyDashboard from './pages/CompanyDashboard'
+import Authenticator from './components/Authenticator'
+import BusinessDetailDashboard from './pages/BusinessDetailDashboard'
 function Router () {
   return (
     <>
@@ -28,6 +33,13 @@ function Router () {
         <Route exact path='/login/forgotpassword' component={ForgotPassword} />
         <Route exact path='/login/resetpassword' component={ResetPassword} />
         <Route exact path='/login' component={LoginAuth} />
+        <Route exact path='/auth/verify/:token' component={Authenticator} />
+        <Route exact path='/result' component={SearchResults} />
+        <Route exact path='/selectseat' component={PickSeat} />
+        <Route exact path='/' component={Home} />
+        {/* <Route exact path="/home" component={Home} /> */}
+        <Route exact path='/companydashboard' component={CompanyDashboard} />
+        <Route exact path='/businessdetaildashboard' component={BusinessDetailDashboard} />
         {/* <Route exact path='/' component={Home} /> */}
         <Route component={NotFound} />
       </Switch>

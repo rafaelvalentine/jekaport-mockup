@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import * as Page from './styles'
-import { Logo } from '../Picture'
+// import { Logo } from '../Picture'
 
 const NavLinks = ({ img, img2, address, link, activeOnlyWhenExact }) => {
   let _link = `/${link}`
@@ -24,22 +24,8 @@ const NavLinks = ({ img, img2, address, link, activeOnlyWhenExact }) => {
 }
 export const Links = props => {
   const Navlink = props.links.map(link => {
-    return <NavLinks key={link.id} {...link} />
+    return <NavLinks key={link.id} {...link} activeOnlyWhenExact={true}/>
   })
-  // const NavlinkWhite = props.linksWhite.map(link => {
-  //   return <NavLinks key={link.id} {...link} />
-  // })
-  // const NavlinkBlack = props.linksBlack.map(link => {
-  //   return <NavLinks key={link.id} {...link} />
-  // })
-  // let navlink = Navlink
-
-  // if (props.altNavbar === 'white') {
-  //   navlink = NavlinkWhite
-  // }
-  // if (props.altNavbar === 'black') {
-  //   navlink = NavlinkBlack
-  // }
   return (
     <Page.NavLink>
       <ul>
@@ -55,7 +41,7 @@ Links.defaultProps = {
   links: [
     {
       id: '1',
-      link: 'home',
+      link: '',
       address: 'Home'
     },
     {
