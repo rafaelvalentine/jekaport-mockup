@@ -41,7 +41,7 @@ const styles = {
 }
 
 
-const BookTripForm = () => {
+const BookTripAsideForm = () => {
 
 	return (
 		<>
@@ -50,25 +50,23 @@ const BookTripForm = () => {
 
 					<h2 className="text-center" style={styles.title}>Book a Trip</h2>
 
-					<div className="form-row py-3">
-						<div className="col-md px-2">
+						<div className="form-group px-2">
 							<label style={styles.formStyle} htmlFor="fromWhere">From Where?</label>
 							<input type="text" className="form-control" placeholder="e.g Victoria Island, Lagos"  style={styles.inputStyle}/>
 						</div>
 
-						<div className="col-md px-2">
+
+						<div className="form-group px-2">
 							<label style={styles.formStyle} htmlFor="toWhere">To Where?</label>
 							<input type="text" className="form-control" placeholder="Ring road, Ibadan"  style={styles.inputStyle}/>
 						</div>
-					</div>
 
-					<div className="form-row py-3">
-						<div className="col-md px-2">
+						<div className="form-group px-2">
 							<label style={styles.formStyle} htmlFor="when">When?</label>
 							<input type="text" className="form-control" placeholder="12, September 2019"  style={styles.inputStyle}/>
 						</div>
 
-						<div className="col-md px-2">
+						<div className="form-group px-2">
 							<label style={styles.formStyle} htmlFor="typeOfTrip">Type Of Trip?</label>
 							<select type="select" className="form-control" placeholder="One way trip" style={styles.inputStyle}>
 								<option>Select</option>
@@ -76,7 +74,6 @@ const BookTripForm = () => {
 								<option>Two Way</option>
 							</select>
 						</div>
-					</div>
 
 					<div className="form-check">
 						<input className="form-check-input" type="checkbox" value="" id="termsAndPolicies" />
@@ -96,4 +93,4 @@ const BookTripForm = () => {
 
 }
 
-export default BookTripForm;
+export default BookTripAsideForm;

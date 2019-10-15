@@ -72,3 +72,190 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+
+
+/*Mobile Styling*/
+
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    h1#generalTitle {
+        font-size: 24px !important;
+        line-height: 28px !important;
+    }
+    h5#generalSubTitle {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    h2.formHeader {
+        display: none !important;
+    }
+    label.mobileLable {
+        font-size: 14px !important;
+        line-height: 16px !important;
+    }
+    div.mobileNav {
+        border-radius: 5px !important;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px !important;
+        padding: 10px !important;
+    }
+}
+
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    h1#generalTitle {
+        font-size: 24px !important;
+        line-height: 28px !important;
+    }
+    h5#generalSubTitle {
+        font-size: 12px !important;
+        line-height: 14px !important;
+    }
+    h2.formHeader {
+        display: none !important;
+    }
+    label.mobileLable {
+        font-size: 14px !important;
+        line-height: 16px !important;
+    }
+    div.mobileNav {
+        border-radius: 5px !important;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px !important;
+        padding: 10px !important;
+    }
+}
+
+
+/*Setting Global Styles*/
+
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+button,
+article,
+section {
+    font-family: Roboto !important;
+    font-style: normal !important;
+}
+
+
+/*Footer styles*/
+
+footer ul.footer-nav {
+    list-style: none;
+}
+
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    footer ul.footer-nav {
+        display: none !important;
+    }
+}
+
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    footer ul.footer-nav {
+        display: none !important;
+    }
+}
+
+.table th,
+.table td {
+    vertical-align: middle !important;
+}
+
+thead.curvedHead {
+    border-radius: 15px !important;
+}
+
+.btnCustom {
+    color: #FFFFFF !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px !important;
+}
+
+.btn-ok {
+    background: #006494 !important;
+}
+
+.btnDanger {
+    background: #B12024 !important;
+}
+
+.btnWarning {
+    background: #EBA215 !important;
+}
+
+.btnSuccess {
+    background: #078541 !important;
+}
+
+div#titleTag {
+    margin-left: -20px !important;
+}
+
+p#textTag {
+    margin-top: 0 !important;
+    margin-bottom: 1rem;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+}
+
+input.searchInput::placeholder {
+    font-family: Roboto !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 13px !important;
+    line-height: 15px !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 3px !important;
+    padding-left: 15px !important;
+}
+
+div#badge {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+div#badgeAd {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+div.businessDetailAside {
+    flex: 0 0 35% !important;
+    max-width: 35% !important;
+}
+
+div.faq-info {
+    flex: 0 0 23% !important;
+    max-width: 23% !important;
+}

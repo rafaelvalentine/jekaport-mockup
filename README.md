@@ -66,3 +66,14 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+#TODO:
+
+1. Comment ```code```
+2. delete sponsoredCarousel and use dynamically Carousel Component
+3. Make Carousel Component dynamic using children props
+4. Huge testing on Mobile and Tablets views needed
+5. Using images on mobile esp on booking component
+6. Reuseable styling using class in React
+7. PickSeat Modal when state is ready
