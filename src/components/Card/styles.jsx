@@ -26,3 +26,23 @@ Container.defaultProps = {
 }
 
 
+export const SeatWrapper = styled.div`
+position: relative;
+cursor: pointer;
+`
+export const SeatNumber = styled.span`
+position: absolute;
+top:12px;
+left:8px;
+width: 15px;
+height: 15px;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 12px;
+color: ${props => props.theme.blue};
+border: .5px solid ${props => props.theme.blue};
+border-radius: 50px;
+text-align: center;
+`

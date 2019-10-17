@@ -53,11 +53,6 @@ Links.defaultProps = {
       id: '3',
       link: 'become-a-part',
       address: 'Become a part'
-    },
-    {
-      id: '4',
-      link: 'register/vehicle',
-      address: 'Register a vehicle'
     }
   ]
 }

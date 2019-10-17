@@ -8,27 +8,27 @@ import Navbar from './components/Navbar'
 
 // Footer
 import Footer from './components/Footer'
+//Components 
 
+import Authenticator from './components/Authenticator'
 // pages
-// import Home from './pages/Home.jsx'
 import Home from './pages/Home.jsx'
 import NotFound from './components/Tools/Error/404error'
 import Registration from './pages/Registration.jsx'
-import RegVehicle from './pages/RegVehicle.jsx'
+// import RegVehicle from './pages/RegVehicle.jsx'
 import LoginAuth from './pages/Login'
+import PickSeat from './pages/PickASeat'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import SearchResults from './pages/SearchResult.jsx'
-import PickSeat from './components/PickSeat'
 import CompanyDashboard from './pages/CompanyDashboard'
-import Authenticator from './components/Authenticator'
 import BusinessDetailDashboard from './pages/BusinessDetailDashboard'
 function Router () {
   return (
     <>
       <Navbar />
       <Switch >
-        <Route exact path='/register/vehicle' component={RegVehicle} />
+        {/* <Route exact path='/register/vehicle' component={RegVehicle} /> */}
         <Route exact path='/register' component={Registration} />
         <Route exact path='/login/forgotpassword' component={ForgotPassword} />
         <Route exact path='/login/resetpassword' component={ResetPassword} />
