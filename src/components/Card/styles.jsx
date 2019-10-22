@@ -28,7 +28,6 @@ Container.defaultProps = {
 
 export const SeatWrapper = styled.div`
 position: relative;
-cursor: pointer;
 `
 export const SeatNumber = styled.span`
 position: absolute;

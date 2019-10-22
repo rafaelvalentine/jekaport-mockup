@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { device } from '../../components/device'
 
 export const Header = styled.h1`
-    font-size: 36px;
-    line-height: 42px;
+    font-size: ${props => props.altHeader ? '24px' : '36px'};
+    line-height: ${props => props.altHeader ? '28px' : '42px'};
     font-weight: 700;
-    color: ${props => props.theme.blue};
+    color: ${props => props.theme.black};
     text-align:${props => props.textAlignHeader};
     margin:${props => props.marginHeader ? props.marginHeader : ' 0 0 17px'};
 `
@@ -39,7 +39,7 @@ export const SubLabel = styled.h1`
 
 export const BoldLabel = styled(SubLabel)`
     text-align: ${props => props.textAlign ? props.textAlign : 'left' } !important;
-    color: ${props => props.theme.blue};
+    color: ${props => props.theme.grayText};
     margin-left:0;
     font-weight: 700;
 `

@@ -24,7 +24,7 @@ const NavLinks = ({ img, img2, address, link, activeOnlyWhenExact }) => {
 }
 export const Links = props => {
   const Navlink = props.links.map(link => {
-    return <NavLinks key={link.id} {...link} activeOnlyWhenExact={true}/>
+    return <NavLinks key={link.id} {...link} />
   })
   return (
     <Page.NavLink>
@@ -42,7 +42,8 @@ Links.defaultProps = {
     {
       id: '1',
       link: '',
-      address: 'Home'
+      address: 'Home',
+      activeOnlyWhenExact: true
     },
     {
       id: '2',
@@ -51,8 +52,8 @@ Links.defaultProps = {
     },
     {
       id: '3',
-      link: 'become-a-part',
-      address: 'Become a part'
+      link: 'become-a-partner',
+      address: 'Become a partner'
     }
   ]
 }

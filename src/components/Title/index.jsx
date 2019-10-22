@@ -1,14 +1,14 @@
 import React from 'react'
 import { Header, SubLabel } from '../../theme/style/typeface'
-import { SubWrapperAlt } from '../../theme/style/styles'
+import { Column } from '../../theme/style/styles'
 
 const Title = ({ title, subTitle, ...props }) => {
   return (
-    <SubWrapperAlt
+    <Column
       {...props}>
-      <Header> { title } </Header>
+      <Header {...props}> { title } </Header>
       <SubLabel> { subTitle } </SubLabel>
-    </SubWrapperAlt>
+    </Column>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as FootStyle from './styles'
-import { SubWrapper } from '../../theme/style/styles'
+import { Row } from '../../theme/style/styles'
 // footer components
 
 
@@ -9,7 +9,7 @@ const Footer = () => {
   // footer here is html 5 tag for semantic meaning. it is not a react component
     <FootStyle.Footer>
 
-      <SubWrapper
+      <Row
         justifyContent='space-between'
         padding='0 40px'>
         <FootStyle.Container><span>Copyright @ 2018</span></FootStyle.Container>
@@ -18,7 +18,7 @@ const Footer = () => {
           <span>Terms & policies</span>
           <span>Contact Us</span>
         </FootStyle.Container>
-      </SubWrapper>
+      </Row>
     </FootStyle.Footer>
   )
 }

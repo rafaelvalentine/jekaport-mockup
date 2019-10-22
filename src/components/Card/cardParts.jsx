@@ -13,19 +13,19 @@ import BookedCarSeat from '../../images/BookedCarSeat.svg'
  */
 export const Seat = ({ status, ...props }) => {
   const [seat, setSeat] = useState({ status: 'available' })
-  let _seat
   const handleSeatStatus = () => {
     setSeat({ status: 'blocked' })
   }
+  let _seat = <Image src={AvailableCarSeat} cursor='pointer' onClick={handleSeatStatus} />
   if (seat.status === 'booked') {
     _seat = <Image src={BookedCarSeat} />
   }
   if (seat.status === 'blocked') {
     _seat = <Image src={BlockedCarSeat} />
   }
-  if (seat.status === 'available') {
-    _seat = <Image src={AvailableCarSeat} cursor='pointer' onClick={handleSeatStatus} />
-  }
+  // if (seat.status === 'available') {
+  //   _seat = <Image src={AvailableCarSeat} cursor='pointer' onClick={handleSeatStatus} />
+  // }
 
   useEffect(() => setSeat({ status }), [])
   return (

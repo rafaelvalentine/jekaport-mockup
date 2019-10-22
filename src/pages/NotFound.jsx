@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { Component } from 'react'
-=======
-import React from 'react';
->>>>>>> dashboard
 
 // Components
 import Title from '../components/Title'

@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 
 // components
-import BookTripForm from '../components/BookTripForm'
-import Carousel from '../components/Carousel'
+import BookTripForm from '../../components/BookTripForm'
+import Carousel from '../../components/Carousel'
 
 // images
-import HomeImg from '../images/Home.svg'
+import HomeImg from '../../images/Home.svg'
 
-const Home = () => {
-  return (
+class Home extends Component {
+  render () {
+    return (
 		<>
   <article className='row p-5'>
     <div className='col-md-6 px-5'>
@@ -28,7 +29,8 @@ const Home = () => {
     <Carousel title='New Partners' />
   </article>
 		</>
-  )
+    )
+  }
 }
 
 export default Home

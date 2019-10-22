@@ -77,7 +77,7 @@ ul {
  ul li a span {
   margin: 2px 0 0;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 14px;
   line-height: 16px;
   text-transform: inherit;
@@ -91,7 +91,8 @@ ul {
 }
 
  ul li.active a span {
-  color: ${props => props.theme.blue};
+  font-weight: bold;
+  // color: ${props => props.theme.blue};
 }
 `
 

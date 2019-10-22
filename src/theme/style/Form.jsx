@@ -27,7 +27,7 @@ export const Input = styled.input`
 `
 Input.defaultProps = {
   width: '100%',
-  margin:'0 0 16px 0'
+  margin: '0 0 16px 0'
 }
 
 export const Label = styled.label`
@@ -45,8 +45,6 @@ export const CheckBoxLabel = styled.label`
     display: block;
     position: relative;
     padding-left: 24px;
-    // padding-left: 24px;
-    margin-right:auto;
     z-index: 2;
     position: relative;
     cursor: pointer;
@@ -56,13 +54,13 @@ export const CheckBoxLabel = styled.label`
     user-select: none;
     .checkmark {
         position: absolute;
-        top: 5px;
-        right: -25px;
-        height: 15px;
-        width: 15px;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        border-radius: 5px;
         background-color: #fff;
-        border: 1px solid #C4C4C4;
-        border-radius: 2px;
+        border: .5px solid ${props => props.theme.grayText};
       }
       .checkmark:after {
         content: "";
@@ -74,22 +72,89 @@ export const CheckBoxLabel = styled.label`
         display: block;
       }
       :hover input ~ .checkmark {
-        background-color: ${props => props.theme.gray};
+        background-color: ${props => props.theme.grayText};
       }
         input:checked ~ .checkmark {
-        background-color: ${props => props.theme.white};
-        border: 1px solid ${props => props.theme.blue};
+        background-color:  ${props => props.theme.white};
       }
       .checkmark:after {
-        left: 3.5px;
-        top: 0px;
+        left: 2px;
+        top: 2px;
         width: 5px;
-        height: 10px;
-        border: solid ${props => props.theme.blue};
-        border-width: 0 1px 1px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
+        height: 5px;
+        border: solid ${props => props.theme.buttonBlue};
+        border-radius:50%;
+        border-width: 5px;
+        // -webkit-transform: rotate(45deg);
+        // -ms-transform: rotate(45deg);
+        // transform: rotate(45deg);
+      }
+      &.radio {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      /* Hide the browser's default radio button */
+      &.radio input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      /* Create a custom radio button */
+      &.radio .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 12px;
+        width: 12px;
+        background-color: ${props => props.theme.white};
+        border-radius: 50%;
+        border: .5px solid ${props => props.theme.orange}
+      }
+      
+      /* On mouse-over, add a grey background color */
+      &.radio:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+      
+      /* When the radio button is checked, add a blue background */
+      &.radio input:checked ~ .checkmark {
+        background-color: ${props => props.theme.white};
+      }
+      
+      /* Create the indicator (the dot/circle - hidden when not checked) */
+      &.radio .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      
+      /* Show the indicator (dot/circle) when checked */
+      &.radio input:checked ~ .checkmark:after {
+        display: block;
+      }
+      
+      /* Style the indicator (dot/circle) */
+      &.radio .checkmark:after {
+        top: 2.6px;
+        left: 2.7px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        border: solid ${props => props.theme.orange};
+        border-width: 1
+        background: ${props => props.theme.orange};
       }
 `
 export const CheckBox = styled.input`
@@ -169,10 +234,30 @@ export const MainInput = styled.input`
 `
 MainInput.defaultProps = {
   width: '459px',
-  height: '43px',
+  height: '32px',
   inputMargin: '0'
 }
-
+export const MainInputDisabled = styled.div`
+display: inline-block;
+width: ${props => props.width};
+border: 1px solid ${props => props.theme.inputBorder};
+border-radius: 5px;
+height: ${props => props.height};
+background:${props => props.theme.transparent};
+padding: 5px 10px;
+margin:${props => props.inputMargin};
+font-style: normal;
+font-weight: normal;
+font-size: ${props => props.fontSize ? props.fontSize : '14px'};
+line-height: 18px;
+color: ${props => props.theme.placeholder};
+cursor: pointer;
+`
+MainInputDisabled.defaultProps = {
+  width: '459px',
+  height: '32px',
+  inputMargin: '0'
+}
 export const SearchInput = styled(MainInput)`
 width: 200px;
 height: 40px;
@@ -200,8 +285,32 @@ NoLabelInput.defaultProps = {
 export const MainLabelContainer = styled.label`
     display: block;
     margin:${props => props.margin ? props.margin : '0 50px'};
-  
+.phonenumber-formatter {
+        width: ${props => props.width ? props.width : '459px'};
+        border: 1px solid ${props => props.theme.inputBorder};
+        border-radius: 5px;
+        height: ${props => props.height ? props.height : '32px'};
+        background:${props => props.theme.transparent};
+        padding: 12px 18px;
+        margin:${props => props.inputMargin};
+        font-style: normal;
+        font-weight: normal;
+        font-size: ${props => props.fontSize ? props.fontSize : '14px'};
+        line-height: 18px;
+        color: #3B3B3B;
+        cursor: pointer;
+        ::placeholder {
+            font-size: ${props => props.fontSize ? props.fontSize : '12px'};
+            color: ${props => props.theme.placeholder};
+        }
+        &:focus {
+            transition: .3s;
+            outline:none;
+            border-radius: 4px;
+        }
+    }
 `
+
 export const MainLabelContainerAlt = styled.div`
     display:flex;
     margin-top ${props => props.marTop};

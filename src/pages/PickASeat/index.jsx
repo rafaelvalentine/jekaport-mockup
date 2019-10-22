@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Wrapper, SubWrapper, SubWrapperAlt } from '../../theme/style/styles'
+import { Wrapper, Row, Column } from '../../theme/style/styles'
 import { Header, SubLabel } from '../../theme/style/typeface'
 import { CardWrapper, PickASeatCard } from '../../components/Card'
 
-// For the Specific Styles for the Components
+// Specific Styles for the Components
 const styles = {
   Wrapper: {
     height: '100%'
@@ -21,9 +21,8 @@ const styles = {
     justifyContent: 'flex-start',
     alignItems: 'flex-start'
   },
-  SubWrapperAlt: {
-    padding: '90px 0 0',
-    height: '50px'
+  Column: {
+    padding: '90px 0 0'
   }
 }
 export default class index extends Component {
@@ -32,8 +31,8 @@ export default class index extends Component {
       <Wrapper
         {...styles.Wrapper}
       >
-        <SubWrapperAlt
-          {...styles.SubWrapperAlt}>
+        <Column
+          {...styles.Column}>
           <Header>
             {null || 'Company Name'}
           </Header>
@@ -41,14 +40,14 @@ export default class index extends Component {
             style={styles.SubLabel}>
               Pick a Seat
           </SubLabel>
-        </SubWrapperAlt>
-        <SubWrapper>
+        </Column>
+        <Row>
           <CardWrapper
             {...styles.CardWrapper}
           >
             <PickASeatCard />
           </CardWrapper>
-        </SubWrapper>
+        </Row>
       </Wrapper>
     )
   }

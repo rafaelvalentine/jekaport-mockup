@@ -5,15 +5,15 @@ export const Container = styled.div`
     width: ${props => props.width};
     height: ${props => props.height};
     border-radius:${props => props.borderRadius};
-    border: 1px solid ${props => props.theme.blue};
+    border: 1px solid ${props => props.theme.transparent};
     text-align: center;
     font-style: normal;
     font-weight: bold;
     font-size: ${props => props.fontSize};
     line-height: 16px;
     cursor: pointer;
-    color: ${props => props.theme.whiteButton};
-    background-color: ${props => props.theme.blue};
+    color: ${props => props.altButton ? props.theme.buttonBlue : props.theme.whiteButton};
+    background-color: ${props => props.altButton ? props.theme.whiteButton : props.theme.buttonBlue};
     transition: .3s;
     display:flex;
     justify-content: center;
