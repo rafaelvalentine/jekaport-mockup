@@ -6,6 +6,7 @@ import Title from '../../components/Title'
 import {PartnerFormOne as Form} from '../../components/Forms'
 import validator from 'validator'
 import swal from 'sweetalert'
+import Layout from '../../components/Layout'
 
 // Specific Styles for the Components
 const styles = {
@@ -79,7 +80,7 @@ shortenText = text => {
             ...this.state,
             repIdFile: file,
             repIdFilename: this.shortenText(file.name)
-          }, ()=> console.log(this.state));
+          });
         }
         reader.readAsDataURL(file)
       }
@@ -88,7 +89,7 @@ shortenText = text => {
 
   handleOnChange = e => {
     const {name, value } = e.target
-    this.setState({...this.state, [name]: value })
+    this.setState({...this.state, [name]: value.trim() })
   }
   onValueChange = values => {
     const { value } = values
@@ -123,23 +124,24 @@ shortenText = text => {
     }
     this.setState({loading: true})
     setTimeout(() => {
-      this.setState({loading: false}, this.handleRegisterMain )
+      this.setState({loading: false}, this.handleAddUserToStore )
     }, 3000);
   }
-  handleRegisterMain = () =>{
+  handleAddUserToStore = () =>{
     const { repName, repEmail, repIdNumber, repIdFile, repPhone, repIdFilename } = this.state
-    this.props.handleRegister({ repName, repEmail, repIdNumber, repIdFile, repPhone, repIdFilename })
+    this.props.handleAddUserToStore({ repName, repEmail, repIdNumber, repIdFile, repPhone, repIdFilename })
     setTimeout(() => {
       this.props.history.push('/become-a-partner/form-two')
     }, 1000);
     
   }
   componentDidMount(){
-    console.log(this.props.User)
     this.setState({...this.props.User})
   }
   render () {
     return (
+      <Layout>
+
       <Wrapper
         {...styles.Wrapper}>
         <Row {...styles.Row} >
@@ -156,6 +158,7 @@ shortenText = text => {
           </Page.Container>
         </Row>
       </Wrapper>
+      </Layout>
     )
   }
 }

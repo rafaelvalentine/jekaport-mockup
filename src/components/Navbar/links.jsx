@@ -10,7 +10,7 @@ const NavLinks = ({ img, img2, address, link, activeOnlyWhenExact }) => {
       path={_link}
       exact={activeOnlyWhenExact}
       children={({ match }) => (
-        <li className={match ? `active` : ''}>
+        <li className={match ? `active` : ''} >
           <Link to={_link}>
             <span>
               {/* <Logo src={img} width='15px' height='15px' margin='0' /> */}
@@ -27,7 +27,7 @@ export const Links = props => {
     return <NavLinks key={link.id} {...link} />
   })
   return (
-    <Page.NavLink>
+    <Page.NavLink altNavItemsColor={props.altNavItemsColor}>
       <ul>
         {Navlink}
       </ul>

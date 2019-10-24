@@ -4,11 +4,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
 // Navbar components
-import Navbar from './components/Navbar'
+// import Navbar from './components/Navbar'
 
 // Footer
 import Footer from './components/Footer'
-
 
 // Components
 import Loader from './container/PageLoader'
@@ -22,17 +21,19 @@ import Partner from './container/Partner'
 import PartnerForm from './container/Partner/partner'
 import LoginAuth from './container/Login'
 import PickSeat from './pages/PickASeat'
-import ForgotPassword from './pages/ForgotPassword'
-import ResetPassword from './pages/ResetPassword'
+import ForgotPassword from './container/ForgotPassword'
+import ResetPassword from './container/ResetPassword'
 import SearchResults from './pages/SearchResult.jsx'
-import CompanyDashboard from './pages/CompanyDashboard'
-import BusinessDetailDashboard from './pages/BusinessDetailDashboard'
+import CompanyDashboard from './pages/Dashboard'
+import BusinessDetailDashboard from './pages/businessDetails'
+import ResetSent from './pages/ResetSent'
+import ResetComplete from './pages/ResetComplete'
 function Router () {
   return (
     <>
-      <Navbar />
       <Loader />
-      <Switch >
+      {/* <Navbar /> */}
+      <Switch>
         <Route exact path='/become-a-partner' component={Partner} />
         <Route exact path='/become-a-partner/form-two' component={PartnerForm} />
         <Route exact path='/register' component={Registration} />
@@ -44,8 +45,10 @@ function Router () {
         <Route exact path='/selectseat' component={PickSeat} />
         <Route exact path='/' component={Home} />
         {/* <Route exact path="/home" component={Home} /> */}
+        <Route exact path='/resetsent' component={ResetSent} />
         <Route exact path='/companydashboard' component={CompanyDashboard} />
         <Route exact path='/businessdetaildashboard' component={BusinessDetailDashboard} />
+        <Route exact path='/resetcomplete' component={ResetComplete} />
         {/* <Route exact path='/' component={Home} /> */}
         <Route component={NotFound} />
       </Switch>

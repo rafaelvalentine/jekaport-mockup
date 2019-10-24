@@ -1,14 +1,16 @@
 import Partner from '../../pages/Partner/partner'
 import { connect } from 'react-redux'
+import { handleSignUp } from '../../Store/Actions'
 
 /**
  * here we handle passing redux to our component and export
  */
-// const mapStateToProps = state => ({
-// })
+const mapStateToProps = state => ({
+  User: state.User.RegisteringUser
+})
 
-// const mapDispatchToProps = dispatch => ({
-//   handleLogoutUser: () => dispatch(handleLogoutUser())
-// })
+const mapDispatchToProps = dispatch => ({
+  handleSignUp: user => dispatch(handleSignUp(user))
+})
 
-export default connect(null, null)(Partner)
+export default connect(mapStateToProps, mapDispatchToProps)(Partner)

@@ -3,8 +3,14 @@ import { device } from '../../components/device'
 
 export const Wrapper = styled.div`
 background: ${props => props.theme.white};
-height: ${props => props.height ? props.height : '100vh'};
+height: ${props => props.height};
+
 width:100%;
+.dashboard{
+  overflow-y: auto;
+  max-height: 94vh;
+  width: 100%;
+}
 @media ${device.mobileS} {
 }
 @media ${device.mobileL} {

@@ -5,6 +5,7 @@ import swal from 'sweetalert'
 // components
 import { LoginForm } from '../../components/Forms'
 import Banner from '../../components/Banner'
+import Layout from '../../components/Layout'
 
 // images
 import bgImage from '../../assets/images/become-a-parnter.png'
@@ -49,7 +50,7 @@ export default class Index extends Component {
 
   handleOnChange = e => {
     const {name, value } = e.target
-    this.setState({...this.state, [name]: value })
+    this.setState({...this.state, [name]: value.trim() })
   }
   handleLogin = e => {
     e.preventDefault()
@@ -70,7 +71,6 @@ export default class Index extends Component {
     this.setState({loading: true})
     this.props.handleLogin({email, password})
     .then(res=>{
-      console.log('from login page', res)
       if(res){
         this.setState({loading: false}, ()=> this.props.history.push('/companydashboard'))
         return
@@ -81,24 +81,27 @@ export default class Index extends Component {
   }
  render (){
   return (
-    <Wrapper
-      {...styles.Wrapper}
-      className='overflow-y-hidden'
-    >
-     <Row>
-     <Banner {...styles.Banner}/>
-      <Page.Container>
-      <Title
-        {...styles.Title}
-      />
-          <LoginForm 
-          inputs={this.state} 
-          onChange={this.handleOnChange } 
-          clicked={this.handleLogin}
-          {...this.props} />
-      </Page.Container>
-      </Row>
-    </Wrapper>
+    <Layout>
+      <Wrapper
+          {...styles.Wrapper}
+          className='overflow-y-hidden'
+        >
+        <Row>
+        <Banner {...styles.Banner}/>
+          <Page.Container>
+          <Title
+            {...styles.Title}
+          />
+              <LoginForm 
+              inputs={this.state} 
+              onChange={this.handleOnChange } 
+              clicked={this.handleLogin}
+              {...this.props} />
+          </Page.Container>
+          </Row>
+        </Wrapper>
+    </Layout>
+    
   )
  }
 }

@@ -5,7 +5,7 @@ export const Header = styled.h1`
     font-size: ${props => props.altHeader ? '24px' : '36px'};
     line-height: ${props => props.altHeader ? '28px' : '42px'};
     font-weight: 700;
-    color: ${props => props.theme.black};
+    color: ${props => props.headerColor ? props.headerColor : props.theme.black};
     text-align:${props => props.textAlignHeader};
     margin:${props => props.marginHeader ? props.marginHeader : ' 0 0 17px'};
 `
@@ -34,7 +34,7 @@ export const SubLabel = styled.h1`
     font-size: 14px;
     line-height: 16px;
     color: ${props => props.theme.grayText};
-    text-align: right;
+    text-align: left;
 `
 
 export const BoldLabel = styled(SubLabel)`

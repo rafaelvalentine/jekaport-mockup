@@ -1,5 +1,5 @@
 export { handleGetAllUsers } from './handleData'
 export { handlePageLoader } from './handleLoading'
-export { handleLogin } from './handleLogin'
-export { handleRegister } from './handleRegistering'
+export { handleLogin, handleRestPassword, handleNewPassword, handleConfirmToken } from './handleLogin'
+export { handleAddUserToStore, handleSignUp } from './handleSignUp'
  

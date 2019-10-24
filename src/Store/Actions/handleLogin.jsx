@@ -21,3 +21,42 @@ export const handleLogin = user => dispatch => {
       handleError(err)
     })
 }
+export const handleRestPassword = user => dispatch => {
+  return axios
+    .post(`/login/resetPassword`, user)
+    .then(res => {
+      let result = res.data
+      dispatch(handleUser(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleNewPassword = (user, token) => dispatch => {
+  return axios
+    .post(`/login/resetPassword/${token}`, user)
+    .then(res => {
+      let result = res.data
+      dispatch(handleUser(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleConfirmToken = token => dispatch => {
+  return axios
+    .get(`/login/resetpassword/${token}`)
+    .then(res => {
+      let result = res.data
+      // dispatch(handleUser(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}

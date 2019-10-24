@@ -10,7 +10,7 @@ font-weight: bold;
 font-size: 14px;
 line-height: 16px;
 text-align: right;
-color: ${props => props.theme.blue};
+color: ${props => props.theme.buttonBlue};
 margin: 0 20px;
 }
 `

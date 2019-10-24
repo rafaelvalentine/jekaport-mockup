@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Input from '../Input'
-import { FormWrapper, ForgetPassword } from './styles'
+import { FormWrapper, ForgetPassword, Terms } from './styles'
 // import { Label } from '../../theme/style/typeface'
 import { CardWrapper } from '../Card'
 import Button from '../Button'
@@ -17,11 +17,11 @@ export const ForgotPasswordForm = ({ ...props }) => {
         <Input.Main
           label='Email'
           placeholder='Enter Email'
-          name={props.name}
-          value={props.value}
-          onChange={props.onChange}
+          name='email'
+          value={props.inputs.email}
+          onChange={props.handleOnChange}
         />
-        <Button content='SUBMIT' onClick={props.onClick} />
+        <Button loading={props.inputs.loading} content='SUBMIT' onClick={props.handleSumbit} />
       </FormWrapper>
     </CardWrapper>
   )
@@ -39,20 +39,20 @@ export const ResetPasswordForm = ({ ...props }) => {
           placeholder='Enter New Password'
           name='password'
           type='password'
-          value={props.value}
-          onChange={props.onChange}
-          margin='50px auto 25px'
+          value={props.inputs.password}
+          onChange={props.handleOnChange}
+          margin='0 auto 25px'
         />
         <Input.Main
           label='Confirm Password'
           placeholder='Confirm Password'
           name='confirmPassword'
           type='password'
-          value={props.value}
-          onChange={props.onChange}
-          margin='25px auto'
+          value={props.inputs.confirmPassword}
+          onChange={props.handleOnChange}
+          margin='0 auto 10px'
         />
-        <Button content='SUBMIT' onClick={props.onClick} />
+        <Button content='SUBMIT' loading={props.inputs.loading} onClick={props.handleSumbit} />
       </FormWrapper>
     </CardWrapper>
   )
@@ -237,6 +237,9 @@ export const PartnerFormTwo = ({ ...props }) => {
             label='I accept the'
             checked={props.inputs.terms}
           />
+          <Terms onClick={props.handleTerms}>
+          Terms & Policies
+          </Terms>
         </Row>
 
         <Row>
@@ -251,7 +254,8 @@ export const PartnerFormTwo = ({ ...props }) => {
             content='NEXT'
             width='218px'
             height='32px'
-            onClick={props.handleRegister}
+            loading={props.inputs.loading}
+            onClick={props.handleSignUp}
             margin='20px 0 10px auto' />
         </Row>
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Wrapper, Row, Column } from '../../theme/style/styles'
 import { Header, SubLabel } from '../../theme/style/typeface'
 import { CardWrapper, PickASeatCard } from '../../components/Card'
+import Layout from '../../components/Layout'
 
 // Specific Styles for the Components
 const styles = {
@@ -28,27 +29,30 @@ const styles = {
 export default class index extends Component {
   render () {
     return (
-      <Wrapper
-        {...styles.Wrapper}
-      >
-        <Column
-          {...styles.Column}>
-          <Header>
-            {null || 'Company Name'}
-          </Header>
-          <SubLabel
-            style={styles.SubLabel}>
+      <Layout>
+
+        <Wrapper
+          {...styles.Wrapper}
+        >
+          <Column
+            {...styles.Column}>
+            <Header>
+              {null || 'Company Name'}
+            </Header>
+            <SubLabel
+              style={styles.SubLabel}>
               Pick a Seat
-          </SubLabel>
-        </Column>
-        <Row>
-          <CardWrapper
-            {...styles.CardWrapper}
-          >
-            <PickASeatCard />
-          </CardWrapper>
-        </Row>
-      </Wrapper>
+            </SubLabel>
+          </Column>
+          <Row>
+            <CardWrapper
+              {...styles.CardWrapper}
+            >
+              <PickASeatCard />
+            </CardWrapper>
+          </Row>
+        </Wrapper>
+      </Layout>
     )
   }
 }

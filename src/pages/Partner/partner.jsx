@@ -6,6 +6,7 @@ import Title from '../../components/Title'
 import {PartnerFormTwo as Form} from '../../components/Forms'
 import validator from 'validator'
 import swal from 'sweetalert'
+import Layout from '../../components/Layout'
 
 // Specific Styles for the Components
 const styles = {
@@ -38,12 +39,13 @@ export default class index extends Component {
     email:'',
     phoneNumber:'',
     password:'',
-    terms: undefined
+    terms: undefined,
+    loading: false
   }
 
   handleOnChange = e => {
     const {name, value } = e.target
-    this.setState({...this.state, [name]: value })
+    this.setState({...this.state, [name]: value.trim() })
   }
   onValueChange = values => {
     const {formattedValue, value } = values
@@ -58,36 +60,79 @@ export default class index extends Component {
     this.setState({...this.state, [name]: undefined })
   }
   handleGoBack =()=> this.props.history.goBack()
-  handleLogin = e => {
+  handleSignUp = e => {
     e.preventDefault()
-    // const {email, password} = this.state
-    // if(validator.isEmpty(email)){
-    //   swal('No Email', 'Please enter valid email', 'error')
-    //   return
-    // }
-    // if(validator.isEmpty(password)){
-    //   swal('No Password', 'Please Password', 'error')
-    //   return
-    // }
-    // if(!validator.isEmail(email)){
-    //   swal('Not Email', 'Please enter valid email', 'error')
-    //   return
-    // }
-
-    // this.setState({loading: true})
-    // this.props.handleLogin({email, password})
-    // .then(res=>{
-    //   console.log('from login page', res)
-    //   if(res){
-    //     this.setState({loading: false}, ()=> this.props.history.push('/companydashboard'))
-    //     return
-    //   }
-    //   this.setState({ loading: false })
-    // })
-  
+    const { companyName, businessAddress, rcNumber, email, phoneNumber, password, terms } = this.state
+    const { repName, repEmail, repIdNumber, repIdFile, repPhone } = this.props.User
+    if(validator.isEmpty(companyName)){
+      swal('No Name', 'Please enter Name', 'error')
+      return
+    }
+    if(validator.isEmpty(businessAddress)){
+      swal('No Address', 'Please enter Address', 'error')
+      return
+    }
+    if(!validator.isEmail(email)){
+      swal('Not Email', 'Please enter valid email', 'error')
+      return
+    }
+    if(validator.isEmpty(email)){
+      swal('No Email', 'Please enter email', 'error')
+      return
+    }
+    if(validator.isEmpty(rcNumber)){
+      swal('No rcNumber', 'Please Enter rcNumber', 'error')
+      return
+    }
+    if(validator.isEmpty(phoneNumber)){
+      swal('No Phone Number', 'Please enter Phone Number', 'error')
+      return
+    }
+    if(validator.isEmpty(password)){
+      swal('No password', 'Please enter password', 'error')
+      return
+    }
+    if(!terms){
+      swal('', 'Please Click Terms & Conditions ', 'error')
+      return
+    }
+    const user ={
+      repName, 
+      repEmail, 
+      repIdNumber, 
+      repIdFile, 
+      repPhone,
+      companyName, 
+      businessAddress, 
+      rcNumber, 
+      email, 
+      phoneNumber, 
+      password
+    }
+    this.setState({loading: true})
+    this.props.handleSignUp(user)
+    .then(res=>{
+      if(res){
+        this.setState({loading: false}, ()=> this.props.history.push('/companydashboard'))
+        return
+      }
+      this.setState({ loading: false })
+    })
+  }
+  handleTerms =() =>{
+    this.props.history.push('/terms')
+  }
+  componentDidMount (){
+    const { repName, repEmail } = this.props.User
+    if(validator.isEmpty(repName) && validator.isEmpty(repEmail)){
+     this.props.history.push('/become-a-partner')
+      return
+    }
   }
   render () {
     return (
+      <Layout>
+
       <Wrapper
         {...styles.Wrapper}>
         <Row {...styles.Row} >
@@ -100,10 +145,13 @@ export default class index extends Component {
             onValueChange={this.onValueChange} 
             handleOnChange={this.handleOnChange} 
             handleGoBack={this.handleGoBack}
+            handleSignUp={this.handleSignUp}
+            handleTerms={this.handleTerms}
             />
           </Page.Container>
         </Row>
       </Wrapper>
+      </Layout>
     )
   }
 }

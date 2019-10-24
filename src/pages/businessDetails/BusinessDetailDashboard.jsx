@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 
+
 // components
-import About from '../components/About'
-import Reviews from '../components/Reviews'
-import Faqs from '../components/Faqs'
-import Contact from '../components/Contact'
+import About from '../../components/About'
+import Reviews from '../../components/Reviews'
+import Faqs from '../../components/Faqs'
+import Contact from '../../components/Contact'
 
 // auth
-import { AUTH_TOKEN } from '../constants'
+import { AUTH_TOKEN } from '../../constants'
 
 // images
-import milo from '../images/milo.svg'
+import milo from '../../images/milo.svg'
 
 const styles = {
 	badge: {
@@ -69,7 +70,7 @@ class BusinessDetailDashboard extends Component {
 		
 		return (
 			<>
-				<section className="container mt-md-5 mt-sm-2">
+				<section className="container-fluid  dashboard">
 					<div className="row">
 	
 						<article className="col-sm-12 d-flex flex-column flex-md-row justify-content-between p-2">
