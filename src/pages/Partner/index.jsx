@@ -145,7 +145,14 @@ shortenText = text => {
       <Wrapper
         {...styles.Wrapper}>
         <Row {...styles.Row} >
-          <Banner {...styles.Banner} />
+          <Banner {...styles.Banner} >
+            <Page.Title>
+            Become a Partner
+            </Page.Title>
+            <Page.SubTitle>
+            Partners are Transport Companies who own registered Transport Companies. Signup today to gain access to our unlimited pool of travelers waiting for your service.
+            </Page.SubTitle>
+          </Banner>
           <Page.Container>
             <Title {...styles.Title} />
             <Form 

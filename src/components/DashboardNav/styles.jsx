@@ -8,6 +8,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding:0 20px;
+border-bottom: .5px solid rgba(0, 0, 0, 0.25);
 -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
 -moz-box-shadow:    0px 0px 4px rgba(0, 0, 0, 0.25);  /* Firefox 3.5 - 3.6 */
 box-shadow:        0px 0px 4px rgba(0, 0, 0, 0.25);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
@@ -81,7 +82,7 @@ ul {
 `
 
 export const AdminWrapper = styled.div`
-width: 100px;
+width: 100%;
 height: 40px;
 background: ${props => props.theme.gray};
 display: flex;

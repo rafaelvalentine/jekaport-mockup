@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
  * here we handle passing redux to our component and export
  */
 const mapStateToProps = state => ({
-  pageLoader: state.Loading.Loading
+  pageLoader: state.Loading.loading
 })
 
 // const mapDispatchToProps = dispatch => ({

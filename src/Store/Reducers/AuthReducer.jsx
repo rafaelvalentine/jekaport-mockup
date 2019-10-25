@@ -2,11 +2,9 @@ import initialState from '../AuthStore'
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case 'LOGIN_USER':
       return { ...state,
-        Auth: {
-          ...action.payload.token
-        }
+        token: action.payload.token
       }
     default:
       return state

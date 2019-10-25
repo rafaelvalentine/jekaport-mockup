@@ -12,13 +12,10 @@ export default ({ ...props }) => {
     const toggle = !sidebar.toggle
     setSideBar({ toggle })
   }
-  // useEffect(() => {
-  //   console.log('focusSideBar', focusSideBar)
-  // }, [])
   return (
     <>
-      <DashboardNav handleToggle={handleToggle} sidebar={sidebar} />
-      <SideNav sidebar={sidebar.toggle} />
+      <DashboardNav handleToggle={handleToggle} sidebar={sidebar} {...props} />
+      <SideNav sidebar={sidebar.toggle} {...props} />
       {props.children}
     </>
   )

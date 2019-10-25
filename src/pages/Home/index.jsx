@@ -9,6 +9,13 @@ import Layout from '../../components/Layout'
 import HomeImg from '../../images/Home.svg'
 
 class Home extends Component {
+  componentDidMount () {
+    console.log(this.props.Users)
+    setTimeout(() => {
+      this.props.handlePageLoader(false)
+      console.log(this.props.Users)
+    }, 10000)
+  }
   render () {
     return (
       <Layout>

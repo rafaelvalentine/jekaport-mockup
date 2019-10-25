@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // Components
-import Layout from '../../components/DashboardWrapper'
+import Layout from '../../container/DashboardWrapper'
 
 // auth
 
@@ -12,7 +12,7 @@ import Dashboard from './oldIndex'
 import { Wrapper, Row } from '../../theme/style/styles'
 const styles = {
   Wrapper: {
-    height: '100%'
+    height: 'calc(94vh - 103px)'
   },
   Row: {
     padding: '0 0 0 calc(120px)'
@@ -23,9 +23,11 @@ class CompanyDashboard extends Component {
   render () {
     return (
       <Layout>
-        <Wrapper {...styles.Wrapper}>
+        <Wrapper
+          className='fixedheight'
+          {...styles.Wrapper}>
           <Row
-            id='dashboard-row'
+
             {...styles.Row}>
             {/* <Dashboard /> */}
           </Row>

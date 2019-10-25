@@ -23,7 +23,7 @@ export const handleLogin = user => dispatch => {
 }
 export const handleRestPassword = user => dispatch => {
   return axios
-    .post(`/login/resetPassword`, user)
+    .post(`/login/resetpassword`, user)
     .then(res => {
       let result = res.data
       dispatch(handleUser(result))
@@ -34,9 +34,10 @@ export const handleRestPassword = user => dispatch => {
       handleError(err)
     })
 }
-export const handleNewPassword = (user, token) => dispatch => {
+export const handleNewPassword = (data, token) => dispatch => {
+  // console.log('[token from action login]', token)
   return axios
-    .post(`/login/resetPassword/${token}`, user)
+    .post(`/login/resetpassword/${token}`, data)
     .then(res => {
       let result = res.data
       dispatch(handleUser(result))

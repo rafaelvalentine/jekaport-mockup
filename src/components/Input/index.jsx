@@ -20,6 +20,43 @@ export const Main = ({ name, label, placeholder, type, value, onChange, ...props
     </Form.MainLabelContainer >
   )
 }
+export const MainAltLabel = ({ name, label, placeholder, type, value, onChange, ...props }) => {
+  return (
+    <Form.MainLabelContainer {...props}>
+      <Form.AltBox>
+        <Form.MainLabel>
+          <Type.BoldLabel {...props}>{ label } </Type.BoldLabel>
+        </Form.MainLabel>
+        <Form.MainInput
+          className='inputaltlabel'
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          {...props} />
+      </Form.AltBox>
+
+    </Form.MainLabelContainer >
+  )
+}
+export const MainAltLabelAlt = ({ name, label, media, ...props }) => {
+  return (
+    <Form.MainLabelContainer {...props}>
+      <Form.AltBox>
+        <Form.MainLabel>
+          <Type.BoldLabel {...props}>{ label } </Type.BoldLabel>
+        </Form.MainLabel>
+        <Form.AltBox>
+          <Form.MainInput className='inputaltlabel' name={name} {...props} />
+          <Form.Limit>
+            {media}
+          </Form.Limit>
+        </Form.AltBox>
+      </Form.AltBox>
+    </Form.MainLabelContainer>
+  )
+}
 export const MainPhoneFormatter = ({ name, label, placeholder, type, onValueChange, ...props }) => {
   return (
     <Form.MainLabelContainer {...props}>
@@ -51,8 +88,29 @@ export const MainUpload = ({ name, label, placeholder, ...props }) => {
         </div>
         <Form.MainInput type='file' id='partner-attachment' name={name} style={{ display: 'none' }} {...props} />
       </Form.AltBox>
-
-    </Form.MainLabelContainer >
+    </Form.MainLabelContainer>
+  )
+}
+export const MainUploadAlt = ({ name, label, placeholder, ...props }) => {
+  return (
+    <Form.MainLabelContainer htmlFor='partner-attachment' {...props}>
+      <Form.AltBox>
+        <Form.MainLabel>
+          <Type.BoldLabel {...props}>{ label } </Type.BoldLabel>
+        </Form.MainLabel>
+        <Form.AltBox>
+          <Form.MainInputDisabled
+            className='altdisabledinput'
+            width={props.width}
+            height={props.height}
+            inputMargin={props.inputMargin} >{placeholder}</Form.MainInputDisabled>
+          <Form.Limit>
+            Upload file (Not more than 2mb)
+          </Form.Limit>
+          <Form.MainInput type='file' id='partner-attachment' name={name} style={{ display: 'none' }} {...props} />
+        </Form.AltBox>
+      </Form.AltBox>
+    </Form.MainLabelContainer>
   )
 }
 

@@ -231,6 +231,13 @@ export const MainInput = styled.input`
         outline:none;
         border-radius: 4px;
     }
+    &.inputaltlabel{
+      width: ${props => props.width ? props.width : '625px'};
+      height: 47px;
+      background: rgba(196, 196, 196, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.11);
+      border-radius: 0;
+    }
 `
 MainInput.defaultProps = {
   width: '459px',
@@ -252,6 +259,13 @@ font-size: ${props => props.fontSize ? props.fontSize : '14px'};
 line-height: 18px;
 color: ${props => props.theme.placeholder};
 cursor: pointer;
+&.altdisabledinput{
+  border-radius: 0;
+  background: rgba(196, 196, 196, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  height: 47px;
+  padding: 10px;
+}
 `
 MainInputDisabled.defaultProps = {
   width: '459px',
@@ -349,7 +363,7 @@ export const Select = styled.select`
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background-image: ${props => props.altArrow ? `url(${require('../../assets/images/down-arrow.svg')})` : `url(${require('../../assets/images/down-arrow.svg')})`};
+    // background-image: ${props => props.altArrow ? `url(${require('../../assets/images/down-arrow.svg')})` : `url(${require('../../assets/images/down-arrow.svg')})`};
     background-repeat: no-repeat;
     background-position: 90%;
     background-size: center;
@@ -436,49 +450,12 @@ display: flex;
 justify-content: flex-start;
 align-items:center;
 `
-/**
- *
- * .checkbox__input {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    opacity: 0;
-}
-
-[type=checkbox], [type=radio] {
-    box-sizing: border-box;
-    padding: 0;
-}
-button, input {
-    overflow: visible;
-}
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
- *
- *
- * .checkbox__label:after {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    width: 14px;
-    height: 14px;
-    transition: all .2s ease-in-out;
-    border: 1px solid #7b7c7f;
-    border-radius: 2px;
-    background: #fff;
-    color: #fff;
-    font: 10px/13px icomoon!important;
-    font-variant: normal;
-    text-align: center;
-    text-transform: none;
-    content: "";
-
-    .checkbox__input:checked~.checkbox__label:after {
-    border-color: #2948ff;
-    color: #2948ff;
-    content: "\EA10";
-
- */
+export const Limit = styled.p`
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+color: rgba(0, 0, 0, 0.7);
+margin-left: 24px;
+`

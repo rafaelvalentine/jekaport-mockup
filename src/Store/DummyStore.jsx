@@ -1,23 +1,15 @@
 const initState = {
-  Users: {
-    'token': '',
-    'data': {
-      'branches': [],
-      'available': null,
-      '_id': '',
-      'repName': '',
-      'repEmail': '',
-      'repIdNumber': '',
-      'companyName': '',
-      'businessAddress': '',
-      'rcNumber': '',
-      'email': '',
-      'phoneNumber': '',
-      'password': '',
-      'repPhone': '',
-      'repIdFile': '',
-      'createdAt': '2'
-    }
+  User: {
+    _id: '',
+    companyName: '',
+    businessAddress: '',
+    email: '',
+    businessType: '',
+    phoneNumber: [],
+    services: [],
+    socialMedia: [],
+    terminals: [],
+    companyLogo: undefined
   },
   RegisteringUser: {
     repName: '',

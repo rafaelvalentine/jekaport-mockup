@@ -8,7 +8,7 @@ import Banner from '../../components/Banner'
 import Layout from '../../components/Layout'
 
 // images
-import bgImage from '../../assets/images/become-a-parnter.png'
+import bgImage from '../../assets/images/login.png'
 
 // pages
 import Title from '../../components/Title'

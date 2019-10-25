@@ -1,5 +1,5 @@
 const initState = {
-  User: {}
+  token:''
 }
 
 export default initState

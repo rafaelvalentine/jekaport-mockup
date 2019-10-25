@@ -6,7 +6,7 @@ import { handleGetAllUsers, handlePageLoader } from '../../Store/Actions'
  * here we handle passing redux to our component and export
  */
 const mapStateToProps = state => ({
-  Users: state.User.User
+  User: state.User.User
 })
 
 const mapDispatchToProps = dispatch => ({

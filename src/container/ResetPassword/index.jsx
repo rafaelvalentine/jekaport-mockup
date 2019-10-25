@@ -10,7 +10,7 @@ import { handleNewPassword, handleConfirmToken } from '../../Store/Actions'
 // })
 
 const mapDispatchToProps = dispatch => ({
-  handleNewPassword: (user, params) => dispatch(handleNewPassword(user, params)),
+  handleNewPassword: (user, token) => dispatch(handleNewPassword(user, token)),
   handleConfirmToken: params => dispatch(handleConfirmToken(params))
 })
 

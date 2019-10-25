@@ -5,6 +5,8 @@ import Layout from '../../components/Layout'
 
 // components
 import Title from '../../components/Title'
+import Banner from '../../components/Banner'
+import { CardWrapper } from '../../components/Card'
 // import Password from '../components/Passwords';
 import { ForgotPasswordForm as Form } from '../../components/Forms'
 // Generic Style Components
@@ -12,15 +14,26 @@ import { Wrapper, Row } from '../../theme/style/styles'
 
 // Styles For styled-components with props styles
 const styles = {
+  Layout:{
+    altNavItemsColor:'true'
+  },
   Wrapper: {
     height: '94vh'
   },
   Title: {
-    padding: '120px 0 0'
+    padding: '60px 0 0'
   },
   Row: {
     padding: '60px 0 0',
-    height: '350px'
+    height: '100%'
+  },
+  Banner:{
+    banner:require('../../assets/images/forgot.png')
+  },
+  CardWrapper: {
+    backgroundColor: '#fff',
+    width: '662px',
+    height: '289px'
   }
 }
 export default class ForgotPassword extends Component {
@@ -56,22 +69,34 @@ export default class ForgotPassword extends Component {
   }
   render () {
     return (
-      <Layout>
+      <Layout
+      {...styles.Layout}
+      >
           <Wrapper
               {...styles.Wrapper}>
-              <Title
+            <Banner
+              {...styles.Banner}>
+                <Row
+                  {...styles.Row}
+                >
+                <CardWrapper
+                {...styles.CardWrapper}
+                >
+                <Title
                 {...styles.Title}
                 title='Forgot Password?'
                 subTitle='Submit your email address and we will send you a link to reset your password'
               />
-              <Row
-                {...styles.Row}
-              >
-                <Form 
+             
+              <Form 
                 handleOnChange={this.handleOnChange}
                 handleSumbit={this.handleSumbit} 
                 inputs={this.state} />
+                </CardWrapper>
+              
               </Row>
+              </Banner>
+               
           </Wrapper>
       </Layout>
      

@@ -4,11 +4,11 @@ import { device } from '../../components/device'
 export const Wrapper = styled.div`
 background: ${props => props.theme.white};
 height: ${props => props.height};
-
+// max-height: ${props => props.maxHeight};
 width:100%;
-.dashboard{
+&.fixedheight{
   overflow-y: auto;
-  max-height: 94vh;
+  max-height: calc(94vh - 103px);
   width: 100%;
 }
 @media ${device.mobileS} {
@@ -19,6 +19,11 @@ width:100%;
 }
 @media ${device.laptopL} { 
   height: 95.8vh;
+  &.fixedheight{
+    overflow-y: auto;
+    max-height: calc(95.8vh - 103px);
+    width: 100%;
+  }
 }
 
 `
@@ -31,7 +36,7 @@ justify-content: ${props => props.justifyContent ? props.justifyContent : 'cente
 align-items:${props => props.alignItems ? props.alignItems : 'center'};
 padding:${props => props.padding ? props.padding : '0'};
 flex-wrap ${props => props.flexWrap ? props.flexWrap : 'wrap'};
-margin:0 auto;
+margin:${props => props.margin ? props.margin : '0 auto'};
 `
 export const Column = styled.div`
 width:${props => props.width ? props.width : '100%'};
@@ -42,6 +47,7 @@ justify-content: ${props => props.justifyContent ? props.justifyContent : 'cente
 align-items:${props => props.alignItems ? props.alignItems : 'center'};
 padding:${props => props.padding ? props.padding : '0'};
 flex-wrap ${props => props.flexWrap ? props.flexWrap : 'wrap'};
+margin:${props => props.margin ? props.margin : '0 auto'};
 `
 
 export const ListWrapper = styled.div`

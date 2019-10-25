@@ -5,6 +5,7 @@ import { FormWrapper, ForgetPassword, Terms } from './styles'
 import { CardWrapper } from '../Card'
 import Button from '../Button'
 import { Row } from '../../theme/style/styles'
+import { SubLabel } from '../../theme/style/typeface'
 
 export const ForgotPasswordForm = ({ ...props }) => {
   return (
@@ -261,5 +262,122 @@ export const PartnerFormTwo = ({ ...props }) => {
 
       </FormWrapper>
     </CardWrapper>
+  )
+}
+
+export const UpdateProFileForm = ({ ...props }) => {
+  return (
+    <CardWrapper
+      width='80%'
+      height='350px'
+      alignItems='center'
+      padding='24px 0 90px'
+      justifyContent='flex-start'
+      {...props}
+    >
+      <SubLabel>
+        Company Details
+      </SubLabel>
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 150px'
+          margin='30px 0 0 '
+          label='Company Name:'
+          name='companyName'
+          value={props.inputs.companyName}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainUploadAlt
+          width='120px'
+          inputMargin='0 0 0 165px'
+          margin='30px 0 0 '
+          label='Company Logo:'
+          onChange={props.handleFileChange}
+          placeholder={props.inputs.logoName || 'Browser'} />
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 158px'
+          margin='30px 0 0 '
+          label='Business Type:'
+          placeholder='e.g: Transportation Services, Logistics, e.t.c'
+          name='businessType'
+          value={props.inputs.businessType}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 198px'
+          margin='30px 0 0 '
+          label='Address:'
+          placeholder='Enter address here'
+          name='businessAddress'
+          value={props.inputs.businessAddress}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 215px'
+          margin='30px 0 0 '
+          label='Email:'
+          placeholder='test@example.com'
+          name='email'
+          value={props.inputs.email}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 136px'
+          margin='30px 0 0 '
+          label='Phone Number(s):'
+          placeholder='Separate each Number with a comma (,)'
+          name='phoneNumber'
+          value={props.inputs.phoneNumber}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabelAlt
+          width='281px'
+          inputMargin='0 0 0 172px'
+          margin='30px 0 0 '
+          label='Social Media:'
+          placeholder='Enter Page Profile Url'
+          media='Facebook'
+          name='facebook'
+          value={props.inputs.facebook}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabelAlt
+          width='281px'
+          inputMargin='0 0 0 248px'
+          margin='30px 0 0'
+          label=''
+          placeholder='Enter Page Profile Url'
+          media='Twitter'
+          name='twitter'
+          value={props.inputs.twitter}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabelAlt
+          width='281px'
+          inputMargin='0 0 0 248px'
+          margin='30px 0 0 '
+          label=''
+          placeholder='Enter Page Profile Url'
+          media='Instagram'
+          name='instagram'
+          value={props.inputs.instagram}
+          onChange={props.handleOnChange}
+        />
+        <Button
+          content='UPDATE'
+          width='625px'
+          loading={props.inputs.loading}
+          onClick={props.handleSubmit}
+          margin='80px 10px 10px auto' />
+      </FormWrapper>
+    </CardWrapper>
+
   )
 }

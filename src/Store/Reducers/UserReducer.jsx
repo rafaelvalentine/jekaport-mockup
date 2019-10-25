@@ -10,13 +10,35 @@ export default (state = initialState, action) => {
       }
     case 'LOGIN_USER':
       return { ...state,
-        Users: {
-          ...action.payload
+        User: {
+          _id: action.payload.data._id,
+          companyName: action.payload.data.companyName,
+          businessAddress: action.payload.data.businessAddress,
+          email: action.payload.data.email,
+          phoneNumber: [...action.payload.data.phoneNumber],
+          services: [...action.payload.data.services],
+          socialMedia: [...action.payload.data.socialMedia],
+          terminals: [...action.payload.data.terminals],
+          businessType: action.payload.data.businessType,
+          companyLogo: action.payload.data.companyLogo
+          // ...action.payload.data
         }
       }
-    case 'FETCH_ALBUM':
+    case 'UPDATE_USER':
       return { ...state,
-        Albums: [...action.payload]
+        User: {
+          _id: action.payload.payload._id,
+          companyName: action.payload.payload.companyName,
+          businessAddress: action.payload.payload.businessAddress,
+          email: action.payload.payload.email,
+          phoneNumber: [...action.payload.payload.phoneNumber],
+          services: [...action.payload.payload.services],
+          socialMedia: [...action.payload.payload.socialMedia],
+          terminals: [...action.payload.payload.terminals],
+          businessType: action.payload.payload.businessType,
+          companyLogo: action.payload.payload.companyLogo
+          // ...action.payload.data
+        }
       }
     default:
       return state

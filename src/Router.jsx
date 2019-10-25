@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
@@ -28,6 +28,8 @@ import CompanyDashboard from './pages/Dashboard'
 import BusinessDetailDashboard from './pages/businessDetails'
 import ResetSent from './pages/ResetSent'
 import ResetComplete from './pages/ResetComplete'
+import CompanyDetails from './container/CompanyDetails'
+import { BusinessDetails } from './pages/Settings'
 function Router () {
   return (
     <>
@@ -49,7 +51,11 @@ function Router () {
         <Route exact path='/companydashboard' component={CompanyDashboard} />
         <Route exact path='/businessdetaildashboard' component={BusinessDetailDashboard} />
         <Route exact path='/resetcomplete' component={ResetComplete} />
-        {/* <Route exact path='/' component={Home} /> */}
+        <Route exact path='/settings'>
+          <Redirect to='/settings/companydetails' />
+        </Route>
+        <Route exact path='/settings/companydetails' component={CompanyDetails} />
+        <Route exact path='/settings/businessdetails' component={BusinessDetails} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

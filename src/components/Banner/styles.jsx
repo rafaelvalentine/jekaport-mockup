@@ -6,8 +6,8 @@ export const Jumbotron = styled.section`
     height:${props => props.height ? props.height : '100vh'} !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    justify-content: center !important;
+    align-items: center !important;
     content: "";
     background: 
     /* top, transparent red, faked with gradient */ linear-gradient(90deg, rgba(0,0,0,0.5046218316428134) 0%, rgba(0,0,0,0.5214285543318891) 100%),

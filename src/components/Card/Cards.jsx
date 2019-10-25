@@ -9,26 +9,7 @@ import { Seat } from './cardParts'
 // import TabHead from '../TabHead'
 
 // for styled-components that have props styles
-const styles = {
-  PickASeatCard: {
-    width: '390px',
-    height: '289px',
-    justifyContent: 'flex-start',
-    padding: '20px 0'
-  },
-  PickASeatCardFirstRow: {
-    justifyContent: 'space-between',
-    height: '50px',
-    padding: '0 40px',
-    margin: '0 0 30px'
-  },
-  PickASeatCardSecondRow: {
-    justifyContent: 'space-between',
-    height: '50px',
-    padding: '0 40px',
-    margin: '0 0 30px'
-  }
-}
+
 export const CardBox = ({ children, ...props }) => {
   return (
     <Card.Container {...props}>
@@ -37,6 +18,26 @@ export const CardBox = ({ children, ...props }) => {
   )
 }
 export const PickASeatCard = ({ ...props }) => {
+  const styles = {
+    PickASeatCard: {
+      width: '390px',
+      height: '289px',
+      justifyContent: 'flex-start',
+      padding: '20px 0'
+    },
+    PickASeatCardFirstRow: {
+      justifyContent: 'space-between',
+      height: '50px',
+      padding: '0 40px',
+      margin: '0 0 30px'
+    },
+    PickASeatCardSecondRow: {
+      justifyContent: 'space-between',
+      height: '50px',
+      padding: '0 40px',
+      margin: '0 0 30px'
+    }
+  }
   return (
     <CardBox
       {...styles.PickASeatCard}>
@@ -52,6 +53,18 @@ export const PickASeatCard = ({ ...props }) => {
         <Seat number={1} />
         <Seat number={3} />
       </Row>
+
+    </CardBox>
+  )
+}
+
+
+export const DashboardAnalyticsCard = ({ ...props }) => {
+  const styles = {
+    
+  }
+  return (
+    <CardBox>
 
     </CardBox>
   )

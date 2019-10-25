@@ -86,11 +86,11 @@ export default class ResetPassword extends Component {
       swal('No Match', `Passwords Don't match `, 'error')
       return
     }
-    // this.setState({loading: true})
+    this.setState({loading: true})
     // setTimeout(() => {
     //   this.setState({loading: false}, ()=> this.props.history.push('/resetcomplete'))
     // }, 3000);
-    handleNewPassword({password, token})
+    handleNewPassword({password}, token)
     .then(res=>{
       if(res){
         this.setState({loading: false}, ()=> this.props.history.push('/resetcomplete'))

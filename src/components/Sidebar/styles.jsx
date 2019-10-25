@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { device } from '../device'
 
 export const SideNav = styled.aside`
-  height: 94%; 
+  height: calc(94vh - 103px); 
   width: 300px; /* 0 width - change this with JavaScript */
   position: absolute; /* Stay in place */
   z-index: 1; /* Stay on top */
@@ -11,11 +11,16 @@ export const SideNav = styled.aside`
   background-color: ${props => props.theme.buttonBlue};
   overflow: hidden; 
   padding-top: 10px; 
-  transition: 1s;
+  transition: .5s;
   padding-left: 30px;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   &#sidebaralt {
     width: 120px; /* 0 width - change this with JavaScript */
     padding-left: 0;
+    transition: .3s;
     ul {
       display: flex;
       align-self: center;
@@ -23,22 +28,14 @@ export const SideNav = styled.aside`
       justify-content: flex-start;
       flex-direction: column;
       padding:0;
-      width:120px;
+      width:100%;
     }
     ul li {
       width: 100%;
-      height: 60px; 
       justify-content:center;
+
     }
   }
-a {
-  // padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #9a9a9a;
-  display: block;
-  transition: 0.3s;
-}
 /* When you mouse over the navigation links, change their color */
  a:hover {
   color: ${props => props.theme.text};
@@ -61,8 +58,33 @@ ul {
   display:flex;
   justify-content:flex-start;
   align-items:center;
+  cursor: pointer;
+}
+ul li:hover {
+  border-width: .5px 2px .5px 0;
+  border-style: solid;
+  border-color: #aaa;
+}
+ul li:first-child{
+  border-bottom: .5px solid ${props => props.theme.white};
+}
+ul li:first-child:hover{
+  border:none;
+  border-bottom: .5px solid ${props => props.theme.white};
+}
+ul.sidebar-lower-list {
+  margin-top: auto;
 }
 
+ul.sidebar-lower-list li:first-child{
+  border-bottom: none;
+}
+
+ul.sidebar-lower-list li:hover {
+  border-width: .5px 2px .5px 0;
+  border-style: solid;
+  border-color: #aaa;
+}
  ul li a {
   text-decoration: none;
   color: #9a9a9a;
@@ -88,7 +110,6 @@ ul {
 
  ul li.active a span {
   color: rgba(0, 0, 0, 0.25);
-  /* font-size: 14px; */
 }
 
 @media ${device.mobileS} {
@@ -98,6 +119,9 @@ ul {
 @media ${device.tablet} {
 }
 @media ${device.laptopL} { 
-  height: calc(100% - 35px); 
+  height: calc(95.8vh - 103px); 
+  // ul.sidebar-lower-list {
+  //   margin-top: 200%;
+  // }
 }
 `

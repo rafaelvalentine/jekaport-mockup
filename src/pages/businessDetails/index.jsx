@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // Components
-import Layout from '../../components/DashboardWrapper'
+import Layout from '../../container/DashboardWrapper'
 
 // auth
 
