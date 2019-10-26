@@ -73,6 +73,23 @@ button {
 }
 
 
+/* 
+==========================================================================
+	Centered Modal
+========================================================================== 
+*/
+
+#centeredmodal {
+    /* z-index: 2001; */
+}
+
+#centeredmodal .modal-content {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+
+
 /*Mobile Styling*/
 
 

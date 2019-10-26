@@ -20,8 +20,8 @@ export default (state = initialState, action) => {
           socialMedia: [...action.payload.data.socialMedia],
           terminals: [...action.payload.data.terminals],
           businessType: action.payload.data.businessType,
-          companyLogo: action.payload.data.companyLogo
-          // ...action.payload.data
+          companyLogo: action.payload.data.companyLogo,
+          ...action.payload.data
         }
       }
     case 'UPDATE_USER':
@@ -36,10 +36,17 @@ export default (state = initialState, action) => {
           socialMedia: [...action.payload.payload.socialMedia],
           terminals: [...action.payload.payload.terminals],
           businessType: action.payload.payload.businessType,
-          companyLogo: action.payload.payload.companyLogo
+          companyLogo: action.payload.payload.companyLogo,
+          businessHour: action.payload.payload.businessHour,
+          businessInfo: action.payload.payload.businessInfo
           // ...action.payload.data
         }
       }
+    case 'VEHICLE_LIST':
+      return { ...state,
+        VehicleTypes: [...action.payload.data]
+      }
+
     default:
       return state
   }

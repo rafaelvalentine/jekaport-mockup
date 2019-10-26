@@ -268,7 +268,7 @@ export const PartnerFormTwo = ({ ...props }) => {
 export const UpdateProFileForm = ({ ...props }) => {
   return (
     <CardWrapper
-      width='80%'
+      width='90%'
       height='350px'
       alignItems='center'
       padding='24px 0 90px'
@@ -378,6 +378,197 @@ export const UpdateProFileForm = ({ ...props }) => {
           margin='80px 10px 10px auto' />
       </FormWrapper>
     </CardWrapper>
+  )
+}
+export const UpdateBusinessForm = ({ ...props }) => {
+  return (
+    <CardWrapper
+      width='90%'
+      height='350px'
+      alignItems='center'
+      padding='24px 0 90px'
+      justifyContent='flex-start'
+      {...props}
+    >
+      <SubLabel>
+        Business Details
+      </SubLabel>
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Input.TextAltLabel
+          width='625px'
+          textareaMargin='0 0 0 150px'
+          margin='50px 0 0 '
+          label='Business info:'
+          name='businessInfo'
+          placeholder='Enter details about your business'
+          value={props.inputs.businessInfo}
+          onChange={props.handleOnChange}
+        />
 
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 172px'
+          margin='30px 0 0 '
+          label='Terminals:'
+          placeholder='e.g: Oshodi under bridge (Separate each terminal with a comma)'
+          name='terminals'
+          value={props.inputs.terminals}
+          onChange={props.handleOnChange}
+        />
+        <Input.TextAltLabel
+          width='625px'
+          textareaMargin='0 0 0 134px'
+          margin='30px 0 0 '
+          label='Business Hours:'
+          placeholder='Enter business days and hours here. (separate each business hour with a comma)'
+          name='businessHour'
+          value={props.inputs.businessHour}
+          onChange={props.handleOnChange}
+        />
+        <Input.MainAltLabel
+          width='625px'
+          inputMargin='0 0 0 180px'
+          margin='30px 0 0 '
+          label='Services:'
+          placeholder='Separate each service with a comma'
+          name='services'
+          value={props.inputs.services}
+          onChange={props.handleOnChange}
+        />
+        <Button
+          content='UPDATE'
+          width='625px'
+          loading={props.inputs.loading}
+          onClick={props.handleSubmit}
+          margin='80px 10px 10px auto' />
+      </FormWrapper>
+    </CardWrapper>
+  )
+}
+
+export const AddRouteForm = ({ ...props }) => {
+  const vehicles = props.vehicleTypes.map(vehicle => (
+    <option key={vehicle._id} value={vehicle._id}>{vehicle.vehicleType}</option>
+  ))
+  return (
+    <CardWrapper
+      width='90%'
+      height='350px'
+      alignItems='center'
+      padding='24px 0 90px'
+      justifyContent='flex-start'
+      {...props}
+    >
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Row
+          flexWrap='nowrap'
+          padding='40px 0 0'>
+          <Input.Select
+            label='Type of Vehicle'
+            placeholder='Selecct type of vehicle'
+            labelfontWeight='true'
+            onChange={props.handleSelect}
+          >
+            <option hidden>Selecct type of vehicle</option>
+            {vehicles}
+          </Input.Select>
+
+          <Input.Main
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Vehicle Model'
+            placeholder='e.g Ring road, Ibadan'
+            name='vehicleModel'
+            value={props.inputs.vehicle}
+            onChange={props.handleOnChange}
+          />
+        </Row>
+        <Row
+          margin='42px auto 0'>
+          <Row
+            width='50%'>
+            <Input.Main
+              width='185px'
+              height='43px'
+              labelfontWeight='true'
+              margin='0 18px'
+              label='From?'
+              placeholder='Enter business days and hours here. (separate each business hour with a comma)'
+              name='from'
+              value={props.inputs.from}
+              onChange={props.handleOnChange}
+            />
+            <Input.Main
+              width='185px'
+              height='43px'
+              labelfontWeight='true'
+              margin='0 18px'
+              label='to ?'
+              placeholder='Enter business days and hours here. (separate each business hour with a comma)'
+              name='to'
+              value={props.inputs.to}
+              onChange={props.handleOnChange}
+            />
+          </Row>
+          <Input.MainFormatter
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Price'
+            thousandSeparator
+            prefix={'₦'}
+            placeholder='Enter Price'
+            value={props.inputs.price}
+            onValueChange={props.onValueChange}
+          />
+        </Row>
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.Main
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Departure Time'
+            placeholder='e.g 4:00am'
+            name='departing'
+            value={props.inputs.departing}
+            onChange={props.handleOnChange}
+          />
+          <Input.Main
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Available Seats'
+            placeholder='Number of seats'
+            disabled='Number of seats'
+            value={props.inputs.seats}
+            onChange={props.handleOnChange}
+          />
+        </Row>
+
+        <Row>
+          <Button
+            altButton='true'
+            content='Publish'
+            width='218px'
+            loading={props.inputs.loading}
+            onClick={props.handleSubmit}
+            margin='80px 10px 10px auto' />
+          <Button
+            content='PREVIEW'
+            width='409px'
+            loading={props.inputs.loading}
+            onClick={props.handleShowPreview}
+            margin='80px 10px 10px 0' />
+        </Row>
+
+      </FormWrapper>
+    </CardWrapper>
   )
 }

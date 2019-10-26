@@ -45,3 +45,49 @@ border: .5px solid ${props => props.theme.blue};
 border-radius: 50px;
 text-align: center;
 `
+
+export const Text = styled.p`
+// font-size: 12px;
+// line-height: 16px;
+// text-transform: capitalize
+color: ${props => props.altText ? props.theme.green : props.theme.text};
+margin:0;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+color: #053C69;
+`
+export const TextAlt = styled(Text)`
+overflow-wrap: break-word;
+word-wrap: break-word;
+hyphens: auto;
+`
+export const SubText = styled(Text)`
+// font-size: 10px;
+// line-height: 14px;
+color: ${props => props.altSubText ? props.theme.blue : props.theme.text};
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+color: #000000;
+margin-top:5px;
+`
+export const SideBy = styled.div`
+display:flex;
+justify-content: flex-start;
+align-items: center;
+padding:0;
+margin:0;
+`
+export const Stacked = styled(SideBy)`
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+margin-left: 5px;
+margin-bottom:14px;
+`

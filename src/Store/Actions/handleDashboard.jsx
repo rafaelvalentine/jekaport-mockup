@@ -2,7 +2,7 @@ import type from '../Type'
 import axios from 'axios'
 import { handleError } from '../../lib'
 
-const { SETTINGS_STATUS, UPDATE_USER } = type
+const { SETTINGS_STATUS, UPDATE_USER, VEHICLE_LIST } = type
 
 const setDashboardSettings = payload => ({
   type: SETTINGS_STATUS,
@@ -10,6 +10,10 @@ const setDashboardSettings = payload => ({
 })
 const handleUser = payload => ({
   type: UPDATE_USER,
+  payload
+})
+const handleVehicles = payload => ({
+  type: VEHICLE_LIST,
   payload
 })
 export const handleSetDashboardSettings = results => dispatch => {
@@ -37,6 +41,45 @@ export const handleUpdateUser = (id, user) => dispatch => {
     .then(res => {
       let result = res.data
       dispatch(handleUser(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleBusinessDetails = (id, user) => dispatch => {
+  return axios
+    .patch(`/businessdetails/${id}`, user)
+    .then(res => {
+      let result = res.data
+      dispatch(handleUser(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleFetchVehicleTypes = () => dispatch => {
+  return axios
+    .get(`/vehicles`)
+    .then(res => {
+      let result = res.data
+      dispatch(handleVehicles(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleAddRoute = route => dispatch => {
+  return axios
+    .post(`/addRoute`, route)
+    .then(res => {
+      let result = res.data
+      // dispatch(handleVehicles(result))
       return result
     })
     .catch(err => {

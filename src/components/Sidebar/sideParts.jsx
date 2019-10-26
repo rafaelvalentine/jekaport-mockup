@@ -67,7 +67,7 @@ export const LargeNav = ({ ...props }) => {
           img={require('../../assets/images/dashboard-active.svg')}
           img2={require('../../assets/images/dashboard.svg')}
           location={'dashboard'}
-          address={'/companydashboard'}
+          address={'/dashboard/companydashboard'}
           activeOnlyWhenExact
         />
         {props.settingStatus ? settingsNavlink : navlink }
@@ -102,7 +102,7 @@ export const SmallNav = ({ ...props }) => {
         <NavLinksAlt
           img={require('../../assets/images/dashboard-active.svg')}
           img2={require('../../assets/images/dashboard.svg')}
-          address={'/companydashboard'}
+          address={'/dashboard/companydashboard'}
           activeOnlyWhenExact
         />
         {props.settingStatus ? settingsNavlinkAlt : navlinkAlt}

@@ -72,7 +72,7 @@ export default class Index extends Component {
     this.props.handleLogin({email, password})
     .then(res=>{
       if(res){
-        this.setState({loading: false}, ()=> this.props.history.push('/companydashboard'))
+        this.setState({loading: false}, ()=> this.props.history.push('/dashboard/companydashboard'))
         return
       }
       this.setState({ loading: false })

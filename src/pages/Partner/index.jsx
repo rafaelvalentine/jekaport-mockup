@@ -89,7 +89,7 @@ shortenText = text => {
 
   handleOnChange = e => {
     const {name, value } = e.target
-    this.setState({...this.state, [name]: value.trim() })
+    this.setState({...this.state, [name]: value })
   }
   onValueChange = values => {
     const { value } = values
@@ -98,19 +98,19 @@ shortenText = text => {
   handleRegister = e => {
     e.preventDefault()
     const { repName, repEmail, repIdNumber, repIdFile, repPhone} = this.state
-    if(validator.isEmpty(repName)){
+    if(validator.isEmpty(repName.trim())){
       swal('No Name', 'Please enter Name', 'error')
       return
     }
-    if(validator.isEmpty(repEmail)){
+    if(validator.isEmpty(repEmail.trim())){
       swal('No Email', 'Please enter email', 'error')
       return
     }
-    if(!validator.isEmail(repEmail)){
+    if(!validator.isEmail(repEmail.trim())){
       swal('Not Email', 'Please enter valid email', 'error')
       return
     }
-    if(validator.isEmpty(repIdNumber)){
+    if(validator.isEmpty(repIdNumber.trim())){
       swal('No Identification', 'Please Enter Number Means of Identification (Individual Registering for Company ', 'error')
       return
     }
@@ -118,7 +118,7 @@ shortenText = text => {
       swal('No File', 'Upload Means of Identification (Individual Registering for Company )', 'error')
       return
     }
-    if(validator.isEmpty(repPhone)){
+    if(validator.isEmpty(repPhone.trim())){
       swal('No Phone Number', 'Please enter Phone Number', 'error')
       return
     }
@@ -129,7 +129,17 @@ shortenText = text => {
   }
   handleAddUserToStore = () =>{
     const { repName, repEmail, repIdNumber, repIdFile, repPhone, repIdFilename } = this.state
-    this.props.handleAddUserToStore({ repName, repEmail, repIdNumber, repIdFile, repPhone, repIdFilename })
+    let rep = { 
+       repName: repName.trim(), 
+       repEmail: repEmail.trim() ,
+       repIdNumber: repIdNumber.trim(), 
+       repIdFile, 
+       repPhone: repPhone.trim(),
+       repIdNumber: repIdNumber.trim(), 
+       repIdFilename: repIdFilename.trim()
+       }
+    
+    this.props.handleAddUserToStore(rep)
     setTimeout(() => {
       this.props.history.push('/become-a-partner/form-two')
     }, 1000);
@@ -147,10 +157,10 @@ shortenText = text => {
         <Row {...styles.Row} >
           <Banner {...styles.Banner} >
             <Page.Title>
-            Become a Partner
+                Become a Partner
             </Page.Title>
             <Page.SubTitle>
-            Partners are Transport Companies who own registered Transport Companies. Signup today to gain access to our unlimited pool of travelers waiting for your service.
+                Partners are Transport Companies who own registered Transport Companies. Signup today to gain access to our unlimited pool of travelers waiting for your service.
             </Page.SubTitle>
           </Banner>
           <Page.Container>

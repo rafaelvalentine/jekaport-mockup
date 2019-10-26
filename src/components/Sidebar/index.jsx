@@ -25,7 +25,7 @@ index.defaultProps = {
       img: dashboard,
       //  img2:userGrey,
       location: 'business details',
-      address: '/businessdetaildashboard',
+      address: '/dashboard/businessdetaildashboard',
       activeOnlyWhenExact: true
     },
     {
@@ -38,10 +38,10 @@ index.defaultProps = {
     },
     {
       id: '4',
-      img: dashboard,
-      //  img2:settingGrey,
-      location: 'dashboard',
-      address: '/Platform',
+      img: require('../../assets/images/bus.svg'),
+      img2: require('../../assets/images/bus-active.svg'),
+      location: 'routes',
+      address: '/dashboard/routes',
       activeOnlyWhenExact: true
     },
     {

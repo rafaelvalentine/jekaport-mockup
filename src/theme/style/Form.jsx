@@ -299,10 +299,10 @@ NoLabelInput.defaultProps = {
 export const MainLabelContainer = styled.label`
     display: block;
     margin:${props => props.margin ? props.margin : '0 50px'};
-.phonenumber-formatter {
+.formatter {
         width: ${props => props.width ? props.width : '459px'};
         border: 1px solid ${props => props.theme.inputBorder};
-        border-radius: 5px;
+        border-radius: ${props => props.borderRadius ? props.borderRadius : '5px'};
         height: ${props => props.height ? props.height : '32px'};
         background:${props => props.theme.transparent};
         padding: 12px 18px;
@@ -353,7 +353,7 @@ export const Select = styled.select`
     width: ${props => props.width};
     height: ${props => props.height};
     margin: ${props => props.seletMargin};
-    border: 1px solid ${props => props.altBorder ? props.altBorder : props.theme.actions};
+    border: 1px solid ${props => props.theme.inputBorder};
     background: transparent;
     padding: 8px;
     font-style: normal;
@@ -363,32 +363,57 @@ export const Select = styled.select`
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    // background-image: ${props => props.altArrow ? `url(${require('../../assets/images/down-arrow.svg')})` : `url(${require('../../assets/images/down-arrow.svg')})`};
+    background-image: ${props => props.altArrow ? `url(${require('../../assets/images/down-arrow.svg')})` : `url(${require('../../assets/images/down-arrow.svg')})`};
     background-repeat: no-repeat;
-    background-position: 90%;
+    background-position: 98%;
     background-size: center;
     border-radius: 4px;
     color: ${props => props.theme.bodyText};
     cursor:pointer;
-    :focus{
-        outline: ${props => props.theme.blue};
-    }
+    ::placeholder {
+      font-size: ${props => props.fontSize ? props.fontSize : '12px'};
+      color: ${props => props.theme.placeholder};
+  }
+  &:focus {
+    transition: .3s;
+    outline:none;
+    border-radius: 4px;
+}
 `
 Select.defaultProps = {
-  width: '135px',
-  height: '40px',
+  width: '414px',
+  height: '43px',
   seletMargin: '0'
 }
 export const TxtArea = styled.textarea`
-    border: 1px solid transparent;
-    border-bottom: 1px solid #909090;
+    border: 1px solid ${props => props.theme.inputBorder};
+    border-radius: 5px;
     width: ${props => props.width ? props.width : '250px'};
-    height:${props => props.height ? props.height : '309px'} ;
+    height:${props => props.height ? props.height : '122px'} ;
+    margin:${props => props.textareaMargin};
     padding: 10px;
-    font-size: ${props => props.fontSize ? props.fontSize : '12px'};
-    line-height: 16px;
-    color: ${props => props.theme.bodyText};
+    font-style: normal;
+    font-weight: normal;
+    font-size: ${props => props.fontSize ? props.fontSize : '14px'};
+    line-height: 18px;
+    color: #3B3B3B;
     background:${props => props.theme.transparent};
+    resize: none;
+    &:focus {
+      transition: .3s;
+      outline:none;
+      border-radius: 4px;
+  }
+  ::placeholder {
+    font-size: ${props => props.fontSize ? props.fontSize : '12px'};
+    color: ${props => props.theme.placeholder};
+}
+  &.textaltlabel{
+    width: ${props => props.width ? props.width : '625px'};
+    background: rgba(196, 196, 196, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    border-radius: 0;
+  }
 `
 export const NoLabelSelect = styled(Select)`
     margin: ${props => props.margin};

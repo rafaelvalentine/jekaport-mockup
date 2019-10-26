@@ -24,12 +24,13 @@ import PickSeat from './pages/PickASeat'
 import ForgotPassword from './container/ForgotPassword'
 import ResetPassword from './container/ResetPassword'
 import SearchResults from './pages/SearchResult.jsx'
-import CompanyDashboard from './pages/Dashboard'
-import BusinessDetailDashboard from './pages/businessDetails'
 import ResetSent from './pages/ResetSent'
 import ResetComplete from './pages/ResetComplete'
+import CompanyDashboard from './pages/Dashboard'
+import BusinessDetailDashboard from './pages/businessDetails'
+import VehicleRoutes from './container/VehicleRoutes'
 import CompanyDetails from './container/CompanyDetails'
-import { BusinessDetails } from './pages/Settings'
+import BusinessDetails from './container/BusinessDetails'
 function Router () {
   return (
     <>
@@ -48,8 +49,9 @@ function Router () {
         <Route exact path='/' component={Home} />
         {/* <Route exact path="/home" component={Home} /> */}
         <Route exact path='/resetsent' component={ResetSent} />
-        <Route exact path='/companydashboard' component={CompanyDashboard} />
-        <Route exact path='/businessdetaildashboard' component={BusinessDetailDashboard} />
+        <Route exact path='/dashboard/companydashboard' component={CompanyDashboard} />
+        <Route exact path='/dashboard/businessdetaildashboard' component={BusinessDetailDashboard} />
+        <Route exact path='/dashboard/routes' component={VehicleRoutes} />
         <Route exact path='/resetcomplete' component={ResetComplete} />
         <Route exact path='/settings'>
           <Redirect to='/settings/companydetails' />

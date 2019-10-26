@@ -22,7 +22,6 @@ const styles = {
     marginHeader: '30px 0'
   },
   Column: {
-    // justifyContent: 'center',
     width: 'calc(100% - 120px)',
     margin: '0 0 45px 120px'
   }
@@ -55,7 +54,6 @@ shortenText = text => {
   handleFileChange = e => {
     const imageMaxSize = 2000000 // bytes
     let file = e.target.files[0]
-    // console.log(file)
     const acceptedFileTypes = 'image/x-png, image/png, image/jpg, image/jpeg, image/gif, application/pdf, application/x-zip-compressed, image/svg+xml'
     const acceptedFileTypesArray = acceptedFileTypes.split(',').map(item => { return item.trim() })
     const verifyFile = files => {
@@ -76,7 +74,6 @@ shortenText = text => {
     }
     if (file) {
       const isVerified = verifyFile(file)
-      // console.log(isVerified)
       if (isVerified) {
         let reader = new FileReader()
         reader.onloadend = () => {
@@ -93,12 +90,12 @@ shortenText = text => {
 
   handleOnChange = e => {
     const {name, value } = e.target
-    this.setState({...this.state, [name]: value.trim() })
+    this.setState({...this.state, [name]: value})
   }
 
   handleSubmit = e => {
     e.preventDefault()
-    const { _id, companyName, businessAddress, email, phoneNumber, businessType, logo, facebook, instagram, twitter } = this.state
+    const { companyName, businessAddress, email, phoneNumber, businessType, logo, facebook, instagram, twitter } = this.state
     const socialMedia = []
     if(validator.isEmpty(companyName)){
       swal('No Name', 'Please enter Name', 'error')
@@ -127,25 +124,25 @@ shortenText = text => {
     if(!validator.isEmpty(facebook)){
       let facebook = {
         media:'facebook',
-        url:this.state.facebook
+        url:this.state.facebook.trim()
       }
      socialMedia.push(facebook)
     }
     if(!validator.isEmpty(twitter)){
       let twitter = {
         media:'twitter',
-        url:this.state.twitter
+        url:this.state.twitter.trim()
       }
       socialMedia.push(twitter)
     }
     if(!validator.isEmpty(instagram)){
       let instagram = {
         media:'instagram',
-        url:this.state.instagram
+        url:this.state.instagram.trim()
       }
       socialMedia.push(instagram)
     }
-    let _phoneNumber = phoneNumber.split(',')
+    let _phoneNumber = phoneNumber.trim().split(',')
     this.setState({socialMedia, phoneNumber:_phoneNumber}, ()=> this.handleUpdateUser())
    
   }
@@ -153,26 +150,33 @@ shortenText = text => {
     this.setState({loading: true})
     const { _id, companyName, businessAddress, email, phoneNumber, businessType, logo, socialMedia} = this.state
     let user ={
-      companyName, 
-      businessAddress, 
-      email, 
+      companyName: companyName.trim(), 
+      businessAddress: businessAddress.trim() , 
+      email: email.trim(), 
       phoneNumber, 
-      businessType, 
+      businessType: businessType.trim(), 
       logo, 
       socialMedia
     }
     this.props.handleUpdateUser(_id, user)
     .then(res=>{
       if(res){
-        this.setState({loading: false}, ()=> swal(`${res.message}`, '', 'success'))
+        this.setState({loading: false, _id: '',
+        companyName: '',
+        businessAddress: '',
+        email: '',
+        phoneNumber: '',
+        businessType:'',
+        logo: undefined,
+        logoName:undefined,
+        facebook:'',
+        twitter:'',
+        instagram:'',
+        socialMedia:[]}, ()=> swal(`${res.message}`, '', 'success'))
         return
       }
       this.setState({loading: false})
     })
-    //  setTimeout(() => {
-    //    console.log('[socialMedia]', socialMedia)
-    //   this.setState({loading: false})
-    // }, 3000);
   }
   static getDerivedStateFromProps(nextProps, prevState){
     if(nextProps.User.companyName !== prevState.companyName){

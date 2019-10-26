@@ -6,6 +6,7 @@ export const Container = styled.div`
     height: ${props => props.height};
     border-radius:${props => props.borderRadius};
     border: 1px solid ${props => props.theme.transparent};
+    pointer-events: ${ props => props.disabled ? 'none': 'auto'}
     text-align: center;
     font-style: normal;
     font-weight: bold;
@@ -13,7 +14,7 @@ export const Container = styled.div`
     line-height: 16px;
     cursor: pointer;
     color: ${props => props.altButton ? props.theme.buttonBlue : props.theme.whiteButton};
-    background-color: ${props => props.altButton ? props.theme.whiteButton : props.theme.buttonBlue};
+    background-color: ${props => props.altButton ? props.theme.white : props.theme.buttonBlue};
     transition: .3s;
     display:flex;
     justify-content: center;

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { SeatNumber, SeatWrapper } from './styles'
+import { SeatNumber, SeatWrapper, Stacked, Text, SubText } from './styles'
 import { Image } from '../Picture'
 import { } from '../../theme/style/typeface'
+import { formatAmount } from '../Tools/Formatter'
 
 // images
 import AvailableCarSeat from '../../images/AvailableCarSeat.svg'
@@ -35,6 +36,21 @@ export const Seat = ({ status, ...props }) => {
       </SeatNumber>
       {_seat}
     </SeatWrapper>
-
+  )
+}
+export const DuoText = ({ text, subText, ...props }) => {
+  let amount
+  if (props.amount) {
+    amount = `₦ ${formatAmount(props.amount)}`
+  }
+  return (
+    <Stacked>
+      <Text {...props}>
+        { text }
+      </Text>
+      <SubText {...props}>
+        {props.amount ? amount : subText }
+      </SubText>
+    </Stacked>
   )
 }

@@ -39,9 +39,9 @@ export const SubLabel = styled.h1`
 
 export const BoldLabel = styled(SubLabel)`
     text-align: ${props => props.textAlign ? props.textAlign : 'left' } !important;
-    color: ${props => props.theme.grayText};
+    color: ${props => props.theme.black};
     margin-left:0;
-    font-weight: 700;
+    font-weight: ${props => props.labelfontWeight ? 'bold' : 'normal'};
 `
 export const GreenLabel = styled(SubLabel)`
     font-weight: bold;

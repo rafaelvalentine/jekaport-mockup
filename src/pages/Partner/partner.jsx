@@ -45,7 +45,7 @@ export default class index extends Component {
 
   handleOnChange = e => {
     const {name, value } = e.target
-    this.setState({...this.state, [name]: value.trim() })
+    this.setState({...this.state, [name]: value })
   }
   onValueChange = values => {
     const {formattedValue, value } = values
@@ -68,27 +68,27 @@ export default class index extends Component {
       swal('No Name', 'Please enter Name', 'error')
       return
     }
-    if(validator.isEmpty(businessAddress)){
+    if(validator.isEmpty(businessAddress.trim())){
       swal('No Address', 'Please enter Address', 'error')
       return
     }
-    if(!validator.isEmail(email)){
+    if(!validator.isEmail(email.trim())){
       swal('Not Email', 'Please enter valid email', 'error')
       return
     }
-    if(validator.isEmpty(email)){
+    if(validator.isEmpty(email.trim())){
       swal('No Email', 'Please enter email', 'error')
       return
     }
-    if(validator.isEmpty(rcNumber)){
+    if(validator.isEmpty(rcNumber.trim())){
       swal('No rcNumber', 'Please Enter rcNumber', 'error')
       return
     }
-    if(validator.isEmpty(phoneNumber)){
+    if(validator.isEmpty(phoneNumber.trim())){
       swal('No Phone Number', 'Please enter Phone Number', 'error')
       return
     }
-    if(validator.isEmpty(password)){
+    if(validator.isEmpty(password.trim())){
       swal('No password', 'Please enter password', 'error')
       return
     }
@@ -102,12 +102,12 @@ export default class index extends Component {
       repIdNumber, 
       repIdFile, 
       repPhone,
-      companyName, 
-      businessAddress, 
-      rcNumber, 
-      email, 
-      phoneNumber, 
-      password
+      companyName: companyName.trim(), 
+      businessAddress: businessAddress.trim(), 
+      rcNumber: rcNumber.trim(), 
+      email: email.trim(), 
+      phoneNumber: phoneNumber.trim(), 
+      password: password.trim()
     }
     this.setState({loading: true})
     this.props.handleSignUp(user)

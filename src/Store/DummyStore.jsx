@@ -9,6 +9,7 @@ const initState = {
     services: [],
     socialMedia: [],
     terminals: [],
+    businessHour: '',
     companyLogo: undefined
   },
   RegisteringUser: {
@@ -17,6 +18,7 @@ const initState = {
     repIdNumber: '',
     repIdFile: undefined,
     repPhone: ''
-  }
+  },
+  VehicleTypes: []
 }
 export default initState
