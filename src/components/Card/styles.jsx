@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : props.theme.transparent};
+    background-color: ${props => props.backgroundColor ? props.backgroundColor : props.theme.white};
     box-shadow: ${props => props.boxShadow};
     width: ${props => props.width};
     min-height: ${props => props.height};
-    color: ${props => props.color ? props.color : props.theme.white};
+    color: ${props => props.color};
     border-radius:${props => props.borderRadius ? props.borderRadius : '4px'};
     display: flex;
     flex-wrap:  ${props => props.flexWrap ? props.flexWrap : 'wrap'};

@@ -299,7 +299,8 @@ NoLabelInput.defaultProps = {
 export const MainLabelContainer = styled.label`
     display: block;
     margin:${props => props.margin ? props.margin : '0 50px'};
-.formatter {
+.formatter,
+.datepicker {
         width: ${props => props.width ? props.width : '459px'};
         border: 1px solid ${props => props.theme.inputBorder};
         border-radius: ${props => props.borderRadius ? props.borderRadius : '5px'};
@@ -369,6 +370,9 @@ export const Select = styled.select`
     background-size: center;
     border-radius: 4px;
     color: ${props => props.theme.bodyText};
+    &.pagination-select{
+      width: 60px;
+    }
     cursor:pointer;
     ::placeholder {
       font-size: ${props => props.fontSize ? props.fontSize : '12px'};

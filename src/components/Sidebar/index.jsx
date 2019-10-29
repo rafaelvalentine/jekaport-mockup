@@ -22,8 +22,8 @@ index.defaultProps = {
     // },
     {
       id: '2',
-      img: dashboard,
-      //  img2:userGrey,
+      img: require('../../assets/images/suitcase-active.svg'),
+      img2: require('../../assets/images/suitcase.svg'),
       location: 'business details',
       address: '/dashboard/businessdetaildashboard',
       activeOnlyWhenExact: true

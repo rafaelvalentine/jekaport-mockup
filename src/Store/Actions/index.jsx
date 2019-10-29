@@ -6,7 +6,10 @@ export { handleSetDashboardSettings,
   handleUpdateUser,
   handleBusinessDetails,
   handleFetchVehicleTypes,
-  handleAddRoute
+  handleAddRoute,
+  handleGetUserRoutes,
+  handleUpdateRoute,
+  handleDeleteRoute
 } from './handleDashboard'
 export { handleSetState } from './handleStoreState'
 

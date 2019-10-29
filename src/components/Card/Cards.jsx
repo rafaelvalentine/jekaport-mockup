@@ -7,7 +7,7 @@ import { Header, SubHeader } from '../../theme/style/typeface'
 import { Seat, DuoText } from './cardParts'
 import { Logo, Image } from '../Picture'
 import Button from '../Button'
-// import TabHead from '../TabHead'
+import moment from 'moment'
 
 // for styled-components that have props styles
 
@@ -100,9 +100,9 @@ export const RoutePreviewCard = ({ ...props }) => {
       height: '350px',
       margin: '60px auto 0'
     },
-    buttonRow:{
+    buttonRow: {
       height: '50px',
-      padding:'0 72px 0 0'
+      padding: '0 72px 0 0'
     }
   }
   return (
@@ -142,7 +142,7 @@ export const RoutePreviewCard = ({ ...props }) => {
           />
           <DuoText
             text='Departing Time'
-            subText={props.inputs.departing || 'nil'}
+            subText={moment(props.inputs.departing).format('LTS') || 'nil'}
           />
           <DuoText
             text='Seats Available'
@@ -157,13 +157,61 @@ export const RoutePreviewCard = ({ ...props }) => {
           content='PUBLISH'
           width='218px'
           loading={props.inputs.loading}
-          onClick={props.handleSumbit}
+          // onClick={props.onHide}
+          onClick={props.handleSubmit}
           margin='20px 10px 10px auto' />
         <Button
           content='MODIFY'
           width='206px'
           loading={props.inputs.loading}
+          // onClick={props.handleSumbit}
           onClick={props.onHide}
+          margin='20px 10px 10px 0' />
+      </Row>
+    </CardBox>
+  )
+}
+
+export const DeleteRouteCard = ({ ...props }) => {
+  const styles = {
+    CardBox: {
+      width: '100%',
+      height: '240px',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      padding: '20px 0 60px',
+      backgroundColor: '#fff'
+    },
+    Header: {
+      altHeader: 'true'
+    },
+    buttonRow: {
+      height: '50px',
+      padding: '0 72px 0 0'
+    }
+  }
+  return (
+    <CardBox
+      {...styles.CardBox}>
+      <Header
+        {...styles.Header}
+      >
+        Are you sure you want to delete {props.inputs.from} - {props.inputs.to} Route?
+      </Header>
+      <Row
+        {...styles.buttonRow}>
+        <Button
+          altButton='true'
+          content='Cancel'
+          width='218px'
+          loading={props.inputs.loading}
+          onClick={props.onHide}
+          margin='20px 10px 10px auto' />
+        <Button
+          content='DELETE'
+          width='206px'
+          loading={props.inputs.loading}
+          onClick={props.handleDeleteRoute}
           margin='20px 10px 10px 0' />
       </Row>
     </CardBox>

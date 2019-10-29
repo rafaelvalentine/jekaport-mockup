@@ -2,7 +2,7 @@ import type from '../Type'
 import axios from 'axios'
 import { handleError } from '../../lib'
 
-const { SETTINGS_STATUS, UPDATE_USER, VEHICLE_LIST } = type
+const { SETTINGS_STATUS, UPDATE_USER, VEHICLE_LIST, USER_ROUTE_LIST } = type
 
 const setDashboardSettings = payload => ({
   type: SETTINGS_STATUS,
@@ -16,6 +16,11 @@ const handleVehicles = payload => ({
   type: VEHICLE_LIST,
   payload
 })
+const handleRoutes = payload => ({
+  type: USER_ROUTE_LIST,
+  payload
+})
+
 export const handleSetDashboardSettings = results => dispatch => {
   dispatch(setDashboardSettings(results))
 }
@@ -80,6 +85,47 @@ export const handleAddRoute = route => dispatch => {
     .then(res => {
       let result = res.data
       // dispatch(handleVehicles(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleGetUserRoutes = userId => dispatch => {
+  return axios
+    .get(`/partner/viewRoute/${userId}`)
+    .then(res => {
+      let result = res.data
+      dispatch(handleRoutes(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+
+
+export const handleUpdateRoute = (routeId, route) => dispatch => {
+  return axios
+    .patch(`/updateRoute/${routeId}`, route)
+    .then(res => {
+      let result = res.data
+      // dispatch(handleRoutes(result))
+      return result
+    })
+    .catch(err => {
+      console.log(err)
+      handleError(err)
+    })
+}
+export const handleDeleteRoute = routeId => dispatch => {
+  return axios
+    .delete(`/deleteRoute/${routeId}`)
+    .then(res => {
+      let result = res.data
+      // dispatch(handleRoutes(result))
       return result
     })
     .catch(err => {

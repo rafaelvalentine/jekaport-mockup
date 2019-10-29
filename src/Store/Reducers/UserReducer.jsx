@@ -46,6 +46,10 @@ export default (state = initialState, action) => {
       return { ...state,
         VehicleTypes: [...action.payload.data]
       }
+    case 'USER_ROUTE_LIST':
+      return { ...state,
+        RouteList: [...action.payload.data]
+      }
 
     default:
       return state

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Modal } from 'react-bootstrap'
-import { RoutePreviewCard } from '../Card'
+import { RoutePreviewCard, DeleteRouteCard } from '../Card'
+import { EditRouteForm } from '../Forms'
+
 
 export const RoutePreviewModal = ({ ...props }) => {
   return (
@@ -9,5 +11,18 @@ export const RoutePreviewModal = ({ ...props }) => {
     </Modal>
   )
 }
-
+export const EditRouteModal = ({ ...props }) => {
+  return (
+    <Modal id='centeredmodal' size='lg' centered {...props} >
+      <EditRouteForm {...props} />
+    </Modal>
+  )
+}
+export const DeleteRouteModal = ({ ...props }) => {
+  return (
+    <Modal id='centeredmodal' size='lg' centered {...props} >
+      <DeleteRouteCard {...props} />
+    </Modal>
+  )
+}
 export default RoutePreviewModal

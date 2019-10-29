@@ -19,6 +19,7 @@ const initState = {
     repIdFile: undefined,
     repPhone: ''
   },
-  VehicleTypes: []
+  VehicleTypes: [],
+  RouteList:[]
 }
 export default initState

@@ -9,13 +9,19 @@ import Layout from '../../container/DashboardWrapper'
 import Business from './BusinessDetailDashboard'
 
 // Generic Components
-import { Wrapper, Row } from '../../theme/style/styles'
+import { Wrapper, Column } from '../../theme/style/styles'
+import StyleWrapper from './styles'
 const styles = {
   Wrapper: {
-    height: '100%'
+    height: 'calc(94vh - 103px)'
   },
-  Row: {
-    padding: '0 0 0 calc(120px)'
+  Header: {
+    altHeader: 'true',
+    marginHeader: '30px 0'
+  },
+  Column: {
+    width: 'calc(100% - 120px)',
+    margin: '0 0 45px 120px'
   }
 }
 
@@ -23,14 +29,16 @@ class CompanyDashboard extends Component {
   render () {
     return (
       <Layout>
-        <Wrapper {...styles.Wrapper}>
-          <Row
-            id='dashboard-row'
-            {...styles.Row}>
-            <Business />
-          </Row>
+        <StyleWrapper>
+          <Wrapper {...styles.Wrapper}>
+            <Column
+              {...styles.Column}>
+              {/* <Business /> */}
+            </Column>
 
-        </Wrapper>
+          </Wrapper>
+        </StyleWrapper>
+
       </Layout>
     )
   }

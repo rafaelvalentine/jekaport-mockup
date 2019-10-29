@@ -2,7 +2,8 @@ import React from 'react'
 import * as Type from '../../theme/style/typeface'
 import * as Form from '../../theme/style/Form'
 import { Image } from '../../components/Picture'
-import { Formatter } from '../../components/Tools/Formatter'
+import { Formatter, Date as DatePicker } from '../../components/Tools/Formatter'
+
 
 export const Main = ({ name, label, placeholder, type, value, onChange, ...props }) => {
   return (
@@ -138,7 +139,13 @@ export const Select = ({ name, label, children, value, changed, ...props }) => {
     </Form.MainLabelContainer >
   )
 }
-
+export const SelectAlt = ({ name, children, value, changed, ...props }) => {
+  return (
+    <Form.MainLabelContainerAlt {...props}>
+      <Form.Select name={name} value={value} onChange={changed} {...props}> { children } </Form.Select>
+    </Form.MainLabelContainerAlt>
+  )
+}
 export const Text = ({ label, name, value, changed, ...props }) => {
   return (
     <Form.MainLabelContainer>
@@ -152,7 +159,7 @@ export const Text = ({ label, name, value, changed, ...props }) => {
 export const TextAltLabel = ({ label, name, value, ...props }) => {
   return (
     <Form.MainLabelContainer {...props}>
-      <Form.AltBox style={{alignItems: 'flex-start'}}>
+      <Form.AltBox style={{ alignItems: 'flex-start' }}>
         <Form.MainLabel>
           <Type.BoldLabel {...props}>{ label } </Type.BoldLabel>
         </Form.MainLabel>
@@ -173,4 +180,26 @@ export const CheckBox = ({ label, name, type, ...props }) => {
   )
 }
 
+export const MainDate = ({ name, label, placeholder, type, onValueChange, ...props }) => {
+  return (
+    <Form.MainLabelContainer {...props}>
+      <Form.MainLabel >
+        <Type.BoldLabel {...props}> { label } </Type.BoldLabel>
+      </Form.MainLabel>
+      <DatePicker
+        // placeholderText='e.g 4:00am'
+        className='datepicker'
+        // isClearable
+        // peekNextMonth
+        // showMonthDropdown
+        // showYearDropdown
+        // dateFormat='dd/MM/yyyy'
+        // maxDate={new Date()}
+        // selected={valueTo}
+        // onChange={changeTo}
+        // disabled={disableToDatePicker}
+        {...props} />
+    </Form.MainLabelContainer>
+  )
+}
 // export default Input

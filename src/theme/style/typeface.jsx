@@ -138,3 +138,21 @@ opacity:0;
 LandingText.defaultProps = {
   margin: '0 0 16px'
 }
+
+export const CardHeader = styled.div`
+display:flex;
+justify-content: space-between;
+align-items:center;
+width: 100%;
+height: 56px;
+// border-top: .5px solid ${props => props.theme.lightGray};
+border-bottom: .5px solid ${props => props.theme.lightGray};
+// border-radius: 4px;
+padding: ${props => props.padding ? props.padding : '20px 56px'};
+font-style: normal;
+font-weight: bold;
+font-size: ${props => props.fontSize ? props.fontSize : '12px'};
+line-height: 16px;
+color: ${props => props.theme.black};
+background-color: ${props => props.altBackground ? props.theme.faintBlue : props.theme.transparent};
+`

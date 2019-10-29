@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker'
 import WebFont from 'webfontloader'
 
 
-axios.defaults.baseURL = 'https://jekaportapp.herokuapp.com'
+axios.defaults.baseURL = 'https://jekaportapp.herokuapp.com/api'
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 

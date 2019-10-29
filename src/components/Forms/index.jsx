@@ -457,7 +457,7 @@ export const AddRouteForm = ({ ...props }) => {
       width='90%'
       height='350px'
       alignItems='center'
-      padding='24px 0 90px'
+      padding='24px 0 50px'
       justifyContent='flex-start'
       {...props}
     >
@@ -471,6 +471,7 @@ export const AddRouteForm = ({ ...props }) => {
             label='Type of Vehicle'
             placeholder='Selecct type of vehicle'
             labelfontWeight='true'
+            // value={props.inputs.vehicleType}
             onChange={props.handleSelect}
           >
             <option hidden>Selecct type of vehicle</option>
@@ -484,7 +485,7 @@ export const AddRouteForm = ({ ...props }) => {
             label='Vehicle Model'
             placeholder='e.g Ring road, Ibadan'
             name='vehicleModel'
-            value={props.inputs.vehicle}
+            value={props.inputs.vehicleModel}
             onChange={props.handleOnChange}
           />
         </Row>
@@ -497,8 +498,8 @@ export const AddRouteForm = ({ ...props }) => {
               height='43px'
               labelfontWeight='true'
               margin='0 18px'
-              label='From?'
-              placeholder='Enter business days and hours here. (separate each business hour with a comma)'
+              label='From ?'
+              placeholder='e.g: Lagos'
               name='from'
               value={props.inputs.from}
               onChange={props.handleOnChange}
@@ -509,7 +510,7 @@ export const AddRouteForm = ({ ...props }) => {
               labelfontWeight='true'
               margin='0 18px'
               label='to ?'
-              placeholder='Enter business days and hours here. (separate each business hour with a comma)'
+              placeholder='e.g: Abuja'
               name='to'
               value={props.inputs.to}
               onChange={props.handleOnChange}
@@ -530,15 +531,152 @@ export const AddRouteForm = ({ ...props }) => {
         <Row
           margin='42px auto 0'
         >
-          <Input.Main
+          <Input.MainDate
             width='414px'
             height='43px'
             labelfontWeight='true'
             label='Departure Time'
-            placeholder='e.g 4:00am'
+            placeholderText='e.g 4:00am'
+            timeCaption='Time'
+            dateFormat='h:mm aa'
+            showTimeSelect
+            showTimeSelectOnly
+            timeIntervals={5}
             name='departing'
-            value={props.inputs.departing}
+            selected={props.inputs.departing}
+            onChange={props.handleDatePicker}
+          />
+          <Input.Main
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Available Seats'
+            placeholder='Number of seats'
+            disabled='Number of seats'
+            value={props.inputs.seats}
             onChange={props.handleOnChange}
+          />
+        </Row>
+
+        <Row
+          padding='0 45px'>
+          <Button
+            altButton='true'
+            content='Publish'
+            width='218px'
+            loading={props.inputs.loading}
+            onClick={props.handleSubmit}
+            margin='80px 50px 10px auto' />
+          <Button
+            content='PREVIEW'
+            width='409px'
+            loading={props.inputs.loading}
+            onClick={props.handleShowPreview}
+            margin='80px 10px 10px 0' />
+        </Row>
+
+      </FormWrapper>
+    </CardWrapper>
+  )
+}
+export const EditRouteForm = ({ ...props }) => {
+  const vehicles = props.vehicleTypes.map(vehicle => (
+    <option key={vehicle._id} value={vehicle._id}>{vehicle.vehicleType}</option>
+  ))
+  return (
+    <CardWrapper
+      width='1000px'
+      height='350px'
+      alignItems='center'
+      padding='24px 0 90px'
+      justifyContent='flex-start'
+      backgroundColor='#fff'
+      {...props}
+    >
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Row
+          flexWrap='nowrap'
+          padding='40px 0 0'>
+          <Input.Select
+            label='Type of Vehicle'
+            placeholder='Selecct type of vehicle'
+            labelfontWeight='true'
+            // value={props.inputs.vehicleType}
+            onChange={props.handleSelect}
+          >
+            <option hidden>Selecct type of vehicle</option>
+            {vehicles}
+          </Input.Select>
+
+          <Input.Main
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Vehicle Model'
+            placeholder='e.g Ring road, Ibadan'
+            name='vehicleModel'
+            value={props.inputs.vehicleModel}
+            onChange={props.handleOnChange}
+          />
+        </Row>
+        <Row
+          margin='42px auto 0'>
+          <Row
+            width='50%'>
+            <Input.Main
+              width='185px'
+              height='43px'
+              labelfontWeight='true'
+              margin='0 18px'
+              label='From?'
+              placeholder='e.g: Lagos'
+              name='from'
+              value={props.inputs.from}
+              onChange={props.handleOnChange}
+            />
+            <Input.Main
+              width='185px'
+              height='43px'
+              labelfontWeight='true'
+              margin='0 18px'
+              label='to ?'
+              placeholder='e.g: Abuja'
+              name='to'
+              value={props.inputs.to}
+              onChange={props.handleOnChange}
+            />
+          </Row>
+          <Input.MainFormatter
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Price'
+            thousandSeparator
+            prefix={'₦'}
+            placeholder='Enter Price'
+            value={props.inputs.price}
+            onValueChange={props.onValueChange}
+          />
+        </Row>
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.MainDate
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Departure Time'
+            placeholderText='e.g 4:00am'
+            timeCaption='Time'
+            dateFormat='h:mm aa'
+            showTimeSelect
+            showTimeSelectOnly
+            timeIntervals={5}
+            name='departing'
+            selected={props.inputs.departing}
+            onChange={props.handleDatePicker}
           />
           <Input.Main
             width='414px'
@@ -555,17 +693,17 @@ export const AddRouteForm = ({ ...props }) => {
         <Row>
           <Button
             altButton='true'
-            content='Publish'
+            content='Cancel'
             width='218px'
             loading={props.inputs.loading}
-            onClick={props.handleSubmit}
+            onClick={props.onHide}
             margin='80px 10px 10px auto' />
           <Button
-            content='PREVIEW'
-            width='409px'
+            content='UPDATE'
+            width='309px'
             loading={props.inputs.loading}
-            onClick={props.handleShowPreview}
-            margin='80px 10px 10px 0' />
+            onClick={props.handleEditSubmit}
+            margin='80px 60px 10px 0' />
         </Row>
 
       </FormWrapper>
