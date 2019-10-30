@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 
 // Components
 import Layout from '../../container/DashboardWrapper'
+import { BusinessDetailsImage, BusinessInfoTab, 
+  MainDetailsWrapper, AboutUs, Terminals, Services, BusinessHour,
+  BusinessDetailsNav, ShortInfoCard } from '../../components/Card'
 
 // auth
 
 // import temporarily
-import Business from './BusinessDetailDashboard'
+// import Business from './BusinessDetailDashboard'
 
 // Generic Components
-import { Wrapper, Column } from '../../theme/style/styles'
+import { Wrapper, Column, Row } from '../../theme/style/styles'
 import StyleWrapper from './styles'
 const styles = {
   Wrapper: {
@@ -21,7 +24,17 @@ const styles = {
   },
   Column: {
     width: 'calc(100% - 120px)',
-    margin: '0 0 45px 120px'
+    margin: '40px 0 45px 120px'
+  },
+  firstRow: {
+    width: '90%',
+    justifyContent: 'flex-start'
+  },
+  DetailsRow: {
+    justifyContent: 'flex-start',
+    alignItems:'flex-start',
+    width: '90%',
+    margin: '82px 0 0'
   }
 }
 
@@ -30,15 +43,32 @@ class CompanyDashboard extends Component {
     return (
       <Layout>
         <StyleWrapper>
-          <Wrapper {...styles.Wrapper}>
+          <Wrapper
+            className='fixedheight'
+            {...styles.Wrapper}>
             <Column
               {...styles.Column}>
-              {/* <Business /> */}
+              <Row
+                {...styles.firstRow}>
+                <BusinessDetailsImage {...this.props.User} />
+                <BusinessInfoTab {...this.props.User} />
+              </Row>
+              <Row
+                {...styles.DetailsRow}>
+                <MainDetailsWrapper >
+                  <AboutUs {...this.props.User} />
+                  <Terminals {...this.props.User} />
+                  <BusinessHour {...this.props.User} />
+                  <Services {...this.props.User} />
+                </MainDetailsWrapper>
+                <div>
+                  <BusinessDetailsNav />
+                  <ShortInfoCard {...this.props.User} />
+                </div>
+              </Row>
             </Column>
-
           </Wrapper>
         </StyleWrapper>
-
       </Layout>
     )
   }

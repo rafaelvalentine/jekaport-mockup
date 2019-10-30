@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { SeatNumber, SeatWrapper, Stacked, Text, SubText } from './styles'
 import { Image } from '../Picture'
-import { } from '../../theme/style/typeface'
+// import { } from '../../theme/style/typeface'
 import { formatAmount } from '../Tools/Formatter'
 
 // images

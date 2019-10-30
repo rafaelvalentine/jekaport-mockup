@@ -48,7 +48,6 @@ export const DashboardTable = ({
               <th>Departing Time</th>
               <th>Seats Available</th>
               <th />
-
             </TableHead>
             <tbody>
               <RouteList data={data}
@@ -77,5 +76,4 @@ export const DashboardTable = ({
     </CardWrapper>
   )
 }
-
 export default DashboardTable

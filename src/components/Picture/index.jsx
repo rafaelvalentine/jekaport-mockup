@@ -70,29 +70,29 @@ transform:rotate(${props => props.rotate});
 // `
 
 
-// const StarIMG = styled.img.attrs(props => ({
-//   src: props.src,
-//   width: '12px',
-//   height: '12px',
-//   margin: props.margin
-// }))`
-// width: ${props => props.width};
-// height: ${props => props.height};
-// margin: ${props => props.margin};
-// cursor: pointer;
-// `
+const StarIMG = styled.img.attrs(props => ({
+  src: props.src,
+  width: '15px',
+  height: '15px',
+  margin: props.margin
+}))`
+width: ${props => props.width};
+height: ${props => props.height};
+margin: ${props => props.margin};
+cursor: pointer;
+`
 export const Logo = ({ clicked, ...props }) => <LogoIMG onClick={clicked} {...props} />
 export const Image = ({ ...props }) => <IMG {...props} />
 // export const Admin = ({ ...props }) => <AdminIMG {...props} />
 // export const User = ({ image, ...props }) => <UserIMG src={image || require('../../assets/images/default_user.jpg')}{...props} />
 // export const DatePickerImage = ({ ...props }) => <DatePickerIMG {...props} />
-// export const Star = ({ empty, ...props }) => {
-//   let image
-//   empty ? image = require('../../assets/images/empty-star.svg') : image = require('../../assets/images/star.svg')
-//   return (
-//     <StarIMG src={image}{...props} />
-//   )
-// }
+export const Star = ({ empty, ...props }) => {
+  let image
+  empty ? image = require('../../assets/images/empty-star.svg') : image = require('../../assets/images/star.svg')
+  return (
+    <StarIMG src={image}{...props} />
+  )
+}
 // export const GalleryImage = ({ image, deleteImage, ...props }) => (
 //   <Picture.GalleryWrapper>
 //     <Picture.DeleteButton>

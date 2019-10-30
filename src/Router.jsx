@@ -27,10 +27,11 @@ import SearchResults from './pages/SearchResult.jsx'
 import ResetSent from './pages/ResetSent'
 import ResetComplete from './pages/ResetComplete'
 import CompanyDashboard from './pages/Dashboard'
-import BusinessDetailDashboard from './pages/businessDetails'
+import BusinessDetailsDashboard from './container/DashboardBusinessDetails'
 import VehicleRoutes from './container/VehicleRoutes'
 import CompanyDetails from './container/CompanyDetails'
 import BusinessDetails from './container/BusinessDetails'
+// import CompanyDetails from './container/DashboardBusinessDetails'
 function Router () {
   return (
     <>
@@ -50,7 +51,7 @@ function Router () {
         {/* <Route exact path="/home" component={Home} /> */}
         <Route exact path='/resetsent' component={ResetSent} />
         <Route exact path='/dashboard/companydashboard' component={CompanyDashboard} />
-        <Route exact path='/dashboard/businessdetaildashboard' component={BusinessDetailDashboard} />
+        <Route exact path='/dashboard/businessdetaildashboard' component={BusinessDetailsDashboard} />
         <Route exact path='/dashboard/routes' component={VehicleRoutes} />
         <Route exact path='/resetcomplete' component={ResetComplete} />
         <Route exact path='/settings'>
