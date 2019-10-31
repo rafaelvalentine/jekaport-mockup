@@ -16,7 +16,7 @@ const NavLinks = ({ img, img2, address, location, activeOnlyWhenExact, ...props 
         <li className={match ? `active` : ''}>
           <Link to={link}>
             <Logo src={match ? img : img2}
-              alt={address} width='32px' height='32px'
+              alt={address} width='26px' height='26px'
               cursor='pointer'
             />
             <span>
@@ -38,8 +38,8 @@ const NavLinksAlt = ({ img, img2, address, activeOnlyWhenExact, ...props }) => {
         <li className={match ? `active` : ''}>
           <Link to={link}>
             <Logo src={match ? img : img2}
-              alt={address} width='24px'
-              height='24px' cursor='pointer'
+              alt={address} width='18px'
+              height='18px' cursor='pointer'
             />
           </Link>
         </li>
@@ -87,11 +87,11 @@ export const LargeNav = ({ ...props }) => {
         <li className={''} >
           <a onClick={push} href='/' target='_blank' rel='noopener noreferrer'>
             <Logo src={require('../../assets/images/logout.svg')}
-              width='24px'
-              height='24px' cursor='pointer'
+              width='26px'
+              height='26px' cursor='pointer'
             />
             <span>
-            Setting
+            logout
             </span>
           </a>
         </li>
@@ -144,8 +144,8 @@ export const SmallNav = ({ ...props }) => {
         <li className={''} onClick={() => props.history.push('/')}>
           <a onClick={push} href='/' target='_blank' rel='noopener noreferrer'>
             <Logo src={require('../../assets/images/logout.svg')}
-              width='24px'
-              height='24px' cursor='pointer'
+              width='18px'
+              height='18px' cursor='pointer'
             />
             {/* <span>
             Setting

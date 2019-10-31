@@ -6,7 +6,7 @@ import dashboard from '../../assets/images/home.svg'
 const index = ({ ...props }) => {
   return (
     <div>
-      {props.sidebar ? <LargeNav {...props} /> : <SmallNav {...props} />}
+      {!props.sidebar ? <LargeNav {...props} /> : <SmallNav {...props} />}
     </div>
   )
 }

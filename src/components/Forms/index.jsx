@@ -13,6 +13,7 @@ export const ForgotPasswordForm = ({ ...props }) => {
       width='662px'
       height='289px'
       boxShadow='0'
+      backgroundColor='#fff'
     >
       <FormWrapper>
         <Input.Main
@@ -33,6 +34,7 @@ export const ResetPasswordForm = ({ ...props }) => {
       width='662px'
       height='289px'
       boxShadow='0'
+      backgroundColor='#fff'
     >
       <FormWrapper>
         <Input.Main
@@ -65,6 +67,7 @@ export const LoginForm = ({ ...props }) => {
       height='350px'
       boxShadow='0'
       alignItems='flex-start'
+      backgroundColor='#fff'
       {...props}
     >
       <FormWrapper>
@@ -101,6 +104,7 @@ export const PartnerFormOne = ({ ...props }) => {
       height='350px'
       boxShadow='0'
       alignItems='flex-start'
+      backgroundColor='#fff'
       {...props}
     >
       <FormWrapper>
@@ -169,6 +173,7 @@ export const PartnerFormTwo = ({ ...props }) => {
       height='350px'
       boxShadow='0'
       alignItems='flex-start'
+      backgroundColor='#fff'
       {...props}
     >
       <FormWrapper>
@@ -273,6 +278,7 @@ export const UpdateProFileForm = ({ ...props }) => {
       alignItems='center'
       padding='24px 0 90px'
       justifyContent='flex-start'
+      backgroundColor='#fff'
       {...props}
     >
       <SubLabel>
@@ -297,6 +303,7 @@ export const UpdateProFileForm = ({ ...props }) => {
           label='Company Logo:'
           onChange={props.handleFileChange}
           placeholder={props.inputs.logoName || 'Browser'} />
+
         <Input.MainAltLabel
           width='625px'
           inputMargin='0 0 0 158px'
@@ -324,8 +331,9 @@ export const UpdateProFileForm = ({ ...props }) => {
           label='Email:'
           placeholder='test@example.com'
           name='email'
+          disabled
           value={props.inputs.email}
-          onChange={props.handleOnChange}
+          // onChange={props.handleOnChange}
         />
         <Input.MainAltLabel
           width='625px'
@@ -388,6 +396,7 @@ export const UpdateBusinessForm = ({ ...props }) => {
       alignItems='center'
       padding='24px 0 90px'
       justifyContent='flex-start'
+      backgroundColor='#fff'
       {...props}
     >
       <SubLabel>
@@ -459,6 +468,7 @@ export const AddRouteForm = ({ ...props }) => {
       alignItems='center'
       padding='24px 0 50px'
       justifyContent='flex-start'
+      backgroundColor='#fff'
       {...props}
     >
       <FormWrapper

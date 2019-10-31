@@ -9,6 +9,8 @@ import Layout from '../../components/Layout'
 
 // Generic Style Components
 import { Wrapper, Row } from '../../theme/style/styles'
+// styles
+import { Link } from './styles'
 
 // Styles For styled-components with props styles
 const styles = {
@@ -52,6 +54,9 @@ export default class ForgotPassword extends Component {
                   title='Thank you!'
                   subTitle='A link has been sent to your mail'
                 />
+                <Link onClick={() => this.props.history.push('/')}>
+                  click here to return to Home
+                </Link>
               </CardWrapper>
             </Row>
           </Banner>

@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const Footer = styled.footer`
 background: ${props => props.theme.black};
-height: 40px;
+height: 32px;
 span{
 font-family: Roboto;
 font-style: normal;
-font-weight: bold;
+font-weight: 500;
 font-size: 14px;
 line-height: 16px;
 text-align: right;

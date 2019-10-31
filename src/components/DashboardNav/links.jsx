@@ -6,7 +6,7 @@ const NavLinks = ({ open, close, toggle, ...props }) => {
   return (
     <li>
       <span>
-        <Logo src={toggle ? close : open}
+        <Logo src={!toggle ? close : open}
           width='24px'
           height='24px' margin='0'
           cursor='pointer'

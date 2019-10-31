@@ -3,7 +3,7 @@ import { device } from '../device'
 
 export const SideNav = styled.aside`
   height: calc(94vh - 103px); 
-  width: 300px; /* 0 width - change this with JavaScript */
+  width: 170px; /* 0 width - change this with JavaScript */
   position: absolute; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 103px; /* Stay at the top */
@@ -12,13 +12,13 @@ export const SideNav = styled.aside`
   overflow: hidden; 
   padding-top: 10px; 
   transition: .5s;
-  padding-left: 30px;
+  padding-left: 10px;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   &#sidebaralt {
-    width: 120px; /* 0 width - change this with JavaScript */
+    width: 60px; /* 0 width - change this with JavaScript */
     padding-left: 0;
     transition: .3s;
     ul {
@@ -33,8 +33,11 @@ export const SideNav = styled.aside`
     ul li {
       width: 100%;
       justify-content:center;
-
     }
+    // ul li:hover {
+    //   width: 300%;
+    //   justify-content:center;
+    // }
   }
 /* When you mouse over the navigation links, change their color */
  a:hover {
@@ -65,7 +68,7 @@ ul li:hover {
   border-style: solid;
   border-color: #aaa;
 }
-ul li:first-child{
+ul li:first-child {
   border-bottom: .5px solid ${props => props.theme.white};
 }
 ul li:first-child:hover{
@@ -97,8 +100,8 @@ ul.sidebar-lower-list li:hover {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 13px;
   color: #FFFFFF;
 }
 

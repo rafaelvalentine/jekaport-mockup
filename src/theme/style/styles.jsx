@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { device } from '../../components/device'
 
 export const Wrapper = styled.div`
-background: ${props => props.theme.grayBackground};
+background: ${props => props.theme.white};
 height: ${props => props.height};
 // max-height: ${props => props.maxHeight};
 width:100%;

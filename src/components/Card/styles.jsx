@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { device } from '../device'
 
 export const Container = styled.div`
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : props.theme.white};
+    background-color: ${props => props.backgroundColor ? props.backgroundColor : props.theme.offWhite};
     box-shadow: ${props => props.boxShadow};
     width: ${props => props.width};
     min-height: ${props => props.height};

@@ -86,7 +86,7 @@ class CompanyDashboard extends Component {
     })
   }
   static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.User.companyName !== prevState.companyName){
+    if(nextProps.User._id !== prevState._id){
       // let businessHour = nextProps.User.businessHour.join()
       let services = nextProps.User.services.join()
       let terminals = nextProps.User.terminals.join()

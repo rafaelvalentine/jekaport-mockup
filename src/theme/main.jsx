@@ -12,5 +12,6 @@ export default {
   inputBorder: 'rgba(0, 0, 0, 0.25)',
   placeholder: 'rgba(0, 0, 0, 0.27)',
   buttonBlue: '#053C69',
-  lightGray: 'rgba(0, 0, 0, 0.4)'
+  lightGray: 'rgba(0, 0, 0, 0.4)',
+  offWhite: '#FCFCFC'
 }

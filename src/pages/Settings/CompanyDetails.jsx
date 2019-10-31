@@ -89,8 +89,13 @@ shortenText = text => {
   }
 
   handleOnChange = e => {
-    const {name, value } = e.target
-    this.setState({...this.state, [name]: value})
+    let {name, value} = e.target
+    // if(name = 'companyName'){
+    //   console.log({name, value})
+    //   return
+    // }
+    // console.log({name, value})
+    this.setState({[name]: value}, ()=> console.log(this.state))
   }
 
   handleSubmit = e => {
@@ -179,9 +184,9 @@ shortenText = text => {
     })
   }
   static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.User.companyName !== prevState.companyName){
+    if(nextProps.User._id !== prevState._id){
       let phoneNumber = nextProps.User.phoneNumber.join()
-      return {...nextProps.User, phoneNumber};
+      return {...nextProps.User, phoneNumber };
     }
     else return null;
   }
