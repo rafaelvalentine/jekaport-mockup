@@ -44,7 +44,7 @@ export const DuoText = ({ text, subText, ...props }) => {
     amount = `₦ ${formatAmount(props.amount)}`
   }
   return (
-    <Stacked>
+    <Stacked {...props}>
       <Text {...props}>
         { text }
       </Text>

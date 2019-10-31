@@ -1,6 +1,6 @@
 export default {
   black: 'rgba(0, 0, 0, 0.7)',
-  grayBackground:'#fcfcfc',
+  grayBackground: '#F5F5F5',
   background: '#0D0D0D',
   white: '#fff',
   transparent: 'transparent',

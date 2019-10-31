@@ -71,7 +71,7 @@ export const DashboardAnalyticsCard = ({ ...props }) => {
 export const RoutePreviewCard = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '708px',
+      width: '600px',
       height: '500px',
       justifyContent: 'flex-start',
       alignItems: 'center',
@@ -98,11 +98,16 @@ export const RoutePreviewCard = ({ ...props }) => {
     secondRow: {
       flexWrap: 'nowrap',
       height: '350px',
-      margin: '60px auto 0'
+      margin: '60px auto 0',
+      padding: '0 40px',
+      justifyContent: 'space-around'
     },
     buttonRow: {
       height: '50px',
       padding: '0 72px 0 0'
+    },
+    Duotext: {
+      stackedMargin: '0 0 15px'
     }
   }
   return (
@@ -125,26 +130,32 @@ export const RoutePreviewCard = ({ ...props }) => {
         />
         <div>
           <DuoText
+            {...styles.Duotext}
             text='Type of Vehicle'
             subText={props.inputs.vehicleType || 'nil'}
           />
           <DuoText
+            {...styles.Duotext}
             text='Vehicle Model'
             subText={props.inputs.vehicleModel || 'nil'}
           />
           <DuoText
+            {...styles.Duotext}
             text='Route'
             subText={`${props.inputs.from || 'nil'} - ${props.inputs.to || 'nil'}`}
           />
           <DuoText
+            {...styles.Duotext}
             text='Price'
             amount={props.inputs.price || '0'}
           />
           <DuoText
+            {...styles.Duotext}
             text='Departing Time'
             subText={moment(props.inputs.departing).format('LTS') || 'nil'}
           />
           <DuoText
+            {...styles.Duotext}
             text='Seats Available'
             subText={props.inputs.seats || 'nil'}
           />

@@ -69,15 +69,19 @@ export const BusinessBookingBox = ({ ...props }) => {
   const isIE = window.navigator.userAgent.indexOf('Trident') != -1 && !isEdge
 
   function updateClipboard (newClip) {
-    navigator.clipboard.writeText(newClip).then(function () {
-      /* clipboard successfully set */
-      setCopyText({ ...copyText, copied: true })
-      setTimeout(() => {
-        setCopyText({ ...copyText, copied: false })
-      }, 1000)
-    }, function () {
-      /* clipboard write failed */
-    })
+    try {
+      navigator.clipboard.writeText(newClip).then(function () {
+        /* clipboard successfully set */
+        setCopyText({ ...copyText, copied: true })
+        setTimeout(() => {
+          setCopyText({ ...copyText, copied: false })
+        }, 1000)
+      }, function () {
+        /* clipboard write failed */
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
   useEffect(() => {
     if (isEdge || isIE) {
@@ -376,7 +380,7 @@ export const BusinessDetailsNav = ({ ...props }) => {
       height: '371px',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      margin: '0 30px',
+      margin: '0 20px',
       padding: '40px 30px',
       color: 'rgba(0, 0, 0, 0.7)'
     }
@@ -405,10 +409,10 @@ export const ShortInfoCard = ({ ...props }) => {
   const styles = {
     CardBox: {
       width: '388px',
-      height: '311px',
+      height: '211px',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      margin: '70px 30px 0',
+      margin: '70px 20px 0',
       padding: '32px 20px',
       color: 'rgba(0, 0, 0, 0.7)'
     },
@@ -421,7 +425,7 @@ export const ShortInfoCard = ({ ...props }) => {
     },
     Image: {
       width: '150px',
-      height: '166.86px'
+      height: '100px'
     },
     Icons: {
       width: '15px',

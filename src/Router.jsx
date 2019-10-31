@@ -59,6 +59,9 @@ function Router () {
         </Route>
         <Route exact path='/settings/companydetails' component={CompanyDetails} />
         <Route exact path='/settings/businessdetails' component={BusinessDetails} />
+        <Route exact path='/logout'>
+          <Redirect to='/' />
+        </Route>
         <Route component={NotFound} />
       </Switch>
       <Footer />

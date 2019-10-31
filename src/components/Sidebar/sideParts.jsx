@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import dashboard from '../../assets/images/home.svg'
 import settings from '../../assets/images/settings.svg'
@@ -48,6 +48,11 @@ const NavLinksAlt = ({ img, img2, address, activeOnlyWhenExact, ...props }) => {
   )
 }
 export const LargeNav = ({ ...props }) => {
+  const push = e => {
+    e.preventDefault()
+    localStorage.clear()
+    props.history.push('/')
+  }
   const navlink = props.links.map((link) => {
     return <NavLinks key={link.id} {...link} />
   })
@@ -79,12 +84,35 @@ export const LargeNav = ({ ...props }) => {
           location='settings'
           address='/settings'
         />
+        <li className={''} >
+          <a onClick={push} href='/' target='_blank' rel='noopener noreferrer'>
+            <Logo src={require('../../assets/images/logout.svg')}
+              width='24px'
+              height='24px' cursor='pointer'
+            />
+            <span>
+            Setting
+            </span>
+          </a>
+        </li>
+        {/* <NavLinks
+          img={require('../../assets/images/logout.svg')}
+          img2={require('../../assets/images/logout.svg')}
+          location='logout'
+          address='/logout'
+          onClick={()=> localStorage.clear()}
+        /> */}
       </ul>
     </Page.SideNav>
   )
 }
 
 export const SmallNav = ({ ...props }) => {
+  const push = e => {
+    e.preventDefault()
+    localStorage.clear()
+    props.history.push('/')
+  }
   const navlinkAlt = props.links.map((link) => {
     return <NavLinksAlt key={link.id} {...link} />
   })
@@ -113,6 +141,17 @@ export const SmallNav = ({ ...props }) => {
           img2={settings}
           address='/settings'
         />
+        <li className={''} onClick={() => props.history.push('/')}>
+          <a onClick={push} href='/' target='_blank' rel='noopener noreferrer'>
+            <Logo src={require('../../assets/images/logout.svg')}
+              width='24px'
+              height='24px' cursor='pointer'
+            />
+            {/* <span>
+            Setting
+            </span> */}
+          </a>
+        </li>
       </ul>
     </Page.SideNav>
   )

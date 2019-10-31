@@ -89,8 +89,7 @@ export const Stacked = styled(SideBy)`
 flex-direction: column;
 justify-content: flex-start;
 align-items: flex-start;
-// margin-left: 5px;
-// margin-bottom:14px;
+margin:${props => props.stackedMargin}
 `
 export const Rating = styled.div`
 display: flex;

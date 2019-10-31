@@ -58,7 +58,8 @@ button {
     overflow-y: hidden;
 }
 
-::-webkit-scrollbar {
+
+/* ::-webkit-scrollbar {
     width: .2em;
     border-radius: 100px;
 }
@@ -70,7 +71,7 @@ button {
 ::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
-}
+} */
 
 
 /* 

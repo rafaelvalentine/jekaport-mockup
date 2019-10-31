@@ -26,7 +26,7 @@ export const handleRestPassword = user => dispatch => {
     .post(`/login/resetpassword`, user)
     .then(res => {
       let result = res.data
-      dispatch(handleUser(result))
+      // dispatch(handleUser(result))
       return result
     })
     .catch(err => {
@@ -40,7 +40,7 @@ export const handleNewPassword = (data, token) => dispatch => {
     .post(`/login/resetpassword/${token}`, data)
     .then(res => {
       let result = res.data
-      dispatch(handleUser(result))
+      // dispatch(handleUser(result))
       return result
     })
     .catch(err => {

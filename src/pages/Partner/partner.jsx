@@ -113,7 +113,7 @@ export default class index extends Component {
     this.props.handleSignUp(user)
     .then(res=>{
       if(res){
-        this.setState({loading: false}, ()=> this.props.history.push('/companydashboard'))
+        this.setState({loading: false}, ()=> this.props.history.push('/dashboard/companydashboard'))
         return
       }
       this.setState({ loading: false })

@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { LargeNav, SmallNav } from './sideParts'
 import dashboard from '../../assets/images/home.svg'
 
@@ -30,10 +31,10 @@ index.defaultProps = {
     },
     {
       id: '3',
-      img: dashboard,
-      //  img2:transGrey,
-      location: 'dashboard',
-      address: '/transactions',
+      img: require('../../assets/images/booking-active.svg'),
+      img2: require('../../assets/images/booking.svg'),
+      location: 'booking',
+      address: '/dashboard/booking',
       activeOnlyWhenExact: true
     },
     {
@@ -46,16 +47,16 @@ index.defaultProps = {
     },
     {
       id: '5',
-      img: dashboard,
-      //  img2: adminGrey,
-      location: 'dashboard',
-      address: '/Admin',
+      img: require('../../assets/images/branches-active.svg'),
+      img2: require('../../assets/images/branches.svg'),
+      location: 'branches',
+      address: '/dashboard/branches',
       activeOnlyWhenExact: true
     },
     {
       id: '6',
-      img: dashboard,
-      // img2: insightGrey,
+      img: require('../../assets/images/message-active.svg'),
+      img2: require('../../assets/images/message.svg'),
       location: 'dashboard',
       address: '/Insights',
       activeOnlyWhenExact: true
@@ -81,4 +82,4 @@ index.defaultProps = {
     }
   ]
 }
-export default index
+export default withRouter(index)

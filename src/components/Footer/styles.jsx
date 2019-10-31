@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-background: ${props => props.theme.footBlue};
-height: 42px;
+background: ${props => props.theme.black};
+height: 40px;
 span{
 font-family: Roboto;
 font-style: normal;
@@ -10,7 +10,7 @@ font-weight: bold;
 font-size: 14px;
 line-height: 16px;
 text-align: right;
-color: ${props => props.theme.buttonBlue};
+color: ${props => props.theme.white};
 margin: 0 20px;
 }
 `

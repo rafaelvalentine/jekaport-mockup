@@ -54,7 +54,7 @@ shortenText = text => {
   handleFileChange = e => {
     const imageMaxSize = 2000000 // bytes
     let file = e.target.files[0]
-    const acceptedFileTypes = 'image/x-png, image/png, image/jpg, image/jpeg, image/gif, application/pdf, application/x-zip-compressed, image/svg+xml'
+    const acceptedFileTypes = 'image/x-png, image/png, image/jpg, image/jpeg, image/gif, image/svg+xml'
     const acceptedFileTypesArray = acceptedFileTypes.split(',').map(item => { return item.trim() })
     const verifyFile = files => {
       if (files) {
