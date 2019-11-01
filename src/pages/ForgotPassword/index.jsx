@@ -18,7 +18,7 @@ const styles = {
     altNavItemsColor:'true'
   },
   Wrapper: {
-    height: '94vh'
+    height: 'calc(95vh - 80px)'
   },
   Title: {
     padding: '60px 0 0'
@@ -28,7 +28,7 @@ const styles = {
     height: '100%'
   },
   Banner:{
-    banner:require('../../assets/images/forgot.png')
+    banner: require('../../assets/images/FORGOT_PASSWORD.png')
   },
   CardWrapper: {
     backgroundColor: '#fff',

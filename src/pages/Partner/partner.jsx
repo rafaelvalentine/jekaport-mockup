@@ -11,7 +11,7 @@ import Layout from '../../components/Layout'
 // Specific Styles for the Components
 const styles = {
   Wrapper: {
-    height: '94vh'
+    height: 'calc(95vh - 80px)'
   },
   Row: {
     justifyContent: 'flex-start'
@@ -19,7 +19,7 @@ const styles = {
   Banner: {
     width: '50%',
     height: '100%',
-    banner: require('../../assets/images/become-a-parnter.png')
+    banner: require('../../assets/images/BECOME_A_PARTNER_2.png')
   },
   Title: {
     justifyContent: 'flex-start',
@@ -124,10 +124,10 @@ export default class index extends Component {
   }
   componentDidMount (){
     const { repName, repEmail } = this.props.User
-    if(validator.isEmpty(repName) && validator.isEmpty(repEmail)){
-     this.props.history.push('/become-a-partner')
-      return
-    }
+    // if(validator.isEmpty(repName) && validator.isEmpty(repEmail)){
+    //  this.props.history.push('/become-a-partner')
+    //   return
+    // }
   }
   render () {
     return (

@@ -18,7 +18,7 @@ const styles = {
     height: '94vh'
   },
   Banner: {
-    banner: require('../../assets/images/fitness.png'),
+    banner: require('../../assets/images/PASSWORD_RESET_SUCCESSFUL.png'),
     width: '100%',
     height: '100%'
   },

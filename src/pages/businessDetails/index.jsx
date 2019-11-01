@@ -16,7 +16,7 @@ import { Wrapper, Column, Row } from '../../theme/style/styles'
 import StyleWrapper from './styles'
 const styles = {
   Wrapper: {
-    height: 'calc(94vh - 103px)'
+    height: 'calc(95.2vh - 80px)'
   },
   Header: {
     altHeader: 'true',

@@ -105,6 +105,7 @@ export const PartnerFormOne = ({ ...props }) => {
       boxShadow='0'
       alignItems='flex-start'
       backgroundColor='#fff'
+      margin='0 0 0'
       {...props}
     >
       <FormWrapper>
@@ -124,7 +125,7 @@ export const PartnerFormOne = ({ ...props }) => {
           type='email'
           value={props.inputs.repEmail}
           onChange={props.handleOnChange}
-          margin='20px auto 0'
+          margin='30px auto 0'
         />
 
         <Input.MainPhoneFormatter
@@ -136,7 +137,7 @@ export const PartnerFormOne = ({ ...props }) => {
           onValueChange={props.onValueChange}
           format='+234(#) ### ### ####'
           mask='_'
-          margin='20px auto 0'
+          margin='30px auto 0'
         />
         <Input.Main
           label='Number on Means of Identification (Individual Registering for Company )'
@@ -145,7 +146,7 @@ export const PartnerFormOne = ({ ...props }) => {
           type='text'
           value={props.inputs.repIdNumber}
           onChange={props.handleOnChange}
-          margin='20px auto 0'
+          margin='30px auto 0'
         />
         <Input.MainUpload
           label='Upload Means of Identification (Individual Registering for Company )'
@@ -153,7 +154,7 @@ export const PartnerFormOne = ({ ...props }) => {
           type='file'
           onChange={props.onFileChange}
           width='138px'
-          margin='20px auto 0 0'
+          margin='30px auto 0 0'
         />
         <Button
           content='NEXT'
@@ -161,7 +162,7 @@ export const PartnerFormOne = ({ ...props }) => {
           width='218px'
           height='32px'
           onClick={props.handleRegister}
-          margin='20px 0 10px auto' />
+          margin='30px 0 10px auto' />
       </FormWrapper>
     </CardWrapper>
   )

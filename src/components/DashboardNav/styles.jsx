@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Nav = styled.div`
 width: 100%;
-height: 103px;
+height: 80px;
 background: ${props => props.theme.white};
 display: flex;
 justify-content: space-between;

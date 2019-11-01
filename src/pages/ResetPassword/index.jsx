@@ -36,7 +36,7 @@ const styles = {
     height: '300px'
   },
   Banner:{
-    banner: require('../../assets/images/ball.png')
+    banner: require('../../assets/images/FORGOT_PASSWORD.png')
   },
   Button:{
     width:'218px',

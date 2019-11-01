@@ -18,7 +18,7 @@ const styles = {
     height: '94vh'
   },
   Banner: {
-    banner: require('../../assets/images/roses.png'),
+    banner: require('../../assets/images/THANK_YOU.png'),
     width: '100%',
     height: '100%'
   },
@@ -42,6 +42,7 @@ export default class ForgotPassword extends Component {
     return (
       <Layout>
         <Wrapper
+          className='fixedheight'
           {...styles.Wrapper}>
           <Banner {...styles.Banner}>
             <Row

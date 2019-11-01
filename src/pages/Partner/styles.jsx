@@ -6,7 +6,7 @@ width: 50%;
 max-height: 100%;
 overflow-y:auto;
 background:${props => props.theme.white};
-padding: 100px 64px 0; 
+padding: 20px 64px 0; 
 @media ${device.mobileS} {
 }
 @media ${device.mobileL} {
@@ -14,7 +14,7 @@ padding: 100px 64px 0;
 @media ${device.tablet} {
 }
 @media ${device.laptopL} { 
-  padding:100px 64px 0; 
+  padding:20px 64px 0; 
 }
 `
 export const Title = styled.p`

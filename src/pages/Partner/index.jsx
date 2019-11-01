@@ -11,15 +11,16 @@ import Layout from '../../components/Layout'
 // Specific Styles for the Components
 const styles = {
   Wrapper: {
-    height: '96vh'
+    height: 'calc(95vh - 80px)'
   },
   Row: {
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems:'flex-start'
   },
   Banner: {
     width: '50%',
     height: '100%',
-    banner: require('../../assets/images/become-a-parnter.png')
+    banner: require('../../assets/images/BECOME_A_PARTNER_2.png')
   },
   Title: {
     justifyContent: 'flex-start',

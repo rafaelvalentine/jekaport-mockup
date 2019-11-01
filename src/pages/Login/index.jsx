@@ -8,7 +8,7 @@ import Banner from '../../components/Banner'
 import Layout from '../../components/Layout'
 
 // images
-import bgImage from '../../assets/images/login.png'
+import bgImage from '../../assets/images/LOGIN_PAGE_WELCOME.png'
 
 // pages
 import Title from '../../components/Title'
@@ -21,7 +21,7 @@ import * as Page from './styles'
 // Specific Styles for the Components
 const styles = {
   Wrapper: {
-    height: '94vh'
+    height: 'calc(96.2vh - 80px)'
   },
   Title: {
     title: 'Welcome!',

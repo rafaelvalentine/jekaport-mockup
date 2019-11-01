@@ -27,7 +27,7 @@ export const Links = props => {
     return <NavLinks key={link.id} {...link} />
   })
   return (
-    <Page.NavLink altNavItemsColor={props.altNavItemsColor}>
+    <Page.NavLink >
       <ul>
         {Navlink}
       </ul>
