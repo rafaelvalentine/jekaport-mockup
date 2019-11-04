@@ -89,8 +89,8 @@ class Home extends Component {
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
+      speed: 1500,
+      autoplaySpeed: 4500,
       cssEase: "linear",
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
@@ -151,7 +151,7 @@ class Home extends Component {
           </Slider>
         </Page.SliderContainer>
         <Page.SliderContainer className='featured'>
-        <SubLabel className='title'>
+        <SubLabel className='new'>
         New Partners
         </SubLabel>
           <Slider {...settingsTwo}>

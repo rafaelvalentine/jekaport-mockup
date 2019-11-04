@@ -4,7 +4,7 @@ import CardBox from './Cards'
 import Button from '../Button'
 import { Image, Star } from '../Picture'
 import { Column, Row } from '../../theme/style/styles'
-import { Header } from '../../theme/style/typeface'
+import { Header, Title } from '../../theme/style/typeface'
 import { SideBy, Stacked, LinkCopied, SubText, Rating as RatingWrapper, URLTextArea, CopyLink, HeaderWrapper, Text, HourTextArea, BusinessNavItem, ShortInfoText } from './styles'
 import Rating from 'react-rating'
 // import { CardHeader } from 'react-bootstrap/Card'
@@ -18,8 +18,8 @@ export const BusinessDetailsImage = ({ ...props }) => {
       borderRadius: '0'
     },
     Image: {
-      width: '70%',
-      height: '70%'
+      width: '200px',
+      height: '200px'
     }
   }
   return (
@@ -153,10 +153,10 @@ export const BusinessInfoTab = ({ ...props }) => {
       {...styles.CardBox}>
       <Column
         {...styles.firstColumn}>
-        <Header
+        <Title
           {...styles.Header}>
           {props.companyName || 'Company Name'}
-        </Header>
+        </Title>
         <Stacked>
           <SideBy>
             <Image {...styles.Icons} src={require('../../assets/images/tag.svg')} />
@@ -429,8 +429,8 @@ export const ShortInfoCard = ({ ...props }) => {
       justifyContent: 'flex-start'
     },
     Image: {
-      width: '150px',
-      height: '100px'
+      width: '100%',
+      height: '100%'
     },
     Icons: {
       width: '15px',
@@ -446,8 +446,11 @@ export const ShortInfoCard = ({ ...props }) => {
         {props.companyName}
       </Header>
       <Row
-        {...styles.Row} >
-        <Image src={props.companyLogo} {...styles.Image} />
+        {...styles.Row}>
+        <div style={{ width: '150px', height: '100px' }}>
+          <Image src={props.companyLogo} {...styles.Image} />
+        </div>
+
         <Stacked>
           <SideBy>
             <Image {...styles.Icons} src={require('../../assets/images/tag.svg')} />

@@ -17,15 +17,23 @@ width:100%;
 }
 @media ${device.tablet} {
 }
+
 @media ${device.laptopL} { 
-  height: calc(97vh - 40px);
+  height: calc(96.3vh - 40px);
   &.fixedheight{
     overflow-y: auto;
-    height: calc(97vh - 80px);
+    height: calc(96.3vh - 80px);
     width: 100%;
   }
 }
-
+@media ${device.desktop} { 
+  height: calc(97.2vh - 40px);
+  &.fixedheight{
+    overflow-y: auto;
+    height: calc(97.2vh - 80px);
+    width: 100%;
+  }
+}
 `
 
 export const Row = styled.div`

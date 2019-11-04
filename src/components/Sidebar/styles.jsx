@@ -12,7 +12,6 @@ export const SideNav = styled.aside`
   overflow: hidden; 
   padding-top: 10px; 
   transition: .5s;
-  padding-left: 10px;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -33,6 +32,7 @@ export const SideNav = styled.aside`
     ul li {
       width: 100%;
       justify-content:center;
+      padding-left: 0;
     }
     // ul li:hover {
     //   width: 300%;
@@ -58,6 +58,7 @@ ul {
   text-transform: capitalize;
   width: 100%;
   height: 50px;
+  padding-left: 10px;
   display:flex;
   justify-content:flex-start;
   align-items:center;
@@ -124,6 +125,12 @@ ul.sidebar-lower-list li:hover {
 }
 @media ${device.laptopL} { 
   height: calc(96.2vh - 80px); 
+  // ul.sidebar-lower-list {
+  //   margin-top: 200%;
+  // }
+}
+@media ${device.desktop} { 
+  height: calc(97.2vh - 80px); 
   // ul.sidebar-lower-list {
   //   margin-top: 200%;
   // }
