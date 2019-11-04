@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f5f60948d86131ac698f7a98f1f8a4a4",
+    "revision": "3f468ed6ba7f9942562021d6b187b7df",
     "url": "/index.html"
   },
   {
-    "revision": "d7977afde8a453f90ce5",
-    "url": "/static/css/2.8759d636.chunk.css"
+    "revision": "6c003a7b49559f06673a",
+    "url": "/static/css/2.110f518b.chunk.css"
   },
   {
-    "revision": "04af5f0aece3b8350a05",
-    "url": "/static/css/main.ac86352c.chunk.css"
+    "revision": "af33ecd5a8d278b298ba",
+    "url": "/static/css/main.53a73f25.chunk.css"
   },
   {
-    "revision": "d7977afde8a453f90ce5",
-    "url": "/static/js/2.8edd3dcc.chunk.js"
+    "revision": "6c003a7b49559f06673a",
+    "url": "/static/js/2.a0ea0e3c.chunk.js"
   },
   {
-    "revision": "04af5f0aece3b8350a05",
-    "url": "/static/js/main.a0ab4648.chunk.js"
+    "revision": "af33ecd5a8d278b298ba",
+    "url": "/static/js/main.06742f30.chunk.js"
   },
   {
     "revision": "219707186523ad4b8cde",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5c817722b97796d859e4ce30aa361c14",
     "url": "/static/media/AvailableCarSeat.5c817722.svg"
+  },
+  {
+    "revision": "43a2d9e0532d792234ddce1b52823406",
+    "url": "/static/media/BECOME_A_PARTNER_2.43a2d9e0.png"
   },
   {
     "revision": "a4988c0255077c07526ef22352a5d1d7",
@@ -44,20 +48,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Ellipse.d75642be.svg"
   },
   {
-    "revision": "09ed1f1eb8cdf78a320268d6b7711e87",
-    "url": "/static/media/Home.09ed1f1e.svg"
+    "revision": "95281dad948449f5364cb8359e9587a2",
+    "url": "/static/media/FORGOT_PASSWORD.95281dad.png"
+  },
+  {
+    "revision": "08418285559df0b598d5f04704bb8dcd",
+    "url": "/static/media/HOME_PAGE (1) 1.08418285.png"
+  },
+  {
+    "revision": "4bae25fff188e643559bbc21e69eb87a",
+    "url": "/static/media/Home_Background.4bae25ff.png"
   },
   {
     "revision": "c29e79954608db9b5aa5ccc1b9e0365f",
     "url": "/static/media/JEKAPORTLOGO_TRANSPARENT 2.c29e7995.svg"
   },
   {
+    "revision": "7f16ddfc4ac87aab268697a9027f9185",
+    "url": "/static/media/LOGIN_PAGE_WELCOME.7f16ddfc.png"
+  },
+  {
     "revision": "0f57fdf090fb25f23b83712fef13677a",
     "url": "/static/media/LionImage.0f57fdf0.svg"
   },
   {
+    "revision": "146fd7c14ff7baf859c953343b1d1f50",
+    "url": "/static/media/PASSWORD_RESET_SUCCESSFUL.146fd7c1.png"
+  },
+  {
     "revision": "ae1eaed5933fa9291e9a9027c81dbf23",
     "url": "/static/media/SearchResultImage.ae1eaed5.svg"
+  },
+  {
+    "revision": "62572aca50a0aaf98c5a65036a6144d7",
+    "url": "/static/media/THANK_YOU.62572aca.png"
   },
   {
     "revision": "d0ea87eaf9bbb8343e63efd63310c254",
@@ -72,12 +96,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/attachment_file.11f50c7e.svg"
   },
   {
-    "revision": "0dc46ae93e4d4b350f02b79480255a4c",
-    "url": "/static/media/ball.0dc46ae9.png"
+    "revision": "3d6a38ded1ccd1b2ae376008bcf44904",
+    "url": "/static/media/booking-active.3d6a38de.svg"
   },
   {
-    "revision": "9bfbe9323df60e5c33eff50545be158a",
-    "url": "/static/media/become-a-parnter.9bfbe932.png"
+    "revision": "51017d0667613ff2e8f983a4b1e60182",
+    "url": "/static/media/booking.51017d06.svg"
+  },
+  {
+    "revision": "d4b97138e76d0d95de8c54fe5f66aa71",
+    "url": "/static/media/branches-active.d4b97138.svg"
+  },
+  {
+    "revision": "375409921b2775e10927aa7773f7e9c7",
+    "url": "/static/media/branches.37540992.svg"
   },
   {
     "revision": "7f15c2d06163881113da5c98901adcd8",
@@ -132,12 +164,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/facebook.64b6d940.svg"
   },
   {
-    "revision": "cef62595277faa08b88885cf84d7ed5d",
-    "url": "/static/media/fitness.cef62595.png"
-  },
-  {
-    "revision": "a84078b9bf05311fb60a198f2ce7d2fc",
-    "url": "/static/media/forgot.a84078b9.png"
+    "revision": "0f57fdf090fb25f23b83712fef13677a",
+    "url": "/static/media/fire-transport-logo.0f57fdf0.svg"
   },
   {
     "revision": "40afd1ed3736bddd2fde8e396c95fdee",
@@ -156,16 +184,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/location.4dfaf47b.svg"
   },
   {
-    "revision": "9fb58a13662603604de5b3682a865cdc",
-    "url": "/static/media/login.9fb58a13.png"
-  },
-  {
     "revision": "09caf51262c325c730c5a7d3305f18c8",
     "url": "/static/media/logo_for_jekaport.09caf512.svg"
   },
   {
-    "revision": "b8131762689161ff2a8e89b8761da867",
-    "url": "/static/media/logout.b8131762.svg"
+    "revision": "3a29d07415ecf2b693d917e2a049a0a7",
+    "url": "/static/media/logout.3a29d074.svg"
+  },
+  {
+    "revision": "bf6d6c8d924bcf3a21d0422b4f53e5f2",
+    "url": "/static/media/message-active.bf6d6c8d.svg"
+  },
+  {
+    "revision": "63028d43537fd6ad53d329aecc9204d6",
+    "url": "/static/media/message.63028d43.svg"
   },
   {
     "revision": "7a1a5f4c01aaf061d270a7aeb1f9028b",
@@ -184,10 +216,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/registration.8b8c3a71.svg"
   },
   {
-    "revision": "4e9f38661ebaadcced878b68ecff9885",
-    "url": "/static/media/roses.4e9f3866.png"
-  },
-  {
     "revision": "4b7fbf0b3d92a43044ef2396ee73432d",
     "url": "/static/media/settings-active.4b7fbf0b.svg"
   },
@@ -198,6 +226,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c733d5622eaf64db677b61f41868f11e",
     "url": "/static/media/share-option.c733d562.svg"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/static/media/slick.b7c9e1e4.woff"
+  },
+  {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "ead161469a2ae99e0242c0e367eb2649",
