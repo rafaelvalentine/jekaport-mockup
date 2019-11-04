@@ -10,8 +10,8 @@ import { SubLabel, Title } from '../../theme/style/typeface'
 export const ForgotPasswordForm = ({ ...props }) => {
   return (
     <CardWrapper
-      width='662px'
-      height='289px'
+      width='562px'
+      height='100px'
       boxShadow='0'
       backgroundColor='#fff'
     >
@@ -32,7 +32,7 @@ export const ResetPasswordForm = ({ ...props }) => {
   return (
     <CardWrapper
       width='662px'
-      height='289px'
+      height='100px'
       boxShadow='0'
       backgroundColor='#fff'
     >
@@ -64,7 +64,7 @@ export const LoginForm = ({ ...props }) => {
   return (
     <CardWrapper
       width='100%'
-      height='350px'
+      height='100px'
       boxShadow='0'
       alignItems='flex-start'
       backgroundColor='#fff'
@@ -809,12 +809,17 @@ export const BookATripForm = ({ ...props }) => {
           // checked={props.inputs.terms}
           margin='30px 10px 0'
         />
-        <Button
-          content='CONTINUE '
-          width='100%'
-          // loading={props.inputs.loading}
-          // onClick={props.handleShowPreview}
-          margin='40px 10px 10px auto' />
+        <div style={{width:'100%', height:'43px'}}>
+          <Button
+            content='CONTINUE'
+            width='100%'
+            height='43px'
+            // loading={props.inputs.loading}
+            // onClick={props.handleShowPreview}
+            margin='40px 10px 10px auto'
+          />
+        </div>
+
       </FormWrapper>
     </CardWrapper>
   )

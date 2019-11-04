@@ -53,13 +53,15 @@ class CompanyDashboard extends Component {
             <Column
               {...styles.Column}>
               <Row
+                className='firstrow'
                 {...styles.firstRow}>
                 <BusinessDetailsImage {...this.props.User} />
                 <BusinessInfoTab {...this.props.User} />
               </Row>
               <Row
+                className='detailsrow'
                 {...styles.DetailsRow}>
-                <MainDetailsWrapper >
+                <MainDetailsWrapper>
                   <AboutUs {...this.props.User} />
                   <Terminals {...this.props.User} />
                   <BusinessHour {...this.props.User} />

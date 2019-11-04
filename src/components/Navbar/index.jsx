@@ -11,7 +11,7 @@ import Links from './links'
 const index = ({ Admin, history, ...props }) => {
   return (
     <Navbar.Nav>
-      <Logo onClick={() => history.push('/')} src={require('../../assets/images/JEKAPORTLOGO_TRANSPARENT 2.svg')} width='38px' height='38px' cursor='pointer' />
+      <Logo onClick={() => history.push('/')} src={require('../../assets/images/treeprite.svg')} width='150px' height='38px' cursor='pointer' />
       <Links {...props} />
     </Navbar.Nav>
   )

@@ -11,7 +11,7 @@ import AdminInfo from './admin'
 const index = ({ history, ...props }) => {
   return (
     <Navbar.Nav>
-      <Logo onClick={() => history.push('/')} src={require('../../assets/images/JEKAPORTLOGO_TRANSPARENT 2.svg')} width='65px' height='65px' cursor='pointer' />
+      <Logo onClick={() => history.push('/')} src={require('../../assets/images/treeprite.svg')} width='150px' height='60px' cursor='pointer' />
       <AdminInfo {...props} />
       <Links {...props} />
     </Navbar.Nav>
