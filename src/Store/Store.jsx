@@ -14,7 +14,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 // const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const reducer = storage.reducer(rootReducer)
-const engine = createEngine('my-save-key')
+const engine = createEngine('treeprite-key')
 const middleware = storage.createMiddleware(engine, [], [ LOGIN_USER, UPDATE_USER ])
 // const createStoreWithMiddleware = composeEnhancers(applyMiddleware(thunk, middleware)(createStore))
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk, middleware)))

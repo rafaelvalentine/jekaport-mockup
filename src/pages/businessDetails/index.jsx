@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // Components
 import Layout from '../../container/DashboardWrapper'
-import { BusinessDetailsImage, BusinessInfoTab, 
+import { BusinessDetailsImage, BusinessInfoTab,
   MainDetailsWrapper, AboutUs, Terminals, Services, BusinessHour,
   BusinessDetailsNav, ShortInfoCard } from '../../components/Card'
 
@@ -24,17 +24,21 @@ const styles = {
   },
   Column: {
     width: 'calc(100% - 120px)',
-    margin: '40px 0 45px 120px'
+    margin: '40px auto 45px 120px'
   },
   firstRow: {
     width: '90%',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    flexWrap: 'nowrap',
+    padding: '0 20px'
   },
   DetailsRow: {
-    justifyContent: 'flex-start',
-    alignItems:'flex-start',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     width: '90%',
-    margin: '82px 0 0'
+    margin: '82px 0 0',
+    padding: '0 20px',
+    flexWrap: 'nowrap'
   }
 }
 

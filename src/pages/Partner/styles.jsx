@@ -6,7 +6,10 @@ width: 50%;
 max-height: 100%;
 overflow-y:auto;
 background:${props => props.theme.white};
-padding: 20px 64px 0; 
+padding: 75px 64px 0; 
+.title h2 {
+  font-size: 12px !important;
+}
 @media ${device.mobileS} {
 }
 @media ${device.mobileL} {
@@ -14,7 +17,7 @@ padding: 20px 64px 0;
 @media ${device.tablet} {
 }
 @media ${device.laptopL} { 
-  padding:20px 64px 0; 
+  padding:100px 64px 0; 
 }
 `
 export const Title = styled.p`
@@ -36,6 +39,6 @@ font-size: 14px;
 line-height: 16px;
 text-align: center;
 color: #FFFFFF;
-width: 80%;
-margin-bottom: 20%;
+width: 60%;
+margin-bottom: 30vh;
 `

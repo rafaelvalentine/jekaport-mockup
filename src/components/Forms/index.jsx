@@ -5,7 +5,7 @@ import { FormWrapper, ForgetPassword, Terms } from './styles'
 import { CardWrapper } from '../Card'
 import Button from '../Button'
 import { Row } from '../../theme/style/styles'
-import { SubLabel } from '../../theme/style/typeface'
+import { SubLabel, Title } from '../../theme/style/typeface'
 
 export const ForgotPasswordForm = ({ ...props }) => {
   return (
@@ -585,7 +585,6 @@ export const AddRouteForm = ({ ...props }) => {
             onClick={props.handleShowPreview}
             margin='80px 10px 10px 0' />
         </Row>
-
       </FormWrapper>
     </CardWrapper>
   )
@@ -717,6 +716,105 @@ export const EditRouteForm = ({ ...props }) => {
             margin='80px 60px 10px 0' />
         </Row>
 
+      </FormWrapper>
+    </CardWrapper>
+  )
+}
+export const BookATripForm = ({ ...props }) => {
+  // const vehicles = props.vehicleTypes.map(vehicle => (
+  //   <option key={vehicle._id} value={vehicle._id}>{vehicle.vehicleType}</option>
+  // ))
+  return (
+    <CardWrapper
+      width='628px'
+      height='423px'
+      alignItems='center'
+      padding='24px 0 50px'
+      justifyContent='flex-start'
+      backgroundColor='#fff'
+      {...props}
+    >
+      <Title
+        altTitleformWeight>
+          Book a Trip
+      </Title>
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.Main
+            width='255px'
+            height='43px'
+            margin='0 15px'
+            labelfontWeight='true'
+            label='Travelling From'
+            placeholder=' e.g Victoria Island, Lagos'
+            name='from'
+            // value={props.inputs.vehicleModel}
+            // onChange={props.handleOnChange}
+          />
+          <Input.Main
+            width='255px'
+            height='43px'
+            margin='0 15px'
+            labelfontWeight='true'
+            label='Travelling To'
+            placeholder='e.g Ring road, Ibadan'
+            //  disabled='Number of seats'
+            // value={props.inputs.seats}
+            // onChange={props.handleOnChange}
+          />
+
+        </Row>
+        <Row
+          flexWrap='nowrap'
+          padding='40px 0 0'>
+          <Input.MainDate
+            width='255px'
+            height='43px'
+            margin='0 15px'
+            labelfontWeight='true'
+            label='Departure Date'
+            placeholderText='e.g 12 September 2019 '
+            name='departing'
+            minDate={props.subDays(new Date())}
+            maxDate={props.addDays(new Date(), 20)}
+            // selected={props.inputs.departing}
+            // onChange={props.handleDatePicker}
+          />
+
+          <Input.Select
+            width='255px'
+            height='43px'
+            margin='0 15px'
+            label='Type of Vehicle'
+            placeholder='Selecct type of vehicle'
+            labelfontWeight='true'
+            // value={props.inputs.vehicleType}
+            onChange={props.handleSelect}
+          >
+            <option hidden>Select Trip Type</option>
+            <option value='1'>One way trip</option>
+            <option value='2'>Round trip</option>
+            {/* {vehicles} */}
+          </Input.Select>
+        </Row>
+        <Input.CheckBox
+          name='terms'
+          // onChange={props.handleCheckbox}
+          type='checkbox'
+          label='Would you like to hire a vehicle instead?'
+          // checked={props.inputs.terms}
+          margin='30px 10px 0'
+        />
+        <Button
+          content='CONTINUE '
+          width='100%'
+          // loading={props.inputs.loading}
+          // onClick={props.handleShowPreview}
+          margin='40px 10px 10px auto' />
       </FormWrapper>
     </CardWrapper>
   )

@@ -9,7 +9,7 @@ import Layout from '../../container/DashboardWrapper'
 import Dashboard from './oldIndex'
 
 // Generic Components
-import { Wrapper, Row } from '../../theme/style/styles'
+import { Wrapper, Row, Column } from '../../theme/style/styles'
 const styles = {
   Wrapper: {
     height: 'calc(94vh - 103px)'
@@ -26,12 +26,13 @@ class CompanyDashboard extends Component {
         <Wrapper
           className='fixedheight'
           {...styles.Wrapper}>
-          <Row
+          <Column>
+            <Row
 
-            {...styles.Row}>
-            {/* <Dashboard /> */}
-          </Row>
-
+              {...styles.Row}>
+              {/* <Dashboard /> */}
+            </Row>
+          </Column>
         </Wrapper>
       </Layout>
     )

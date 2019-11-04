@@ -8,7 +8,7 @@ height: ${props => props.height};
 width:100%;
 &.fixedheight{
   overflow-y: auto;
-  max-height: calc(100vh - 80px);
+  height: ${props => props.height};
   width: 100%;
 }
 @media ${device.mobileS} {
@@ -18,10 +18,10 @@ width:100%;
 @media ${device.tablet} {
 }
 @media ${device.laptopL} { 
-  height: calc(96.2vh - 80px);
+  height: calc(97vh - 40px);
   &.fixedheight{
     overflow-y: auto;
-    max-height: calc(96.2vh - 80px);
+    height: calc(97vh - 80px);
     width: 100%;
   }
 }

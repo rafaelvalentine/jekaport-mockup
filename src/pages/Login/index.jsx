@@ -21,12 +21,12 @@ import * as Page from './styles'
 // Specific Styles for the Components
 const styles = {
   Wrapper: {
-    height: 'calc(96.2vh - 80px)'
+    height: 'calc(96vh - 40px)'
   },
   Title: {
     title: 'Welcome!',
     subTitle: 'Signup today and enjoy unlimited patronage',
-    altHeader:'true',
+    // altHeader:'true',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
   },

@@ -20,15 +20,15 @@ export const SubHeader = styled.h2`
 
 export const Title = styled.p`
     font-style: normal;
-    font-weight: normal;
+    font-weight: ${props => props.altTitleformWeight ? 'bold' : 'normal'};
     font-size: 20px;
     line-height: 25px;
     text-transform: inherit;
     color: ${props => props.theme.actions};
-    margin:${props => props.margin}
+    margin:${props => props.margin ? props.margin : '0' }
 `
 
-export const SubLabel = styled.h1`
+export const SubLabel = styled.h2`
     font-weight: 500;
     font-style: normal;
     font-size: 14px;

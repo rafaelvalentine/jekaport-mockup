@@ -201,7 +201,7 @@ export const BusinessInfoTab = ({ ...props }) => {
 export const MainDetailsWrapper = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '650px',
+      width: '580px',
       height: '792px',
       backgroundColor: '#FFFFFF',
       justifyContent: 'flex-start',
@@ -225,13 +225,14 @@ export const MainDetailsWrapper = ({ ...props }) => {
 export const AboutUs = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '584px',
+      width: '90%',
       height: '205px',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
       margin: '20px 0 0',
       padding: '20px',
-      color: 'rgba(0, 0, 0, 0.7)'
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: '#FFFFFF'
     }
   }
   return (
@@ -250,20 +251,20 @@ export const AboutUs = ({ ...props }) => {
 export const Terminals = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '584px',
+      width: '90%',
       height: '205px',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
       margin: '20px 0 0',
       padding: '20px',
-      color: 'rgba(0, 0, 0, 0.7)'
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: '#FFFFFF'
     },
     Row: {
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      width: '584px',
+      width: '100%',
       height: '105px'
-
     },
     terminalImage: {
       width: '12px',
@@ -304,13 +305,14 @@ export const Terminals = ({ ...props }) => {
 export const BusinessHour = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '584px',
+      width: '90%',
       height: '205px',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
       margin: '20px 0 0',
       padding: '20px',
-      color: 'rgba(0, 0, 0, 0.7)'
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: '#FFFFFF'
     }
   }
   return (
@@ -326,13 +328,14 @@ export const BusinessHour = ({ ...props }) => {
 export const Services = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '584px',
+      width: '90%',
       height: '205px',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
       margin: '20px 0 0',
       padding: '20px',
-      color: 'rgba(0, 0, 0, 0.7)'
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: '#FFFFFF'
     },
     Row: {
       justifyContent: 'flex-start',
@@ -382,7 +385,8 @@ export const BusinessDetailsNav = ({ ...props }) => {
       alignItems: 'flex-start',
       margin: '0 20px',
       padding: '40px 30px',
-      color: 'rgba(0, 0, 0, 0.7)'
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: '#FFFFFF'
     }
   }
   return (
@@ -414,7 +418,8 @@ export const ShortInfoCard = ({ ...props }) => {
       alignItems: 'center',
       margin: '70px 20px 0',
       padding: '32px 20px',
-      color: 'rgba(0, 0, 0, 0.7)'
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: '#FFFFFF'
     },
     Header: {
       altHeader: 'true',

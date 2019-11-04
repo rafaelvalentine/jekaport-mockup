@@ -131,7 +131,7 @@ export const MainUploadAlt = ({ name, label, placeholder, ...props }) => {
 
 export const Select = ({ name, label, children, value, changed, ...props }) => {
   return (
-    <Form.MainLabelContainer >
+    <Form.MainLabelContainer {...props}>
       <Form.MainLabel >
         <Type.BoldLabel {...props} > { label } </Type.BoldLabel>
       </Form.MainLabel>
@@ -170,7 +170,7 @@ export const TextAltLabel = ({ label, name, value, ...props }) => {
 }
 export const CheckBox = ({ label, name, type, ...props }) => {
   return (
-    <Form.CheckBoxLabel className={props.labelClass}>
+    <Form.CheckBoxLabel className={props.labelClass} {...props}>
       <Form.MainLabel>
         <Type.BoldLabel> { label } </Type.BoldLabel>
       </Form.MainLabel>

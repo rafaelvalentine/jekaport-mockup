@@ -39,7 +39,7 @@ export const NoMLabel = styled(Label)`
     margin: 1rem 1rem;
 `
 export const CheckBoxLabel = styled.label`
-    margin: 15px 0 0;
+    margin: ${props=> props.margin ? props.margin : '15px 0 0'};
     cursor: pointer;
     vertical-align: top;
     display: block;
@@ -353,7 +353,7 @@ export const PaymentLabelPair = styled.div`
 export const Select = styled.select`
     width: ${props => props.width};
     height: ${props => props.height};
-    margin: ${props => props.seletMargin};
+    margin: ${props => props.selectMargin};
     border: 1px solid ${props => props.theme.inputBorder};
     background: transparent;
     padding: 8px;

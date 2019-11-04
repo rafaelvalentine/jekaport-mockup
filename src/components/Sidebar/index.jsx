@@ -23,7 +23,7 @@ index.defaultProps = {
     // },
     {
       id: '2',
-      img: require('../../assets/images/suitcase-active.svg'),
+      img: require('../../assets/images/suitcase.svg'),
       img2: require('../../assets/images/suitcase.svg'),
       location: 'business details',
       address: '/dashboard/businessdetaildashboard',
@@ -31,7 +31,7 @@ index.defaultProps = {
     },
     {
       id: '3',
-      img: require('../../assets/images/booking-active.svg'),
+      img: require('../../assets/images/booking.svg'),
       img2: require('../../assets/images/booking.svg'),
       location: 'booking',
       address: '/dashboard/booking',
@@ -39,7 +39,7 @@ index.defaultProps = {
     },
     {
       id: '4',
-      img: require('../../assets/images/bus.svg'),
+      img: require('../../assets/images/bus-active.svg'),
       img2: require('../../assets/images/bus-active.svg'),
       location: 'routes',
       address: '/dashboard/routes',
@@ -47,7 +47,7 @@ index.defaultProps = {
     },
     {
       id: '5',
-      img: require('../../assets/images/branches-active.svg'),
+      img: require('../../assets/images/branches.svg'),
       img2: require('../../assets/images/branches.svg'),
       location: 'branches',
       address: '/dashboard/branches',
@@ -55,7 +55,7 @@ index.defaultProps = {
     },
     {
       id: '6',
-      img: require('../../assets/images/message-active.svg'),
+      img: require('../../assets/images/message.svg'),
       img2: require('../../assets/images/message.svg'),
       location: 'dashboard',
       address: '/Insights',
@@ -65,7 +65,7 @@ index.defaultProps = {
   settingslinks: [
     {
       id: '1',
-      img: require('../../assets/images/profile-active.svg'),
+      img: require('../../assets/images/profile.svg'),
       img2: require('../../assets/images/profile.svg'),
       location: 'profile',
       address: '/settings/companydetails',
@@ -74,7 +74,7 @@ index.defaultProps = {
     },
     {
       id: '2',
-      img: require('../../assets/images/suitcase-active.svg'),
+      img: require('../../assets/images/suitcase.svg'),
       img2: require('../../assets/images/suitcase.svg'),
       location: 'business details',
       address: '/settings/businessdetails',

@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { device } from '../device'
 
 export const SideNav = styled.aside`
-  height: calc(94vh - 103px); 
+  height: calc(95.2vh - 80px); 
   width: 170px; /* 0 width - change this with JavaScript */
   position: absolute; /* Stay in place */
   z-index: 1; /* Stay on top */
-  top: 103px; /* Stay at the top */
+  top: 80px; /* Stay at the top */
   left: 0;
   background-color: ${props => props.theme.buttonBlue};
   overflow: hidden; 
@@ -107,6 +107,7 @@ ul.sidebar-lower-list li:hover {
 
  ul li.active {
   border-right: 4px solid ${props => props.theme.white};
+  background: ${props => props.theme.blue};
   color: #0BA4FE;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.04);
 }
@@ -122,7 +123,7 @@ ul.sidebar-lower-list li:hover {
 @media ${device.tablet} {
 }
 @media ${device.laptopL} { 
-  height: calc(95.8vh - 103px); 
+  height: calc(96.2vh - 80px); 
   // ul.sidebar-lower-list {
   //   margin-top: 200%;
   // }

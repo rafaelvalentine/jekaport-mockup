@@ -24,9 +24,9 @@ const styles = {
   Title: {
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    title: 'Welcome to Jekaport',
+    title: 'Welcome to Treeprite',
     subTitle: 'Sign up by filling out this simple form',
-    altHeader:'true',
+    // altHeader:'true',
     marginHeader:'0'
   }
 }
@@ -145,7 +145,9 @@ export default class index extends Component {
             </Page.SubTitle>
           </Banner>
           <Page.Container>
-            <Title {...styles.Title} />
+            <Title 
+            className='title'
+            {...styles.Title} />
             <Form 
             inputs={this.state}
             handleCheckbox={this.handleCheckbox}

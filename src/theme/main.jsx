@@ -5,7 +5,7 @@ export default {
   white: '#fff',
   transparent: 'transparent',
   orange: '#FF6000',
-  blue: '#006494',
+  blue: '#4CBEED',
   footBlue: 'rgba(76, 190, 237, 0.17)',
   grayText: '#65617D',
   whiteButton: '#f2f2f2',

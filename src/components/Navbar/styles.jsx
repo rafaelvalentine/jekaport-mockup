@@ -4,7 +4,7 @@ export const Nav = styled.div`
 // position:absolute;
 // top:0;
 width: 100%;
-height: 80px;
+height: 40px;
 background: ${props => props.theme.transparent};
 display: flex;
 justify-content: flex-start;
@@ -56,7 +56,7 @@ ul {
   display: flex;
   align-items: center;
   list-style: none;
-  justify-content: space-between;
+  justify-content: center;
   padding:0;
   width:100%;
   margin:0
@@ -64,7 +64,8 @@ ul {
 
  ul li {
   font-size: 14px;
-  width: 130px;
+  margin: 0 10px;
+  // width: 100;
   height: 16px;
   display:flex;
   justify-content:center;
@@ -79,6 +80,7 @@ ul {
 }
 
  ul li a span {
+   width: 100%;
   margin: 2px 0 0;
   font-style: normal;
   font-weight: normal;

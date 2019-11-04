@@ -79,7 +79,7 @@ export const LargeNav = ({ ...props }) => {
       </ul>
       <ul className='sidebar-lower-list'>
         <NavLinks
-          img={settingsActive}
+          img={settings}
           img2={settings}
           location='settings'
           address='/settings'
@@ -128,7 +128,7 @@ export const SmallNav = ({ ...props }) => {
           activeOnlyWhenExact
           address='/' />
         <NavLinksAlt
-          img={require('../../assets/images/dashboard-active.svg')}
+          img={require('../../assets/images/dashboard.svg')}
           img2={require('../../assets/images/dashboard.svg')}
           address={'/dashboard/companydashboard'}
           activeOnlyWhenExact

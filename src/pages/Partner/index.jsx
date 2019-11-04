@@ -11,7 +11,7 @@ import Layout from '../../components/Layout'
 // Specific Styles for the Components
 const styles = {
   Wrapper: {
-    height: 'calc(95vh - 80px)'
+    height: 'calc(95vh - 40px)'
   },
   Row: {
     justifyContent: 'flex-start',
@@ -25,10 +25,10 @@ const styles = {
   Title: {
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    title: 'Welcome to Jekaport',
+    title: 'Welcome to Treeprite',
     subTitle: 'Sign up by filling out this simple form (This section should contain personal information of individual registering for the company)',
-    altHeader:'true',
-    marginHeader:'0'
+    // altHeader:'true',
+    marginHeader:'0 0 0'
   }
 }
 
@@ -156,7 +156,8 @@ shortenText = text => {
       <Wrapper
         {...styles.Wrapper}>
         <Row {...styles.Row} >
-          <Banner {...styles.Banner} >
+          <Banner {...styles.Banner}>
+            
             <Page.Title>
                 Become a Partner
             </Page.Title>
@@ -165,7 +166,9 @@ shortenText = text => {
             </Page.SubTitle>
           </Banner>
           <Page.Container>
-            <Title {...styles.Title} />
+            <Title 
+            className='title'
+            {...styles.Title} />
             <Form 
             inputs={this.state} 
             onValueChange={this.onValueChange} 
