@@ -11,6 +11,11 @@ width:100%;
   height: ${props => props.height};
   width: 100%;
 }
+&.fixedheight-user{
+  overflow-y: auto;
+  height: ${props => props.height};
+  width: 100%;
+}
 @media ${device.mobileS} {
 }
 @media ${device.mobileL} {
@@ -25,12 +30,22 @@ width:100%;
     height: calc(96.3vh - 80px);
     width: 100%;
   }
+  &.fixedheight-user{
+    overflow-y: auto;
+    height: calc(96.3vh - 40px);
+    width: 100%;
+  }
 }
 @media ${device.desktop} { 
   height: calc(97.2vh - 40px);
   &.fixedheight{
     overflow-y: auto;
     height: calc(97.2vh - 80px);
+    width: 100%;
+  }
+  &.fixedheight-user{
+    overflow-y: auto;
+    height: calc(97.2vh - 40px);
     width: 100%;
   }
 }

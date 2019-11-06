@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal } from 'react-bootstrap'
-import { RoutePreviewCard, DeleteRouteCard } from '../Card'
+import { RoutePreviewCard, ViewRouteCard, DeleteRouteCard } from '../Card'
 import { EditRouteForm } from '../Forms'
 
 
@@ -8,6 +8,14 @@ export const RoutePreviewModal = ({ ...props }) => {
   return (
     <Modal id='centeredmodal' size='lg' centered {...props} >
       <RoutePreviewCard {...props} />
+    </Modal>
+  )
+}
+
+export const ViewRouteModal = ({ ...props }) => {
+  return (
+    <Modal id='centeredmodal' size='lg' centered {...props} >
+      <ViewRouteCard {...props} />
     </Modal>
   )
 }

@@ -40,14 +40,14 @@ export const SubLabel = styled.h2`
 export const BoldLabel = styled(SubLabel)`
     text-align: ${props => props.textAlign ? props.textAlign : 'left' } !important;
     color: ${props => props.theme.black};
-    margin-left:0;
+    margin: ${props => props.boldLabelMargin ? props.boldLabelMargin : '0'};
     font-weight: ${props => props.labelfontWeight ? 'bold' : 'normal'};
 `
-export const GreenLabel = styled(SubLabel)`
-    font-weight: bold;
+export const BoldLabelAlt = styled(SubLabel)`
+    font-weight: normal;
+    margin-left:5px;
     text-align: ${props => props.textAlign} !important;
-    color: ${props => !props.altColor ? props.theme.red : props.theme.green};
-    cursor: pointer;
+    color: ${props => props.theme.black};
 `
 
 

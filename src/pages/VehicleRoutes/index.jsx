@@ -6,7 +6,7 @@ import validator from 'validator'
 // Components
 import Layout from '../../container/DashboardWrapper'
 import { AddRouteForm as Form } from '../../components/Forms'
-import { RoutePreviewModal, EditRouteModal, DeleteRouteModal } from '../../components/Modal'
+import { RoutePreviewModal, ViewRouteModal, EditRouteModal, DeleteRouteModal } from '../../components/Modal'
 import Table from '../../components/Table'
 // auth
 // Styles.jsx
@@ -35,12 +35,17 @@ class index extends Component {
       from:'',
       to:'',
       _id:'',
+      start:'',
+      end:'',
+      discount:'',
+      blockedSeats:'',
       departing:'',
       price:'',
       loading: false,
       showPreviewModal:false,
       showEditRouteModal:false,
       showDeleteRouteModal: false,
+      showViewModal: false,
       seats:'', 
       vehicleType:'',
       vehicleId:'', 
@@ -64,7 +69,8 @@ class index extends Component {
 // function to validate edit route form
   handleSubmit = e => {
     e.preventDefault()
-    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, _id } = this.state
+    const { departing, price, to, from, blockedSeats, vehicleType, vehicleModel, _id } = this.state
+    let _blockedSeats = []
     if(validator.isEmpty(price)){
       swal('Empty Pricing', 'Please Specify Pricing details', 'error')
       return
@@ -89,12 +95,20 @@ class index extends Component {
       swal('No Depature Time', 'Please Specify Departure Time', 'error')
       return
     }
-    this.setState({loading: true}, ()=> this.handleAddRoute())
+    if(!validator.isEmpty(blockedSeats)) {
+      _blockedSeats = blockedSeats.split(',')
+    }
+    this.setState({loading: true, blockedSeats: _blockedSeats}, ()=> this.handleAddRoute())
   }
   // Add new route to database
   handleAddRoute = ()=> {
-    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, _id, seats } = this.state
-    let route ={ departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, partnerId:_id, seats }
+    const date = new Date()
+    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, _id, seats, blockedSeats } = this.state
+    const discount = this.state.discount !== '' ? Number(this.state.discount) : 0
+    const start =  this.state.start !== '' ? this.state.start : new Date()
+    const end  = this.state.end !== '' ? this.state.end : new Date(date.setMonth(date.getMonth() + 6))
+    const route ={ departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, partnerId:_id, seats, blockedSeats, start, end, discount   }
+   
     this.props.handlePageLoader(true)
     this.props.handleAddRoute(route)
     .then(res=>{
@@ -107,12 +121,18 @@ class index extends Component {
           departing:'',
           price:'',
           loading: false,
+          showEditRouteModal:false,
           showPreviewModal:false,
           seats:'', 
           vehicleType:'',
           vehicleId:'', 
           vehicleImage:'',
-          vehicleModel:''}, ()=> swal(`${res.message}`, '', 'success'))
+          vehicleModel:'',
+          start:'',
+          to:'',
+          discount:'',
+          blockedSeats:'',
+          data: this.props.routes}, ()=> swal(`${res.message}`, '', 'success'))
           return
         }
         this.setState({loading: false})
@@ -122,7 +142,8 @@ class index extends Component {
   // function to validate edit route form
   handleEditSubmit = e => {
     e.preventDefault()
-    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, _id } = this.state
+    let _blockedSeats = []
+    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, _id, blockedSeats } = this.state
     if(validator.isEmpty(price)){
       swal('Empty Pricing', 'Please Specify Pricing details', 'error')
       return
@@ -147,12 +168,19 @@ class index extends Component {
       swal('No Depature Time', 'Please Specify Departure Time', 'error')
       return
     }
-    this.setState({loading: true}, ()=> this.handleUpdateRoute())
+    if(!validator.isEmpty(blockedSeats)) {
+      _blockedSeats = blockedSeats.split(',')
+    }
+    this.setState({loading: true, blockedSeats: _blockedSeats}, ()=> this.handleUpdateRoute())
   }
   // Save editted route to database
   handleUpdateRoute = () => {
-    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, routeId, seats } = this.state
-    let route ={ departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, seats }
+    const date = new Date()
+    const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, routeId, seats, blockedSeats} = this.state
+    const discount = this.state.discount !== '' ? Number(this.state.discount) : 0
+    const start =  this.state.start !== '' ? this.state.start : new Date()
+    const end  = this.state.end !== '' ? this.state.end : new Date(date.setMonth(date.getMonth() + 6))
+    let route ={ departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, seats, blockedSeats, start, end, discount }
     this.props.handlePageLoader(true)
     this.props.handleUpdateRoute(routeId, route)
     .then(res=>{
@@ -171,6 +199,10 @@ class index extends Component {
         vehicleId:'', 
         vehicleImage:'',
         vehicleModel:'',
+        start:'',
+        to:'',
+        discount:'',
+        blockedSeats:'',
         data: this.props.routes}, ()=> swal(`${res.message}`, '', 'success'))
         return
       }
@@ -181,7 +213,8 @@ class index extends Component {
 
   // delete route from database
   handleDeleteRoute = () => {
-    const {routeId} = this.state
+    const { routeId } = this.state
+    this.setState({loading: true})
     this.props.handlePageLoader(true)
     this.props.handleDeleteRoute(routeId)
     .then(res=>{
@@ -213,18 +246,49 @@ class index extends Component {
     const { value } = values
     this.setState({...this.state, price: value })
   }
+  onValueChangeDiscount = values => {
+    const { value } = values
+    this.setState({...this.state, discount: value })
+  }
+  
   // handles the show/close preview model
   handleShowPreview = () => {
     const showPreviewModal = !this.state.showPreviewModal
       this.setState({showPreviewModal})
   }
-
+  handleShowViewRoute = () => {
+    const showViewModal = !this.state.showViewModal
+    if(showViewModal === false){
+      this.setState({showViewModal, 
+      from:'',
+      to:'',
+      departing:'',
+      price:'',
+      loading: false,
+      seats:'', 
+      vehicleType:'',
+      vehicleId:'', 
+      vehicleImage:'',
+      vehicleModel:'',
+      start:'',
+      end:'',
+      discount:'',
+      blockedSeats:''})
+      return
+    }
+      this.setState({showViewModal})
+  }
   // this function gets and sets the details for the route to be editted
   handleSetEditDetails = route => {
-    const { from, to, seats, vehicleModel, price }=route
+    const { from, to, seats, vehicleModel, price, vehicleTypeId, discount } = route
+    const { vehicleImage, vehicleType} = vehicleTypeId
     let departing = route.departing ?  new Date(route.departing) : new Date()
     let routeId = route._id
-    this.setState({...this.state, departing, from, to, seats, vehicleModel, routeId, price }, ()=>this.handleShowEditRoute())
+    let start = route.start ? new Date(route.start) : new Date()
+    let end = route.end ? new Date(route.end) : new Date()
+    let blockedSeats = route.blockedSeats.join()
+    console.log(route)
+    this.setState({...this.state, departing, from, to, seats, vehicleModel, routeId, price, vehicleImage, vehicleType, start, end, discount, blockedSeats }, ()=>this.handleShowViewRoute())
   }
    // this function gets and sets the details for the route to be deleted
   handleSetDeleteDetails = route => {
@@ -235,11 +299,29 @@ class index extends Component {
   // this opens the edit route modal
   handleShowEditRoute = () => {
     const showEditRouteModal = !this.state.showEditRouteModal
-      this.setState({showEditRouteModal})
+      this.setState({showViewModal: false, showEditRouteModal})
   }
   // this opens the delete route modal
   handleShowDeleteRoute = () => {
     const showDeleteRouteModal = !this.state.showDeleteRouteModal
+    if(showDeleteRouteModal === false){
+      this.setState({showDeleteRouteModal, 
+      from:'',
+      to:'',
+      departing:'',
+      price:'',
+      loading: false,
+      seats:'', 
+      vehicleType:'',
+      vehicleId:'', 
+      vehicleImage:'',
+      vehicleModel:'',
+      start:'',
+      end:'',
+      discount:'',
+      blockedSeats:''})
+      return
+    }
       this.setState({showDeleteRouteModal})
   }
 
@@ -266,7 +348,14 @@ class index extends Component {
   })
 // handle picking a depature time
   handleDatePicker = time => {
-    this.setState({departing: time}, ()=> console.log(this.state.departing))
+    this.setState({departing: time})
+  }
+  handleDuoDatePicker = (date, value) => {
+    if(value ==='end'){
+      this.setState({end: date})
+      return
+    }
+    this.setState({start: date})
   }
   // handle page up for pagination
   handlePagnationUp = (e) => {
@@ -348,6 +437,12 @@ selectedPage = page =>{
   }
    async componentDidMount (){
     await this.props.handleFetchVehicleTypes()
+    .then(res=>(
+      this.props.handleGetUserRoutes(this.state._id)
+      .then(res=>{
+        this.setState({data: this.props.routes})
+      })
+    ))
      this.renderPageNumbers()
   }
   render () {
@@ -375,11 +470,13 @@ selectedPage = page =>{
                 inputs={this.state}
                 handleOnChange={this.handleOnChange}
                 onValueChange={this.onValueChange}
+                onValueChangeDiscount={this.onValueChangeDiscount}
                 handleSelect={this.handleSelect}
                 handleSubmit={this.handleSubmit}
                 handleShowPreview={this.handleShowPreview}
                 vehicleTypes={this.props.vehicleTypes}
                 handleDatePicker={this.handleDatePicker}
+                handleDuoDatePicker={this.handleDuoDatePicker}
               />
                 <Table 
                  title='Routes' 
@@ -403,10 +500,17 @@ selectedPage = page =>{
           </Wrapper>
         </StyleWrapper>
         <RoutePreviewModal 
-        show={this.state.showPreviewModal}
-        onHide={this.handleShowPreview}
-        inputs={this.state}
-        handleSubmit={this.handleSubmit}
+          show={this.state.showPreviewModal}
+          onHide={this.handleShowPreview}
+          inputs={this.state}
+          handleSubmit={this.handleSubmit}
+        />
+        <ViewRouteModal 
+          show={this.state.showViewModal}
+          onHide={this.handleShowViewRoute}
+          inputs={this.state}
+          update={this.handleShowEditRoute}
+          // handleSubmit={this.handleSubmit}
         />
         <EditRouteModal
          show={this.state.showEditRouteModal}
@@ -415,9 +519,12 @@ selectedPage = page =>{
          handleEditSubmit={this.handleEditSubmit}
          vehicleTypes={this.props.vehicleTypes}
          handleDatePicker={this.handleDatePicker}
+         handleDuoDatePicker={this.handleDuoDatePicker}
          handleOnChange={this.handleOnChange}
          handleSelect={this.handleSelect}
-        />
+         onValueChange={this.onValueChange}
+         onValueChangeDiscount={this.onValueChangeDiscount}
+/>
         <DeleteRouteModal
         show={this.state.showDeleteRouteModal}
         onHide={this.handleShowDeleteRoute}

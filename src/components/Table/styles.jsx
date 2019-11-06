@@ -120,7 +120,7 @@ export const EditIMG = styled.div`
 width:25px;
  height:25px;
  transition: .3s;
- background:url('${require('../../assets/images/edit.png')}') bottom center no-repeat;
+ background:url('${require('../../assets/images/eye.png')}') bottom center no-repeat;
 
  `
 export const DeleteIMG = styled.div`

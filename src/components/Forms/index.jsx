@@ -509,7 +509,8 @@ export const AddRouteForm = ({ ...props }) => {
               height='43px'
               labelfontWeight='true'
               margin='0 18px'
-              label='From ?'
+              label='Departure'
+              labelAlt='(Terminal)'
               placeholder='e.g: Lagos'
               name='from'
               value={props.inputs.from}
@@ -520,8 +521,9 @@ export const AddRouteForm = ({ ...props }) => {
               height='43px'
               labelfontWeight='true'
               margin='0 18px'
-              label='to ?'
+              label=' Destination '
               placeholder='e.g: Abuja'
+              labelAlt=' (Terminal)'
               name='to'
               value={props.inputs.to}
               onChange={props.handleOnChange}
@@ -557,18 +559,60 @@ export const AddRouteForm = ({ ...props }) => {
             selected={props.inputs.departing}
             onChange={props.handleDatePicker}
           />
+          <Input.DuoPickDate
+            width='150px'
+            height='43px'
+            boldLabelMargin=' 0 0 0 20px'
+            labelfontWeight='true'
+            labelStart='Start'
+            labelEnd='End'
+            // placeholder='Number of seats'
+            selectedStart={props.inputs.start}
+            selectedEnd={props.inputs.end}
+            onChangeStart={date => props.handleDuoDatePicker(date, 'start')}
+            onChangeEnd={date => props.handleDuoDatePicker(date, 'end')}
+            margin='0 20px'
+          />
+        </Row>
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.MainFormatter
+            width='414px'
+            height='43px'
+            labelfontWeight='true'
+            label='Discount'
+            suffix={'%'}
+            placeholder='Enter %discount if available'
+            value={props.inputs.discount}
+            onValueChange={props.onValueChangeDiscount}
+          />
           <Input.Main
             width='414px'
             height='43px'
             labelfontWeight='true'
             label='Available Seats'
             placeholder='Number of seats'
-            disabled='Number of seats'
+            disabled='true'
             value={props.inputs.seats}
             onChange={props.handleOnChange}
           />
         </Row>
-
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.Main
+            width='414px'
+            height='43px'
+            margin='0 auto 0 48px'
+            labelfontWeight='true'
+            label='Blocked Seats'
+            placeholder='Number of seats'
+            name='blockedSeats'
+            value={props.inputs.blockedSeats}
+            onChange={props.handleOnChange}
+          />
+        </Row>
         <Row
           padding='0 45px'>
           <Button
@@ -595,10 +639,10 @@ export const EditRouteForm = ({ ...props }) => {
   ))
   return (
     <CardWrapper
-      width='1000px'
+      width='1100px'
       height='350px'
       alignItems='center'
-      padding='24px 0 90px'
+      padding='24px 0 50px'
       justifyContent='flex-start'
       backgroundColor='#fff'
       {...props}
@@ -688,18 +732,61 @@ export const EditRouteForm = ({ ...props }) => {
             selected={props.inputs.departing}
             onChange={props.handleDatePicker}
           />
-          <Input.Main
+          <Input.DuoPickDate
+            width='150px'
+            height='43px'
+            boldLabelMargin=' 0 0 0 20px'
+            labelfontWeight='true'
+            labelStart='Start'
+            labelEnd='End'
+            // placeholder='Number of seats'
+            selectedStart={props.inputs.start}
+            selectedEnd={props.inputs.end}
+            onChangeStart={date => props.handleDuoDatePicker(date, 'start')}
+            onChangeEnd={date => props.handleDuoDatePicker(date, 'end')}
+            margin='0 20px'
+          />
+        </Row>
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.MainFormatter
             width='414px'
             height='43px'
             labelfontWeight='true'
+            label='Discount'
+            suffix={'%'}
+            placeholder='Enter %discount if available'
+            value={props.inputs.discount}
+            onValueChange={props.onValueChangeDiscount}
+          />
+          <Input.Main
+            width='414px'
+            height='43px'
+
+            labelfontWeight='true'
             label='Available Seats'
             placeholder='Number of seats'
-            disabled='Number of seats'
+            disabled='true'
             value={props.inputs.seats}
             onChange={props.handleOnChange}
           />
         </Row>
-
+        <Row
+          margin='42px auto 0'
+        >
+          <Input.Main
+            width='414px'
+            height='43px'
+            margin='0 auto 0 48px'
+            labelfontWeight='true'
+            label='Blocked Seats'
+            placeholder='Number of seats'
+            name='blockedSeats'
+            value={props.inputs.blockedSeats}
+            onChange={props.handleOnChange}
+          />
+        </Row>
         <Row>
           <Button
             altButton='true'
@@ -715,7 +802,6 @@ export const EditRouteForm = ({ ...props }) => {
             onClick={props.handleEditSubmit}
             margin='80px 60px 10px 0' />
         </Row>
-
       </FormWrapper>
     </CardWrapper>
   )
@@ -809,7 +895,7 @@ export const BookATripForm = ({ ...props }) => {
           // checked={props.inputs.terms}
           margin='30px 10px 0'
         />
-        <div style={{width:'100%', height:'43px'}}>
+        <div style={{ width: '100%', height: '43px' }}>
           <Button
             content='CONTINUE'
             width='100%'
