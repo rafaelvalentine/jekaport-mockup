@@ -24,7 +24,9 @@ background-attachment: scroll;
 
 `
 export const BookATripSection = styled.section`
-
+.react-datepicker{
+  z-index: 10;
+}
 @media ${device.mobileS}{
 }
 @media ${device.tablet}{

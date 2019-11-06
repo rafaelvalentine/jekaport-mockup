@@ -1,2 +1,2 @@
-export { RoutePreviewModal, EditRouteModal, DeleteRouteModal } from './Routes'
+export { RoutePreviewModal, ViewRouteModal, EditRouteModal, DeleteRouteModal } from './Routes'
 

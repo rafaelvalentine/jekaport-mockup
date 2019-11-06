@@ -1,15 +1,17 @@
 import React from 'react'
 import * as Type from '../../theme/style/typeface'
 import * as Form from '../../theme/style/Form'
-import { Image } from '../../components/Picture'
+import { Image, DatePickerImage } from '../../components/Picture'
 import { Formatter, Date as DatePicker } from '../../components/Tools/Formatter'
-
 
 export const Main = ({ name, label, placeholder, type, value, onChange, ...props }) => {
   return (
     <Form.MainLabelContainer {...props}>
       <Form.MainLabel>
-        <Type.BoldLabel {...props}>{ label }</Type.BoldLabel>
+        <Form.AltBox>
+          <Type.BoldLabel {...props}>{ label }</Type.BoldLabel>
+          <Type.BoldLabelAlt>{ props.labelAlt }</Type.BoldLabelAlt>
+        </Form.AltBox>
       </Form.MainLabel>
       <Form.MainInput
         name={name}
@@ -98,7 +100,9 @@ export const MainUpload = ({ name, label, placeholder, ...props }) => {
         <div>
           <Form.MainInputDisabled
             width={props.width}
-            height={props.height} >{placeholder}</Form.MainInputDisabled>
+            height={props.height} 
+            value={placeholder}
+            disabled />
           <Image src={require('../../assets/images/attachment_file.svg')} width='32px' height='32px' margin='0 8px' cursor='pointer' />
         </div>
         <Form.MainInput type='file' id='partner-attachment' name={name} style={{ display: 'none' }} {...props} />
@@ -200,6 +204,71 @@ export const MainDate = ({ name, label, placeholder, type, onValueChange, ...pro
         // disabled={disableToDatePicker}
         {...props} />
     </Form.MainLabelContainer>
+  )
+}
+export const DuoPickDate = ({
+  start,
+  end,
+  changeFrom,
+  changeTo,
+  valueFrom,
+  valueTo,
+  direction,
+  wrap,
+  justify,
+  disableToDatePicker,
+  ...props }) => {
+  return (
+    <Form.MainLabelContainer
+      {...props}
+    >
+      <Form.TwoComponentBox
+        // width='100'
+      >
+        <div>
+          <Form.MainLabel>
+            <Type.BoldLabel {...props}>{ props.labelStart }</Type.BoldLabel>
+          </Form.MainLabel>
+          <Form.DatePickerContainer>
+            <DatePicker
+              placeholderText='Select Route Start'
+              className='duodatepicker'
+              isClearable
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dateFormat='dd/MM/yyyy'
+              minDate={new Date()}
+              selected={props.selectedStart}
+              onChange={props.onChangeStart}
+              {...props}
+            />
+            <DatePickerImage />
+          </Form.DatePickerContainer>
+        </div>
+        <div>
+          <Form.MainLabel>
+            <Type.BoldLabel {...props}>{ props.labelEnd }</Type.BoldLabel>
+          </Form.MainLabel>
+          <Form.DatePickerContainer>
+            <DatePicker
+              placeholderText='Select Route Closure'
+              className='duodatepicker'
+              isClearable
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dateFormat='dd/MM/yyyy'
+              selected={props.selectedEnd}
+              onChange={props.onChangeEnd}
+              {...props}
+            />
+            <DatePickerImage />
+          </Form.DatePickerContainer>
+        </div>
+      </Form.TwoComponentBox>
+    </Form.MainLabelContainer>
+
   )
 }
 // export default Input

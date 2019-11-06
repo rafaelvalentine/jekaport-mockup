@@ -123,7 +123,7 @@ class Home extends Component {
       <Layout>
          <Wrapper
           {...styles.Wrapper}
-          className='fixedheight'
+          className='fixedheight-user'
         >
           <Page.MainContainer>
             <Page.BookATripSection>
@@ -135,7 +135,6 @@ class Home extends Component {
                   />
                 <Image src={HomeImg} className='travel-image' />
               </Row>
-             
             </Page.BookATripSection>
         <Page.SliderContainer className='featured'>
         <SubLabel className='title'>
@@ -150,8 +149,8 @@ class Home extends Component {
             <PartnerCard/>
           </Slider>
         </Page.SliderContainer>
-        <Page.SliderContainer className='featured'>
-        <SubLabel className='new'>
+        <Page.SliderContainer className='new'>
+        <SubLabel className='title'>
         New Partners
         </SubLabel>
           <Slider {...settingsTwo}>

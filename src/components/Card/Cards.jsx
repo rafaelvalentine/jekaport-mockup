@@ -71,12 +71,13 @@ export const DashboardAnalyticsCard = ({ ...props }) => {
 export const RoutePreviewCard = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '600px',
+      width: '650px',
       height: '500px',
       justifyContent: 'flex-start',
       alignItems: 'center',
       padding: '20px 0 60px',
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      margin:'0 auto'
     },
     Header: {
       altHeader: 'true',
@@ -97,8 +98,142 @@ export const RoutePreviewCard = ({ ...props }) => {
     },
     secondRow: {
       flexWrap: 'nowrap',
-      height: '350px',
-      margin: '60px auto 0',
+      height: '500px',
+      margin: '30px auto 0',
+      padding: '0 40px',
+      justifyContent: 'space-around'
+    },
+    buttonRow: {
+      height: '50px',
+      padding: '0 72px 0 0'
+    },
+    Duotext: {
+      stackedMargin: '0 0 15px'
+    }
+  }
+  const date = new Date()
+  const departing = props.inputs.departing !== '' ? props.inputs.departing : date
+  const start = props.inputs.start !== '' ? props.inputs.start : date
+  const end  = props.inputs.end !== '' ? props.inputs.end : new Date(date.setMonth(date.getMonth() + 6))
+  return (
+    <CardBox
+      {...styles.CardBox}>
+      <Row
+        {...styles.firstRow}>
+        <Header
+          {...styles.Header}>
+        Preview Route
+        </Header>
+        <Logo src={require('../../assets/images/close-line.svg')}
+          clicked={props.onHide}
+          {...styles.Logo} />
+      </Row>
+      <Row
+        {...styles.secondRow}>
+        <Image src={props.inputs.vehicleImage || require('../../assets/images/default-car.svg')}
+          {...styles.Image}
+        />
+        <div>
+          <DuoText
+            {...styles.Duotext}
+            text='Type of Vehicle'
+            subText={props.inputs.vehicleType || 'nil'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Vehicle Model'
+            subText={props.inputs.vehicleModel || 'nil'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Route'
+            subText={`${props.inputs.from || 'nil'} - ${props.inputs.to || 'nil'}`}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Price'
+            amount={props.inputs.price || '0'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Departure Time'
+            subText={moment(departing).format('LTS') || 'nil'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Duration'
+            subText={`${moment(start).format('DD/MM/YYYY')} - ${moment(end).format('DD/MM/YYYY')}`}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Discount'
+            subText={`${props.inputs.discount || 'nil'} %`}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Blocked Seats'
+            subText={props.inputs.blockedSeats || 'nil'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Seats Available'
+            subText={props.inputs.seats || 'nil'}
+          />
+        </div>
+      </Row>
+      <Row
+        {...styles.buttonRow}>
+        <Button
+          altButton='true'
+          content='PUBLISH'
+          width='218px'
+          loading={props.inputs.loading}
+          // onClick={props.onHide}
+          onClick={props.handleSubmit}
+          margin='20px 10px 10px auto' />
+        <Button
+          content='MODIFY'
+          width='206px'
+          loading={props.inputs.loading}
+          // onClick={props.handleSumbit}
+          onClick={props.onHide}
+          margin='20px 10px 10px 0' />
+      </Row>
+    </CardBox>
+  )
+}
+export const ViewRouteCard = ({ ...props }) => {
+  const styles = {
+    CardBox: {
+      width: '650px',
+      height: '500px',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      padding: '20px 0 60px',
+      backgroundColor: '#fff',
+      margin:'0 auto'
+    },
+    Header: {
+      altHeader: 'true',
+      marginHeader: '0 0 0 auto'
+    },
+    Logo: {
+      width: '15px',
+      height: '15px',
+      cursor: 'pointer',
+      margin: '0 40px 0 auto'
+    },
+    Image: {
+      width: '379px',
+      height: '253px'
+    },
+    firstRow: {
+      height: '50px'
+    },
+    secondRow: {
+      flexWrap: 'nowrap',
+      height: '500px',
+      margin: '30px auto 0',
       padding: '0 40px',
       justifyContent: 'space-around'
     },
@@ -151,8 +286,23 @@ export const RoutePreviewCard = ({ ...props }) => {
           />
           <DuoText
             {...styles.Duotext}
-            text='Departing Time'
+            text='Departure Time'
             subText={moment(props.inputs.departing).format('LTS') || 'nil'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Duration'
+            subText={`${moment(props.inputs.start).format('DD/MM/YYYY')} - ${moment(props.inputs.end).format('DD/MM/YYYY')}` || 'nil'}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Discount'
+            subText={`${props.inputs.discount || 'nil'} %`}
+          />
+          <DuoText
+            {...styles.Duotext}
+            text='Blocked Seats'
+            subText={props.inputs.blockedSeats || 'nil'}
           />
           <DuoText
             {...styles.Duotext}
@@ -165,30 +315,29 @@ export const RoutePreviewCard = ({ ...props }) => {
         {...styles.buttonRow}>
         <Button
           altButton='true'
-          content='PUBLISH'
+          content='Save'
           width='218px'
           loading={props.inputs.loading}
           // onClick={props.onHide}
-          onClick={props.handleSubmit}
+          onClick={props.onHide}
           margin='20px 10px 10px auto' />
         <Button
-          content='MODIFY'
+          content='UPDATE'
           width='206px'
           loading={props.inputs.loading}
           // onClick={props.handleSumbit}
-          onClick={props.onHide}
+          onClick={props.update}
           margin='20px 10px 10px 0' />
       </Row>
     </CardBox>
   )
 }
-
 export const DeleteRouteCard = ({ ...props }) => {
   const styles = {
     CardBox: {
-      width: '100%',
+      width: '50%',
       height: '240px',
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
       alignItems: 'center',
       padding: '20px 0 60px',
       backgroundColor: '#fff'

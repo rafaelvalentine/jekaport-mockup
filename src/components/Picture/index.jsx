@@ -29,6 +29,15 @@ align-self: ${props => props.alignSelf};
 border-radius: ${props => props.borderRadius};
 transform:rotate(${props => props.rotate});
 `
+const DatePickerIMG = styled.img.attrs(props => ({
+  src: props.src || require('../../assets/images/calendar-line.svg'),
+  width: props.width || '16px',
+  height: props.height || '16px',
+  margin: props.margin
+}))`
+  width: ${props => props.width};
+  height: ${props => props.height}
+`
 // const AdminIMG = styled.img.attrs(props => ({
 //   src: props.src,
 //   width: props.width || '40px',
@@ -85,7 +94,7 @@ export const Logo = ({ clicked, ...props }) => <LogoIMG onClick={clicked} {...pr
 export const Image = ({ ...props }) => <IMG {...props} />
 // export const Admin = ({ ...props }) => <AdminIMG {...props} />
 // export const User = ({ image, ...props }) => <UserIMG src={image || require('../../assets/images/default_user.jpg')}{...props} />
-// export const DatePickerImage = ({ ...props }) => <DatePickerIMG {...props} />
+export const DatePickerImage = ({ ...props }) => <DatePickerIMG {...props} />
 export const Star = ({ empty, ...props }) => {
   let image
   empty ? image = require('../../assets/images/empty-star.svg') : image = require('../../assets/images/star.svg')

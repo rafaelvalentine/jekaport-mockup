@@ -39,13 +39,13 @@ export const NoMLabel = styled(Label)`
     margin: 1rem 1rem;
 `
 export const CheckBoxLabel = styled.label`
-    margin: ${props=> props.margin ? props.margin : '15px 0 0'};
+    margin: ${ props=> props.margin ? props.margin : '15px 0 0'};
     cursor: pointer;
     vertical-align: top;
     display: block;
     position: relative;
     padding-left: 24px;
-    z-index: 2;
+    z-index: 1;
     position: relative;
     cursor: pointer;
     -webkit-user-select: none;
@@ -244,7 +244,7 @@ MainInput.defaultProps = {
   height: '32px',
   inputMargin: '0'
 }
-export const MainInputDisabled = styled.div`
+export const MainInputDisabled = styled.textarea`
 display: inline-block;
 width: ${props => props.width};
 border: 1px solid ${props => props.theme.inputBorder};
@@ -259,6 +259,7 @@ font-size: ${props => props.fontSize ? props.fontSize : '14px'};
 line-height: 18px;
 color: ${props => props.theme.placeholder};
 cursor: pointer;
+resize:none;
 &.altdisabledinput{
   border-radius: 0;
   background: rgba(196, 196, 196, 0.12);
@@ -300,7 +301,8 @@ export const MainLabelContainer = styled.label`
     display: block;
     margin:${props => props.margin ? props.margin : '0 50px'};
 .formatter,
-.datepicker {
+.datepicker,
+.duodatepicker {
         width: ${props => props.width ? props.width : '459px'};
         border: 1px solid ${props => props.theme.inputBorder};
         border-radius: ${props => props.borderRadius ? props.borderRadius : '5px'};
@@ -314,6 +316,7 @@ export const MainLabelContainer = styled.label`
         line-height: 18px;
         color: #3B3B3B;
         cursor: pointer;
+        // z-index:10;
         ::placeholder {
             font-size: ${props => props.fontSize ? props.fontSize : '12px'};
             color: ${props => props.theme.placeholder};
@@ -323,6 +326,9 @@ export const MainLabelContainer = styled.label`
             outline:none;
             border-radius: 4px;
         }
+    }
+    .duodatepicker{
+      border: 1px solid ${props => props.theme.transparent};
     }
 `
 
@@ -358,7 +364,7 @@ export const Select = styled.select`
     background: transparent;
     padding: 8px;
     font-style: normal;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 14px;
     line-height: 14px;
     -moz-appearance: none;
@@ -369,7 +375,7 @@ export const Select = styled.select`
     background-position: 98%;
     background-size: center;
     border-radius: 4px;
-    color: ${props => props.theme.bodyText};
+    color: ${props => props.theme.black};
     &.pagination-select{
       width: 60px;
     }
@@ -462,8 +468,10 @@ export const TableList = styled(TableHead)`
 
 export const DatePickerContainer = styled.div`
 padding: 0 8px;
+margin :0 20px;
 background: ${props => props.theme.white};
 border-radius: 4px;
+border: 1px solid ${props => props.theme.inputBorder};
 `
 export const SearchInputContainer = styled(DatePickerContainer)`
 padding: 0 30px;

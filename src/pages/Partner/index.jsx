@@ -157,7 +157,6 @@ shortenText = text => {
         {...styles.Wrapper}>
         <Row {...styles.Row} >
           <Banner {...styles.Banner}>
-            
             <Page.Title>
                 Become a Partner
             </Page.Title>
