@@ -31,6 +31,7 @@ import BusinessDetailsDashboard from './container/DashboardBusinessDetails'
 import VehicleRoutes from './container/VehicleRoutes'
 import CompanyDetails from './container/CompanyDetails'
 import BusinessDetails from './container/BusinessDetails'
+import BookingSearchResult from './container/BookingSearchResult'
 // import CompanyDetails from './container/DashboardBusinessDetails'
 function Router () {
   return (
@@ -48,6 +49,7 @@ function Router () {
         <Route exact path='/result' component={SearchResults} />
         <Route exact path='/selectseat' component={PickSeat} />
         <Route exact path='/' component={Home} />
+        <Route exact path='/bookingsearchresult' component={BookingSearchResult} />
         {/* <Route exact path="/home" component={Home} /> */}
         <Route exact path='/resetsent' component={ResetSent} />
         <Route exact path='/dashboard/companydashboard' component={CompanyDashboard} />
