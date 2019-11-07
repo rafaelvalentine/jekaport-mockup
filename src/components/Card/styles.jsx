@@ -211,3 +211,28 @@ color: rgba(0, 0, 0, 0.4);
 margin:0;
 padding:0;
 `
+export const ResultDetailsContainer = styled.div`
+border: 1px solid rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+width: 220px;
+height: 135px;
+`
+
+export const RouteDetailsTitle = styled.p`
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+line-height: 12px;
+/* identical to box height */
+color: rgba(0, 0, 0, 0.7);
+margin: 0 5px 2px 0;
+padding:0;
+`
+export const RouteDetailsText = styled(RouteDetailsTitle)`
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+margin:0;
+padding:0;
+`

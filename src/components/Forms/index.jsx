@@ -910,3 +910,69 @@ export const BookATripForm = ({ ...props }) => {
     </CardWrapper>
   )
 }
+export const BookATripFilter = ({ ...props }) => {
+  // const vehicles = props.vehicleTypes.map(vehicle => (
+  //   <option key={vehicle._id} value={vehicle._id}>{vehicle.vehicleType}</option>
+  // ))
+  return (
+    <CardWrapper
+      width='1000px'
+      height='50px'
+      alignItems='flex-start'
+      padding='0'
+      justifyContent='flex-start'
+      backgroundColor='transparent'
+      boxShadow='0'
+      {...props}
+    >
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Row
+          margin='0 auto'
+          justifyContent='flex-start'
+        >
+          <Input.Select
+            width='255px'
+            height='43px'
+            margin='0 32px 0 10px'
+            labelfontWeight='true'
+            label='Price Range'
+            placeholder=' e.g Victoria Island, Lagos'
+            name='from'
+            // value={props.inputs.vehicleModel}
+            // onChange={props.handleOnChange}
+          >
+            <option hidden>0 - 1000</option>
+          </Input.Select>
+          <Input.Select
+            width='255px'
+            height='43px'
+            margin='0 32px 0 10px'
+            labelfontWeight='true'
+            label='Terminals'
+            placeholder='e.g Ring road, Ibadan'
+            //  disabled='Number of seats'
+            // value={props.inputs.seats}
+            // onChange={props.handleOnChange}
+          >
+            <option hidden>Utako Motor Park</option>
+          </Input.Select>
+          <Input.Select
+            width='255px'
+            height='43px'
+            margin='0 32px 0 10px'
+            labelfontWeight='true'
+            label='Transport Company'
+            placeholder='e.g Ring road, Ibadan'
+            //  disabled='Number of seats'
+            // value={props.inputs.seats}
+            // onChange={props.handleOnChange}
+          >
+            <option hidden>All</option>
+          </Input.Select>
+        </Row>
+      </FormWrapper>
+    </CardWrapper>
+  )
+}
