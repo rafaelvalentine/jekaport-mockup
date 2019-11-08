@@ -11,7 +11,7 @@ import Layout from '../../components/Layout'
 // Specific Styles for the Components
 const styles = {
   Wrapper: {
-    height: 'calc(95vh - 80px)'
+    height: 'calc(95vh - 40px)'
   },
   Row: {
     justifyContent: 'flex-start'

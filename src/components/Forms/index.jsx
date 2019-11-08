@@ -4,8 +4,8 @@ import { FormWrapper, ForgetPassword, Terms } from './styles'
 // import { Label } from '../../theme/style/typeface'
 import { CardWrapper } from '../Card'
 import Button from '../Button'
-import { Row } from '../../theme/style/styles'
-import { SubLabel, Title } from '../../theme/style/typeface'
+import { Row, Column } from '../../theme/style/styles'
+import { SubLabel, Title, SmallText } from '../../theme/style/typeface'
 
 export const ForgotPasswordForm = ({ ...props }) => {
   return (
@@ -494,7 +494,7 @@ export const AddRouteForm = ({ ...props }) => {
             height='43px'
             labelfontWeight='true'
             label='Vehicle Model'
-            placeholder='e.g Ring road, Ibadan'
+            placeholder='e.g Toyota Hiace'
             name='vehicleModel'
             value={props.inputs.vehicleModel}
             onChange={props.handleOnChange}
@@ -511,7 +511,7 @@ export const AddRouteForm = ({ ...props }) => {
               margin='0 18px'
               label='Departure'
               labelAlt='(Terminal)'
-              placeholder='e.g: Lagos'
+              placeholder='e.g: Victoria Land, Lagos'
               name='from'
               value={props.inputs.from}
               onChange={props.handleOnChange}
@@ -522,7 +522,7 @@ export const AddRouteForm = ({ ...props }) => {
               labelfontWeight='true'
               margin='0 18px'
               label=' Destination '
-              placeholder='e.g: Abuja'
+              placeholder='e.g: Utako, Abuja'
               labelAlt=' (Terminal)'
               name='to'
               value={props.inputs.to}
@@ -655,12 +655,12 @@ export const EditRouteForm = ({ ...props }) => {
           padding='40px 0 0'>
           <Input.Select
             label='Type of Vehicle'
-            placeholder='Selecct type of vehicle'
+            placeholder='Select type of vehicle'
             labelfontWeight='true'
             // value={props.inputs.vehicleType}
             onChange={props.handleSelect}
           >
-            <option hidden>Selecct type of vehicle</option>
+            <option hidden>Select type of vehicle</option>
             {vehicles}
           </Input.Select>
 
@@ -838,8 +838,8 @@ export const BookATripForm = ({ ...props }) => {
             label='Travelling From'
             placeholder=' e.g Victoria Island, Lagos'
             name='from'
-            // value={props.inputs.vehicleModel}
-            // onChange={props.handleOnChange}
+            value={props.inputs.from}
+            onChange={props.handleOnChange}
           />
           <Input.Main
             width='255px'
@@ -847,10 +847,10 @@ export const BookATripForm = ({ ...props }) => {
             margin='0 15px'
             labelfontWeight='true'
             label='Travelling To'
+            name='to'
             placeholder='e.g Ring road, Ibadan'
-            //  disabled='Number of seats'
-            // value={props.inputs.seats}
-            // onChange={props.handleOnChange}
+            value={props.inputs.to}
+            onChange={props.handleOnChange}
           />
 
         </Row>
@@ -864,19 +864,19 @@ export const BookATripForm = ({ ...props }) => {
             labelfontWeight='true'
             label='Departure Date'
             placeholderText='e.g 12 September 2019 '
-            name='departing'
+            name='departureDate'
             minDate={props.subDays(new Date())}
             maxDate={props.addDays(new Date(), 20)}
-            // selected={props.inputs.departing}
-            // onChange={props.handleDatePicker}
+            selected={props.inputs.departureDate}
+            onChange={props.handleDepartureDate}
           />
 
           <Input.Select
             width='255px'
             height='43px'
             margin='0 15px'
-            label='Type of Vehicle'
-            placeholder='Selecct type of vehicle'
+            label='Type of Trip'
+            placeholder='Select type of Trip'
             labelfontWeight='true'
             // value={props.inputs.vehicleType}
             onChange={props.handleSelect}
@@ -900,9 +900,111 @@ export const BookATripForm = ({ ...props }) => {
             content='CONTINUE'
             width='100%'
             height='43px'
+            loading={props.inputs.loading}
+            onClick={props.handleSubmit}
+            margin='40px 10px 10px auto'
+          />
+        </div>
+
+      </FormWrapper>
+    </CardWrapper>
+  )
+}
+export const BookATripFormAlt = ({ ...props }) => {
+  // const vehicles = props.vehicleTypes.map(vehicle => (
+  //   <option key={vehicle._id} value={vehicle._id}>{vehicle.vehicleType}</option>
+  // ))
+  return (
+    <CardWrapper
+      width='350px'
+      height='423px'
+      alignItems='center'
+      padding='36px 0 70px'
+      margin='0 12px'
+      justifyContent='flex-start'
+      backgroundColor='#fff'
+      {...props}
+    >
+      {/* <Title
+        altTitleformWeight>
+          Book a Trip
+      </Title> */}
+      <FormWrapper
+        alignItems='flex-start'
+      >
+        <Column
+          margin='0 auto'
+        >
+          <Input.Main
+            width='270px'
+            height='43px'
+            margin='0 15px 25px'
+            labelfontWeight='true'
+            label='Travelling From'
+            placeholder=' e.g Victoria Island, Lagos'
+            name='from'
+            // value={props.inputs.vehicleModel}
+            // onChange={props.handleOnChange}
+          />
+          <Input.Main
+            width='270px'
+            height='43px'
+            margin='0 15px 25px'
+            labelfontWeight='true'
+            label='Travelling To'
+            placeholder='e.g Ring road, Ibadan'
+            //  disabled='Number of seats'
+            // value={props.inputs.seats}
+            // onChange={props.handleOnChange}
+          />
+
+          <Input.MainDate
+            width='270px'
+            height='43px'
+            margin='0 15px 25px'
+            labelfontWeight='true'
+            label='Departure Date'
+            placeholderText='e.g 12 September 2019 '
+            name='departing'
+            // minDate={props.subDays(new Date())}
+            // maxDate={props.addDays(new Date(), 20)}
+            // selected={props.inputs.departing}
+            // onChange={props.handleDatePicker}
+          />
+
+          <Input.Select
+            width='270px'
+            height='43px'
+            margin='0 15px 25px'
+            label='Type of Trip'
+            placeholder='Select type of Trip'
+            labelfontWeight='true'
+            // value={props.inputs.vehicleType}
+            onChange={props.handleSelect}
+          >
+            <option hidden>Select Trip Type</option>
+            <option value='1'>One way trip</option>
+            <option value='2'>Round trip</option>
+            {/* {vehicles} */}
+          </Input.Select>
+
+          <Input.CheckBox
+            name='terms'
+            // onChange={props.handleCheckbox}
+            type='checkbox'
+            label='Would you like to hire a vehicle instead?'
+            // checked={props.inputs.terms}
+            margin='30px 10px 0'
+          />
+        </Column>
+        <div style={{ width: '100%', height: '43px' }}>
+          <Button
+            content='CONTINUE'
+            width='270px'
+            height='43px'
             // loading={props.inputs.loading}
             // onClick={props.handleShowPreview}
-            margin='40px 10px 10px auto'
+            margin='40px 10px 30px auto'
           />
         </div>
 
@@ -916,9 +1018,9 @@ export const BookATripFilter = ({ ...props }) => {
   // ))
   return (
     <CardWrapper
-      width='1000px'
+      width='900px'
       height='50px'
-      alignItems='flex-start'
+      alignItems='center'
       padding='0'
       justifyContent='flex-start'
       backgroundColor='transparent'
@@ -930,12 +1032,15 @@ export const BookATripFilter = ({ ...props }) => {
       >
         <Row
           margin='0 auto'
-          justifyContent='flex-start'
+          justifyContent='center'
         >
+          <SmallText
+            margin='10px 0 0'
+          >Filter By:</SmallText>
           <Input.Select
-            width='255px'
+            width='212px'
             height='43px'
-            margin='0 32px 0 10px'
+            margin='0 0 0 10px'
             labelfontWeight='true'
             label='Price Range'
             placeholder=' e.g Victoria Island, Lagos'
@@ -946,9 +1051,9 @@ export const BookATripFilter = ({ ...props }) => {
             <option hidden>0 - 1000</option>
           </Input.Select>
           <Input.Select
-            width='255px'
+            width='212px'
             height='43px'
-            margin='0 32px 0 10px'
+            margin='0 0 0 10px'
             labelfontWeight='true'
             label='Terminals'
             placeholder='e.g Ring road, Ibadan'
@@ -959,9 +1064,9 @@ export const BookATripFilter = ({ ...props }) => {
             <option hidden>Utako Motor Park</option>
           </Input.Select>
           <Input.Select
-            width='255px'
+            width='212px'
             height='43px'
-            margin='0 32px 0 10px'
+            margin='0 0 0 10px'
             labelfontWeight='true'
             label='Transport Company'
             placeholder='e.g Ring road, Ibadan'

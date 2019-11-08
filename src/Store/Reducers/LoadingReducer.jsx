@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_PAGE_LOADER':
       return { ...state,
-        ...action.payload
+        loading: action.payload
       }
     // case SAVE:
     //   return { ...state,

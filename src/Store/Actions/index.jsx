@@ -12,4 +12,5 @@ export { handleSetDashboardSettings,
   handleDeleteRoute
 } from './handleDashboard'
 export { handleSetState } from './handleStoreState'
+export { handleFetchAvailableRoute } from './handleBooking'
 

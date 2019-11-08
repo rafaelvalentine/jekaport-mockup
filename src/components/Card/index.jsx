@@ -2,4 +2,4 @@
 export { CardBox as CardWrapper, PickASeatCard, RoutePreviewCard, ViewRouteCard, DeleteRouteCard } from './Cards'
 export { BusinessDetailsImage, BusinessInfoTab, MainDetailsWrapper, AboutUs, Terminals, Services, BusinessHour, BusinessDetailsNav, ShortInfoCard } from './BusinessDetails'
 export { PartnerCard } from './HomeCards'
-export { ResultCard } from './SearchResults'
+export { ResultCard, ShortInfoCard as SponsorCard } from './SearchResults'

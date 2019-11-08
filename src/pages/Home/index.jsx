@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Slider from "react-slick"
+import validator from 'validator'
+import swal from 'sweetalert'
 
 // components
 import { BookATripForm } from '../../components/Forms'
@@ -60,7 +62,12 @@ const PrevArrow = props => {
   );
 }
 class Home extends Component {
-
+state ={
+  to:'',
+  from:'',
+  departureDate:'',
+  loading:false
+}
   addDays = (date, days) => {
     let result = new Date(date)
     result.setDate(result.getDate() + days)
@@ -73,13 +80,48 @@ class Home extends Component {
   }
   componentDidMount () {
    
-    console.log(this.props.Users)
-    setTimeout(() => {
-      this.props.handlePageLoader(false)
-      console.log(this.props.Users)
-    }, 10000)
+    // console.log(this.props.Users)
+    // setTimeout(() => {
+    //   this.props.handlePageLoader(false)
+    //   console.log(this.props.Users)
+    // }, 10000)
   }
-   
+   handleOnChange = e => {
+     const { name, value } = e.target
+     this.setState({...this.state, [name]: value })
+   }
+   handleDepartureDate = departureDate => {
+     this.setState({...this.state, departureDate })
+   }
+   handleSubmit = e => {
+    e.preventDefault()
+    const {departureDate, to, from} = this.state
+    if(validator.isEmpty(from)){
+      swal('Empty Departure Field', 'Please enter point of Departure', 'error')
+      return
+    }
+    if(validator.isEmpty(to)){
+      swal('Empty Destination Field', 'Please enter destination', 'error')
+      return
+    }
+    if(validator.isEmpty(departureDate.toString())){
+      swal('Not Date', 'Please enter Departure Date', 'error')
+      return
+    }
+
+    this.setState({loading: true})
+    // this.props.handleSetRouteInfo({departureDate, to, from})
+    this.props.handleFetchAvailableRoute({departureDate, to, from})
+    .then(res=>{
+      if(res){
+        console.log(res);
+        this.setState({loading: false}, ()=> this.props.history.push('/bookingsearchresult'))
+        return
+      }
+      this.setState({ loading: false })
+    })
+  
+  }
   render () {
     const settings = {
       className: "center",
@@ -129,9 +171,13 @@ class Home extends Component {
             <Page.BookATripSection>
             <Row className='row'>
                 <BookATripForm 
-                className='bookingform'
+                  className='bookingform'
                   addDays={this.addDays}
                   subDays={this.subDays}
+                  inputs={this.state}
+                  handleOnChange={this.handleOnChange}
+                  handleDepartureDate={this.handleDepartureDate}
+                  handleSubmit={this.handleSubmit}
                   />
                 <Image src={HomeImg} className='travel-image' />
               </Row>

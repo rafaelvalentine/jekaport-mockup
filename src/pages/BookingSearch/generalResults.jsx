@@ -3,7 +3,7 @@ import { ListWrapper } from '../../theme/style/styles'
 import { ResultCard } from '../../components/Card'
 import Pagination from '../../components/Tools/Pagination'
 import { Scrollbars } from 'react-custom-scrollbars'
-import { ListWrapperWrapper } from './styles'
+import { ListWrapperContainer } from './styles'
 const GeneralResults = ({ ...props }) => {
   const [page, setPage] = useState({
     firstPage: 1,
@@ -75,13 +75,13 @@ const GeneralResults = ({ ...props }) => {
   let newindexOfFirstUser = indexOfFirstUser + 1
   let pageUsers = currentUsers.length + indexOfFirstUser
   const _ResultCard = currentUsers.map(data => (
-    <ResultCard key={Math.random()} />
+    <ResultCard key={Math.random()} {...data} />
   ))
   useEffect(() => {
     setPage({ ...page, data: props.data })
   }, [props.data])
   return (
-    <ListWrapperWrapper>
+    <ListWrapperContainer>
       <Scrollbars autoHide style={{ height: '100%', width:'950px' }}>
        <ListWrapper
          {...props} >
@@ -103,7 +103,7 @@ const GeneralResults = ({ ...props }) => {
         upperPageBound={page.upperPageBound}
         lowerPageBound={page.lowerPageBound}
       />
-    </ListWrapperWrapper>
+    </ListWrapperContainer>
   )
 }
 
