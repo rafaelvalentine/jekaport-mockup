@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Footer = styled.footer`
 background: ${props => props.theme.black};
-height: 32px;
+height: 34px;
 span{
 font-family: Roboto;
 font-style: normal;

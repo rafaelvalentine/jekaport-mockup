@@ -56,11 +56,12 @@ export const Warning = styled.span`
     font-weight: bold;
     font-size: 12px;
 `
-export const Value = styled.span`
+export const SmallTextAlt = styled.p`
+    font-style: normal;
     font-weight: bold;
-    font-size: 14px;
-    color: ${props => props.theme.black};
-    opacity: 0.5;
+    font-size: 13px;
+    line-height: 15px;
+    color: ${props => props.color};
 `
 export const CheckBoxLabel = styled(SubLabel)`
     display: inline-block;
@@ -92,12 +93,15 @@ font-weight: 700;
 font-size: 17px;
 font-family: poppins;
 line-height:26px;
-text-transform: uppercase;s
+text-transform: uppercase;
 `
-export const ContactText = styled.p`
-font-weight: 500;
-font-size: 13px;
-line-height:26px;
+export const SmallText = styled.p`
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+color: ${props => props.theme.blacl};
+margin: ${props => props.margin}
 `
 
 export const LandingText = styled.p`

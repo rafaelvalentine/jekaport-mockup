@@ -5,13 +5,16 @@ import { connect } from 'react-redux'
 /**
  * here we handle passing redux to our component and export
  */
-// const mapStateToProps = state => ({
-//   User: state.User.User
-// })
+const mapStateToProps = state => ({
+  AllRoutes: state.Booking.allRoutes,
+  to: state.Booking.to,
+  from: state.Booking.from,
+  departureDate: state.Booking.departureDate
+})
 
 // const mapDispatchToProps = dispatch => ({
 //   handleLogin: user => dispatch(handleLogin(user)),
 //   handlePageLoader: loading => dispatch(handlePageLoader(loading))
 // })
 
-export default connect(null, null)(BookingSearch)
+export default connect(mapStateToProps, null)(BookingSearch)

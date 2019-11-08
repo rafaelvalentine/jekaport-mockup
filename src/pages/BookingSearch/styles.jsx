@@ -3,11 +3,17 @@ import { device } from '../../components/device'
 
 export const MainContainer = styled.div`
 position:relative;
-padding: 50px 50px 0;
+padding: 50px 20px 0;
 width: ${props => props.width ? props.width : '100%'}!important;
 min-height:${props => props.height ? props.height : '100%'} !important;
 .main-row{
   justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  flex-wrap: nowrap;
+}
+.main-filter{
+  margin: 50px 0 0;
 }
 @media ${device.mobileS} {
 }
@@ -34,6 +40,7 @@ margin: 40px 0 0;
   background: #FCFCFC;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
 }
+
 @media ${device.mobileS} {
 }
 @media ${device.mobileL} {
@@ -49,15 +56,15 @@ margin: 40px 0 0;
 }
 @media ${device.laptop} { 
   .generic-list{
-    width: 950px;
+    width: 930px;
     height:70vh;
   }
   .bookingpagination{
-    width: 920px;
+    width: 930px;
   }
 }
 `
-export const ListWrapperWrapper = styled.div`
+export const ListWrapperContainer = styled.div`
 @media ${device.mobileS} {
 }
 @media ${device.mobileL} {
@@ -71,4 +78,10 @@ export const ListWrapperWrapper = styled.div`
 @media ${device.laptopM} { 
   height: 65vh;
 }
+`
+export const TitleHrLine = styled.hr`
+width: 900px;
+height: 0px;
+border: 1px solid rgba(0, 0, 0, 0.15);
+margin:12px auto 12px 15px;
 `

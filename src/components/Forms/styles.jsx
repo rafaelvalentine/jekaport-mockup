@@ -24,6 +24,6 @@ font-size: 12px;
 line-height: 14px;
 /* identical to box height */
 color: #4CBEED;
-margin:5px 5px 0;
+margin:14px 5px 0;
 cursor: pointer;
 `

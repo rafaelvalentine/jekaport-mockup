@@ -45,7 +45,7 @@ export const CheckBoxLabel = styled.label`
     display: block;
     position: relative;
     padding-left: 24px;
-    z-index: 1;
+    // z-index: 1;
     position: relative;
     cursor: pointer;
     -webkit-user-select: none;

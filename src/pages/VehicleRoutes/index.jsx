@@ -109,13 +109,13 @@ class index extends Component {
     const end  = this.state.end !== '' ? this.state.end : new Date(date.setMonth(date.getMonth() + 6))
     const route ={ departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, partnerId:_id, seats, blockedSeats, start, end, discount   }
    
-    this.props.handlePageLoader(true)
+    // this.props.handlePageLoader(true)
     this.props.handleAddRoute(route)
     .then(res=>{
       this.props.handleGetUserRoutes(this.state._id)
       .then(res=>{
         if(res){
-          this.props.handlePageLoader(false)
+          // this.props.handlePageLoader(false)
           this.setState({ from:'',
           to:'',
           departing:'',
@@ -144,7 +144,7 @@ class index extends Component {
     e.preventDefault()
     let _blockedSeats = []
     const { departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, _id, blockedSeats } = this.state
-    if(validator.isEmpty(price)){
+    if(validator.isEmpty(price.toString())){
       swal('Empty Pricing', 'Please Specify Pricing details', 'error')
       return
     }
@@ -181,13 +181,13 @@ class index extends Component {
     const start =  this.state.start !== '' ? this.state.start : new Date()
     const end  = this.state.end !== '' ? this.state.end : new Date(date.setMonth(date.getMonth() + 6))
     let route ={ departing, price, to, from, vehicleTypeId, vehicleType, vehicleModel, seats, blockedSeats, start, end, discount }
-    this.props.handlePageLoader(true)
+    // this.props.handlePageLoader(true)
     this.props.handleUpdateRoute(routeId, route)
     .then(res=>{
       this.props.handleGetUserRoutes(this.state._id)
     .then(res=>{
       if(res){
-        this.props.handlePageLoader(false)
+        // this.props.handlePageLoader(false)
         this.setState({ from:'',
         to:'',
         departing:'',
@@ -215,13 +215,13 @@ class index extends Component {
   handleDeleteRoute = () => {
     const { routeId } = this.state
     this.setState({loading: true})
-    this.props.handlePageLoader(true)
+    // this.props.handlePageLoader(true)
     this.props.handleDeleteRoute(routeId)
     .then(res=>{
       this.props.handleGetUserRoutes(this.state._id)
     .then(res=>{
       if(res){
-        this.props.handlePageLoader(false)
+        // this.props.handlePageLoader(false)
         this.setState({ from:'',
         to:'',
         departing:'',

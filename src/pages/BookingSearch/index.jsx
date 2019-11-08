@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 // components
 import Layout from '../../components/Layout'
-import { BookATripFilter } from '../../components/Forms'
+import { BookATripFilter, BookATripFormAlt} from '../../components/Forms'
+import { SponsorCard } from '../../components/Card'
 import AllResults from './generalResults'
 // images
 
@@ -12,21 +13,35 @@ import { Wrapper, Row } from '../../theme/style/styles'
 
 // styles
 import * as Page from './styles'
+import { Title } from '../../theme/style/typeface'
+import moment from 'moment'
 const styles = {
   Wrapper: {
     height: 'calc(95vh - 40px)'
+  },
+  Title:{
+    margin:'0 0 0 15px',
+    color:'rgba(0, 0, 0, 0.7)'
   }
 }
 
 class BookingSearchResult extends Component {
-  state={
-    data:[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]
+  state = {
+    data:[]
+  }
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.AllRoutes.length !== prevState.data.length){
+      return {data: nextProps.AllRoutes, from: nextProps.from, to:nextProps.to, departureDate: nextProps.departureDate };
+    }
+    else return null;
   }
   componentDidMount () {
 
   }
 
   render () {
+    const {departureDate, from, to } = this.state
+    const date = departureDate !== '' ? moment(departureDate).format('Do MMM YYYY') : moment(new Date()).format('Do MMM YYYY')
     return (
       <Layout>
         <Wrapper
@@ -35,13 +50,26 @@ class BookingSearchResult extends Component {
         >
           <Page.MainContainer>
             <Row
-              className='main-row' >
-              <BookATripFilter />
+              className='main-row'>
+                <div>
+                <Title 
+                  {...styles.Title}
+                  className='main-title'>
+                      {`Showing Search result for ${from ||'Departure'} - ${to ||'Arrival'}, ${date}`}
+                  </Title>
+                  <Page.TitleHrLine />
+                  <BookATripFilter className='main-filter' />
+                  <Page.Results>
+                    <AllResults className='generic-list' data={this.state.data} />
+                  </Page.Results>
+                </div>
+                <div style={{margin:'0'}}>
+                  <BookATripFormAlt />
+                  <SponsorCard/>
+                </div>
+                
             </Row>
-            <Page.Results>
-              <AllResults className='generic-list' data={this.state.data} />
-            </Page.Results>
-
+           
           </Page.MainContainer>
         </Wrapper>
       </Layout>
